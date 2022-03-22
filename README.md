@@ -13,6 +13,44 @@ This repository, DTCC Model, defines the common data model(s) for the
 DTCC Platform, as well as utilities for working with the data
 model(s).
 
+## Getting started
+
+The following instructions will get you up and running on your local machine
+for development and testing purposes.
+
+### Downloading the software
+
+To download the software, clone the repository by the following command:
+
+    git clone https://gitlab.com/dtcc-platform/dtcc-model.git
+
+Alternatively, you may want to use the SSH protocol:
+
+    git clone git@gitlab.com:dtcc-platform/dtcc-model.git
+
+This will create a directory named `dtcc-model` containing the full
+source code.
+
+**Note:** If you are using Windows, you might first want to make sure
+that Git does not convert Unix-style file endings on checkout. This
+can be accomplished by:
+
+    git config --global dtcc-model.autocrlf false
+
+### Installation
+
+_The following instructions are a preliminary sketch. More refined instructions to be added._
+
+Installing Protobuf on Ubuntu:
+
+    sudo apt-get install protobuf-compiler
+    pip install protobuf
+
+Building Protobuf classes:
+
+    cd protobuf
+    ./build
+
 ## Authors (in order of appearance)
 
 * [Anders Logg](http://anders.logg.org)

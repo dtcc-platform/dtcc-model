@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+CPP_DIR=../include
+PYTHON_DIR=../src/dtcc
+BUILD_DIR=tmp
+mkdir -p $BUILD_DIR
+
+echo "Building C++ classes..."
+protoc --cpp_out=$CPP_DIR dtcc.proto
+
+echo "Building Python classes..."
+protoc --python_out=$PYTHON_DIR dtcc.proto
