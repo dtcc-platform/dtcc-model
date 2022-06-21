@@ -13,6 +13,8 @@ This repository, DTCC Model, defines the common data model(s) for the
 DTCC Platform, as well as utilities for working with the data
 model(s).
 
+![](protodot/dtcc.dot.png)
+
 ## Getting started
 
 The following instructions will get you up and running on your local machine
