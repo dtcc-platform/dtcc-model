@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  dtcc_base:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+
+    image: dtcc-platform/base
