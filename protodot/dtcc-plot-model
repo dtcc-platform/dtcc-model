@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+PROTODOT=./protodot
+PROTOBUF=../protobuf/dtcc.proto
+
+# Check for protodot binary
+if [ ! -x "$PROTODOT" ]; then
+    echo "*** Missing protodot binary. Please copy binary from"
+    echo "*** https://github.com/seamia/protodot to this directory."
+    exit 1
+fi
+
+# Check for graphviz
+if ! command -v dot &> /dev/null; then
+    echo "*** Missing dot command. Please install graphviz."
+    exit
+fi
+
+# Generate visualization
+$PROTODOT -src $PROTOBUF -output dtcc
+open dtcc.dot.png
