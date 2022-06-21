@@ -5,130 +5,95 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
-// This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-#include "third_party/protobuf/version.h"
-#endif
 // @@protoc_insertion_point(includes)
-
+#include <google/protobuf/port_def.inc>
 namespace DTCC {
 class Vector3DDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<Vector3D>
-      _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Vector3D> _instance;
 } _Vector3D_default_instance_;
 }  // namespace DTCC
-namespace protobuf_dtcc_2eproto {
-static void InitDefaultsVector3D() {
+static void InitDefaultsscc_info_Vector3D_dtcc_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::DTCC::_Vector3D_default_instance_;
     new (ptr) ::DTCC::Vector3D();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
   ::DTCC::Vector3D::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_Vector3D =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsVector3D}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vector3D_dtcc_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Vector3D_dtcc_2eproto}, {}};
 
-void InitDefaults() {
-  ::google::protobuf::internal::InitSCC(&scc_info_Vector3D.base);
-}
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_dtcc_2eproto[1];
+static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_dtcc_2eproto = nullptr;
+static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_dtcc_2eproto = nullptr;
 
-::google::protobuf::Metadata file_level_metadata[1];
-
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dtcc_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DTCC::Vector3D, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Vector3D, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DTCC::Vector3D, x_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DTCC::Vector3D, y_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DTCC::Vector3D, z_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Vector3D, x_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Vector3D, y_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Vector3D, z_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::DTCC::Vector3D)},
 };
 
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DTCC::_Vector3D_default_instance_),
+static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::DTCC::_Vector3D_default_instance_),
 };
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  AssignDescriptors(
-      "dtcc.proto", schemas, file_default_instances, TableStruct::offsets,
-      file_level_metadata, NULL, NULL);
-}
+const char descriptor_table_protodef_dtcc_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\ndtcc.proto\022\004DTCC\"+\n\010Vector3D\022\t\n\001x\030\001 \001("
+  "\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002b\006proto3"
+  ;
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_dtcc_2eproto_deps[1] = {
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_dtcc_2eproto_sccs[1] = {
+  &scc_info_Vector3D_dtcc_2eproto.base,
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dtcc_2eproto_once;
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dtcc_2eproto = {
+  false, false, descriptor_table_protodef_dtcc_2eproto, "dtcc.proto", 71,
+  &descriptor_table_dtcc_2eproto_once, descriptor_table_dtcc_2eproto_sccs, descriptor_table_dtcc_2eproto_deps, 1, 0,
+  schemas, file_default_instances, TableStruct_dtcc_2eproto::offsets,
+  file_level_metadata_dtcc_2eproto, 1, file_level_enum_descriptors_dtcc_2eproto, file_level_service_descriptors_dtcc_2eproto,
+};
 
-void protobuf_AssignDescriptorsOnce() {
-  static ::google::protobuf::internal::once_flag once;
-  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
-}
-
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\ndtcc.proto\022\004DTCC\"+\n\010Vector3D\022\t\n\001x\030\001 \001("
-      "\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002b\006proto3"
-  };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 71);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "dtcc.proto", &protobuf_RegisterTypes);
-}
-
-void AddDescriptors() {
-  static ::google::protobuf::internal::once_flag once;
-  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);
-}
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
-  }
-} static_descriptor_initializer;
-}  // namespace protobuf_dtcc_2eproto
+// Force running AddDescriptors() at dynamic initialization time.
+static bool dynamic_init_dummy_dtcc_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_dtcc_2eproto)), true);
 namespace DTCC {
 
 // ===================================================================
 
 void Vector3D::InitAsDefaultInstance() {
 }
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Vector3D::kXFieldNumber;
-const int Vector3D::kYFieldNumber;
-const int Vector3D::kZFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class Vector3D::_Internal {
+ public:
+};
 
-Vector3D::Vector3D()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_dtcc_2eproto::scc_info_Vector3D.base);
+Vector3D::Vector3D(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:DTCC.Vector3D)
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:DTCC.Vector3D)
 }
 Vector3D::Vector3D(const Vector3D& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&x_, &from.x_,
     static_cast<size_t>(reinterpret_cast<char*>(&z_) -
     reinterpret_cast<char*>(&x_)) + sizeof(z_));
@@ -144,162 +109,118 @@ void Vector3D::SharedCtor() {
 Vector3D::~Vector3D() {
   // @@protoc_insertion_point(destructor:DTCC.Vector3D)
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 void Vector3D::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
+void Vector3D::ArenaDtor(void* object) {
+  Vector3D* _this = reinterpret_cast< Vector3D* >(object);
+  (void)_this;
+}
+void Vector3D::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Vector3D::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* Vector3D::descriptor() {
-  ::protobuf_dtcc_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_dtcc_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
 const Vector3D& Vector3D::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_dtcc_2eproto::scc_info_Vector3D.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Vector3D_dtcc_2eproto.base);
   return *internal_default_instance();
 }
 
 
 void Vector3D::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Vector3D)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   ::memset(&x_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&z_) -
       reinterpret_cast<char*>(&x_)) + sizeof(z_));
-  _internal_metadata_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool Vector3D::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DTCC.Vector3D)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* Vector3D::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
       // float x = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(13u /* 13 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &x_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13)) {
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
       // float y = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(21u /* 21 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &y_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
       // float z = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(29u /* 29 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &z_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
+          z_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
-        if (tag == 0) {
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
-    }
-  }
+    }  // switch
+  }  // while
 success:
-  // @@protoc_insertion_point(parse_success:DTCC.Vector3D)
-  return true;
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DTCC.Vector3D)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 
-void Vector3D::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DTCC.Vector3D)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // float x = 1;
-  if (this->x() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->x(), output);
-  }
-
-  // float y = 2;
-  if (this->y() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->y(), output);
-  }
-
-  // float z = 3;
-  if (this->z() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->z(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DTCC.Vector3D)
-}
-
-::google::protobuf::uint8* Vector3D::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+::PROTOBUF_NAMESPACE_ID::uint8* Vector3D::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Vector3D)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // float x = 1;
-  if (this->x() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->x(), target);
+  if (!(this->x() <= 0 && this->x() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_x(), target);
   }
 
   // float y = 2;
-  if (this->y() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->y(), target);
+  if (!(this->y() <= 0 && this->y() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_y(), target);
   }
 
   // float z = 3;
-  if (this->z() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->z(), target);
+  if (!(this->z() <= 0 && this->z() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_z(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Vector3D)
   return target;
@@ -309,40 +230,43 @@ size_t Vector3D::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Vector3D)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // float x = 1;
-  if (this->x() != 0) {
+  if (!(this->x() <= 0 && this->x() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float y = 2;
-  if (this->y() != 0) {
+  if (!(this->y() <= 0 && this->y() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float z = 3;
-  if (this->z() != 0) {
+  if (!(this->z() <= 0 && this->z() >= 0)) {
     total_size += 1 + 4;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void Vector3D::MergeFrom(const ::google::protobuf::Message& from) {
+void Vector3D::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:DTCC.Vector3D)
   GOOGLE_DCHECK_NE(&from, this);
   const Vector3D* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Vector3D>(
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Vector3D>(
           &from);
-  if (source == NULL) {
+  if (source == nullptr) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:DTCC.Vector3D)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:DTCC.Vector3D)
     MergeFrom(*source);
@@ -352,22 +276,22 @@ void Vector3D::MergeFrom(const ::google::protobuf::Message& from) {
 void Vector3D::MergeFrom(const Vector3D& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Vector3D)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.x() != 0) {
-    set_x(from.x());
+  if (!(from.x() <= 0 && from.x() >= 0)) {
+    _internal_set_x(from._internal_x());
   }
-  if (from.y() != 0) {
-    set_y(from.y());
+  if (!(from.y() <= 0 && from.y() >= 0)) {
+    _internal_set_y(from._internal_y());
   }
-  if (from.z() != 0) {
-    set_z(from.z());
+  if (!(from.z() <= 0 && from.z() >= 0)) {
+    _internal_set_z(from._internal_z());
   }
 }
 
-void Vector3D::CopyFrom(const ::google::protobuf::Message& from) {
+void Vector3D::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:DTCC.Vector3D)
   if (&from == this) return;
   Clear();
@@ -385,32 +309,29 @@ bool Vector3D::IsInitialized() const {
   return true;
 }
 
-void Vector3D::Swap(Vector3D* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void Vector3D::InternalSwap(Vector3D* other) {
   using std::swap;
-  swap(x_, other->x_);
-  swap(y_, other->y_);
-  swap(z_, other->z_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Vector3D, z_)
+      + sizeof(Vector3D::z_)
+      - PROTOBUF_FIELD_OFFSET(Vector3D, x_)>(
+          reinterpret_cast<char*>(&x_),
+          reinterpret_cast<char*>(&other->x_));
 }
 
-::google::protobuf::Metadata Vector3D::GetMetadata() const {
-  protobuf_dtcc_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_dtcc_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata Vector3D::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace DTCC
-namespace google {
-namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::DTCC::Vector3D* Arena::CreateMaybeMessage< ::DTCC::Vector3D >(Arena* arena) {
-  return Arena::CreateInternal< ::DTCC::Vector3D >(arena);
+PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::DTCC::Vector3D* Arena::CreateMaybeMessage< ::DTCC::Vector3D >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DTCC::Vector3D >(arena);
 }
-}  // namespace protobuf
-}  // namespace google
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
+#include <google/protobuf/port_undef.inc>
