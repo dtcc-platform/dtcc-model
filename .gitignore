@@ -3,3 +3,4 @@ unittests_cpp/build
 build/
 
 .DS_store
+.vscode

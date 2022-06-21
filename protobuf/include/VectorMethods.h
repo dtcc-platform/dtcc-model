@@ -4,7 +4,23 @@
 
 namespace DTCC
 {
-  /// Addition of vectors (3D)
+  /// Addition of vectors
+  Vector2D operator+ (const Vector2D& v, const Vector2D& w)
+  {
+    Vector2D u{};
+    u.set_x(v.x() + w.x());
+    u.set_y(v.y() + w.y());
+    return u;
+  }
+
+  Vector2D operator+ (const Vector2D& v, const double& d)
+  {
+    Vector2D u{};
+    u.set_x(v.x() + d);
+    u.set_y(v.y() + d);
+    return u;
+  }
+
   Vector3D operator+ (const Vector3D& v, const Vector3D& w)
   {
     Vector3D u{};
@@ -23,7 +39,23 @@ namespace DTCC
     return u;
   }
 
-  /// Subtraction of vectors (3D)
+  /// Subtraction of vectors 
+  Vector2D operator- (const Vector2D& v, const Vector2D& w)
+  {
+    Vector2D u{};
+    u.set_x(v.x() - w.x());
+    u.set_y(v.y() - w.y());
+    return u;
+  }
+
+  Vector2D operator- (const Vector2D& v, const double& d)
+  {
+    Vector2D u{};
+    u.set_x(v.x() - d);
+    u.set_y(v.y() - d);
+    return u;
+  }
+
   Vector3D operator- (const Vector3D& v, const Vector3D& w)
   {
     Vector3D u{};
@@ -42,6 +74,15 @@ namespace DTCC
     return u;
   }
 
+  /// Multiplication 
+  Vector2D operator* (const Vector2D& v, const double& s)
+  {
+    Vector2D u{};
+    u.set_x(v.x() * s);
+    u.set_y(v.y() * s);
+    return u;
+  }
+
   Vector3D operator* (const Vector3D& v, const double& s)
   {
     Vector3D u{};
@@ -51,6 +92,16 @@ namespace DTCC
     return u;
   }
 
+  // Magnitude of a vector
+  double SquaredMagnitude(const Vector2D& v)
+  {
+    return v.x() * v.x() + v.y() * v.y();
+  }
+
+  double Magnitude(const Vector2D& v)
+  {
+    return std::sqrt(SquaredMagnitude(v));
+  }
 
   double SquaredMagnitude(const Vector3D& v)
   {
@@ -60,6 +111,11 @@ namespace DTCC
   double Magnitude(const Vector3D& v)
   {
     return std::sqrt(SquaredMagnitude(v));
+  }
+
+  double Dot(const Vector2D& v, const Vector2D& w)
+  {
+    return v.x() * w.x() + v.y() * w.y();
   }
 
   double Dot(const Vector3D& v, const Vector3D& w)
