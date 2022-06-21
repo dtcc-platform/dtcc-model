@@ -47,7 +47,7 @@ struct TableStruct_dtcc_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[1]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[14]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -55,16 +55,216 @@ struct TableStruct_dtcc_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dtcc_2eproto;
 namespace DTCC {
+class BoundingBox2D;
+class BoundingBox2DDefaultTypeInternal;
+extern BoundingBox2DDefaultTypeInternal _BoundingBox2D_default_instance_;
+class BoundingBox3D;
+class BoundingBox3DDefaultTypeInternal;
+extern BoundingBox3DDefaultTypeInternal _BoundingBox3D_default_instance_;
+class Building;
+class BuildingDefaultTypeInternal;
+extern BuildingDefaultTypeInternal _Building_default_instance_;
+class CityModel;
+class CityModelDefaultTypeInternal;
+extern CityModelDefaultTypeInternal _CityModel_default_instance_;
+class Grid2D;
+class Grid2DDefaultTypeInternal;
+extern Grid2DDefaultTypeInternal _Grid2D_default_instance_;
+class Grid3D;
+class Grid3DDefaultTypeInternal;
+extern Grid3DDefaultTypeInternal _Grid3D_default_instance_;
+class GridField2D;
+class GridField2DDefaultTypeInternal;
+extern GridField2DDefaultTypeInternal _GridField2D_default_instance_;
+class GridField3D;
+class GridField3DDefaultTypeInternal;
+extern GridField3DDefaultTypeInternal _GridField3D_default_instance_;
+class Polygon;
+class PolygonDefaultTypeInternal;
+extern PolygonDefaultTypeInternal _Polygon_default_instance_;
+class Simplex2D;
+class Simplex2DDefaultTypeInternal;
+extern Simplex2DDefaultTypeInternal _Simplex2D_default_instance_;
+class Simplex3D;
+class Simplex3DDefaultTypeInternal;
+extern Simplex3DDefaultTypeInternal _Simplex3D_default_instance_;
+class Surface3D;
+class Surface3DDefaultTypeInternal;
+extern Surface3DDefaultTypeInternal _Surface3D_default_instance_;
+class Vector2D;
+class Vector2DDefaultTypeInternal;
+extern Vector2DDefaultTypeInternal _Vector2D_default_instance_;
 class Vector3D;
 class Vector3DDefaultTypeInternal;
 extern Vector3DDefaultTypeInternal _Vector3D_default_instance_;
 }  // namespace DTCC
 PROTOBUF_NAMESPACE_OPEN
+template<> ::DTCC::BoundingBox2D* Arena::CreateMaybeMessage<::DTCC::BoundingBox2D>(Arena*);
+template<> ::DTCC::BoundingBox3D* Arena::CreateMaybeMessage<::DTCC::BoundingBox3D>(Arena*);
+template<> ::DTCC::Building* Arena::CreateMaybeMessage<::DTCC::Building>(Arena*);
+template<> ::DTCC::CityModel* Arena::CreateMaybeMessage<::DTCC::CityModel>(Arena*);
+template<> ::DTCC::Grid2D* Arena::CreateMaybeMessage<::DTCC::Grid2D>(Arena*);
+template<> ::DTCC::Grid3D* Arena::CreateMaybeMessage<::DTCC::Grid3D>(Arena*);
+template<> ::DTCC::GridField2D* Arena::CreateMaybeMessage<::DTCC::GridField2D>(Arena*);
+template<> ::DTCC::GridField3D* Arena::CreateMaybeMessage<::DTCC::GridField3D>(Arena*);
+template<> ::DTCC::Polygon* Arena::CreateMaybeMessage<::DTCC::Polygon>(Arena*);
+template<> ::DTCC::Simplex2D* Arena::CreateMaybeMessage<::DTCC::Simplex2D>(Arena*);
+template<> ::DTCC::Simplex3D* Arena::CreateMaybeMessage<::DTCC::Simplex3D>(Arena*);
+template<> ::DTCC::Surface3D* Arena::CreateMaybeMessage<::DTCC::Surface3D>(Arena*);
+template<> ::DTCC::Vector2D* Arena::CreateMaybeMessage<::DTCC::Vector2D>(Arena*);
 template<> ::DTCC::Vector3D* Arena::CreateMaybeMessage<::DTCC::Vector3D>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace DTCC {
 
 // ===================================================================
+
+class Vector2D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Vector2D) */ {
+ public:
+  inline Vector2D() : Vector2D(nullptr) {};
+  virtual ~Vector2D();
+
+  Vector2D(const Vector2D& from);
+  Vector2D(Vector2D&& from) noexcept
+    : Vector2D() {
+    *this = ::std::move(from);
+  }
+
+  inline Vector2D& operator=(const Vector2D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Vector2D& operator=(Vector2D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Vector2D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Vector2D* internal_default_instance() {
+    return reinterpret_cast<const Vector2D*>(
+               &_Vector2D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Vector2D& a, Vector2D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Vector2D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Vector2D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Vector2D* New() const final {
+    return CreateMaybeMessage<Vector2D>(nullptr);
+  }
+
+  Vector2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Vector2D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Vector2D& from);
+  void MergeFrom(const Vector2D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Vector2D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Vector2D";
+  }
+  protected:
+  explicit Vector2D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kXFieldNumber = 1,
+    kYFieldNumber = 2,
+  };
+  // float x = 1;
+  void clear_x();
+  float x() const;
+  void set_x(float value);
+  private:
+  float _internal_x() const;
+  void _internal_set_x(float value);
+  public:
+
+  // float y = 2;
+  void clear_y();
+  float y() const;
+  void set_y(float value);
+  private:
+  float _internal_y() const;
+  void _internal_set_y(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:DTCC.Vector2D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  float x_;
+  float y_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
 
 class Vector3D PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Vector3D) */ {
@@ -108,7 +308,7 @@ class Vector3D PROTOBUF_FINAL :
                &_Vector3D_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(Vector3D& a, Vector3D& b) {
     a.Swap(&b);
@@ -223,6 +423,2084 @@ class Vector3D PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dtcc_2eproto;
 };
+// -------------------------------------------------------------------
+
+class Simplex2D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Simplex2D) */ {
+ public:
+  inline Simplex2D() : Simplex2D(nullptr) {};
+  virtual ~Simplex2D();
+
+  Simplex2D(const Simplex2D& from);
+  Simplex2D(Simplex2D&& from) noexcept
+    : Simplex2D() {
+    *this = ::std::move(from);
+  }
+
+  inline Simplex2D& operator=(const Simplex2D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Simplex2D& operator=(Simplex2D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Simplex2D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Simplex2D* internal_default_instance() {
+    return reinterpret_cast<const Simplex2D*>(
+               &_Simplex2D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(Simplex2D& a, Simplex2D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Simplex2D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Simplex2D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Simplex2D* New() const final {
+    return CreateMaybeMessage<Simplex2D>(nullptr);
+  }
+
+  Simplex2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Simplex2D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Simplex2D& from);
+  void MergeFrom(const Simplex2D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Simplex2D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Simplex2D";
+  }
+  protected:
+  explicit Simplex2D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kV0FieldNumber = 1,
+    kV1FieldNumber = 2,
+    kV2FieldNumber = 3,
+  };
+  // int32 v0 = 1;
+  void clear_v0();
+  ::PROTOBUF_NAMESPACE_ID::int32 v0() const;
+  void set_v0(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_v0() const;
+  void _internal_set_v0(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 v1 = 2;
+  void clear_v1();
+  ::PROTOBUF_NAMESPACE_ID::int32 v1() const;
+  void set_v1(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_v1() const;
+  void _internal_set_v1(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 v2 = 3;
+  void clear_v2();
+  ::PROTOBUF_NAMESPACE_ID::int32 v2() const;
+  void set_v2(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_v2() const;
+  void _internal_set_v2(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:DTCC.Simplex2D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 v0_;
+  ::PROTOBUF_NAMESPACE_ID::int32 v1_;
+  ::PROTOBUF_NAMESPACE_ID::int32 v2_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Simplex3D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Simplex3D) */ {
+ public:
+  inline Simplex3D() : Simplex3D(nullptr) {};
+  virtual ~Simplex3D();
+
+  Simplex3D(const Simplex3D& from);
+  Simplex3D(Simplex3D&& from) noexcept
+    : Simplex3D() {
+    *this = ::std::move(from);
+  }
+
+  inline Simplex3D& operator=(const Simplex3D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Simplex3D& operator=(Simplex3D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Simplex3D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Simplex3D* internal_default_instance() {
+    return reinterpret_cast<const Simplex3D*>(
+               &_Simplex3D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Simplex3D& a, Simplex3D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Simplex3D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Simplex3D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Simplex3D* New() const final {
+    return CreateMaybeMessage<Simplex3D>(nullptr);
+  }
+
+  Simplex3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Simplex3D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Simplex3D& from);
+  void MergeFrom(const Simplex3D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Simplex3D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Simplex3D";
+  }
+  protected:
+  explicit Simplex3D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kV0FieldNumber = 1,
+    kV1FieldNumber = 2,
+    kV2FieldNumber = 3,
+    kV3FieldNumber = 4,
+  };
+  // int32 v0 = 1;
+  void clear_v0();
+  ::PROTOBUF_NAMESPACE_ID::int32 v0() const;
+  void set_v0(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_v0() const;
+  void _internal_set_v0(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 v1 = 2;
+  void clear_v1();
+  ::PROTOBUF_NAMESPACE_ID::int32 v1() const;
+  void set_v1(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_v1() const;
+  void _internal_set_v1(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 v2 = 3;
+  void clear_v2();
+  ::PROTOBUF_NAMESPACE_ID::int32 v2() const;
+  void set_v2(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_v2() const;
+  void _internal_set_v2(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 v3 = 4;
+  void clear_v3();
+  ::PROTOBUF_NAMESPACE_ID::int32 v3() const;
+  void set_v3(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_v3() const;
+  void _internal_set_v3(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:DTCC.Simplex3D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 v0_;
+  ::PROTOBUF_NAMESPACE_ID::int32 v1_;
+  ::PROTOBUF_NAMESPACE_ID::int32 v2_;
+  ::PROTOBUF_NAMESPACE_ID::int32 v3_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BoundingBox2D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.BoundingBox2D) */ {
+ public:
+  inline BoundingBox2D() : BoundingBox2D(nullptr) {};
+  virtual ~BoundingBox2D();
+
+  BoundingBox2D(const BoundingBox2D& from);
+  BoundingBox2D(BoundingBox2D&& from) noexcept
+    : BoundingBox2D() {
+    *this = ::std::move(from);
+  }
+
+  inline BoundingBox2D& operator=(const BoundingBox2D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BoundingBox2D& operator=(BoundingBox2D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const BoundingBox2D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BoundingBox2D* internal_default_instance() {
+    return reinterpret_cast<const BoundingBox2D*>(
+               &_BoundingBox2D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(BoundingBox2D& a, BoundingBox2D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BoundingBox2D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BoundingBox2D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BoundingBox2D* New() const final {
+    return CreateMaybeMessage<BoundingBox2D>(nullptr);
+  }
+
+  BoundingBox2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BoundingBox2D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const BoundingBox2D& from);
+  void MergeFrom(const BoundingBox2D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BoundingBox2D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.BoundingBox2D";
+  }
+  protected:
+  explicit BoundingBox2D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPFieldNumber = 1,
+    kQFieldNumber = 2,
+  };
+  // .DTCC.Vector2D p = 1;
+  bool has_p() const;
+  private:
+  bool _internal_has_p() const;
+  public:
+  void clear_p();
+  const ::DTCC::Vector2D& p() const;
+  ::DTCC::Vector2D* release_p();
+  ::DTCC::Vector2D* mutable_p();
+  void set_allocated_p(::DTCC::Vector2D* p);
+  private:
+  const ::DTCC::Vector2D& _internal_p() const;
+  ::DTCC::Vector2D* _internal_mutable_p();
+  public:
+  void unsafe_arena_set_allocated_p(
+      ::DTCC::Vector2D* p);
+  ::DTCC::Vector2D* unsafe_arena_release_p();
+
+  // .DTCC.Vector2D q = 2;
+  bool has_q() const;
+  private:
+  bool _internal_has_q() const;
+  public:
+  void clear_q();
+  const ::DTCC::Vector2D& q() const;
+  ::DTCC::Vector2D* release_q();
+  ::DTCC::Vector2D* mutable_q();
+  void set_allocated_q(::DTCC::Vector2D* q);
+  private:
+  const ::DTCC::Vector2D& _internal_q() const;
+  ::DTCC::Vector2D* _internal_mutable_q();
+  public:
+  void unsafe_arena_set_allocated_q(
+      ::DTCC::Vector2D* q);
+  ::DTCC::Vector2D* unsafe_arena_release_q();
+
+  // @@protoc_insertion_point(class_scope:DTCC.BoundingBox2D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::DTCC::Vector2D* p_;
+  ::DTCC::Vector2D* q_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BoundingBox3D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.BoundingBox3D) */ {
+ public:
+  inline BoundingBox3D() : BoundingBox3D(nullptr) {};
+  virtual ~BoundingBox3D();
+
+  BoundingBox3D(const BoundingBox3D& from);
+  BoundingBox3D(BoundingBox3D&& from) noexcept
+    : BoundingBox3D() {
+    *this = ::std::move(from);
+  }
+
+  inline BoundingBox3D& operator=(const BoundingBox3D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BoundingBox3D& operator=(BoundingBox3D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const BoundingBox3D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BoundingBox3D* internal_default_instance() {
+    return reinterpret_cast<const BoundingBox3D*>(
+               &_BoundingBox3D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(BoundingBox3D& a, BoundingBox3D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BoundingBox3D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BoundingBox3D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BoundingBox3D* New() const final {
+    return CreateMaybeMessage<BoundingBox3D>(nullptr);
+  }
+
+  BoundingBox3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BoundingBox3D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const BoundingBox3D& from);
+  void MergeFrom(const BoundingBox3D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BoundingBox3D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.BoundingBox3D";
+  }
+  protected:
+  explicit BoundingBox3D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPFieldNumber = 1,
+    kQFieldNumber = 2,
+  };
+  // .DTCC.Vector3D p = 1;
+  bool has_p() const;
+  private:
+  bool _internal_has_p() const;
+  public:
+  void clear_p();
+  const ::DTCC::Vector3D& p() const;
+  ::DTCC::Vector3D* release_p();
+  ::DTCC::Vector3D* mutable_p();
+  void set_allocated_p(::DTCC::Vector3D* p);
+  private:
+  const ::DTCC::Vector3D& _internal_p() const;
+  ::DTCC::Vector3D* _internal_mutable_p();
+  public:
+  void unsafe_arena_set_allocated_p(
+      ::DTCC::Vector3D* p);
+  ::DTCC::Vector3D* unsafe_arena_release_p();
+
+  // .DTCC.Vector3D q = 2;
+  bool has_q() const;
+  private:
+  bool _internal_has_q() const;
+  public:
+  void clear_q();
+  const ::DTCC::Vector3D& q() const;
+  ::DTCC::Vector3D* release_q();
+  ::DTCC::Vector3D* mutable_q();
+  void set_allocated_q(::DTCC::Vector3D* q);
+  private:
+  const ::DTCC::Vector3D& _internal_q() const;
+  ::DTCC::Vector3D* _internal_mutable_q();
+  public:
+  void unsafe_arena_set_allocated_q(
+      ::DTCC::Vector3D* q);
+  ::DTCC::Vector3D* unsafe_arena_release_q();
+
+  // @@protoc_insertion_point(class_scope:DTCC.BoundingBox3D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::DTCC::Vector3D* p_;
+  ::DTCC::Vector3D* q_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Polygon PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Polygon) */ {
+ public:
+  inline Polygon() : Polygon(nullptr) {};
+  virtual ~Polygon();
+
+  Polygon(const Polygon& from);
+  Polygon(Polygon&& from) noexcept
+    : Polygon() {
+    *this = ::std::move(from);
+  }
+
+  inline Polygon& operator=(const Polygon& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Polygon& operator=(Polygon&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Polygon& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Polygon* internal_default_instance() {
+    return reinterpret_cast<const Polygon*>(
+               &_Polygon_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(Polygon& a, Polygon& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Polygon* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Polygon* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Polygon* New() const final {
+    return CreateMaybeMessage<Polygon>(nullptr);
+  }
+
+  Polygon* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Polygon>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Polygon& from);
+  void MergeFrom(const Polygon& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Polygon* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Polygon";
+  }
+  protected:
+  explicit Polygon(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVerticesFieldNumber = 1,
+  };
+  // repeated .DTCC.Vector2D vertices = 1;
+  int vertices_size() const;
+  private:
+  int _internal_vertices_size() const;
+  public:
+  void clear_vertices();
+  ::DTCC::Vector2D* mutable_vertices(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector2D >*
+      mutable_vertices();
+  private:
+  const ::DTCC::Vector2D& _internal_vertices(int index) const;
+  ::DTCC::Vector2D* _internal_add_vertices();
+  public:
+  const ::DTCC::Vector2D& vertices(int index) const;
+  ::DTCC::Vector2D* add_vertices();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector2D >&
+      vertices() const;
+
+  // @@protoc_insertion_point(class_scope:DTCC.Polygon)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector2D > vertices_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Grid2D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Grid2D) */ {
+ public:
+  inline Grid2D() : Grid2D(nullptr) {};
+  virtual ~Grid2D();
+
+  Grid2D(const Grid2D& from);
+  Grid2D(Grid2D&& from) noexcept
+    : Grid2D() {
+    *this = ::std::move(from);
+  }
+
+  inline Grid2D& operator=(const Grid2D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Grid2D& operator=(Grid2D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Grid2D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Grid2D* internal_default_instance() {
+    return reinterpret_cast<const Grid2D*>(
+               &_Grid2D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(Grid2D& a, Grid2D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Grid2D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Grid2D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Grid2D* New() const final {
+    return CreateMaybeMessage<Grid2D>(nullptr);
+  }
+
+  Grid2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Grid2D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Grid2D& from);
+  void MergeFrom(const Grid2D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Grid2D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Grid2D";
+  }
+  protected:
+  explicit Grid2D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBoundingBoxFieldNumber = 1,
+    kXSizeFieldNumber = 2,
+    kYSizeFieldNumber = 3,
+    kXStepFieldNumber = 4,
+    kYStepFieldNumber = 5,
+  };
+  // .DTCC.BoundingBox2D boundingBox = 1;
+  bool has_boundingbox() const;
+  private:
+  bool _internal_has_boundingbox() const;
+  public:
+  void clear_boundingbox();
+  const ::DTCC::BoundingBox2D& boundingbox() const;
+  ::DTCC::BoundingBox2D* release_boundingbox();
+  ::DTCC::BoundingBox2D* mutable_boundingbox();
+  void set_allocated_boundingbox(::DTCC::BoundingBox2D* boundingbox);
+  private:
+  const ::DTCC::BoundingBox2D& _internal_boundingbox() const;
+  ::DTCC::BoundingBox2D* _internal_mutable_boundingbox();
+  public:
+  void unsafe_arena_set_allocated_boundingbox(
+      ::DTCC::BoundingBox2D* boundingbox);
+  ::DTCC::BoundingBox2D* unsafe_arena_release_boundingbox();
+
+  // int32 xSize = 2;
+  void clear_xsize();
+  ::PROTOBUF_NAMESPACE_ID::int32 xsize() const;
+  void set_xsize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_xsize() const;
+  void _internal_set_xsize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 ySize = 3;
+  void clear_ysize();
+  ::PROTOBUF_NAMESPACE_ID::int32 ysize() const;
+  void set_ysize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_ysize() const;
+  void _internal_set_ysize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // float xStep = 4;
+  void clear_xstep();
+  float xstep() const;
+  void set_xstep(float value);
+  private:
+  float _internal_xstep() const;
+  void _internal_set_xstep(float value);
+  public:
+
+  // float yStep = 5;
+  void clear_ystep();
+  float ystep() const;
+  void set_ystep(float value);
+  private:
+  float _internal_ystep() const;
+  void _internal_set_ystep(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:DTCC.Grid2D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::DTCC::BoundingBox2D* boundingbox_;
+  ::PROTOBUF_NAMESPACE_ID::int32 xsize_;
+  ::PROTOBUF_NAMESPACE_ID::int32 ysize_;
+  float xstep_;
+  float ystep_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Grid3D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Grid3D) */ {
+ public:
+  inline Grid3D() : Grid3D(nullptr) {};
+  virtual ~Grid3D();
+
+  Grid3D(const Grid3D& from);
+  Grid3D(Grid3D&& from) noexcept
+    : Grid3D() {
+    *this = ::std::move(from);
+  }
+
+  inline Grid3D& operator=(const Grid3D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Grid3D& operator=(Grid3D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Grid3D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Grid3D* internal_default_instance() {
+    return reinterpret_cast<const Grid3D*>(
+               &_Grid3D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(Grid3D& a, Grid3D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Grid3D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Grid3D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Grid3D* New() const final {
+    return CreateMaybeMessage<Grid3D>(nullptr);
+  }
+
+  Grid3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Grid3D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Grid3D& from);
+  void MergeFrom(const Grid3D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Grid3D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Grid3D";
+  }
+  protected:
+  explicit Grid3D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBoundingBoxFieldNumber = 1,
+    kXSizeFieldNumber = 2,
+    kYSizeFieldNumber = 3,
+    kZSizeFieldNumber = 4,
+    kXStepFieldNumber = 5,
+    kYStepFieldNumber = 6,
+    kZStepFieldNumber = 7,
+  };
+  // .DTCC.BoundingBox3D boundingBox = 1;
+  bool has_boundingbox() const;
+  private:
+  bool _internal_has_boundingbox() const;
+  public:
+  void clear_boundingbox();
+  const ::DTCC::BoundingBox3D& boundingbox() const;
+  ::DTCC::BoundingBox3D* release_boundingbox();
+  ::DTCC::BoundingBox3D* mutable_boundingbox();
+  void set_allocated_boundingbox(::DTCC::BoundingBox3D* boundingbox);
+  private:
+  const ::DTCC::BoundingBox3D& _internal_boundingbox() const;
+  ::DTCC::BoundingBox3D* _internal_mutable_boundingbox();
+  public:
+  void unsafe_arena_set_allocated_boundingbox(
+      ::DTCC::BoundingBox3D* boundingbox);
+  ::DTCC::BoundingBox3D* unsafe_arena_release_boundingbox();
+
+  // int32 xSize = 2;
+  void clear_xsize();
+  ::PROTOBUF_NAMESPACE_ID::int32 xsize() const;
+  void set_xsize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_xsize() const;
+  void _internal_set_xsize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 ySize = 3;
+  void clear_ysize();
+  ::PROTOBUF_NAMESPACE_ID::int32 ysize() const;
+  void set_ysize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_ysize() const;
+  void _internal_set_ysize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 zSize = 4;
+  void clear_zsize();
+  ::PROTOBUF_NAMESPACE_ID::int32 zsize() const;
+  void set_zsize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_zsize() const;
+  void _internal_set_zsize(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // float xStep = 5;
+  void clear_xstep();
+  float xstep() const;
+  void set_xstep(float value);
+  private:
+  float _internal_xstep() const;
+  void _internal_set_xstep(float value);
+  public:
+
+  // float yStep = 6;
+  void clear_ystep();
+  float ystep() const;
+  void set_ystep(float value);
+  private:
+  float _internal_ystep() const;
+  void _internal_set_ystep(float value);
+  public:
+
+  // float zStep = 7;
+  void clear_zstep();
+  float zstep() const;
+  void set_zstep(float value);
+  private:
+  float _internal_zstep() const;
+  void _internal_set_zstep(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:DTCC.Grid3D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::DTCC::BoundingBox3D* boundingbox_;
+  ::PROTOBUF_NAMESPACE_ID::int32 xsize_;
+  ::PROTOBUF_NAMESPACE_ID::int32 ysize_;
+  ::PROTOBUF_NAMESPACE_ID::int32 zsize_;
+  float xstep_;
+  float ystep_;
+  float zstep_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Surface3D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Surface3D) */ {
+ public:
+  inline Surface3D() : Surface3D(nullptr) {};
+  virtual ~Surface3D();
+
+  Surface3D(const Surface3D& from);
+  Surface3D(Surface3D&& from) noexcept
+    : Surface3D() {
+    *this = ::std::move(from);
+  }
+
+  inline Surface3D& operator=(const Surface3D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Surface3D& operator=(Surface3D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Surface3D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Surface3D* internal_default_instance() {
+    return reinterpret_cast<const Surface3D*>(
+               &_Surface3D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(Surface3D& a, Surface3D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Surface3D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Surface3D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Surface3D* New() const final {
+    return CreateMaybeMessage<Surface3D>(nullptr);
+  }
+
+  Surface3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Surface3D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Surface3D& from);
+  void MergeFrom(const Surface3D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Surface3D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Surface3D";
+  }
+  protected:
+  explicit Surface3D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVerticesFieldNumber = 1,
+    kNormalsFieldNumber = 2,
+    kFacesFieldNumber = 3,
+  };
+  // repeated .DTCC.Vector3D vertices = 1;
+  int vertices_size() const;
+  private:
+  int _internal_vertices_size() const;
+  public:
+  void clear_vertices();
+  ::DTCC::Vector3D* mutable_vertices(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >*
+      mutable_vertices();
+  private:
+  const ::DTCC::Vector3D& _internal_vertices(int index) const;
+  ::DTCC::Vector3D* _internal_add_vertices();
+  public:
+  const ::DTCC::Vector3D& vertices(int index) const;
+  ::DTCC::Vector3D* add_vertices();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >&
+      vertices() const;
+
+  // repeated .DTCC.Vector3D normals = 2;
+  int normals_size() const;
+  private:
+  int _internal_normals_size() const;
+  public:
+  void clear_normals();
+  ::DTCC::Vector3D* mutable_normals(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >*
+      mutable_normals();
+  private:
+  const ::DTCC::Vector3D& _internal_normals(int index) const;
+  ::DTCC::Vector3D* _internal_add_normals();
+  public:
+  const ::DTCC::Vector3D& normals(int index) const;
+  ::DTCC::Vector3D* add_normals();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >&
+      normals() const;
+
+  // repeated .DTCC.Simplex2D faces = 3;
+  int faces_size() const;
+  private:
+  int _internal_faces_size() const;
+  public:
+  void clear_faces();
+  ::DTCC::Simplex2D* mutable_faces(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Simplex2D >*
+      mutable_faces();
+  private:
+  const ::DTCC::Simplex2D& _internal_faces(int index) const;
+  ::DTCC::Simplex2D* _internal_add_faces();
+  public:
+  const ::DTCC::Simplex2D& faces(int index) const;
+  ::DTCC::Simplex2D* add_faces();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Simplex2D >&
+      faces() const;
+
+  // @@protoc_insertion_point(class_scope:DTCC.Surface3D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D > vertices_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D > normals_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Simplex2D > faces_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GridField2D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.GridField2D) */ {
+ public:
+  inline GridField2D() : GridField2D(nullptr) {};
+  virtual ~GridField2D();
+
+  GridField2D(const GridField2D& from);
+  GridField2D(GridField2D&& from) noexcept
+    : GridField2D() {
+    *this = ::std::move(from);
+  }
+
+  inline GridField2D& operator=(const GridField2D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GridField2D& operator=(GridField2D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GridField2D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GridField2D* internal_default_instance() {
+    return reinterpret_cast<const GridField2D*>(
+               &_GridField2D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(GridField2D& a, GridField2D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GridField2D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GridField2D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GridField2D* New() const final {
+    return CreateMaybeMessage<GridField2D>(nullptr);
+  }
+
+  GridField2D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GridField2D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GridField2D& from);
+  void MergeFrom(const GridField2D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GridField2D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.GridField2D";
+  }
+  protected:
+  explicit GridField2D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValuesFieldNumber = 2,
+    kGridFieldNumber = 1,
+  };
+  // repeated float values = 2;
+  int values_size() const;
+  private:
+  int _internal_values_size() const;
+  public:
+  void clear_values();
+  private:
+  float _internal_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_values() const;
+  void _internal_add_values(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_values();
+  public:
+  float values(int index) const;
+  void set_values(int index, float value);
+  void add_values(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_values();
+
+  // .DTCC.Grid2D grid = 1;
+  bool has_grid() const;
+  private:
+  bool _internal_has_grid() const;
+  public:
+  void clear_grid();
+  const ::DTCC::Grid2D& grid() const;
+  ::DTCC::Grid2D* release_grid();
+  ::DTCC::Grid2D* mutable_grid();
+  void set_allocated_grid(::DTCC::Grid2D* grid);
+  private:
+  const ::DTCC::Grid2D& _internal_grid() const;
+  ::DTCC::Grid2D* _internal_mutable_grid();
+  public:
+  void unsafe_arena_set_allocated_grid(
+      ::DTCC::Grid2D* grid);
+  ::DTCC::Grid2D* unsafe_arena_release_grid();
+
+  // @@protoc_insertion_point(class_scope:DTCC.GridField2D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > values_;
+  mutable std::atomic<int> _values_cached_byte_size_;
+  ::DTCC::Grid2D* grid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GridField3D PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.GridField3D) */ {
+ public:
+  inline GridField3D() : GridField3D(nullptr) {};
+  virtual ~GridField3D();
+
+  GridField3D(const GridField3D& from);
+  GridField3D(GridField3D&& from) noexcept
+    : GridField3D() {
+    *this = ::std::move(from);
+  }
+
+  inline GridField3D& operator=(const GridField3D& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GridField3D& operator=(GridField3D&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const GridField3D& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GridField3D* internal_default_instance() {
+    return reinterpret_cast<const GridField3D*>(
+               &_GridField3D_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(GridField3D& a, GridField3D& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GridField3D* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GridField3D* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GridField3D* New() const final {
+    return CreateMaybeMessage<GridField3D>(nullptr);
+  }
+
+  GridField3D* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<GridField3D>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const GridField3D& from);
+  void MergeFrom(const GridField3D& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GridField3D* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.GridField3D";
+  }
+  protected:
+  explicit GridField3D(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValuesFieldNumber = 2,
+    kGridFieldNumber = 1,
+  };
+  // repeated float values = 2;
+  int values_size() const;
+  private:
+  int _internal_values_size() const;
+  public:
+  void clear_values();
+  private:
+  float _internal_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_values() const;
+  void _internal_add_values(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_values();
+  public:
+  float values(int index) const;
+  void set_values(int index, float value);
+  void add_values(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_values();
+
+  // .DTCC.Grid3D grid = 1;
+  bool has_grid() const;
+  private:
+  bool _internal_has_grid() const;
+  public:
+  void clear_grid();
+  const ::DTCC::Grid3D& grid() const;
+  ::DTCC::Grid3D* release_grid();
+  ::DTCC::Grid3D* mutable_grid();
+  void set_allocated_grid(::DTCC::Grid3D* grid);
+  private:
+  const ::DTCC::Grid3D& _internal_grid() const;
+  ::DTCC::Grid3D* _internal_mutable_grid();
+  public:
+  void unsafe_arena_set_allocated_grid(
+      ::DTCC::Grid3D* grid);
+  ::DTCC::Grid3D* unsafe_arena_release_grid();
+
+  // @@protoc_insertion_point(class_scope:DTCC.GridField3D)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > values_;
+  mutable std::atomic<int> _values_cached_byte_size_;
+  ::DTCC::Grid3D* grid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Building PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.Building) */ {
+ public:
+  inline Building() : Building(nullptr) {};
+  virtual ~Building();
+
+  Building(const Building& from);
+  Building(Building&& from) noexcept
+    : Building() {
+    *this = ::std::move(from);
+  }
+
+  inline Building& operator=(const Building& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Building& operator=(Building&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Building& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Building* internal_default_instance() {
+    return reinterpret_cast<const Building*>(
+               &_Building_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(Building& a, Building& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Building* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Building* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Building* New() const final {
+    return CreateMaybeMessage<Building>(nullptr);
+  }
+
+  Building* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Building>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Building& from);
+  void MergeFrom(const Building& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Building* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Building";
+  }
+  protected:
+  explicit Building(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUuidFieldNumber = 1,
+    kFootPrintFieldNumber = 2,
+    kHeightFieldNumber = 3,
+    kGroundHeightFieldNumber = 4,
+  };
+  // string uuid = 1;
+  void clear_uuid();
+  const std::string& uuid() const;
+  void set_uuid(const std::string& value);
+  void set_uuid(std::string&& value);
+  void set_uuid(const char* value);
+  void set_uuid(const char* value, size_t size);
+  std::string* mutable_uuid();
+  std::string* release_uuid();
+  void set_allocated_uuid(std::string* uuid);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_uuid();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_uuid(
+      std::string* uuid);
+  private:
+  const std::string& _internal_uuid() const;
+  void _internal_set_uuid(const std::string& value);
+  std::string* _internal_mutable_uuid();
+  public:
+
+  // .DTCC.Polygon footPrint = 2;
+  bool has_footprint() const;
+  private:
+  bool _internal_has_footprint() const;
+  public:
+  void clear_footprint();
+  const ::DTCC::Polygon& footprint() const;
+  ::DTCC::Polygon* release_footprint();
+  ::DTCC::Polygon* mutable_footprint();
+  void set_allocated_footprint(::DTCC::Polygon* footprint);
+  private:
+  const ::DTCC::Polygon& _internal_footprint() const;
+  ::DTCC::Polygon* _internal_mutable_footprint();
+  public:
+  void unsafe_arena_set_allocated_footprint(
+      ::DTCC::Polygon* footprint);
+  ::DTCC::Polygon* unsafe_arena_release_footprint();
+
+  // double height = 3;
+  void clear_height();
+  double height() const;
+  void set_height(double value);
+  private:
+  double _internal_height() const;
+  void _internal_set_height(double value);
+  public:
+
+  // double groundHeight = 4;
+  void clear_groundheight();
+  double groundheight() const;
+  void set_groundheight(double value);
+  private:
+  double _internal_groundheight() const;
+  void _internal_set_groundheight(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:DTCC.Building)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uuid_;
+  ::DTCC::Polygon* footprint_;
+  double height_;
+  double groundheight_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CityModel PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:DTCC.CityModel) */ {
+ public:
+  inline CityModel() : CityModel(nullptr) {};
+  virtual ~CityModel();
+
+  CityModel(const CityModel& from);
+  CityModel(CityModel&& from) noexcept
+    : CityModel() {
+    *this = ::std::move(from);
+  }
+
+  inline CityModel& operator=(const CityModel& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CityModel& operator=(CityModel&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CityModel& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CityModel* internal_default_instance() {
+    return reinterpret_cast<const CityModel*>(
+               &_CityModel_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(CityModel& a, CityModel& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CityModel* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CityModel* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CityModel* New() const final {
+    return CreateMaybeMessage<CityModel>(nullptr);
+  }
+
+  CityModel* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CityModel>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CityModel& from);
+  void MergeFrom(const CityModel& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CityModel* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.CityModel";
+  }
+  protected:
+  explicit CityModel(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dtcc_2eproto);
+    return ::descriptor_table_dtcc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBuildingsFieldNumber = 4,
+  };
+  // repeated .DTCC.Building buildings = 4;
+  int buildings_size() const;
+  private:
+  int _internal_buildings_size() const;
+  public:
+  void clear_buildings();
+  ::DTCC::Building* mutable_buildings(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building >*
+      mutable_buildings();
+  private:
+  const ::DTCC::Building& _internal_buildings(int index) const;
+  ::DTCC::Building* _internal_add_buildings();
+  public:
+  const ::DTCC::Building& buildings(int index) const;
+  ::DTCC::Building* add_buildings();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building >&
+      buildings() const;
+
+  // @@protoc_insertion_point(class_scope:DTCC.CityModel)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building > buildings_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
 // ===================================================================
 
 
@@ -232,6 +2510,50 @@ class Vector3D PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Vector2D
+
+// float x = 1;
+inline void Vector2D::clear_x() {
+  x_ = 0;
+}
+inline float Vector2D::_internal_x() const {
+  return x_;
+}
+inline float Vector2D::x() const {
+  // @@protoc_insertion_point(field_get:DTCC.Vector2D.x)
+  return _internal_x();
+}
+inline void Vector2D::_internal_set_x(float value) {
+  
+  x_ = value;
+}
+inline void Vector2D::set_x(float value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:DTCC.Vector2D.x)
+}
+
+// float y = 2;
+inline void Vector2D::clear_y() {
+  y_ = 0;
+}
+inline float Vector2D::_internal_y() const {
+  return y_;
+}
+inline float Vector2D::y() const {
+  // @@protoc_insertion_point(field_get:DTCC.Vector2D.y)
+  return _internal_y();
+}
+inline void Vector2D::_internal_set_y(float value) {
+  
+  y_ = value;
+}
+inline void Vector2D::set_y(float value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:DTCC.Vector2D.y)
+}
+
+// -------------------------------------------------------------------
+
 // Vector3D
 
 // float x = 1;
@@ -294,9 +2616,1562 @@ inline void Vector3D::set_z(float value) {
   // @@protoc_insertion_point(field_set:DTCC.Vector3D.z)
 }
 
+// -------------------------------------------------------------------
+
+// Simplex2D
+
+// int32 v0 = 1;
+inline void Simplex2D::clear_v0() {
+  v0_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex2D::_internal_v0() const {
+  return v0_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex2D::v0() const {
+  // @@protoc_insertion_point(field_get:DTCC.Simplex2D.v0)
+  return _internal_v0();
+}
+inline void Simplex2D::_internal_set_v0(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  v0_ = value;
+}
+inline void Simplex2D::set_v0(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_v0(value);
+  // @@protoc_insertion_point(field_set:DTCC.Simplex2D.v0)
+}
+
+// int32 v1 = 2;
+inline void Simplex2D::clear_v1() {
+  v1_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex2D::_internal_v1() const {
+  return v1_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex2D::v1() const {
+  // @@protoc_insertion_point(field_get:DTCC.Simplex2D.v1)
+  return _internal_v1();
+}
+inline void Simplex2D::_internal_set_v1(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  v1_ = value;
+}
+inline void Simplex2D::set_v1(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_v1(value);
+  // @@protoc_insertion_point(field_set:DTCC.Simplex2D.v1)
+}
+
+// int32 v2 = 3;
+inline void Simplex2D::clear_v2() {
+  v2_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex2D::_internal_v2() const {
+  return v2_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex2D::v2() const {
+  // @@protoc_insertion_point(field_get:DTCC.Simplex2D.v2)
+  return _internal_v2();
+}
+inline void Simplex2D::_internal_set_v2(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  v2_ = value;
+}
+inline void Simplex2D::set_v2(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_v2(value);
+  // @@protoc_insertion_point(field_set:DTCC.Simplex2D.v2)
+}
+
+// -------------------------------------------------------------------
+
+// Simplex3D
+
+// int32 v0 = 1;
+inline void Simplex3D::clear_v0() {
+  v0_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex3D::_internal_v0() const {
+  return v0_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex3D::v0() const {
+  // @@protoc_insertion_point(field_get:DTCC.Simplex3D.v0)
+  return _internal_v0();
+}
+inline void Simplex3D::_internal_set_v0(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  v0_ = value;
+}
+inline void Simplex3D::set_v0(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_v0(value);
+  // @@protoc_insertion_point(field_set:DTCC.Simplex3D.v0)
+}
+
+// int32 v1 = 2;
+inline void Simplex3D::clear_v1() {
+  v1_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex3D::_internal_v1() const {
+  return v1_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex3D::v1() const {
+  // @@protoc_insertion_point(field_get:DTCC.Simplex3D.v1)
+  return _internal_v1();
+}
+inline void Simplex3D::_internal_set_v1(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  v1_ = value;
+}
+inline void Simplex3D::set_v1(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_v1(value);
+  // @@protoc_insertion_point(field_set:DTCC.Simplex3D.v1)
+}
+
+// int32 v2 = 3;
+inline void Simplex3D::clear_v2() {
+  v2_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex3D::_internal_v2() const {
+  return v2_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex3D::v2() const {
+  // @@protoc_insertion_point(field_get:DTCC.Simplex3D.v2)
+  return _internal_v2();
+}
+inline void Simplex3D::_internal_set_v2(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  v2_ = value;
+}
+inline void Simplex3D::set_v2(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_v2(value);
+  // @@protoc_insertion_point(field_set:DTCC.Simplex3D.v2)
+}
+
+// int32 v3 = 4;
+inline void Simplex3D::clear_v3() {
+  v3_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex3D::_internal_v3() const {
+  return v3_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Simplex3D::v3() const {
+  // @@protoc_insertion_point(field_get:DTCC.Simplex3D.v3)
+  return _internal_v3();
+}
+inline void Simplex3D::_internal_set_v3(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  v3_ = value;
+}
+inline void Simplex3D::set_v3(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_v3(value);
+  // @@protoc_insertion_point(field_set:DTCC.Simplex3D.v3)
+}
+
+// -------------------------------------------------------------------
+
+// BoundingBox2D
+
+// .DTCC.Vector2D p = 1;
+inline bool BoundingBox2D::_internal_has_p() const {
+  return this != internal_default_instance() && p_ != nullptr;
+}
+inline bool BoundingBox2D::has_p() const {
+  return _internal_has_p();
+}
+inline void BoundingBox2D::clear_p() {
+  if (GetArena() == nullptr && p_ != nullptr) {
+    delete p_;
+  }
+  p_ = nullptr;
+}
+inline const ::DTCC::Vector2D& BoundingBox2D::_internal_p() const {
+  const ::DTCC::Vector2D* p = p_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Vector2D*>(
+      &::DTCC::_Vector2D_default_instance_);
+}
+inline const ::DTCC::Vector2D& BoundingBox2D::p() const {
+  // @@protoc_insertion_point(field_get:DTCC.BoundingBox2D.p)
+  return _internal_p();
+}
+inline void BoundingBox2D::unsafe_arena_set_allocated_p(
+    ::DTCC::Vector2D* p) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(p_);
+  }
+  p_ = p;
+  if (p) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.BoundingBox2D.p)
+}
+inline ::DTCC::Vector2D* BoundingBox2D::release_p() {
+  auto temp = unsafe_arena_release_p();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Vector2D* BoundingBox2D::unsafe_arena_release_p() {
+  // @@protoc_insertion_point(field_release:DTCC.BoundingBox2D.p)
+  
+  ::DTCC::Vector2D* temp = p_;
+  p_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Vector2D* BoundingBox2D::_internal_mutable_p() {
+  
+  if (p_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Vector2D>(GetArena());
+    p_ = p;
+  }
+  return p_;
+}
+inline ::DTCC::Vector2D* BoundingBox2D::mutable_p() {
+  // @@protoc_insertion_point(field_mutable:DTCC.BoundingBox2D.p)
+  return _internal_mutable_p();
+}
+inline void BoundingBox2D::set_allocated_p(::DTCC::Vector2D* p) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete p_;
+  }
+  if (p) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(p);
+    if (message_arena != submessage_arena) {
+      p = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, p, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  p_ = p;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.BoundingBox2D.p)
+}
+
+// .DTCC.Vector2D q = 2;
+inline bool BoundingBox2D::_internal_has_q() const {
+  return this != internal_default_instance() && q_ != nullptr;
+}
+inline bool BoundingBox2D::has_q() const {
+  return _internal_has_q();
+}
+inline void BoundingBox2D::clear_q() {
+  if (GetArena() == nullptr && q_ != nullptr) {
+    delete q_;
+  }
+  q_ = nullptr;
+}
+inline const ::DTCC::Vector2D& BoundingBox2D::_internal_q() const {
+  const ::DTCC::Vector2D* p = q_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Vector2D*>(
+      &::DTCC::_Vector2D_default_instance_);
+}
+inline const ::DTCC::Vector2D& BoundingBox2D::q() const {
+  // @@protoc_insertion_point(field_get:DTCC.BoundingBox2D.q)
+  return _internal_q();
+}
+inline void BoundingBox2D::unsafe_arena_set_allocated_q(
+    ::DTCC::Vector2D* q) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(q_);
+  }
+  q_ = q;
+  if (q) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.BoundingBox2D.q)
+}
+inline ::DTCC::Vector2D* BoundingBox2D::release_q() {
+  auto temp = unsafe_arena_release_q();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Vector2D* BoundingBox2D::unsafe_arena_release_q() {
+  // @@protoc_insertion_point(field_release:DTCC.BoundingBox2D.q)
+  
+  ::DTCC::Vector2D* temp = q_;
+  q_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Vector2D* BoundingBox2D::_internal_mutable_q() {
+  
+  if (q_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Vector2D>(GetArena());
+    q_ = p;
+  }
+  return q_;
+}
+inline ::DTCC::Vector2D* BoundingBox2D::mutable_q() {
+  // @@protoc_insertion_point(field_mutable:DTCC.BoundingBox2D.q)
+  return _internal_mutable_q();
+}
+inline void BoundingBox2D::set_allocated_q(::DTCC::Vector2D* q) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete q_;
+  }
+  if (q) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(q);
+    if (message_arena != submessage_arena) {
+      q = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, q, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  q_ = q;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.BoundingBox2D.q)
+}
+
+// -------------------------------------------------------------------
+
+// BoundingBox3D
+
+// .DTCC.Vector3D p = 1;
+inline bool BoundingBox3D::_internal_has_p() const {
+  return this != internal_default_instance() && p_ != nullptr;
+}
+inline bool BoundingBox3D::has_p() const {
+  return _internal_has_p();
+}
+inline void BoundingBox3D::clear_p() {
+  if (GetArena() == nullptr && p_ != nullptr) {
+    delete p_;
+  }
+  p_ = nullptr;
+}
+inline const ::DTCC::Vector3D& BoundingBox3D::_internal_p() const {
+  const ::DTCC::Vector3D* p = p_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Vector3D*>(
+      &::DTCC::_Vector3D_default_instance_);
+}
+inline const ::DTCC::Vector3D& BoundingBox3D::p() const {
+  // @@protoc_insertion_point(field_get:DTCC.BoundingBox3D.p)
+  return _internal_p();
+}
+inline void BoundingBox3D::unsafe_arena_set_allocated_p(
+    ::DTCC::Vector3D* p) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(p_);
+  }
+  p_ = p;
+  if (p) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.BoundingBox3D.p)
+}
+inline ::DTCC::Vector3D* BoundingBox3D::release_p() {
+  auto temp = unsafe_arena_release_p();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Vector3D* BoundingBox3D::unsafe_arena_release_p() {
+  // @@protoc_insertion_point(field_release:DTCC.BoundingBox3D.p)
+  
+  ::DTCC::Vector3D* temp = p_;
+  p_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Vector3D* BoundingBox3D::_internal_mutable_p() {
+  
+  if (p_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Vector3D>(GetArena());
+    p_ = p;
+  }
+  return p_;
+}
+inline ::DTCC::Vector3D* BoundingBox3D::mutable_p() {
+  // @@protoc_insertion_point(field_mutable:DTCC.BoundingBox3D.p)
+  return _internal_mutable_p();
+}
+inline void BoundingBox3D::set_allocated_p(::DTCC::Vector3D* p) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete p_;
+  }
+  if (p) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(p);
+    if (message_arena != submessage_arena) {
+      p = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, p, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  p_ = p;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.BoundingBox3D.p)
+}
+
+// .DTCC.Vector3D q = 2;
+inline bool BoundingBox3D::_internal_has_q() const {
+  return this != internal_default_instance() && q_ != nullptr;
+}
+inline bool BoundingBox3D::has_q() const {
+  return _internal_has_q();
+}
+inline void BoundingBox3D::clear_q() {
+  if (GetArena() == nullptr && q_ != nullptr) {
+    delete q_;
+  }
+  q_ = nullptr;
+}
+inline const ::DTCC::Vector3D& BoundingBox3D::_internal_q() const {
+  const ::DTCC::Vector3D* p = q_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Vector3D*>(
+      &::DTCC::_Vector3D_default_instance_);
+}
+inline const ::DTCC::Vector3D& BoundingBox3D::q() const {
+  // @@protoc_insertion_point(field_get:DTCC.BoundingBox3D.q)
+  return _internal_q();
+}
+inline void BoundingBox3D::unsafe_arena_set_allocated_q(
+    ::DTCC::Vector3D* q) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(q_);
+  }
+  q_ = q;
+  if (q) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.BoundingBox3D.q)
+}
+inline ::DTCC::Vector3D* BoundingBox3D::release_q() {
+  auto temp = unsafe_arena_release_q();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Vector3D* BoundingBox3D::unsafe_arena_release_q() {
+  // @@protoc_insertion_point(field_release:DTCC.BoundingBox3D.q)
+  
+  ::DTCC::Vector3D* temp = q_;
+  q_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Vector3D* BoundingBox3D::_internal_mutable_q() {
+  
+  if (q_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Vector3D>(GetArena());
+    q_ = p;
+  }
+  return q_;
+}
+inline ::DTCC::Vector3D* BoundingBox3D::mutable_q() {
+  // @@protoc_insertion_point(field_mutable:DTCC.BoundingBox3D.q)
+  return _internal_mutable_q();
+}
+inline void BoundingBox3D::set_allocated_q(::DTCC::Vector3D* q) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete q_;
+  }
+  if (q) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(q);
+    if (message_arena != submessage_arena) {
+      q = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, q, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  q_ = q;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.BoundingBox3D.q)
+}
+
+// -------------------------------------------------------------------
+
+// Polygon
+
+// repeated .DTCC.Vector2D vertices = 1;
+inline int Polygon::_internal_vertices_size() const {
+  return vertices_.size();
+}
+inline int Polygon::vertices_size() const {
+  return _internal_vertices_size();
+}
+inline void Polygon::clear_vertices() {
+  vertices_.Clear();
+}
+inline ::DTCC::Vector2D* Polygon::mutable_vertices(int index) {
+  // @@protoc_insertion_point(field_mutable:DTCC.Polygon.vertices)
+  return vertices_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector2D >*
+Polygon::mutable_vertices() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.Polygon.vertices)
+  return &vertices_;
+}
+inline const ::DTCC::Vector2D& Polygon::_internal_vertices(int index) const {
+  return vertices_.Get(index);
+}
+inline const ::DTCC::Vector2D& Polygon::vertices(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.Polygon.vertices)
+  return _internal_vertices(index);
+}
+inline ::DTCC::Vector2D* Polygon::_internal_add_vertices() {
+  return vertices_.Add();
+}
+inline ::DTCC::Vector2D* Polygon::add_vertices() {
+  // @@protoc_insertion_point(field_add:DTCC.Polygon.vertices)
+  return _internal_add_vertices();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector2D >&
+Polygon::vertices() const {
+  // @@protoc_insertion_point(field_list:DTCC.Polygon.vertices)
+  return vertices_;
+}
+
+// -------------------------------------------------------------------
+
+// Grid2D
+
+// .DTCC.BoundingBox2D boundingBox = 1;
+inline bool Grid2D::_internal_has_boundingbox() const {
+  return this != internal_default_instance() && boundingbox_ != nullptr;
+}
+inline bool Grid2D::has_boundingbox() const {
+  return _internal_has_boundingbox();
+}
+inline void Grid2D::clear_boundingbox() {
+  if (GetArena() == nullptr && boundingbox_ != nullptr) {
+    delete boundingbox_;
+  }
+  boundingbox_ = nullptr;
+}
+inline const ::DTCC::BoundingBox2D& Grid2D::_internal_boundingbox() const {
+  const ::DTCC::BoundingBox2D* p = boundingbox_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::BoundingBox2D*>(
+      &::DTCC::_BoundingBox2D_default_instance_);
+}
+inline const ::DTCC::BoundingBox2D& Grid2D::boundingbox() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid2D.boundingBox)
+  return _internal_boundingbox();
+}
+inline void Grid2D::unsafe_arena_set_allocated_boundingbox(
+    ::DTCC::BoundingBox2D* boundingbox) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(boundingbox_);
+  }
+  boundingbox_ = boundingbox;
+  if (boundingbox) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Grid2D.boundingBox)
+}
+inline ::DTCC::BoundingBox2D* Grid2D::release_boundingbox() {
+  auto temp = unsafe_arena_release_boundingbox();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::BoundingBox2D* Grid2D::unsafe_arena_release_boundingbox() {
+  // @@protoc_insertion_point(field_release:DTCC.Grid2D.boundingBox)
+  
+  ::DTCC::BoundingBox2D* temp = boundingbox_;
+  boundingbox_ = nullptr;
+  return temp;
+}
+inline ::DTCC::BoundingBox2D* Grid2D::_internal_mutable_boundingbox() {
+  
+  if (boundingbox_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::BoundingBox2D>(GetArena());
+    boundingbox_ = p;
+  }
+  return boundingbox_;
+}
+inline ::DTCC::BoundingBox2D* Grid2D::mutable_boundingbox() {
+  // @@protoc_insertion_point(field_mutable:DTCC.Grid2D.boundingBox)
+  return _internal_mutable_boundingbox();
+}
+inline void Grid2D::set_allocated_boundingbox(::DTCC::BoundingBox2D* boundingbox) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete boundingbox_;
+  }
+  if (boundingbox) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(boundingbox);
+    if (message_arena != submessage_arena) {
+      boundingbox = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, boundingbox, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  boundingbox_ = boundingbox;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.Grid2D.boundingBox)
+}
+
+// int32 xSize = 2;
+inline void Grid2D::clear_xsize() {
+  xsize_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid2D::_internal_xsize() const {
+  return xsize_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid2D::xsize() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid2D.xSize)
+  return _internal_xsize();
+}
+inline void Grid2D::_internal_set_xsize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  xsize_ = value;
+}
+inline void Grid2D::set_xsize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_xsize(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid2D.xSize)
+}
+
+// int32 ySize = 3;
+inline void Grid2D::clear_ysize() {
+  ysize_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid2D::_internal_ysize() const {
+  return ysize_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid2D::ysize() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid2D.ySize)
+  return _internal_ysize();
+}
+inline void Grid2D::_internal_set_ysize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  ysize_ = value;
+}
+inline void Grid2D::set_ysize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_ysize(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid2D.ySize)
+}
+
+// float xStep = 4;
+inline void Grid2D::clear_xstep() {
+  xstep_ = 0;
+}
+inline float Grid2D::_internal_xstep() const {
+  return xstep_;
+}
+inline float Grid2D::xstep() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid2D.xStep)
+  return _internal_xstep();
+}
+inline void Grid2D::_internal_set_xstep(float value) {
+  
+  xstep_ = value;
+}
+inline void Grid2D::set_xstep(float value) {
+  _internal_set_xstep(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid2D.xStep)
+}
+
+// float yStep = 5;
+inline void Grid2D::clear_ystep() {
+  ystep_ = 0;
+}
+inline float Grid2D::_internal_ystep() const {
+  return ystep_;
+}
+inline float Grid2D::ystep() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid2D.yStep)
+  return _internal_ystep();
+}
+inline void Grid2D::_internal_set_ystep(float value) {
+  
+  ystep_ = value;
+}
+inline void Grid2D::set_ystep(float value) {
+  _internal_set_ystep(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid2D.yStep)
+}
+
+// -------------------------------------------------------------------
+
+// Grid3D
+
+// .DTCC.BoundingBox3D boundingBox = 1;
+inline bool Grid3D::_internal_has_boundingbox() const {
+  return this != internal_default_instance() && boundingbox_ != nullptr;
+}
+inline bool Grid3D::has_boundingbox() const {
+  return _internal_has_boundingbox();
+}
+inline void Grid3D::clear_boundingbox() {
+  if (GetArena() == nullptr && boundingbox_ != nullptr) {
+    delete boundingbox_;
+  }
+  boundingbox_ = nullptr;
+}
+inline const ::DTCC::BoundingBox3D& Grid3D::_internal_boundingbox() const {
+  const ::DTCC::BoundingBox3D* p = boundingbox_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::BoundingBox3D*>(
+      &::DTCC::_BoundingBox3D_default_instance_);
+}
+inline const ::DTCC::BoundingBox3D& Grid3D::boundingbox() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid3D.boundingBox)
+  return _internal_boundingbox();
+}
+inline void Grid3D::unsafe_arena_set_allocated_boundingbox(
+    ::DTCC::BoundingBox3D* boundingbox) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(boundingbox_);
+  }
+  boundingbox_ = boundingbox;
+  if (boundingbox) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Grid3D.boundingBox)
+}
+inline ::DTCC::BoundingBox3D* Grid3D::release_boundingbox() {
+  auto temp = unsafe_arena_release_boundingbox();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::BoundingBox3D* Grid3D::unsafe_arena_release_boundingbox() {
+  // @@protoc_insertion_point(field_release:DTCC.Grid3D.boundingBox)
+  
+  ::DTCC::BoundingBox3D* temp = boundingbox_;
+  boundingbox_ = nullptr;
+  return temp;
+}
+inline ::DTCC::BoundingBox3D* Grid3D::_internal_mutable_boundingbox() {
+  
+  if (boundingbox_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::BoundingBox3D>(GetArena());
+    boundingbox_ = p;
+  }
+  return boundingbox_;
+}
+inline ::DTCC::BoundingBox3D* Grid3D::mutable_boundingbox() {
+  // @@protoc_insertion_point(field_mutable:DTCC.Grid3D.boundingBox)
+  return _internal_mutable_boundingbox();
+}
+inline void Grid3D::set_allocated_boundingbox(::DTCC::BoundingBox3D* boundingbox) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete boundingbox_;
+  }
+  if (boundingbox) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(boundingbox);
+    if (message_arena != submessage_arena) {
+      boundingbox = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, boundingbox, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  boundingbox_ = boundingbox;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.Grid3D.boundingBox)
+}
+
+// int32 xSize = 2;
+inline void Grid3D::clear_xsize() {
+  xsize_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid3D::_internal_xsize() const {
+  return xsize_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid3D::xsize() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid3D.xSize)
+  return _internal_xsize();
+}
+inline void Grid3D::_internal_set_xsize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  xsize_ = value;
+}
+inline void Grid3D::set_xsize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_xsize(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid3D.xSize)
+}
+
+// int32 ySize = 3;
+inline void Grid3D::clear_ysize() {
+  ysize_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid3D::_internal_ysize() const {
+  return ysize_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid3D::ysize() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid3D.ySize)
+  return _internal_ysize();
+}
+inline void Grid3D::_internal_set_ysize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  ysize_ = value;
+}
+inline void Grid3D::set_ysize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_ysize(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid3D.ySize)
+}
+
+// int32 zSize = 4;
+inline void Grid3D::clear_zsize() {
+  zsize_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid3D::_internal_zsize() const {
+  return zsize_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Grid3D::zsize() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid3D.zSize)
+  return _internal_zsize();
+}
+inline void Grid3D::_internal_set_zsize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  zsize_ = value;
+}
+inline void Grid3D::set_zsize(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_zsize(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid3D.zSize)
+}
+
+// float xStep = 5;
+inline void Grid3D::clear_xstep() {
+  xstep_ = 0;
+}
+inline float Grid3D::_internal_xstep() const {
+  return xstep_;
+}
+inline float Grid3D::xstep() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid3D.xStep)
+  return _internal_xstep();
+}
+inline void Grid3D::_internal_set_xstep(float value) {
+  
+  xstep_ = value;
+}
+inline void Grid3D::set_xstep(float value) {
+  _internal_set_xstep(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid3D.xStep)
+}
+
+// float yStep = 6;
+inline void Grid3D::clear_ystep() {
+  ystep_ = 0;
+}
+inline float Grid3D::_internal_ystep() const {
+  return ystep_;
+}
+inline float Grid3D::ystep() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid3D.yStep)
+  return _internal_ystep();
+}
+inline void Grid3D::_internal_set_ystep(float value) {
+  
+  ystep_ = value;
+}
+inline void Grid3D::set_ystep(float value) {
+  _internal_set_ystep(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid3D.yStep)
+}
+
+// float zStep = 7;
+inline void Grid3D::clear_zstep() {
+  zstep_ = 0;
+}
+inline float Grid3D::_internal_zstep() const {
+  return zstep_;
+}
+inline float Grid3D::zstep() const {
+  // @@protoc_insertion_point(field_get:DTCC.Grid3D.zStep)
+  return _internal_zstep();
+}
+inline void Grid3D::_internal_set_zstep(float value) {
+  
+  zstep_ = value;
+}
+inline void Grid3D::set_zstep(float value) {
+  _internal_set_zstep(value);
+  // @@protoc_insertion_point(field_set:DTCC.Grid3D.zStep)
+}
+
+// -------------------------------------------------------------------
+
+// Surface3D
+
+// repeated .DTCC.Vector3D vertices = 1;
+inline int Surface3D::_internal_vertices_size() const {
+  return vertices_.size();
+}
+inline int Surface3D::vertices_size() const {
+  return _internal_vertices_size();
+}
+inline void Surface3D::clear_vertices() {
+  vertices_.Clear();
+}
+inline ::DTCC::Vector3D* Surface3D::mutable_vertices(int index) {
+  // @@protoc_insertion_point(field_mutable:DTCC.Surface3D.vertices)
+  return vertices_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >*
+Surface3D::mutable_vertices() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.Surface3D.vertices)
+  return &vertices_;
+}
+inline const ::DTCC::Vector3D& Surface3D::_internal_vertices(int index) const {
+  return vertices_.Get(index);
+}
+inline const ::DTCC::Vector3D& Surface3D::vertices(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.Surface3D.vertices)
+  return _internal_vertices(index);
+}
+inline ::DTCC::Vector3D* Surface3D::_internal_add_vertices() {
+  return vertices_.Add();
+}
+inline ::DTCC::Vector3D* Surface3D::add_vertices() {
+  // @@protoc_insertion_point(field_add:DTCC.Surface3D.vertices)
+  return _internal_add_vertices();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >&
+Surface3D::vertices() const {
+  // @@protoc_insertion_point(field_list:DTCC.Surface3D.vertices)
+  return vertices_;
+}
+
+// repeated .DTCC.Vector3D normals = 2;
+inline int Surface3D::_internal_normals_size() const {
+  return normals_.size();
+}
+inline int Surface3D::normals_size() const {
+  return _internal_normals_size();
+}
+inline void Surface3D::clear_normals() {
+  normals_.Clear();
+}
+inline ::DTCC::Vector3D* Surface3D::mutable_normals(int index) {
+  // @@protoc_insertion_point(field_mutable:DTCC.Surface3D.normals)
+  return normals_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >*
+Surface3D::mutable_normals() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.Surface3D.normals)
+  return &normals_;
+}
+inline const ::DTCC::Vector3D& Surface3D::_internal_normals(int index) const {
+  return normals_.Get(index);
+}
+inline const ::DTCC::Vector3D& Surface3D::normals(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.Surface3D.normals)
+  return _internal_normals(index);
+}
+inline ::DTCC::Vector3D* Surface3D::_internal_add_normals() {
+  return normals_.Add();
+}
+inline ::DTCC::Vector3D* Surface3D::add_normals() {
+  // @@protoc_insertion_point(field_add:DTCC.Surface3D.normals)
+  return _internal_add_normals();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >&
+Surface3D::normals() const {
+  // @@protoc_insertion_point(field_list:DTCC.Surface3D.normals)
+  return normals_;
+}
+
+// repeated .DTCC.Simplex2D faces = 3;
+inline int Surface3D::_internal_faces_size() const {
+  return faces_.size();
+}
+inline int Surface3D::faces_size() const {
+  return _internal_faces_size();
+}
+inline void Surface3D::clear_faces() {
+  faces_.Clear();
+}
+inline ::DTCC::Simplex2D* Surface3D::mutable_faces(int index) {
+  // @@protoc_insertion_point(field_mutable:DTCC.Surface3D.faces)
+  return faces_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Simplex2D >*
+Surface3D::mutable_faces() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.Surface3D.faces)
+  return &faces_;
+}
+inline const ::DTCC::Simplex2D& Surface3D::_internal_faces(int index) const {
+  return faces_.Get(index);
+}
+inline const ::DTCC::Simplex2D& Surface3D::faces(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.Surface3D.faces)
+  return _internal_faces(index);
+}
+inline ::DTCC::Simplex2D* Surface3D::_internal_add_faces() {
+  return faces_.Add();
+}
+inline ::DTCC::Simplex2D* Surface3D::add_faces() {
+  // @@protoc_insertion_point(field_add:DTCC.Surface3D.faces)
+  return _internal_add_faces();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Simplex2D >&
+Surface3D::faces() const {
+  // @@protoc_insertion_point(field_list:DTCC.Surface3D.faces)
+  return faces_;
+}
+
+// -------------------------------------------------------------------
+
+// GridField2D
+
+// .DTCC.Grid2D grid = 1;
+inline bool GridField2D::_internal_has_grid() const {
+  return this != internal_default_instance() && grid_ != nullptr;
+}
+inline bool GridField2D::has_grid() const {
+  return _internal_has_grid();
+}
+inline void GridField2D::clear_grid() {
+  if (GetArena() == nullptr && grid_ != nullptr) {
+    delete grid_;
+  }
+  grid_ = nullptr;
+}
+inline const ::DTCC::Grid2D& GridField2D::_internal_grid() const {
+  const ::DTCC::Grid2D* p = grid_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Grid2D*>(
+      &::DTCC::_Grid2D_default_instance_);
+}
+inline const ::DTCC::Grid2D& GridField2D::grid() const {
+  // @@protoc_insertion_point(field_get:DTCC.GridField2D.grid)
+  return _internal_grid();
+}
+inline void GridField2D::unsafe_arena_set_allocated_grid(
+    ::DTCC::Grid2D* grid) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(grid_);
+  }
+  grid_ = grid;
+  if (grid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.GridField2D.grid)
+}
+inline ::DTCC::Grid2D* GridField2D::release_grid() {
+  auto temp = unsafe_arena_release_grid();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Grid2D* GridField2D::unsafe_arena_release_grid() {
+  // @@protoc_insertion_point(field_release:DTCC.GridField2D.grid)
+  
+  ::DTCC::Grid2D* temp = grid_;
+  grid_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Grid2D* GridField2D::_internal_mutable_grid() {
+  
+  if (grid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Grid2D>(GetArena());
+    grid_ = p;
+  }
+  return grid_;
+}
+inline ::DTCC::Grid2D* GridField2D::mutable_grid() {
+  // @@protoc_insertion_point(field_mutable:DTCC.GridField2D.grid)
+  return _internal_mutable_grid();
+}
+inline void GridField2D::set_allocated_grid(::DTCC::Grid2D* grid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete grid_;
+  }
+  if (grid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(grid);
+    if (message_arena != submessage_arena) {
+      grid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, grid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  grid_ = grid;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.GridField2D.grid)
+}
+
+// repeated float values = 2;
+inline int GridField2D::_internal_values_size() const {
+  return values_.size();
+}
+inline int GridField2D::values_size() const {
+  return _internal_values_size();
+}
+inline void GridField2D::clear_values() {
+  values_.Clear();
+}
+inline float GridField2D::_internal_values(int index) const {
+  return values_.Get(index);
+}
+inline float GridField2D::values(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.GridField2D.values)
+  return _internal_values(index);
+}
+inline void GridField2D::set_values(int index, float value) {
+  values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:DTCC.GridField2D.values)
+}
+inline void GridField2D::_internal_add_values(float value) {
+  values_.Add(value);
+}
+inline void GridField2D::add_values(float value) {
+  _internal_add_values(value);
+  // @@protoc_insertion_point(field_add:DTCC.GridField2D.values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+GridField2D::_internal_values() const {
+  return values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+GridField2D::values() const {
+  // @@protoc_insertion_point(field_list:DTCC.GridField2D.values)
+  return _internal_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+GridField2D::_internal_mutable_values() {
+  return &values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+GridField2D::mutable_values() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.GridField2D.values)
+  return _internal_mutable_values();
+}
+
+// -------------------------------------------------------------------
+
+// GridField3D
+
+// .DTCC.Grid3D grid = 1;
+inline bool GridField3D::_internal_has_grid() const {
+  return this != internal_default_instance() && grid_ != nullptr;
+}
+inline bool GridField3D::has_grid() const {
+  return _internal_has_grid();
+}
+inline void GridField3D::clear_grid() {
+  if (GetArena() == nullptr && grid_ != nullptr) {
+    delete grid_;
+  }
+  grid_ = nullptr;
+}
+inline const ::DTCC::Grid3D& GridField3D::_internal_grid() const {
+  const ::DTCC::Grid3D* p = grid_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Grid3D*>(
+      &::DTCC::_Grid3D_default_instance_);
+}
+inline const ::DTCC::Grid3D& GridField3D::grid() const {
+  // @@protoc_insertion_point(field_get:DTCC.GridField3D.grid)
+  return _internal_grid();
+}
+inline void GridField3D::unsafe_arena_set_allocated_grid(
+    ::DTCC::Grid3D* grid) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(grid_);
+  }
+  grid_ = grid;
+  if (grid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.GridField3D.grid)
+}
+inline ::DTCC::Grid3D* GridField3D::release_grid() {
+  auto temp = unsafe_arena_release_grid();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Grid3D* GridField3D::unsafe_arena_release_grid() {
+  // @@protoc_insertion_point(field_release:DTCC.GridField3D.grid)
+  
+  ::DTCC::Grid3D* temp = grid_;
+  grid_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Grid3D* GridField3D::_internal_mutable_grid() {
+  
+  if (grid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Grid3D>(GetArena());
+    grid_ = p;
+  }
+  return grid_;
+}
+inline ::DTCC::Grid3D* GridField3D::mutable_grid() {
+  // @@protoc_insertion_point(field_mutable:DTCC.GridField3D.grid)
+  return _internal_mutable_grid();
+}
+inline void GridField3D::set_allocated_grid(::DTCC::Grid3D* grid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete grid_;
+  }
+  if (grid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(grid);
+    if (message_arena != submessage_arena) {
+      grid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, grid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  grid_ = grid;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.GridField3D.grid)
+}
+
+// repeated float values = 2;
+inline int GridField3D::_internal_values_size() const {
+  return values_.size();
+}
+inline int GridField3D::values_size() const {
+  return _internal_values_size();
+}
+inline void GridField3D::clear_values() {
+  values_.Clear();
+}
+inline float GridField3D::_internal_values(int index) const {
+  return values_.Get(index);
+}
+inline float GridField3D::values(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.GridField3D.values)
+  return _internal_values(index);
+}
+inline void GridField3D::set_values(int index, float value) {
+  values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:DTCC.GridField3D.values)
+}
+inline void GridField3D::_internal_add_values(float value) {
+  values_.Add(value);
+}
+inline void GridField3D::add_values(float value) {
+  _internal_add_values(value);
+  // @@protoc_insertion_point(field_add:DTCC.GridField3D.values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+GridField3D::_internal_values() const {
+  return values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+GridField3D::values() const {
+  // @@protoc_insertion_point(field_list:DTCC.GridField3D.values)
+  return _internal_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+GridField3D::_internal_mutable_values() {
+  return &values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+GridField3D::mutable_values() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.GridField3D.values)
+  return _internal_mutable_values();
+}
+
+// -------------------------------------------------------------------
+
+// Building
+
+// string uuid = 1;
+inline void Building::clear_uuid() {
+  uuid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Building::uuid() const {
+  // @@protoc_insertion_point(field_get:DTCC.Building.uuid)
+  return _internal_uuid();
+}
+inline void Building::set_uuid(const std::string& value) {
+  _internal_set_uuid(value);
+  // @@protoc_insertion_point(field_set:DTCC.Building.uuid)
+}
+inline std::string* Building::mutable_uuid() {
+  // @@protoc_insertion_point(field_mutable:DTCC.Building.uuid)
+  return _internal_mutable_uuid();
+}
+inline const std::string& Building::_internal_uuid() const {
+  return uuid_.Get();
+}
+inline void Building::_internal_set_uuid(const std::string& value) {
+  
+  uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Building::set_uuid(std::string&& value) {
+  
+  uuid_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:DTCC.Building.uuid)
+}
+inline void Building::set_uuid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:DTCC.Building.uuid)
+}
+inline void Building::set_uuid(const char* value,
+    size_t size) {
+  
+  uuid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:DTCC.Building.uuid)
+}
+inline std::string* Building::_internal_mutable_uuid() {
+  
+  return uuid_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Building::release_uuid() {
+  // @@protoc_insertion_point(field_release:DTCC.Building.uuid)
+  return uuid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Building::set_allocated_uuid(std::string* uuid) {
+  if (uuid != nullptr) {
+    
+  } else {
+    
+  }
+  uuid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), uuid,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:DTCC.Building.uuid)
+}
+inline std::string* Building::unsafe_arena_release_uuid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:DTCC.Building.uuid)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return uuid_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Building::unsafe_arena_set_allocated_uuid(
+    std::string* uuid) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (uuid != nullptr) {
+    
+  } else {
+    
+  }
+  uuid_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      uuid, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Building.uuid)
+}
+
+// .DTCC.Polygon footPrint = 2;
+inline bool Building::_internal_has_footprint() const {
+  return this != internal_default_instance() && footprint_ != nullptr;
+}
+inline bool Building::has_footprint() const {
+  return _internal_has_footprint();
+}
+inline void Building::clear_footprint() {
+  if (GetArena() == nullptr && footprint_ != nullptr) {
+    delete footprint_;
+  }
+  footprint_ = nullptr;
+}
+inline const ::DTCC::Polygon& Building::_internal_footprint() const {
+  const ::DTCC::Polygon* p = footprint_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Polygon*>(
+      &::DTCC::_Polygon_default_instance_);
+}
+inline const ::DTCC::Polygon& Building::footprint() const {
+  // @@protoc_insertion_point(field_get:DTCC.Building.footPrint)
+  return _internal_footprint();
+}
+inline void Building::unsafe_arena_set_allocated_footprint(
+    ::DTCC::Polygon* footprint) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(footprint_);
+  }
+  footprint_ = footprint;
+  if (footprint) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Building.footPrint)
+}
+inline ::DTCC::Polygon* Building::release_footprint() {
+  auto temp = unsafe_arena_release_footprint();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Polygon* Building::unsafe_arena_release_footprint() {
+  // @@protoc_insertion_point(field_release:DTCC.Building.footPrint)
+  
+  ::DTCC::Polygon* temp = footprint_;
+  footprint_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Polygon* Building::_internal_mutable_footprint() {
+  
+  if (footprint_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Polygon>(GetArena());
+    footprint_ = p;
+  }
+  return footprint_;
+}
+inline ::DTCC::Polygon* Building::mutable_footprint() {
+  // @@protoc_insertion_point(field_mutable:DTCC.Building.footPrint)
+  return _internal_mutable_footprint();
+}
+inline void Building::set_allocated_footprint(::DTCC::Polygon* footprint) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete footprint_;
+  }
+  if (footprint) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(footprint);
+    if (message_arena != submessage_arena) {
+      footprint = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, footprint, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  footprint_ = footprint;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.Building.footPrint)
+}
+
+// double height = 3;
+inline void Building::clear_height() {
+  height_ = 0;
+}
+inline double Building::_internal_height() const {
+  return height_;
+}
+inline double Building::height() const {
+  // @@protoc_insertion_point(field_get:DTCC.Building.height)
+  return _internal_height();
+}
+inline void Building::_internal_set_height(double value) {
+  
+  height_ = value;
+}
+inline void Building::set_height(double value) {
+  _internal_set_height(value);
+  // @@protoc_insertion_point(field_set:DTCC.Building.height)
+}
+
+// double groundHeight = 4;
+inline void Building::clear_groundheight() {
+  groundheight_ = 0;
+}
+inline double Building::_internal_groundheight() const {
+  return groundheight_;
+}
+inline double Building::groundheight() const {
+  // @@protoc_insertion_point(field_get:DTCC.Building.groundHeight)
+  return _internal_groundheight();
+}
+inline void Building::_internal_set_groundheight(double value) {
+  
+  groundheight_ = value;
+}
+inline void Building::set_groundheight(double value) {
+  _internal_set_groundheight(value);
+  // @@protoc_insertion_point(field_set:DTCC.Building.groundHeight)
+}
+
+// -------------------------------------------------------------------
+
+// CityModel
+
+// repeated .DTCC.Building buildings = 4;
+inline int CityModel::_internal_buildings_size() const {
+  return buildings_.size();
+}
+inline int CityModel::buildings_size() const {
+  return _internal_buildings_size();
+}
+inline void CityModel::clear_buildings() {
+  buildings_.Clear();
+}
+inline ::DTCC::Building* CityModel::mutable_buildings(int index) {
+  // @@protoc_insertion_point(field_mutable:DTCC.CityModel.buildings)
+  return buildings_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building >*
+CityModel::mutable_buildings() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.CityModel.buildings)
+  return &buildings_;
+}
+inline const ::DTCC::Building& CityModel::_internal_buildings(int index) const {
+  return buildings_.Get(index);
+}
+inline const ::DTCC::Building& CityModel::buildings(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.CityModel.buildings)
+  return _internal_buildings(index);
+}
+inline ::DTCC::Building* CityModel::_internal_add_buildings() {
+  return buildings_.Add();
+}
+inline ::DTCC::Building* CityModel::add_buildings() {
+  // @@protoc_insertion_point(field_add:DTCC.CityModel.buildings)
+  return _internal_add_buildings();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building >&
+CityModel::buildings() const {
+  // @@protoc_insertion_point(field_list:DTCC.CityModel.buildings)
+  return buildings_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
