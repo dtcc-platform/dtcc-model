@@ -45,7 +45,7 @@ VOLUME $HOME/$DIR
 WORKDIR $HOME/$DIR
 
 # Generate welcome message printed at login
-COPY Welcome $HOME/.welcome
+COPY dtcc-model/docker/Welcome $HOME/.welcome
 RUN echo "cat $HOME/.welcome" >> $HOME/.bashrc
 
 # Start bash login shell
