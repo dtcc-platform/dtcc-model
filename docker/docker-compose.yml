@@ -4,15 +4,15 @@ services:
   model:
     build: 
       context: ../
-      dockerfile: './Dockerfile'
+      dockerfile: './docker/Dockerfile'
       target: dev
-    working_dir: ${WORKING_DIR}
+    working_dir: /home/dtcc/dtcc-model
     container_name: dtcc-model
     image: dtcc-model-image
     stdin_open: true 
     tty: true 
     volumes:
-      - ../:${WORKING_DIR}
+      - ../:/home/dtcc/dtcc-model
     security_opt:
       - seccomp:unconfined
     cap_add:
