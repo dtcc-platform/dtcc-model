@@ -57,6 +57,17 @@ namespace DTCC
     return p;
   }
 
+  Polygon CreatePolygon(const std::vector<Vector2D> &verts, const std::vector<std::vector<Vector2D>> &holes)
+  {
+    std::vector<LinearRing> lr_holes;
+    for (const auto &vert_list: holes )
+    {
+      lr_holes.push_back(CreateLinearRing(vert_list));
+    }
+    return CreatePolygon(verts,lr_holes);
+
+  }
+
   void SetOrigin(Polygon &p, const Vector2D &O)
   {
     float o_x = O.x();
