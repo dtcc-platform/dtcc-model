@@ -8,3 +8,4 @@
 using namespace DTCC;
 #include "tests/TestVector.h"
 #include "tests/TestBoundingBox.h"
+#include "tests/TestPolygon.h"
