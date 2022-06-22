@@ -6,7 +6,7 @@ FROM phusion/baseimage:master as base
 # Set some variables
 ENV USER dtcc
 ENV HOME /home/$USER
-ENV DIR core
+#ENV DIR core
 
 COPY docker/install_scripts/ /
 # Avoid stall during installation of tzdata
@@ -26,11 +26,13 @@ RUN ldconfig /usr/local/lib
 RUN useradd -m $USER -G sudo && \
     echo "$USER:$USER" | chpasswd && \
     echo "$USER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN usermod -u 1001 dtcc
+RUN groupmod -g 1001 dtcc
 USER $USER
 
 # Create shared volume
-VOLUME $HOME/$DIR
-WORKDIR $HOME/$DIR
+#VOLUME $HOME/$DIR
+#WORKDIR $HOME/$DIR
 
 # Generate welcome message printed at login
 COPY dtcc-model/docker/Welcome $HOME/.welcome
