@@ -19,18 +19,6 @@ RUN ./install_dependencies.sh
 # Add /usr/local/lib into LD
 RUN ldconfig /usr/local/lib
 
-# Get and compile assimp
-#RUN ./install_assimp.sh
-
-# Get and compile LASZip and liblas
-#RUN ./install_libLAS.sh
-
-# Get and compile VTK 7.1
-#RUN ./install_VTK.sh
-
-# Get and compile libgeos
-#RUN ./install_libgeos.sh
-
 # Add /usr/local/lib into LD
 RUN ldconfig /usr/local/lib
 
