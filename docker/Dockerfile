@@ -13,7 +13,7 @@ ENV HOME /home/$USER
 
 # Install libraries used by other repos
 COPY docker/install_scripts/ /
-COPY docker/createbanner.sh /
+#COPY docker/createbanner.sh /
 
 RUN apt-get update && apt-get install -y locales  sudo 
 
