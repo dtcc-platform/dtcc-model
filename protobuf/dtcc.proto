@@ -77,16 +77,14 @@ message LinearRing
 
 message Polygon
 {
-  LinearRing shell =1;
-  repeated LinearRing holes=2;
+  LinearRing shell = 1;
+  repeated LinearRing holes = 2;
 }
 
 message MultiPolygon
 {
   repeated Polygon polygons = 1;
 }
-
-
 
 //--- Grids and meshes ---
 
