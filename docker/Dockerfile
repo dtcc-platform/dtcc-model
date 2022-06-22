@@ -6,7 +6,7 @@ FROM phusion/baseimage:master as base
 # Set some variables
 ENV USER dtcc
 ENV HOME /home/$USER
-ENV DIR core
+#ENV DIR core
 
 COPY docker/install_scripts/ /
 # Avoid stall during installation of tzdata
@@ -19,18 +19,6 @@ RUN ./install_dependencies.sh
 # Add /usr/local/lib into LD
 RUN ldconfig /usr/local/lib
 
-# Get and compile assimp
-#RUN ./install_assimp.sh
-
-# Get and compile LASZip and liblas
-#RUN ./install_libLAS.sh
-
-# Get and compile VTK 7.1
-#RUN ./install_VTK.sh
-
-# Get and compile libgeos
-#RUN ./install_libgeos.sh
-
 # Add /usr/local/lib into LD
 RUN ldconfig /usr/local/lib
 
@@ -38,11 +26,13 @@ RUN ldconfig /usr/local/lib
 RUN useradd -m $USER -G sudo && \
     echo "$USER:$USER" | chpasswd && \
     echo "$USER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN usermod -u 1001 dtcc
+RUN groupmod -g 1001 dtcc
 USER $USER
 
 # Create shared volume
-VOLUME $HOME/$DIR
-WORKDIR $HOME/$DIR
+#VOLUME $HOME/$DIR
+#WORKDIR $HOME/$DIR
 
 # Generate welcome message printed at login
 COPY dtcc-model/docker/Welcome $HOME/.welcome

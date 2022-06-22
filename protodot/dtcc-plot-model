@@ -5,7 +5,7 @@ PROTOBUF=../protobuf/dtcc.proto
 
 # Check for protodot binary
 if [ ! -x "$PROTODOT" ]; then
-    echo "*** Missing protodot binary. Please copy binary from"
+    echo "*** Missing protodot binary. Please copy the binary from"
     echo "*** https://github.com/seamia/protodot to this directory."
     exit 1
 fi
