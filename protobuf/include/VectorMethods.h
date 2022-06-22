@@ -4,6 +4,24 @@
 
 namespace DTCC
 {
+  /// Create vector
+  Vector2D Vector(float x, float y)
+  {
+    Vector2D v;
+    v.set_x(x);
+    v.set_y(y);
+    return v;
+  }
+
+  Vector3D Vector(float x, float y, float z)
+  {
+    Vector3D v;
+    v.set_x(x);
+    v.set_y(y);
+    v.set_z(z);
+    return v;
+  }
+
   /// Addition of vectors
   Vector2D operator+ (const Vector2D& v, const Vector2D& w)
   {

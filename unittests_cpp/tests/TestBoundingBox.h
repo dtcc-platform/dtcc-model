@@ -35,4 +35,24 @@ TEST_CASE("BoundingBox")
         REQUIRE(bb_Q.x() == 6.0);
         REQUIRE(bb_Q.y() == 7.0);
     }
+
+    SECTION("Union")
+    {
+      BoundingBox2D bb1 = BoundingBox(0,0,5,5);
+      BoundingBox2D bb2 = BoundingBox(2,3,7,8);
+
+      auto unionBox = Union(bb1,bb2);
+      auto union_P = unionBox.p();
+      auto union_Q = unionBox.q();
+      REQUIRE(union_P.x() == 0);
+      REQUIRE(union_P.y() == 0);
+      REQUIRE(union_Q.x() == 7);
+      REQUIRE(union_Q.y() == 8);
+    }
+
+    SECTION("Area")
+    {
+      BoundingBox2D bb = BoundingBox(1,2,3,4);
+      REQUIRE(Area(bb)==4);
+    }
 }
