@@ -13,11 +13,8 @@ COPY docker/install_scripts/ /
 #ENV TZ=Europe/Stockholm
 #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# Install libraries used by DTCCore
+# Install libraries used by other repos
 RUN ./install_dependencies.sh
-
-# Add /usr/local/lib into LD
-RUN ldconfig /usr/local/lib
 
 # Add /usr/local/lib into LD
 RUN ldconfig /usr/local/lib
