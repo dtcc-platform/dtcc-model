@@ -189,13 +189,25 @@ message MeshVectorField3D
 message SurfaceField2D
 {
   Surface2D surface = 1;
-  repeated float values = 3;
+  repeated float values = 2;
 }
 
 message SurfaceField3D
 {
   Surface3D surface = 1;
-  repeated float values = 3;
+  repeated float values = 2;
+}
+
+message SurfaceVectorField2D
+{
+  Surface2D surface = 1;
+  repeated float values = 2;
+}
+
+message SurfaceVectorField3D
+{
+  Surface3D surface = 1;
+  repeated float values = 2;
 }
 
 //--- City model ---
