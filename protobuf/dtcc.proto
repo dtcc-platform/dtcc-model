@@ -222,10 +222,17 @@ message PointCloud
   repeated uint32 numReturns = 6;
 }
 
-message SimplePointCloud
+message CompactPointCloud
 {
-  repeated float pointcloud = 1;
-  repeated uint32 metadata = 3;
+  float xoffset = 1;
+  float yoffset = 2;
+  float zoffset = 3;
+  float scale = 4;
+  repeated int32 x = 5;
+  repeated int32 y = 6;
+  repeated int32 z = 7;
+  repeated uint32 metadata = 8;
+  BoundingBox2D bounds =  9;
 }
 
 message Building
