@@ -41,6 +41,9 @@ RUN groupmod -g 1001 dtcc
 #COPY *docker/Welcome $HOME/.welcome
 #RUN echo "cat $HOME/.welcome" >> $HOME/.bashrc
 
+RUN mkdir /shared_data
+RUN chown $USER:$USER /shared_data
+
 # Image setup
 FROM base as dev
 USER $USER
