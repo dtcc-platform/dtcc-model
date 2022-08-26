@@ -245,5 +245,6 @@ message Building
 
 message CityModel
 {
-  repeated Building buildings = 4;
+  repeated Building buildings = 1;
+  string georeference = 2;
 }
