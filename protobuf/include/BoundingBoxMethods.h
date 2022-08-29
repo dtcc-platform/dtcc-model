@@ -1,3 +1,6 @@
+#ifndef DTCC_BOUNDINGBOX_METHODS_H
+#define DTCC_BOUNDINGBOX_METHODS_H
+
 #include <cmath>
 
 #include "protobuf/dtcc.pb.h"
@@ -21,10 +24,31 @@ namespace DTCC
     return BoundingBox(P.x(), P.y(), Q.x(),Q.y());
   }
 
+  BoundingBox2D BoundingBox(const Polygon &p)
+  {
+    auto shell = p.shell();
+    constexpr float max = std::numeric_limits<float>::max();
+    float P_x = max;
+    float P_y = max;
+    float Q_x = -max;
+    float Q_y = -max;    
+
+    for (const auto &p : shell.vertices())
+    {
+      P_x = std::min(P_x, p.x());
+      P_y = std::min(P_y, p.y());
+      Q_x = std::max(Q_x, p.x());
+      Q_y = std::max(Q_y, p.y());
+    }
+
+    auto bb = BoundingBox(P_x,P_y,Q_x,Q_y);
+    
+    return bb;
+  }
+
   
 
-  BoundingBox2D VectorBoundingBox(const std::vector<Vector2D> &vecs,
-                          float margin = 0.0)
+  BoundingBox2D VectorBoundingBox(const std::vector<Vector2D> &vecs)
   {
       
     constexpr float max = std::numeric_limits<float>::max();
@@ -40,14 +64,21 @@ namespace DTCC
       Q_x = std::max(Q_x, p.x());
       Q_y = std::max(Q_y, p.y());
     }
-    P_x -= margin;
-    P_y -= margin;
-    Q_x += margin;
-    Q_y += margin;
 
     auto bb = BoundingBox(P_x,P_y,Q_x,Q_y);
     
     return bb;
+  }
+
+  void Buffer(BoundingBox2D &bb, float margin)
+  {
+    auto p = bb.mutable_p();
+    auto q = bb.mutable_q();
+    p->set_x(p->x()-margin);
+    p->set_y(p->y()-margin);
+
+    q->set_x(q->x()+margin);
+    q->set_y(q->y()+margin);
   }
 
   BoundingBox2D Union(const BoundingBox2D &u,const BoundingBox2D &v)
@@ -65,6 +96,5 @@ namespace DTCC
   {
     return (bb.q().x()-bb.p().x()) * (bb.q().y()-bb.p().y());
   }
-
-
 }
+#endif

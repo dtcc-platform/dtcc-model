@@ -1,3 +1,6 @@
+#ifndef DTCC_POLYGON_METHODS_H
+#define DTCC_POLYGON_METHODS_H
+
 #include <cmath>
 #include <vector>
 
@@ -78,7 +81,7 @@ namespace DTCC
     return CreatePolygon(vert_vector);
   }
 
-  void SetOrigin(Polygon &p, const Vector2D &O)
+  void OffsetPolygon(Polygon &p, const Vector2D &O)
   {
     float o_x = O.x();
     float o_y = O.y();
@@ -89,10 +92,11 @@ namespace DTCC
       float x = shell->vertices()[i].x();
       float y = shell->vertices()[i].y();
       auto vertex = shell->mutable_vertices(i);
-      vertex->set_x(x-o_x); 
-      vertex->set_y(y-o_y); 
+      vertex->set_x(x+o_x); 
+      vertex->set_y(y+o_y); 
     }
   }
 
-  
 }
+
+#endif
