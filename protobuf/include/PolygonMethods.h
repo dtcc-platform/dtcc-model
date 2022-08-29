@@ -81,6 +81,27 @@ namespace DTCC
     return CreatePolygon(vert_vector);
   }
 
+  Polygon CreatePolygon(const std::vector<std::vector<float_t>> &vertices, const std::vector<std::vector<std::vector<float_t>>> &holes )
+  {
+    std::vector<Vector2D> vert_vector;
+    std::vector<std::vector<Vector2D>> holes_vector;
+    for(const auto &v: vertices)
+    {
+      vert_vector.push_back( Vertex(v[0],v[1]));
+    }
+
+    for (const auto hole: holes)
+    {
+      std::vector<Vector2D> hole_vec;
+      for (const auto &v: hole)
+      {
+        hole_vec.push_back( Vertex(v[0],v[1]));
+      }
+      holes_vector.push_back(hole_vec);
+    }
+    return CreatePolygon(vert_vector, holes_vector);
+  }
+
   void OffsetPolygon(Polygon &p, const Vector2D &O)
   {
     float o_x = O.x();
