@@ -68,6 +68,16 @@ namespace DTCC
 
   }
 
+  Polygon CreatePolygon(const std::vector<std::vector<float_t>> &vertices)
+  {
+    std::vector<Vector2D> vert_vector;
+    for(const auto &v: vertices)
+    {
+      vert_vector.push_back( Vertex(v[0],v[1]));
+    }
+    return CreatePolygon(vert_vector);
+  }
+
   void SetOrigin(Polygon &p, const Vector2D &O)
   {
     float o_x = O.x();
