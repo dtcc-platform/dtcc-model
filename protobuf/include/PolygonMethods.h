@@ -102,6 +102,21 @@ namespace DTCC
     return CreatePolygon(vert_vector, holes_vector);
   }
 
+  void AddVertex(Polygon &p, const Vector2D &v)
+  {
+    p.mutable_shell()->add_vertices()->CopyFrom(v);
+  }
+
+  void ClosePolygon(LinearRing &p)
+  {
+    
+  }
+
+  void ClosePolygon(Polygon &p)
+  {
+
+  }
+
   void OffsetPolygon(Polygon &p, const Vector2D &O)
   {
     float o_x = O.x();
