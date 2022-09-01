@@ -12,24 +12,24 @@
 
 namespace DTCC
 {
-    PointCloud CreatePointCloud(std::vector<Vector3D> pts)
+    /// Create points
+    Vector2D Point(float x, float y)
     {
-      PointCloud pc;
-      google::protobuf::RepeatedPtrField<Vector3D> pt_data(pts.begin(), pts.end());
-      pc.mutable_points()->Swap(&pt_data);
-
-      return pc;
+      Vector2D v;
+      v.set_x(x);
+      v.set_y(y);
+      return v;
     }
 
-    PointCloud CreatePointCloud(std::vector<Vector3D> pts, std::vector<int> classification)
+    Vector3D Point(float x, float y, float z)
     {
-      PointCloud pc = CreatePointCloud(pts);
-      google::protobuf::RepeatedField<uint32_t> cls_data(classification.begin(),classification.end());
-      pc.mutable_classification()->Swap(&cls_data);
-
-      return pc;
+      Vector3D v;
+      v.set_x(x);
+      v.set_y(y);
+      v.set_z(z);
+      return v;
     }
-
+    
     void CalculatePointCloudBoundingBox(PointCloud &pc)
     {
       float x,y,z;
@@ -51,6 +51,58 @@ namespace DTCC
       BoundingBox2D bb = BoundingBox(x_min, y_min, x_max, y_max);
       pc.mutable_bounds()->Swap(&bb);
     }
+
+    PointCloud CreatePointCloud(const std::vector<Vector3D> pts)
+    {
+      PointCloud pc;
+      google::protobuf::RepeatedPtrField<Vector3D> pt_data(pts.begin(), pts.end());
+      pc.mutable_points()->Swap(&pt_data);
+      CalculatePointCloudBoundingBox(pc);
+      return pc;
+    }
+
+    PointCloud CreatePointCloud(const std::vector<Vector3D> pts, const std::vector<int> classification)
+    {
+      PointCloud pc = CreatePointCloud(pts);
+      google::protobuf::RepeatedField<uint32_t> cls_data(classification.begin(),classification.end());
+      pc.mutable_classification()->Swap(&cls_data);
+
+      return pc;
+    }
+
+    PointCloud CreatePointCloud(std::vector<Vector3D> pts, std::vector<int> classification, 
+                                std::vector<int> intensity )
+    {
+      PointCloud pc = CreatePointCloud(pts);
+      google::protobuf::RepeatedField<uint32_t> cls_data(classification.begin(),classification.end());
+      pc.mutable_classification()->Swap(&cls_data);
+
+      google::protobuf::RepeatedField<uint32_t> intensity_data(intensity.begin(),intensity.end());
+      pc.mutable_intensity()->Swap(&intensity_data);
+
+      return pc;
+    }
+
+    PointCloud CreatePointCloud(std::vector<Vector3D> pts, std::vector<int> classification, 
+                                std::vector<int> intensity, std::vector<int> return_number, std::vector<int> num_return)
+    {
+      PointCloud pc = CreatePointCloud(pts);
+      google::protobuf::RepeatedField<uint32_t> cls_data(classification.begin(),classification.end());
+      pc.mutable_classification()->Swap(&cls_data);
+
+      google::protobuf::RepeatedField<uint32_t> intensity_data(intensity.begin(),intensity.end());
+      pc.mutable_intensity()->Swap(&intensity_data);
+
+      google::protobuf::RepeatedField<uint32_t> retnum_data(return_number.begin(),return_number.end());
+      pc.mutable_intensity()->Swap(&retnum_data);
+
+      google::protobuf::RepeatedField<uint32_t> numret_data(num_return.begin(),num_return.end());
+      pc.mutable_intensity()->Swap(&numret_data);
+
+      return pc;
+    }
+
+    
 }
 
 #endif
