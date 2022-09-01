@@ -8,13 +8,14 @@ find_package(Threads REQUIRED)
 
 
 ADD_SUBDIRECTORY(protobuf)
+
+
 include_directories(${PROTOBUF_INCLUDE_DIRS}) 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/dtcc-model)
 
 ADD_SUBDIRECTORY(unittests_cpp)
-
-
 
 MESSAGE(STATUS "protobuf include dirs: ${PROTOBUF_INCLUDE_DIRS}")
 MESSAGE(STATUS "current binary dir: ${CMAKE_CURRENT_BINARY_DIR}")

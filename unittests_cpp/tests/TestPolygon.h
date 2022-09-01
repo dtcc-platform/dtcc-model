@@ -1,4 +1,5 @@
 #include "protobuf/include/PolygonMethods.h"
+#include "protobuf/include/VectorMethods.h"
 
 TEST_CASE("Polygons")
 {
@@ -82,11 +83,11 @@ TEST_CASE("Polygons")
 
     }
 
-    SECTION("Origin")
+    SECTION("Offset polygon")
     {
       Polygon p = CreatePolygon(pts);
-      Vector2D o = Vertex(-2,-3);
-      SetOrigin(p,o);
+      Vector2D o = Vertex(2,3);
+      OffsetPolygon(p,o);
       auto shell_verts = p.shell().vertices();
       REQUIRE(shell_verts[0].x()==3);
       REQUIRE(shell_verts[0].y()==4);
