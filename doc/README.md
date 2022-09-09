@@ -1,3 +1,0 @@
-# DTCC Model
-
-Testing documentation
