@@ -4,8 +4,6 @@ DTCC Model defines the common data model(s) and data formats for the
 DTCC Platform as well as utilities for working with the data model(s)
 and data formats.
 
--![](protodot/dtcc.dot.png)
-
 This project is part the
 [Digital Twin Platform (DTCC Platform)](https://gitlab.com/dtcc-platform)
 developed at the
