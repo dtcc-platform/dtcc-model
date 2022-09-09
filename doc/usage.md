@@ -1,3 +1,3 @@
 ## Usage
 
--![](../protodot/dtcc.dot.png)
+-![](dtcc.dot.png)
