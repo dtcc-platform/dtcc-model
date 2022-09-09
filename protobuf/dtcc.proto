@@ -212,6 +212,29 @@ message SurfaceVectorField3D
 
 //--- City model ---
 
+message PointCloud
+{
+  repeated Vector3D points = 1;
+  BoundingBox2D bounds =  2;
+  repeated uint32 classification = 3;
+  repeated uint32 intensity = 4;
+  repeated uint32 returnNumber = 5;
+  repeated uint32 numReturns = 6;
+}
+
+message CompactPointCloud
+{
+  float xoffset = 1;
+  float yoffset = 2;
+  float zoffset = 3;
+  float scale = 4;
+  repeated int32 x = 5;
+  repeated int32 y = 6;
+  repeated int32 z = 7;
+  repeated uint32 metadata = 8;
+  BoundingBox2D bounds =  9;
+}
+
 message Building
 {
   string uuid = 1;
@@ -222,5 +245,6 @@ message Building
 
 message CityModel
 {
-  repeated Building buildings = 4;
+  repeated Building buildings = 1;
+  string georeference = 2;
 }

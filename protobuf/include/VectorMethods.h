@@ -1,3 +1,7 @@
+
+#ifndef DTCC_VECTOR_METHODS_H
+#define DTCC_VECTOR_METHODS_H
+
 #include <cmath>
 
 #include "protobuf/dtcc.pb.h"
@@ -74,6 +78,14 @@ namespace DTCC
     return u;
   }
 
+  Vector2D operator- (const Vector2D& v)
+  {
+    Vector2D u{};
+    u.set_x(-v.x());
+    u.set_y(-v.y());
+    return u;
+  }
+
   Vector3D operator- (const Vector3D& v, const Vector3D& w)
   {
     Vector3D u{};
@@ -92,6 +104,15 @@ namespace DTCC
     return u;
   }
 
+  Vector3D operator- (const Vector3D& v)
+  {
+    Vector3D u{};
+    u.set_x(-v.x());
+    u.set_y(-v.y());
+    u.set_z(-v.z());
+    return u;
+  }
+
   /// Multiplication 
   Vector2D operator* (const Vector2D& v, const double& s)
   {
@@ -100,6 +121,7 @@ namespace DTCC
     u.set_y(v.y() * s);
     return u;
   }
+  
 
   Vector3D operator* (const Vector3D& v, const double& s)
   {
@@ -107,6 +129,24 @@ namespace DTCC
     u.set_x(v.x() * s);
     u.set_y(v.y() * s);
     u.set_z(v.z() * s);
+    return u;
+  }
+
+    /// Division
+  Vector2D operator/ (const Vector2D& v, const double& s)
+  {
+    Vector2D u{};
+    u.set_x(v.x() / s);
+    u.set_y(v.y() / s);
+    return u;
+  }
+
+  Vector3D operator/ (const Vector3D& v, const double& s)
+  {
+    Vector3D u{};
+    u.set_x(v.x() / s);
+    u.set_y(v.y() / s);
+    u.set_z(v.z() / s);
     return u;
   }
 
@@ -149,5 +189,6 @@ namespace DTCC
     u.set_z(v.x() * w.y() - v.y() * w.x());
     return u;
   }  
-  
 }
+
+#endif

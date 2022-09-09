@@ -1,3 +1,6 @@
+#ifndef DTCC_POLYGON_METHODS_H
+#define DTCC_POLYGON_METHODS_H
+
 #include <cmath>
 #include <vector>
 
@@ -68,7 +71,53 @@ namespace DTCC
 
   }
 
-  void SetOrigin(Polygon &p, const Vector2D &O)
+  Polygon CreatePolygon(const std::vector<std::vector<float_t>> &vertices)
+  {
+    std::vector<Vector2D> vert_vector;
+    for(const auto &v: vertices)
+    {
+      vert_vector.push_back( Vertex(v[0],v[1]));
+    }
+    return CreatePolygon(vert_vector);
+  }
+
+  Polygon CreatePolygon(const std::vector<std::vector<float_t>> &vertices, const std::vector<std::vector<std::vector<float_t>>> &holes )
+  {
+    std::vector<Vector2D> vert_vector;
+    std::vector<std::vector<Vector2D>> holes_vector;
+    for(const auto &v: vertices)
+    {
+      vert_vector.push_back( Vertex(v[0],v[1]));
+    }
+
+    for (const auto hole: holes)
+    {
+      std::vector<Vector2D> hole_vec;
+      for (const auto &v: hole)
+      {
+        hole_vec.push_back( Vertex(v[0],v[1]));
+      }
+      holes_vector.push_back(hole_vec);
+    }
+    return CreatePolygon(vert_vector, holes_vector);
+  }
+
+  void AddVertex(Polygon &p, const Vector2D &v)
+  {
+    p.mutable_shell()->add_vertices()->CopyFrom(v);
+  }
+
+  void ClosePolygon(LinearRing &p)
+  {
+    
+  }
+
+  void ClosePolygon(Polygon &p)
+  {
+
+  }
+
+  void OffsetPolygon(Polygon &p, const Vector2D &O)
   {
     float o_x = O.x();
     float o_y = O.y();
@@ -79,10 +128,11 @@ namespace DTCC
       float x = shell->vertices()[i].x();
       float y = shell->vertices()[i].y();
       auto vertex = shell->mutable_vertices(i);
-      vertex->set_x(x-o_x); 
-      vertex->set_y(y-o_y); 
+      vertex->set_x(x+o_x); 
+      vertex->set_y(y+o_y); 
     }
   }
 
-  
 }
+
+#endif
