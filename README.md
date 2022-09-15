@@ -1,71 +1,32 @@
 # DTCC Model
 
-_This README was last revised on 22nd of March 2022_
+DTCC Model defines the common data model(s) and data formats for the
+DTCC Platform as well as utilities for working with the data model(s)
+and data formats.
 
-The DTCC Platform is an open-source platform for the exploration of
-digital twins for cities. The platform is developed and maintained by
-the Digital Twin Cities Centre (DTCC) hosted by Chalmers University of
-Technology. The aim is to develop an open modelling, simulation and
-visualisation platform for interactive planning, design, and
-exploration of cities.
+This project is part the
+[Digital Twin Platform (DTCC Platform)](https://gitlab.com/dtcc-platform)
+developed at the
+[Digital Twin Cities Centre](https://dtcc.chalmers.se/)
+supported by Sweden’s Innovation Agency Vinnova under Grant No. 2019-421 00041.
 
-This repository, DTCC Model, defines the common data model(s) for the
-DTCC Platform, as well as utilities for working with the data
-model(s).
+## Documentation
 
-![](protodot/dtcc.dot.png)
-
-## Getting started
-
-The following instructions will get you up and running on your local machine
-for development and testing purposes.
-
-### Downloading the software
-
-To download the software, clone the repository by the following command:
-
-    git clone https://gitlab.com/dtcc-platform/dtcc-model.git
-
-Alternatively, you may want to use the SSH protocol:
-
-    git clone git@gitlab.com:dtcc-platform/dtcc-model.git
-
-This will create a directory named `dtcc-model` containing the full
-source code.
-
-**Note:** If you are using Windows, you might first want to make sure
-that Git does not convert Unix-style file endings on checkout. This
-can be accomplished by:
-
-    git config --global dtcc-model.autocrlf false
-
-### Installation
-
-_The following instructions are a preliminary sketch. More refined instructions to be added._
-
-Installing Protobuf on Ubuntu:
-
-    sudo apt-get install protobuf-compiler
-    pip install protobuf
-
-Building Protobuf classes:
-
-    cd protobuf
-    ./build
+* [Introduction](./doc/introduction.md)
+* [Installation](./doc/installation.md)
+* [Usage](./doc/usage.md)
+* [Development](./doc/development.md)
 
 ## Authors (in order of appearance)
 
 * [Anders Logg](http://anders.logg.org)
+* [Vasilis Naserentin](https://www.chalmers.se/en/Staff/Pages/vasnas.aspx)
+* [Dag Wästerberg](https://chalmersindustriteknik.se/sv/medarbetare/dag-wastberg/)
 
 ## License
 
-The DTCC Platform is licensed under the [MIT
-license](https://opensource.org/licenses/MIT).
+DTCC Model is licensed under the
+[MIT license](https://opensource.org/licenses/MIT).
 
 Copyright is held by the individual authors as listed at the top of
 each source file.
-
-## Acknowledgments
-
-This work is part of the Digital Twin Cities Centre supported by
-Sweden’s Innovation Agency Vinnova under Grant No. 2019-421 00041.
