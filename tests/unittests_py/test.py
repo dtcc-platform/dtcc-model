@@ -14,7 +14,7 @@ class TestBuildings(unittest.TestCase):
         cls.building_shp_file = str((Path(__file__).parent / ".."/ "data" / "MinimalCase" / "propertyMap.shp").resolve())
 
     def test_load_shp_buildings(self):
-        cm = cityModel.LoadBuildings(self.building_shp_file,'uuid')
+        cm = cityModel.loadBuildings(self.building_shp_file,'uuid')
         self.assertEqual(len(cm.buildings),5)
 
 if __name__ == '__main__':
