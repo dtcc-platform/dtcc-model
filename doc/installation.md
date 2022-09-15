@@ -1,4 +1,4 @@
-### Installation
+# Installation
 
 _The following instructions are a preliminary sketch. More refined instructions to be added._
 
