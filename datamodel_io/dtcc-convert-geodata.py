@@ -1,6 +1,7 @@
-from datamodel_io.pointCloud import loadLAS
-from datamodel_io.dtcc.cityModel import loadBuildings, writeCityModel
-from datamodel_io.dtcc.dtcc_pb2 import PointCloud, CityModel
+#!/usr/bin/env python3
+from pointCloud import loadLAS
+from cityModel import loadBuildings, writeCityModel
+from dtcc.dtcc_pb2 import PointCloud, CityModel
 from google.protobuf.message import DecodeError
 
 import numpy as np
