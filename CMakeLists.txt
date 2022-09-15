@@ -15,7 +15,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/dtcc-model)
 
-ADD_SUBDIRECTORY(unittests_cpp)
+ADD_SUBDIRECTORY(tests/unittests_cpp)
 
 MESSAGE(STATUS "protobuf include dirs: ${PROTOBUF_INCLUDE_DIRS}")
 MESSAGE(STATUS "current binary dir: ${CMAKE_CURRENT_BINARY_DIR}")
