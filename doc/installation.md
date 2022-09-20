@@ -1,6 +1,8 @@
 # Installation
 
-_The following instructions are a preliminary sketch. More refined instructions to be added._
+In preparation...
+
+## Preliminary notes
 
 Installing Protobuf on Ubuntu:
 
