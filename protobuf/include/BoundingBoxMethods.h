@@ -96,5 +96,14 @@ namespace DTCC
   {
     return (bb.q().x()-bb.p().x()) * (bb.q().y()-bb.p().y());
   }
+  
+  bool BoundingBoxContains2D(const BoundingBox2D &bbox,
+                                    const Vector2D &p,
+                                    double margin = 0.0)
+  {
+    return (bbox.p().x() + margin <= p.x() && p.x() + margin <= bbox.q().x() &&
+             bbox.p().y() + margin <= p.y() && p.y() + margin <= bbox.q().y());
+  }
+
 }
 #endif

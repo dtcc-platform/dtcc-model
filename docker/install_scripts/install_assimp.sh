@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 git clone -n https://github.com/assimp/assimp
 cd assimp 
 git checkout tags/v5.2.3 -b v5.2.3
