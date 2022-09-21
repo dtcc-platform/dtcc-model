@@ -59,11 +59,20 @@ py::bytes PBPointCloud(py::array_t<double> pts,
   if (num_classes > 0)
   {
     google::protobuf::RepeatedField<uint32_t> cls_data;
+    google::protobuf::RepeatedField<uint32_t> used_classes;
+    std::unordered_set<size_t> used_classes_set;
     for (size_t i = 0; i < num_classes; i++)
     {
-      cls_data.Add(class_r(i));
+      auto cls = class_r(i);
+      cls_data.Add(cls);
+      used_classes_set.insert(cls);
     }
     pc.mutable_classification()->Swap(&cls_data);
+    for(auto cls: used_classes_set)
+    {
+      used_classes.Add(cls);
+    }
+    pc.mutable_usedclassifications()->Swap(&used_classes);
   }
 
   size_t num_intensity = intensity_r.shape(0);

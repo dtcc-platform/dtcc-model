@@ -1,5 +1,10 @@
 syntax = "proto3";
 
+// needed to fix following Error:
+// [libprotobuf ERROR google/protobuf/descriptor_database.cc:58] File already exists in database: dtcc.proto
+// The internet told me do this, I don't know why - DW
+option optimize_for = LITE_RUNTIME;
+
 package DTCC;
 
 //--- Geometry ---
@@ -220,6 +225,7 @@ message PointCloud
   repeated uint32 intensity = 4;
   repeated uint32 returnNumber = 5;
   repeated uint32 numReturns = 6;
+  repeated uint32 usedClassifications = 7;
 }
 
 message Building
@@ -229,6 +235,7 @@ message Building
   double height = 3;
   double groundHeight = 4;
   PointCloud roofpoints = 5;
+  uint64 error = 6;
 }
 
 message CityModel

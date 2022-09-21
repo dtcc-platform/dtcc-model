@@ -13,6 +13,6 @@ echo "-----------------------"
 echo "Running Python unit tests!"
 echo "-----------------------"
 
-python3 -m unittest unittests_py/test.py
+python3 -m unittest unittests_py/test_datamodelio.py
 
 popd
