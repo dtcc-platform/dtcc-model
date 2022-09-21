@@ -3,7 +3,7 @@ project(ModelTest)
 
 set(CMAKE_CXX_FLAGS_ "-Wall -Werror")
 
-set(pybind11_DIR /usr/local/lib/python3.8/dist-packages/pybind11/share/cmake/pybind11)
+set(pybind11_DIR /usr/lib/cmake/pybind11)
 find_package(pybind11 REQUIRED)
 
 find_package(Protobuf REQUIRED)
