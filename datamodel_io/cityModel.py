@@ -57,12 +57,21 @@ def pbFootprint2Shapely(pb_footprint):
     return poly
 
 
-def loadBuildings(filename, uuid_field="id", height_field="", return_serialized=False):
+def loadBuildings(
+    filename,
+    uuid_field="id",
+    height_field="",
+    area_filter=None,
+    return_serialized=False,
+):
     cityModel = CityModel()
     buildings = []
-    has_height_field = len(height_field) == 0
+    has_height_field = len(height_field) > 0
     with fiona.open(filename) as src:
         for s in src:
+            if area_filter is not None and area_filter > 0:
+                if shapely.geometry.shape(s["geometry"]).area < area_filter:
+                    continue
             geom_type = s["geometry"]["type"]
             if geom_type == "Polygon":
                 building = Building()
@@ -79,6 +88,7 @@ def loadBuildings(filename, uuid_field="id", height_field="", return_serialized=
                         print(
                             f"Error cannot parse height field: {s['properties'][height_field]}"
                         )
+
                 footprint = buildPolygon(s["geometry"]["coordinates"])
                 building.footPrint.CopyFrom(footprint)
                 buildings.append(building)
