@@ -45,11 +45,15 @@ py::bytes PBPointCloud(py::array_t<double> pts,
     z_min = z<z_min ? z : z_min;
     z_max = x>z_max ? x : z_max;
 
-    pb_pts.push_back(DTCC::Vector(x,y,z));
+    //pb_pts.push_back(DTCC::Vector(x,y,z));
+    auto pt = pb_pts.add_point();
+    pt->set_x(x);
+    pt->set_y(y);
+    pt->set_z(z);
   }
 
-  google::protobuf::RepeatedPtrField<Vector3D> pt_data(pb_pts.begin(), pb_pts.end());
-  pc.mutable_points()->Swap(&pt_data);
+  //google::protobuf::RepeatedPtrField<Vector3D> pt_data(pb_pts.begin(), pb_pts.end());
+  //pc.mutable_points()->Swap(&pt_data);
 
   BoundingBox2D bb = BoundingBox(x_min, y_min, x_max, y_max);
   
