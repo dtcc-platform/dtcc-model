@@ -22,7 +22,6 @@ py::bytes PBPointCloud(py::array_t<double> pts,
   auto retNr_r = returnNumber.unchecked<1>();
   auto numReturn_r = numberOfReturns.unchecked<1>();
 
-  std::vector<Vector3D> pb_pts;
   size_t pt_count = pts_r.shape(0);
 
   PointCloud pc;
@@ -31,6 +30,8 @@ py::bytes PBPointCloud(py::array_t<double> pts,
   float x_min, x_max, y_min, y_max, z_min, z_max;
   x_min = y_min = z_min = std::numeric_limits<float>::max();
   x_max = y_max = z_max = std::numeric_limits<float>::min();
+
+
   for (size_t i = 0; i < pt_count; i++)
   {
     x = pts_r(i, 0);
@@ -46,10 +47,11 @@ py::bytes PBPointCloud(py::array_t<double> pts,
     z_max = x>z_max ? x : z_max;
 
     //pb_pts.push_back(DTCC::Vector(x,y,z));
-    auto pt = pb_pts.add_point();
+    auto pt = pc.add_points();
     pt->set_x(x);
     pt->set_y(y);
     pt->set_z(z);
+
   }
 
   //google::protobuf::RepeatedPtrField<Vector3D> pt_data(pb_pts.begin(), pb_pts.end());

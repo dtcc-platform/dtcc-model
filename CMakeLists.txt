@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(ModelTest)
 
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_ "-Wall -Werror")
 
 set(pybind11_DIR /usr/lib/cmake/pybind11)
@@ -18,6 +19,7 @@ include_directories(${PROTOBUF_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/dtcc-model)
+include_directories(/usr/local/include)
 
 add_subdirectory(datamodel_io)
 
