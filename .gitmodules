@@ -1,0 +1,3 @@
+[submodule "dtcc-docker"]
+	path = dtcc-docker
+	url = https://gitlab.com/dtcc-platform/dtcc-docker.git
