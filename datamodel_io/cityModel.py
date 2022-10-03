@@ -2,6 +2,7 @@
 # Licensed under the MIT License
 
 #%%
+import json
 import fiona
 import shapely.geometry
 from dtcc.dtcc_pb2 import Polygon, Building, LinearRing, Vector2D, CityModel
@@ -118,6 +119,31 @@ def loadBuildings(
     else:
         return cityModel
 
+def loadCityModelJson(citymodel_path,return_serialized=False,):
+    with open(citymodel_path) as src:
+        citymodelJson = json.load(src)
+    cityModel = CityModel()
+    buildings = []
+    for b in citymodelJson["Buildings"]:
+        building = Building()        
+        shell = [(v["x"], v["y"]) for v in b["shell"]]
+        holes = []
+        for hole in b["holes"]:
+            h = [(v["x"], v["y"]) for v in hole]
+            holes.append(h)
+        footprint = buildPolygon([shell,holes])
+        building.footPrint.CopyFrom(footprint)
+        building.height = b["Height"]
+        building.groundHeight = b["GroundHeight"]
+        building.uuid = b['UUID']
+        building.error = b["Error"]
+        buildings.append(building)
+    cityModel.buildings.extend(buildings)
+    if return_serialized:
+        return cityModel.SerializeToString()
+    else:
+        return cityModel
+    
 
 def writeCityModel(city_model, out_file, output_format=".shp"):
     if not output_format.startswith("."):
