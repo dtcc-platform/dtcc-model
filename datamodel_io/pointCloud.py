@@ -5,6 +5,7 @@ from datamodel_io.pblib.generate_protobuf import PBPointCloud
 from dtcc.dtcc_pb2 import PointCloud
 from time import time
 
+
 def loadLAS(
     lasfiles,
     points_only=False,
@@ -24,14 +25,18 @@ def loadLAS(
         if pts is None:
             pts = las.xyz
         else:
-            pts = np.concatenate((pts,las.xyz))
+            pts = np.concatenate((pts, las.xyz))
 
         if not points_only:
-            classification = np.concatenate((classification,np.array(las.classification)))
+            classification = np.concatenate(
+                (classification, np.array(las.classification))
+            )
         if not (points_only or points_classification_only):
-            intensity = np.concatenate((intensity,np.array(las.intensity)))
-            returnNumber = np.concatenate((returnNumber,np.array(las.return_num)))
-            numberOfReturns = np.concatenate((numberOfReturns, np.array(las.num_returns)))
+            intensity = np.concatenate((intensity, np.array(las.intensity)))
+            returnNumber = np.concatenate((returnNumber, np.array(las.return_num)))
+            numberOfReturns = np.concatenate(
+                (numberOfReturns, np.array(las.num_returns))
+            )
         print(classification.shape)
     print(f"loading with laspy {time()-start_laspy}")
     start_protobuf_pc = time()
@@ -47,7 +52,6 @@ def loadLAS(
         pc = PointCloud()
         pc.ParseFromString(pb)
         return pc
-
 
 def writeLAS(pointcloud, las_file):
     pass
