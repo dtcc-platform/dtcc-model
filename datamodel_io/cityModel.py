@@ -2,6 +2,7 @@
 # Licensed under the MIT License
 
 #%%
+import json
 import fiona
 import shapely.geometry
 from dtcc.dtcc_pb2 import Polygon, Building, LinearRing, Vector2D, CityModel
