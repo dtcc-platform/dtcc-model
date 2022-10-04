@@ -117,7 +117,35 @@ def loadBuildings(
         return cityModel.SerializeToString()
     else:
         return cityModel
-
+        
+def loadCityModelJson(citymodel_path,return_serialized=False,):
+    with open(citymodel_path) as src:
+        citymodelJson = json.load(src)
+    cityModel = CityModel()
+    buildings = []
+    for b in citymodelJson["Buildings"]:
+        building = Building()   
+        if isinstance(b["footprint"],list):
+            shell = [(v["x"], v["y"]) for v in b["footprint"]]
+            holes = []
+        else:
+            shell = [(v["x"], v["y"]) for v in b["footprint"]["shell"]]
+            holes=[]
+            for hole in b["holes"]:
+                h = [(v["x"], v["y"]) for v in hole]
+                holes.append(h)
+        footprint = buildPolygon([shell,holes])
+        building.footPrint.CopyFrom(footprint)
+        building.height = b["Height"]
+        building.groundHeight = b["GroundHeight"]
+        building.uuid = b['UUID']
+        building.error = b["Error"]
+        buildings.append(building)
+    cityModel.buildings.extend(buildings)
+    if return_serialized:
+        return cityModel.SerializeToString()
+    else:
+        return cityModel
 
 def writeCityModel(city_model, out_file, output_format=".shp"):
     if not output_format.startswith("."):
