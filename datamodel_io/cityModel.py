@@ -10,14 +10,15 @@ from dtcc.dtcc_pb2 import Polygon, Building, LinearRing, Vector2D, CityModel
 #%%
 def cleanLinearRing(coords, tol=0.1):
     s = shapely.geometry.Polygon(coords)
-    s = shapely.geometry.Polygon.orient(s, 1)  # make ccw
+    #s = shapely.geometry.Polygon.orient(s, 1)  # make ccw
     s = s.simplify(tol)
     return list(s.exterior.coords)[:-1]
 
 
 #%%
-def buildLinearRing(coords):
-    coords = cleanLinearRing(coords)
+def buildLinearRing(coords, clean = True):
+    if clean:
+        coords = cleanLinearRing(coords)
     lr = LinearRing()
     vertices = []
     for c in coords:
@@ -29,15 +30,15 @@ def buildLinearRing(coords):
     return lr
 
 
-def buildPolygon(geom_coords):
+def buildPolygon(geom_coords, clean = True):
     polygon = Polygon()
     shell = geom_coords.pop(0)
-    shell = buildLinearRing(shell)
+    shell = buildLinearRing(shell, clean)
     polygon.shell.CopyFrom(shell)
     if len(geom_coords) > 0:
         holes = []
         for hole in geom_coords:
-            hole = buildLinearRing(hole)
+            hole = buildLinearRing(hole, clean)
             holes.append(hole)
         polygon.holes.extend(holes)
     return polygon
@@ -135,7 +136,7 @@ def loadCityModelJson(citymodel_path,return_serialized=False,):
             for hole in b["Footprint"]["holes"]:
                 h = [(v["x"], v["y"]) for v in hole]
                 holes.append(h)
-        footprint = buildPolygon([shell,holes])
+        footprint = buildPolygon([shell,holes], clean=False)
         building.footPrint.CopyFrom(footprint)
         building.height = b["Height"]
         building.groundHeight = b["GroundHeight"]
