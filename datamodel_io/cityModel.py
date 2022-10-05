@@ -126,13 +126,13 @@ def loadCityModelJson(citymodel_path,return_serialized=False,):
     buildings = []
     for b in citymodelJson["Buildings"]:
         building = Building()   
-        if isinstance(b["footprint"],list):
-            shell = [(v["x"], v["y"]) for v in b["footprint"]]
+        if isinstance(b["Footprint"],list):
+            shell = [(v["x"], v["y"]) for v in b["Footprint"]]
             holes = []
         else:
-            shell = [(v["x"], v["y"]) for v in b["footprint"]["shell"]]
+            shell = [(v["x"], v["y"]) for v in b["Footprint"]["shell"]]
             holes=[]
-            for hole in b["holes"]:
+            for hole in b["Footprint"]["holes"]:
                 h = [(v["x"], v["y"]) for v in hole]
                 holes.append(h)
         footprint = buildPolygon([shell,holes])
