@@ -9,10 +9,11 @@ from dtcc.dtcc_pb2 import Polygon, Building, LinearRing, Vector2D, CityModel
 
 #%%
 def cleanLinearRing(coords, tol=0.1):
-    s = shapely.geometry.Polygon(coords)
+    #s = shapely.geometry.Polygon(coords)
     #s = shapely.geometry.Polygon.orient(s, 1)  # make ccw
-    s = s.simplify(tol)
-    return list(s.exterior.coords)[:-1]
+    #s = s.simplify(tol)
+    #return list(s.exterior.coords)[:-1]
+    return coords
 
 
 #%%
