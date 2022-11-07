@@ -3,7 +3,7 @@ syntax = "proto3";
 // needed to fix following Error:
 // [libprotobuf ERROR google/protobuf/descriptor_database.cc:58] File already exists in database: dtcc.proto
 // The internet told me do this, I don't know why - DW
-option optimize_for = LITE_RUNTIME;
+// option optimize_for = LITE_RUNTIME;
 
 package DTCC;
 
