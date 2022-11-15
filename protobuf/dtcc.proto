@@ -226,6 +226,7 @@ message PointCloud
   repeated uint32 returnNumber = 5;
   repeated uint32 numReturns = 6;
   repeated uint32 usedClassifications = 7;
+  Georeference georeference = 8;
 }
 
 message Building
@@ -241,5 +242,17 @@ message Building
 message CityModel
 {
   repeated Building buildings = 1;
-  string georeference = 2;
+  // string georeference = 2;
+  Georeference georeference = 3;
+}
+
+
+//--- Georeference ---
+
+message Georeference
+{
+  string crs = 1;
+  int32 epsg = 2;
+  double x0 = 3;
+  double y0 = 4;
 }
