@@ -1,12 +1,13 @@
 INCLUDE(FindProtobuf)
 set(CMAKE_CXX_FLAGS "-fPIC")
 PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER dtcc.proto)
-PROTOBUF_GENERATE_PYTHON(PROTO_PY dtcc.proto)
-#add_custom_target(python_protobuf ALL DEPENDS ${PROTO_PY})
-#SET(PROTO_PY ${PROTO_PY} CACHE INTERNAL "PROTO_PY")
-
-include_directories(${PROTOBUF_INCLUDE_DIRS})
 ADD_LIBRARY(dtccproto ${PROTO_HEADER} ${PROTO_SRC})
-message(STATUS "Cmake root: ${CMAKE_SOURCE_DIR}")
-#INSTALL(FILES ${PROTO_PY} DESTINATION ${CMAKE_SOURCE_DIR}/datamodel_io/dtcc)
-message(STATUS "protobuf header and src: ${PROTO_HEADER} ${PROTO_SRC}")
+
+
+# PROTOBUF_GENERATE_PYTHON(PROTO_PY dtcc.proto)
+# add_custom_target(python_protobuf ALL DEPENDS ${PROTO_PY})
+# SET(PROTO_PY ${PROTO_PY} CACHE INTERNAL "PROTO_PY")
+
+# message(STATUS "Cmake root: ${CMAKE_SOURCE_DIR}")
+# INSTALL(FILES ${PROTO_PY} DESTINATION ${CMAKE_SOURCE_DIR}/datamodel_io/dtcc)
+# message(STATUS "protobuf header and src: ${PROTO_PY} ${PROTO_HEADER} ${PROTO_SRC}")
