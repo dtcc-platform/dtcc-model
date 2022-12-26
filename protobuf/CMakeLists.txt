@@ -1,4 +1,7 @@
 INCLUDE(FindProtobuf)
+include_directories(${PROTOBUF_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/dtcc-model)
+include_directories(${CMAKE_SOURCE_DIR}/dtcc-model)
 set(CMAKE_CXX_FLAGS "-fPIC")
 PROTOBUF_GENERATE_CPP(PROTO_SRC PROTO_HEADER dtcc.proto)
 ADD_LIBRARY(dtccproto ${PROTO_HEADER} ${PROTO_SRC})
