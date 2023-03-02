@@ -1,5 +1,0 @@
-To run the scripts in this directory without installing the Python module, run
-
-    export PYTHONPATH=`pwd`"/../src:$PYTHONPATH"
-
-from within the current directory.
