@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-CPP_DIR=../include
-PYTHON_DIR=../src/dtcc
-BUILD_DIR=tmp
-mkdir -p $BUILD_DIR
+CPP_DIR=./cpp/protobuf
+PYTHON_DIR=./dtcc_model/
 
 echo "Building C++ classes..."
 protoc --cpp_out=$CPP_DIR dtcc.proto

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-docker start dtcc-model
-docker attach dtcc-model

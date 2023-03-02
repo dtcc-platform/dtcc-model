@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-docker image rm -f dtcc-model-image
-docker container rm -f dtcc-model
