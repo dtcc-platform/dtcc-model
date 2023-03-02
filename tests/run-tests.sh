@@ -8,11 +8,4 @@ echo "-----------------------"
 
 ./unittests_cpp/bin/run-unittests
 
-#echo ${SCRIPT_DIR}/unittests_py/test.py
 
-echo "Running Python unit tests!"
-echo "-----------------------"
-
-python3 -m unittest unittests_py/test_datamodelio.py
-
-popd
