@@ -6,7 +6,7 @@
 #include <vector>
 
 
-#include "protobuf/dtcc.pb.h"
+#include "dtcc.pb.h"
 #include "protobuf/include/BoundingBoxMethods.h"
 #include "protobuf/include/VectorMethods.h"
 
