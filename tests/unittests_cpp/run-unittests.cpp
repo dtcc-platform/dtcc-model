@@ -2,7 +2,7 @@
 
 #include "catch.hpp"
 
-#include "protobuf/dtcc.pb.h"
+#include "dtcc.pb.h"
 
 
 using namespace DTCC;
