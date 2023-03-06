@@ -1,5 +1,5 @@
-#include "dtcc_model/PointCloudMethods.h"
-#include "dtcc_model/VectorMethods.h"
+#include "PointCloudMethods.h"
+#include "VectorMethods.h"
 
 TEST_CASE("PointCloud")
 {

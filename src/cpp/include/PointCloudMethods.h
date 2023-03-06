@@ -6,9 +6,9 @@
 #include <vector>
 
 
-#include "dtcc_model/dtcc.pb.h"
-#include "dtcc_model/BoundingBoxMethods.h"
-#include "dtcc_model/VectorMethods.h"
+#include "dtcc.pb.h"
+#include "BoundingBoxMethods.h"
+#include "VectorMethods.h"
 
 namespace DTCC
 {

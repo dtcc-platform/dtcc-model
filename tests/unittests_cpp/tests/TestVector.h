@@ -1,4 +1,4 @@
-#include "dtcc_model/VectorMethods.h"
+#include "VectorMethods.h"
 
 TEST_CASE("Vectors")
 {

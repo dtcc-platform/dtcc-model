@@ -1,4 +1,4 @@
-#include "dtcc_model/BoundingBoxMethods.h"
+#include "BoundingBoxMethods.h"
 
 TEST_CASE("BoundingBox")
 {

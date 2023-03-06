@@ -1,9 +1,9 @@
 #ifndef DTCC_GRID_METHODS_H
 #define DTCC_GRID_METHODS_H
 
-#include "dtcc_model/dtcc.pb.h"
-#include "dtcc_model/BoundingBoxMethods.h"
-#include "dtcc_model/VectorMethods.h"
+#include "dtcc.pb.h"
+#include "BoundingBoxMethods.h"
+#include "VectorMethods.h"
 
 namespace DTCC
 {
