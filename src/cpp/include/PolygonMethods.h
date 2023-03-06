@@ -4,7 +4,7 @@
 #include <cmath>
 #include <vector>
 
-#include "dtcc.pb.h"
+#include "dtcc_model/dtcc.pb.h"
 
 namespace DTCC
 {

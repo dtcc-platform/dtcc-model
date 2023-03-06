@@ -2,10 +2,10 @@
 #define DTCC_GRIDFIELD_METHODS_H
 
 
-#include "dtcc.pb.h"
-#include "protobuf/include/BoundingBoxMethods.h"
-#include "protobuf/include/VectorMethods.h"
-#include "protobuf/include/GridMethods.h"
+#include "dtcc_model/dtcc.pb.h"
+#include "dtcc_model//BoundingBoxMethods.h"
+#include "dtcc_model//VectorMethods.h"
+#include "dtcc_model//GridMethods.h"
 
 namespace DTCC
 {

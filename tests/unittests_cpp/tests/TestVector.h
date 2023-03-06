@@ -1,4 +1,4 @@
-#include "protobuf/include/VectorMethods.h"
+#include "dtcc_model/VectorMethods.h"
 
 TEST_CASE("Vectors")
 {

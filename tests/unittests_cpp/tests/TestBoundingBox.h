@@ -1,4 +1,4 @@
-#include "protobuf/include/BoundingBoxMethods.h"
+#include "dtcc_model/BoundingBoxMethods.h"
 
 TEST_CASE("BoundingBox")
 {

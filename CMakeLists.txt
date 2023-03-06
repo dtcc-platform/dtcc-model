@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(dtcc-model)
-set(PROJECT_VERSION 0.1.3)
+set(PROJECT_VERSION 0.2.1)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_ "-Wall -Werror -fPIC")
@@ -26,8 +26,8 @@ ADD_LIBRARY(dtccproto SHARED ${PROTO_HEADER} ${PROTO_SRC})
 set_target_properties(dtccproto PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(dtccproto PROPERTIES PUBLIC_HEADER ${PROTO_HEADER})
 target_link_libraries(dtccproto ${PROTOBUF_LIBRARY} Threads::Threads)
-INSTALL(TARGETS dtccproto LIBRARY DESTINATION lib PUBLIC_HEADER DESTINATION include/dtcc)
-INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/src/cpp/protobuf/include DESTINATION include/dtcc/protobuf FILES_MATCHING PATTERN "*.h*")
+INSTALL(TARGETS dtccproto LIBRARY DESTINATION lib PUBLIC_HEADER DESTINATION include/dtcc_model)
+INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/src/cpp/include/ DESTINATION include/dtcc_model FILES_MATCHING PATTERN "*.h*")
 
 ADD_SUBDIRECTORY(tests/unittests_cpp)
 

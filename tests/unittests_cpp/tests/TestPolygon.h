@@ -1,5 +1,5 @@
-#include "protobuf/include/PolygonMethods.h"
-#include "protobuf/include/VectorMethods.h"
+#include "dtcc_model/PolygonMethods.h"
+#include "dtcc_model/VectorMethods.h"
 
 TEST_CASE("Polygons")
 {
