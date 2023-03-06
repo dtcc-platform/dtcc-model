@@ -9,14 +9,19 @@ description="DTCC data model"
 readme = "README.md"
 authors = [
   { name = "Anders Logg", email = "logg@chalmers.se" },
+  { name = "Vasilis Naserentin", email = "vasilis.naserentin@chalmers.se" },
   { name = "Dag Wästberg", email = "dwastberg@gmail.com" }
 ]
 requires-python = ">=3.8"
 classifiers = [
   "Intended Audience :: Science/Research",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: C++",
   "License :: OSI Approved :: MIT License"
 ]
 dependencies = [
- "protobuf >= 3.20.0, < 3.21.0", 
+ "protobuf >= 3.20.0, < 3.21.0",
 ]
+
+[project.optional-dependencies]
+test = ["pytest"]

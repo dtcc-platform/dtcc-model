@@ -2,4 +2,4 @@
 
 In preparation...
 
--![](dtcc.dot.png)
+-![](images/dtcc.dot.png)

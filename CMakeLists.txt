@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.15)
 project(dtcc-model)
-set(PROJECT_VERSION 0.1.3)
+set(PROJECT_VERSION 0.1.2)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_ "-Wall -Werror -fPIC")
@@ -30,4 +30,3 @@ INSTALL(TARGETS dtccproto LIBRARY DESTINATION lib PUBLIC_HEADER DESTINATION incl
 INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/src/cpp/protobuf/include DESTINATION include/dtcc/protobuf FILES_MATCHING PATTERN "*.h*")
 
 ADD_SUBDIRECTORY(tests/unittests_cpp)
-
