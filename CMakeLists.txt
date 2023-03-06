@@ -29,4 +29,4 @@ target_link_libraries(dtccproto ${PROTOBUF_LIBRARY} Threads::Threads)
 INSTALL(TARGETS dtccproto LIBRARY DESTINATION lib PUBLIC_HEADER DESTINATION include/dtcc_model)
 INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/src/cpp/include/ DESTINATION include/dtcc_model FILES_MATCHING PATTERN "*.h*")
 
-ADD_SUBDIRECTORY(tests/unittests_cpp)
+ADD_SUBDIRECTORY(tests/cpp)
