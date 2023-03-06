@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.15)
 project(dtcc-model)
 set(PROJECT_VERSION 0.2.1)
 
@@ -30,4 +30,3 @@ INSTALL(TARGETS dtccproto LIBRARY DESTINATION lib PUBLIC_HEADER DESTINATION incl
 INSTALL(DIRECTORY ${CMAKE_SOURCE_DIR}/src/cpp/include/ DESTINATION include/dtcc_model FILES_MATCHING PATTERN "*.h*")
 
 ADD_SUBDIRECTORY(tests/unittests_cpp)
-
