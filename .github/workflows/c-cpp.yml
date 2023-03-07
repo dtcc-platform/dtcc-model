@@ -1,0 +1,23 @@
+name: Test C/C++ CI
+
+on:
+  push:
+    branches: [ "dev/new-build-system" ]
+  pull_request:
+    branches: [ "dev/new-build-system" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: configure
+      run: date
+    - name: make
+      run: date
+    - name: make check
+      run: ls
+    - name: make distcheck
+      run: pwd
