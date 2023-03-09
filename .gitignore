@@ -1,5 +1,5 @@
-unittests_cpp/bin
-unittests_cpp/build
+tests/cpp/bin
+tests/cpp/build
 build/
 
 .DS_store
@@ -9,3 +9,7 @@ __pycache__
 *.pyc
 
 *.egg-info/
+
+*.DS_store
+*.so
+*.dylib
