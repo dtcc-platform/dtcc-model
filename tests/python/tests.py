@@ -1,8 +1,9 @@
 import unittest
-
 import dtcc_model
 
+
 class TestPolygon(unittest.TestCase):
+
     def test_linear_ring(self):
         lr = dtcc_model.LinearRing()
         vertices = []
@@ -14,6 +15,7 @@ class TestPolygon(unittest.TestCase):
         lr.vertices.extend(vertices)
         self.assertEqual(lr.vertices[2].x, 1)
         self.assertEqual(lr.vertices[2].y, 1)
+
     def test_polygon(self):
         p = dtcc_model.Polygon()
         lr = dtcc_model.LinearRing()
@@ -27,4 +29,3 @@ class TestPolygon(unittest.TestCase):
         p.shell.CopyFrom(lr)
         self.assertEqual(p.shell.vertices[2].x, 1)
         self.assertEqual(p.shell.vertices[2].y, 1)
-        
