@@ -2,7 +2,7 @@
 
 echo "Running C++ unit tests"
 echo "======================"
-./cpp/bin/run-unittests
+./cpp/bin/run-tests
 
 echo "Running Python unit tests"
 echo "========================="
