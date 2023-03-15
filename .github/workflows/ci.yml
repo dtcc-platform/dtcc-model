@@ -20,4 +20,4 @@ jobs:
     - name: run tests
       run: cd tests && sh run-tests.sh
     - name: cleanup op
-      run : sudo find /home/ubuntu/Runner/actions-runner/_work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/. -name . -o -prune -exec rm -rf -- {} + || true
+      run : sudo find /home/ubuntu/Runner/actions-runner/_work/${{ github.event.repository.name }}/. -name . -o -prune -exec rm -rf -- {} + || true
