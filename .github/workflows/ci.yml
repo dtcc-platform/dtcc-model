@@ -26,7 +26,7 @@ jobs:
     - name: cmake install 
       run: cd dtcc-model/build/ && cmake .. && make all && sudo make install && cd ..
     - name: run tests
-      run: cd dtcc-model/build/tests && sh run-tests
+      run: cd dtcc-model/build/tests && pwd && ls -alt && sh run-tests
     - name: cleanup op
       run : sudo find /home/ubuntu/Runner/actions-runner/_work/${{ github.event.repository.name }}/. -name . -o -prune -exec rm -rf -- {} + || true
     - name: more cleanup ops
