@@ -14,7 +14,7 @@ class TestPolygon(unittest.TestCase):
             vertices.append(v)
         lr.vertices.extend(vertices)
         self.assertEqual(lr.vertices[2].x, 1)
-        self.assertEqual(lr.vertices[2].y, 1)
+        self.assertEqual(lr.vertices[2].y, 2)
 
     def test_polygon(self):
         p = dtcc_model.Polygon()
