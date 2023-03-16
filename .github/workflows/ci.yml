@@ -18,6 +18,6 @@ jobs:
     - name: cmake install 
       run: cd build && cmake .. && make all && sudo make install && cd ..
     - name: run tests
-      run: cd tests && sh run-tests.sh
+      run: cd tests && sh run-tests
     - name: cleanup op
       run : sudo find /home/ubuntu/Runner/actions-runner/_work/${{ github.event.repository.name }}/. -name . -o -prune -exec rm -rf -- {} + || true
