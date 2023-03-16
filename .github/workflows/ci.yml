@@ -18,9 +18,9 @@ jobs:
     steps:
     #- uses: actions/checkout@v3
     - name: Clone repo
-      run: git clone https://github.com/dtcc-platform/dtcc-model.git -b develop && cd dtcc-model
-    - name: pip install 
-      run: pip install .
+      run: git clone https://github.com/dtcc-platform/dtcc-model.git -b develop && pwd
+    - name: pip install
+      run: pip install dtcc-model/
     - name: cmake install 
       run: cd build && cmake .. && make all && sudo make install && cd ..
     - name: run tests
