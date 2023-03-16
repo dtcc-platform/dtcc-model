@@ -1,13 +1,13 @@
 name: CI
 
-env:
-  BRANCH: develop
-
 on:
   push:
-    branches: [ "$BRANCH" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "$BRANCH" ]
+    branches: [ "develop" ]
+
+env:
+  BRANCH: develop
 
 jobs:
   build:
