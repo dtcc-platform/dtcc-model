@@ -10,9 +10,15 @@ jobs:
   build:
 
     runs-on: self-hosted
+    container:
+      image: ubuntu-latest
+      options: --user 1000
+
 
     steps:
-    - uses: actions/checkout@v3
+    #- uses: actions/checkout@v3
+    - name: Clone repo
+      run: git clone https://github.com/dtcc-platform/dtcc-model.git -b develop && cd dtcc-model
     - name: pip install 
       run: pip install .
     - name: cmake install 
