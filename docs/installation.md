@@ -10,21 +10,19 @@ To install from the source directory:
 
     pip install .
 
----
-**NOTE**
+> **NOTE**: Fix for conflicting versions of `pip` and `python`
+>
+> Sometimes `pip` and `python` may be out of sync which means that `pip` will
+> install a package in a location where it will not be found by `python`.
+> It is therefore safer to replace the `pip` command by `python -m pip`:
+>
+>     python -m pip install [ package-name or . ]
 
-Sometimes `pip` and `python` may be out of sync which means that `pip` will
-install a package in a location where it will not be found by `python`. It is
-therefore safer to replace the `pip` command by `python -m pip`:
-
-    python -m pip install [dtcc-model or .]
----
-
-DTCC Model also provides a C++ library containing the C++ version of the data
-model. The C++ library can be easily installed from source via CMake:
-
-    mkdir build
-    cd build
-    cmake ..
-    make -j
-    make install
+> **NOTE**: Fix for broken setuptools in Ubuntu 22.04
+>
+> A bug in Ubuntu 22.04 prevents [PEP621](https://peps.python.org/pep-0621/)
+> compliant Python projects from installing properly with `pip`, resulting in
+> package name and version number `UNKNOWN-0.0.0`.
+> To fix this, run the following commmand before `pip install`:
+>
+>     export DEB_PYTHON_INSTALL_LAYOUT=deb_system
