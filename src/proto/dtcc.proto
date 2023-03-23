@@ -242,8 +242,9 @@ message Building
 message CityModel
 {
   repeated Building buildings = 1;
-  // string georeference = 2;
+  BoundingBox2D bounds = 2;
   Georeference georeference = 3;
+  GridField2D terrain = 4;
 }
 
 
