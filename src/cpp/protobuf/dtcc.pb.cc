@@ -524,7 +524,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR CityModel::CityModel(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.buildings_)*/{}
+  , /*decltype(_impl_.bounds_)*/nullptr
   , /*decltype(_impl_.georeference_)*/nullptr
+  , /*decltype(_impl_.terrain_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CityModelDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CityModelDefaultTypeInternal()
@@ -8976,12 +8978,22 @@ std::string Building::GetTypeName() const {
 
 class CityModel::_Internal {
  public:
+  static const ::DTCC::BoundingBox2D& bounds(const CityModel* msg);
   static const ::DTCC::Georeference& georeference(const CityModel* msg);
+  static const ::DTCC::GridField2D& terrain(const CityModel* msg);
 };
 
+const ::DTCC::BoundingBox2D&
+CityModel::_Internal::bounds(const CityModel* msg) {
+  return *msg->_impl_.bounds_;
+}
 const ::DTCC::Georeference&
 CityModel::_Internal::georeference(const CityModel* msg) {
   return *msg->_impl_.georeference_;
+}
+const ::DTCC::GridField2D&
+CityModel::_Internal::terrain(const CityModel* msg) {
+  return *msg->_impl_.terrain_;
 }
 CityModel::CityModel(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -8994,12 +9006,20 @@ CityModel::CityModel(const CityModel& from)
   CityModel* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.buildings_){from._impl_.buildings_}
+    , decltype(_impl_.bounds_){nullptr}
     , decltype(_impl_.georeference_){nullptr}
+    , decltype(_impl_.terrain_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  if (from._internal_has_bounds()) {
+    _this->_impl_.bounds_ = new ::DTCC::BoundingBox2D(*from._impl_.bounds_);
+  }
   if (from._internal_has_georeference()) {
     _this->_impl_.georeference_ = new ::DTCC::Georeference(*from._impl_.georeference_);
+  }
+  if (from._internal_has_terrain()) {
+    _this->_impl_.terrain_ = new ::DTCC::GridField2D(*from._impl_.terrain_);
   }
   // @@protoc_insertion_point(copy_constructor:DTCC.CityModel)
 }
@@ -9010,7 +9030,9 @@ inline void CityModel::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.buildings_){arena}
+    , decltype(_impl_.bounds_){nullptr}
     , decltype(_impl_.georeference_){nullptr}
+    , decltype(_impl_.terrain_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -9027,7 +9049,9 @@ CityModel::~CityModel() {
 inline void CityModel::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.buildings_.~RepeatedPtrField();
+  if (this != internal_default_instance()) delete _impl_.bounds_;
   if (this != internal_default_instance()) delete _impl_.georeference_;
+  if (this != internal_default_instance()) delete _impl_.terrain_;
 }
 
 void CityModel::SetCachedSize(int size) const {
@@ -9041,10 +9065,18 @@ void CityModel::Clear() {
   (void) cached_has_bits;
 
   _impl_.buildings_.Clear();
+  if (GetArenaForAllocation() == nullptr && _impl_.bounds_ != nullptr) {
+    delete _impl_.bounds_;
+  }
+  _impl_.bounds_ = nullptr;
   if (GetArenaForAllocation() == nullptr && _impl_.georeference_ != nullptr) {
     delete _impl_.georeference_;
   }
   _impl_.georeference_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.terrain_ != nullptr) {
+    delete _impl_.terrain_;
+  }
+  _impl_.terrain_ = nullptr;
   _internal_metadata_.Clear<std::string>();
 }
 
@@ -9067,10 +9099,26 @@ const char* CityModel::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         } else
           goto handle_unusual;
         continue;
+      // .DTCC.BoundingBox2D bounds = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_bounds(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       // .DTCC.Georeference georeference = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_georeference(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .DTCC.GridField2D terrain = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_terrain(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -9112,11 +9160,25 @@ uint8_t* CityModel::_InternalSerialize(
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
+  // .DTCC.BoundingBox2D bounds = 2;
+  if (this->_internal_has_bounds()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::bounds(this),
+        _Internal::bounds(this).GetCachedSize(), target, stream);
+  }
+
   // .DTCC.Georeference georeference = 3;
   if (this->_internal_has_georeference()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(3, _Internal::georeference(this),
         _Internal::georeference(this).GetCachedSize(), target, stream);
+  }
+
+  // .DTCC.GridField2D terrain = 4;
+  if (this->_internal_has_terrain()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::terrain(this),
+        _Internal::terrain(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -9142,11 +9204,25 @@ size_t CityModel::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // .DTCC.BoundingBox2D bounds = 2;
+  if (this->_internal_has_bounds()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.bounds_);
+  }
+
   // .DTCC.Georeference georeference = 3;
   if (this->_internal_has_georeference()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.georeference_);
+  }
+
+  // .DTCC.GridField2D terrain = 4;
+  if (this->_internal_has_terrain()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.terrain_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -9171,9 +9247,17 @@ void CityModel::MergeFrom(const CityModel& from) {
   (void) cached_has_bits;
 
   _this->_impl_.buildings_.MergeFrom(from._impl_.buildings_);
+  if (from._internal_has_bounds()) {
+    _this->_internal_mutable_bounds()->::DTCC::BoundingBox2D::MergeFrom(
+        from._internal_bounds());
+  }
   if (from._internal_has_georeference()) {
     _this->_internal_mutable_georeference()->::DTCC::Georeference::MergeFrom(
         from._internal_georeference());
+  }
+  if (from._internal_has_terrain()) {
+    _this->_internal_mutable_terrain()->::DTCC::GridField2D::MergeFrom(
+        from._internal_terrain());
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
@@ -9193,7 +9277,12 @@ void CityModel::InternalSwap(CityModel* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.buildings_.InternalSwap(&other->_impl_.buildings_);
-  swap(_impl_.georeference_, other->_impl_.georeference_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CityModel, _impl_.terrain_)
+      + sizeof(CityModel::_impl_.terrain_)
+      - PROTOBUF_FIELD_OFFSET(CityModel, _impl_.bounds_)>(
+          reinterpret_cast<char*>(&_impl_.bounds_),
+          reinterpret_cast<char*>(&other->_impl_.bounds_));
 }
 
 std::string CityModel::GetTypeName() const {
