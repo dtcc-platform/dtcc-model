@@ -1,4 +1,4 @@
-# Experimenting with extensions for the Protobuf Python classes
+# Playground for testing
 
 from dtcc_model import *
 
