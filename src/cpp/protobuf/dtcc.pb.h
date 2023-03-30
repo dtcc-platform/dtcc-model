@@ -5939,7 +5939,9 @@ class CityModel final :
 
   enum : int {
     kBuildingsFieldNumber = 1,
+    kBoundsFieldNumber = 2,
     kGeoreferenceFieldNumber = 3,
+    kTerrainFieldNumber = 4,
   };
   // repeated .DTCC.Building buildings = 1;
   int buildings_size() const;
@@ -5959,6 +5961,24 @@ class CityModel final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building >&
       buildings() const;
 
+  // .DTCC.BoundingBox2D bounds = 2;
+  bool has_bounds() const;
+  private:
+  bool _internal_has_bounds() const;
+  public:
+  void clear_bounds();
+  const ::DTCC::BoundingBox2D& bounds() const;
+  PROTOBUF_NODISCARD ::DTCC::BoundingBox2D* release_bounds();
+  ::DTCC::BoundingBox2D* mutable_bounds();
+  void set_allocated_bounds(::DTCC::BoundingBox2D* bounds);
+  private:
+  const ::DTCC::BoundingBox2D& _internal_bounds() const;
+  ::DTCC::BoundingBox2D* _internal_mutable_bounds();
+  public:
+  void unsafe_arena_set_allocated_bounds(
+      ::DTCC::BoundingBox2D* bounds);
+  ::DTCC::BoundingBox2D* unsafe_arena_release_bounds();
+
   // .DTCC.Georeference georeference = 3;
   bool has_georeference() const;
   private:
@@ -5977,6 +5997,24 @@ class CityModel final :
       ::DTCC::Georeference* georeference);
   ::DTCC::Georeference* unsafe_arena_release_georeference();
 
+  // .DTCC.GridField2D terrain = 4;
+  bool has_terrain() const;
+  private:
+  bool _internal_has_terrain() const;
+  public:
+  void clear_terrain();
+  const ::DTCC::GridField2D& terrain() const;
+  PROTOBUF_NODISCARD ::DTCC::GridField2D* release_terrain();
+  ::DTCC::GridField2D* mutable_terrain();
+  void set_allocated_terrain(::DTCC::GridField2D* terrain);
+  private:
+  const ::DTCC::GridField2D& _internal_terrain() const;
+  ::DTCC::GridField2D* _internal_mutable_terrain();
+  public:
+  void unsafe_arena_set_allocated_terrain(
+      ::DTCC::GridField2D* terrain);
+  ::DTCC::GridField2D* unsafe_arena_release_terrain();
+
   // @@protoc_insertion_point(class_scope:DTCC.CityModel)
  private:
   class _Internal;
@@ -5986,7 +6024,9 @@ class CityModel final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building > buildings_;
+    ::DTCC::BoundingBox2D* bounds_;
     ::DTCC::Georeference* georeference_;
+    ::DTCC::GridField2D* terrain_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -10620,6 +10660,96 @@ CityModel::buildings() const {
   return _impl_.buildings_;
 }
 
+// .DTCC.BoundingBox2D bounds = 2;
+inline bool CityModel::_internal_has_bounds() const {
+  return this != internal_default_instance() && _impl_.bounds_ != nullptr;
+}
+inline bool CityModel::has_bounds() const {
+  return _internal_has_bounds();
+}
+inline void CityModel::clear_bounds() {
+  if (GetArenaForAllocation() == nullptr && _impl_.bounds_ != nullptr) {
+    delete _impl_.bounds_;
+  }
+  _impl_.bounds_ = nullptr;
+}
+inline const ::DTCC::BoundingBox2D& CityModel::_internal_bounds() const {
+  const ::DTCC::BoundingBox2D* p = _impl_.bounds_;
+  return p != nullptr ? *p : reinterpret_cast<const ::DTCC::BoundingBox2D&>(
+      ::DTCC::_BoundingBox2D_default_instance_);
+}
+inline const ::DTCC::BoundingBox2D& CityModel::bounds() const {
+  // @@protoc_insertion_point(field_get:DTCC.CityModel.bounds)
+  return _internal_bounds();
+}
+inline void CityModel::unsafe_arena_set_allocated_bounds(
+    ::DTCC::BoundingBox2D* bounds) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.bounds_);
+  }
+  _impl_.bounds_ = bounds;
+  if (bounds) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.CityModel.bounds)
+}
+inline ::DTCC::BoundingBox2D* CityModel::release_bounds() {
+  
+  ::DTCC::BoundingBox2D* temp = _impl_.bounds_;
+  _impl_.bounds_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::DTCC::BoundingBox2D* CityModel::unsafe_arena_release_bounds() {
+  // @@protoc_insertion_point(field_release:DTCC.CityModel.bounds)
+  
+  ::DTCC::BoundingBox2D* temp = _impl_.bounds_;
+  _impl_.bounds_ = nullptr;
+  return temp;
+}
+inline ::DTCC::BoundingBox2D* CityModel::_internal_mutable_bounds() {
+  
+  if (_impl_.bounds_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::BoundingBox2D>(GetArenaForAllocation());
+    _impl_.bounds_ = p;
+  }
+  return _impl_.bounds_;
+}
+inline ::DTCC::BoundingBox2D* CityModel::mutable_bounds() {
+  ::DTCC::BoundingBox2D* _msg = _internal_mutable_bounds();
+  // @@protoc_insertion_point(field_mutable:DTCC.CityModel.bounds)
+  return _msg;
+}
+inline void CityModel::set_allocated_bounds(::DTCC::BoundingBox2D* bounds) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.bounds_;
+  }
+  if (bounds) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(bounds);
+    if (message_arena != submessage_arena) {
+      bounds = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, bounds, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.bounds_ = bounds;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.CityModel.bounds)
+}
+
 // .DTCC.Georeference georeference = 3;
 inline bool CityModel::_internal_has_georeference() const {
   return this != internal_default_instance() && _impl_.georeference_ != nullptr;
@@ -10708,6 +10838,96 @@ inline void CityModel::set_allocated_georeference(::DTCC::Georeference* georefer
   }
   _impl_.georeference_ = georeference;
   // @@protoc_insertion_point(field_set_allocated:DTCC.CityModel.georeference)
+}
+
+// .DTCC.GridField2D terrain = 4;
+inline bool CityModel::_internal_has_terrain() const {
+  return this != internal_default_instance() && _impl_.terrain_ != nullptr;
+}
+inline bool CityModel::has_terrain() const {
+  return _internal_has_terrain();
+}
+inline void CityModel::clear_terrain() {
+  if (GetArenaForAllocation() == nullptr && _impl_.terrain_ != nullptr) {
+    delete _impl_.terrain_;
+  }
+  _impl_.terrain_ = nullptr;
+}
+inline const ::DTCC::GridField2D& CityModel::_internal_terrain() const {
+  const ::DTCC::GridField2D* p = _impl_.terrain_;
+  return p != nullptr ? *p : reinterpret_cast<const ::DTCC::GridField2D&>(
+      ::DTCC::_GridField2D_default_instance_);
+}
+inline const ::DTCC::GridField2D& CityModel::terrain() const {
+  // @@protoc_insertion_point(field_get:DTCC.CityModel.terrain)
+  return _internal_terrain();
+}
+inline void CityModel::unsafe_arena_set_allocated_terrain(
+    ::DTCC::GridField2D* terrain) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.terrain_);
+  }
+  _impl_.terrain_ = terrain;
+  if (terrain) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.CityModel.terrain)
+}
+inline ::DTCC::GridField2D* CityModel::release_terrain() {
+  
+  ::DTCC::GridField2D* temp = _impl_.terrain_;
+  _impl_.terrain_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::DTCC::GridField2D* CityModel::unsafe_arena_release_terrain() {
+  // @@protoc_insertion_point(field_release:DTCC.CityModel.terrain)
+  
+  ::DTCC::GridField2D* temp = _impl_.terrain_;
+  _impl_.terrain_ = nullptr;
+  return temp;
+}
+inline ::DTCC::GridField2D* CityModel::_internal_mutable_terrain() {
+  
+  if (_impl_.terrain_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::GridField2D>(GetArenaForAllocation());
+    _impl_.terrain_ = p;
+  }
+  return _impl_.terrain_;
+}
+inline ::DTCC::GridField2D* CityModel::mutable_terrain() {
+  ::DTCC::GridField2D* _msg = _internal_mutable_terrain();
+  // @@protoc_insertion_point(field_mutable:DTCC.CityModel.terrain)
+  return _msg;
+}
+inline void CityModel::set_allocated_terrain(::DTCC::GridField2D* terrain) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.terrain_;
+  }
+  if (terrain) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(terrain);
+    if (message_arena != submessage_arena) {
+      terrain = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, terrain, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.terrain_ = terrain;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.CityModel.terrain)
 }
 
 // -------------------------------------------------------------------
