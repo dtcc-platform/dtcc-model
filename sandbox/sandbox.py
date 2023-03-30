@@ -1,8 +1,9 @@
 # Playground for testing
 
 from dtcc_model import *
+from dtcc_model.logging import *
 
-set_log_level('DEBUG')
+set_log_level(logging.DEBUG)
 
 x2 = Vector3D()
 x3 = Vector3D()
