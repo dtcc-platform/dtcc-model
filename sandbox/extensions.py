@@ -2,6 +2,8 @@
 
 from dtcc_model import *
 
+set_log_level('DEBUG')
+
 x2 = Vector3D()
 x3 = Vector3D()
 pointcloud = PointCloud()
@@ -20,10 +22,10 @@ building.height = 250.0
 citymodel.add_building(building)
 citymodel.add_building(building)
 
-print(x2)
-print(x3)
-print(pointcloud)
-print(building)
-print(citymodel)
+info(x2)
+info(x3)
+info(pointcloud)
+info(building)
+info(citymodel)
 
 citymodel.remove_building(building)

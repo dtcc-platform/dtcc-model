@@ -7,3 +7,6 @@ import dtcc_model.extensions.vector3d
 import dtcc_model.extensions.pointcloud
 import dtcc_model.extensions.building
 import dtcc_model.extensions.citymodel
+
+# Import logging functions
+from dtcc_model.logging import *
