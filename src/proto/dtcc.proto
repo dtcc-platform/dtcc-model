@@ -22,20 +22,14 @@ message Vector3D
   float z = 3;
 }
 
-message Simplex1D
-{
-  int32 v0 = 1;
-  int32 v1 = 2;
-}
-
-message Simplex2D
+message Triangle
 {
   int32 v0 = 1;
   int32 v1 = 2;
   int32 v2 = 3;
 }
 
-message Simplex3D
+message Tetrahedron
 {
   int32 v0 = 1;
   int32 v1 = 2;
@@ -113,32 +107,18 @@ message Grid3D
   float zStep = 7;
 }
 
-message Mesh2D
-{
-  repeated Vector2D vertices = 1;
-  repeated Simplex2D cells = 2;
-  repeated int32 markers = 3;
-}
-
-message Mesh3D
-{
-  repeated Vector3D vertices = 1;
-  repeated Simplex3D cells = 2;
-  repeated int32 markers = 3;
-}
-
-message Surface2D
-{
-  repeated Vector2D vertices = 1;
-  repeated Vector2D normals = 2;
-  repeated Simplex1D edges = 3;
-}
-
-message Surface3D
+message Mesh
 {
   repeated Vector3D vertices = 1;
   repeated Vector3D normals = 2;
-  repeated Simplex2D faces = 3;
+  repeated Triangle faces = 3;
+}
+
+message VolumeMesh
+{
+  repeated Vector3D vertices = 1;
+  repeated Tetrahedron cells = 2;
+  repeated int32 markers = 3;
 }
 
 //--- Fields ---
@@ -167,51 +147,27 @@ message GridVectorField3D
   repeated float values = 2;
 }
 
-message MeshField2D
+message MeshField
 {
-  Mesh2D mesh = 1;
+  Mesh mesh = 1;
   repeated float values = 2;
 }
 
-message MeshField3D
+message MeshVectorField
 {
-  Mesh3D mesh = 1;
+  Mesh mesh = 1;
   repeated float values = 2;
 }
 
-message MeshVectorField2D
+message VolumeMeshField
 {
-  Mesh2D mesh = 1;
+  VolumeMesh mesh = 1;
   repeated float values = 2;
 }
 
-message MeshVectorField3D
+message VolumeVectorField
 {
-  Mesh3D mesh = 1;
-  repeated float values = 2;
-}
-
-message SurfaceField2D
-{
-  Surface2D surface = 1;
-  repeated float values = 2;
-}
-
-message SurfaceField3D
-{
-  Surface3D surface = 1;
-  repeated float values = 2;
-}
-
-message SurfaceVectorField2D
-{
-  Surface2D surface = 1;
-  repeated float values = 2;
-}
-
-message SurfaceVectorField3D
-{
-  Surface3D surface = 1;
+  VolumeMesh mesh = 1;
   repeated float values = 2;
 }
 

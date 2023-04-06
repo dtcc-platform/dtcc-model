@@ -3,7 +3,7 @@
 
 import dtcc_model
 
-from dtcc_model.logging import *
+from dtcc_model.logging import info
 
 
 def __str__(self):
