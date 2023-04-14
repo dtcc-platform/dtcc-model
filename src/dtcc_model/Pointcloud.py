@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 import numpy as np
+from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
