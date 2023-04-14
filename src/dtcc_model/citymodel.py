@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 import numpy as np
-from .Building import Building
+from .building import Building
 
 
 @dataclass
