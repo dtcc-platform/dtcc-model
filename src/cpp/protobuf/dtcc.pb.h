@@ -4064,23 +4064,27 @@ class PointCloud PROTOBUF_FINAL :
     kBoundsFieldNumber = 2,
     kGeoreferenceFieldNumber = 8,
   };
-  // repeated .DTCC.Vector3D points = 1;
+  // repeated float points = 1;
   int points_size() const;
   private:
   int _internal_points_size() const;
   public:
   void clear_points();
-  ::DTCC::Vector3D* mutable_points(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >*
-      mutable_points();
   private:
-  const ::DTCC::Vector3D& _internal_points(int index) const;
-  ::DTCC::Vector3D* _internal_add_points();
+  float _internal_points(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_points() const;
+  void _internal_add_points(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_points();
   public:
-  const ::DTCC::Vector3D& points(int index) const;
-  ::DTCC::Vector3D* add_points();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >&
+  float points(int index) const;
+  void set_points(int index, float value);
+  void add_points(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
       points() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_points();
 
   // repeated uint32 classification = 3;
   int classification_size() const;
@@ -4235,7 +4239,8 @@ class PointCloud PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D > points_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > points_;
+  mutable std::atomic<int> _points_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > classification_;
   mutable std::atomic<int> _classification_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > intensity_;
@@ -7481,7 +7486,7 @@ VolumeVectorField::mutable_values() {
 
 // PointCloud
 
-// repeated .DTCC.Vector3D points = 1;
+// repeated float points = 1;
 inline int PointCloud::_internal_points_size() const {
   return points_.size();
 }
@@ -7491,33 +7496,41 @@ inline int PointCloud::points_size() const {
 inline void PointCloud::clear_points() {
   points_.Clear();
 }
-inline ::DTCC::Vector3D* PointCloud::mutable_points(int index) {
-  // @@protoc_insertion_point(field_mutable:DTCC.PointCloud.points)
-  return points_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >*
-PointCloud::mutable_points() {
-  // @@protoc_insertion_point(field_mutable_list:DTCC.PointCloud.points)
-  return &points_;
-}
-inline const ::DTCC::Vector3D& PointCloud::_internal_points(int index) const {
+inline float PointCloud::_internal_points(int index) const {
   return points_.Get(index);
 }
-inline const ::DTCC::Vector3D& PointCloud::points(int index) const {
+inline float PointCloud::points(int index) const {
   // @@protoc_insertion_point(field_get:DTCC.PointCloud.points)
   return _internal_points(index);
 }
-inline ::DTCC::Vector3D* PointCloud::_internal_add_points() {
-  return points_.Add();
+inline void PointCloud::set_points(int index, float value) {
+  points_.Set(index, value);
+  // @@protoc_insertion_point(field_set:DTCC.PointCloud.points)
 }
-inline ::DTCC::Vector3D* PointCloud::add_points() {
+inline void PointCloud::_internal_add_points(float value) {
+  points_.Add(value);
+}
+inline void PointCloud::add_points(float value) {
+  _internal_add_points(value);
   // @@protoc_insertion_point(field_add:DTCC.PointCloud.points)
-  return _internal_add_points();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+PointCloud::_internal_points() const {
+  return points_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
 PointCloud::points() const {
   // @@protoc_insertion_point(field_list:DTCC.PointCloud.points)
-  return points_;
+  return _internal_points();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+PointCloud::_internal_mutable_points() {
+  return &points_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+PointCloud::mutable_points() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.PointCloud.points)
+  return _internal_mutable_points();
 }
 
 // .DTCC.BoundingBox2D bounds = 2;
