@@ -1,7 +1,6 @@
 import unittest
 from pathlib import Path
 from dtcc_model.building import Building
-from tempfile import NamedTemporaryFile
 
 data_dir = (Path(__file__).parent / ".." / "data").resolve()
 
