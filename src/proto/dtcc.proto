@@ -175,7 +175,7 @@ message VolumeVectorField
 
 message PointCloud
 {
-  repeated Vector3D points = 1;
+  repeated float points = 1;
   BoundingBox2D bounds =  2;
   repeated uint32 classification = 3;
   repeated uint32 intensity = 4;
