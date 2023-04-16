@@ -7,10 +7,10 @@ from typing import Union, Tuple
 @dataclass
 class Pointcloud:
     points: np.ndarray = np.empty((0, 3), dtype=np.float64)
-    classification: np.ndarray = np.empty((0, 1), dtype=np.uint8)
-    intensity: np.ndarray = np.empty((0, 1), dtype=np.uint16)
-    return_number: np.ndarray = np.empty((0, 1), dtype=np.uint8)
-    number_of_returns: np.ndarray = np.empty((0, 1), dtype=np.uint8)
+    classification: np.ndarray = np.empty((0), dtype=np.uint8)
+    intensity: np.ndarray = np.empty((0), dtype=np.uint16)
+    return_number: np.ndarray = np.empty((0), dtype=np.uint8)
+    number_of_returns: np.ndarray = np.empty((0), dtype=np.uint8)
     crs: str = ""
     origin: Tuple[float, float] = (0, 0)
     bounds: Tuple[float, float, float, float] = (0, 0, 0, 0)
@@ -31,6 +31,17 @@ class Pointcloud:
             self.points[:, 0].max(),
             self.points[:, 1].max(),
         )
+
+    def remove_points(self, indices: np.ndarray):
+        self.points = np.delete(self.points, indices, axis=0)
+        if len(self.classification) > 0:
+            self.classification = np.delete(self.classification, indices, axis=0)
+        if len(self.intensity) > 0:
+            self.intensity = np.delete(self.intensity, indices, axis=0)
+        if len(self.return_number) > 0:
+            self.return_number = np.delete(self.return_number, indices, axis=0)
+        if len(self.number_of_returns) > 0:
+            self.number_of_returns = np.delete(self.number_of_returns, indices, axis=0)
 
     def from_proto(self, proto_pointcloud: Union[proto.PointCloud, bytes]):
         if isinstance(proto_pointcloud, bytes):

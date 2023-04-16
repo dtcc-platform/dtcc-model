@@ -25,9 +25,25 @@ TEST_CASE("PointCloud")
     cls.push_back(7);
     cls.push_back(8);
 
-    SECTION("Create PointCloud")
+    SECTION("Create vector PointCloud")
     {
         PointCloud pc = CreatePointCloud(pts, cls);
+        REQUIRE(pc.points_size() == 9 * 3);
+        REQUIRE(pc.classification(0) == 0);
+        REQUIRE(pc.classification(5) == 5);
+        REQUIRE(pc.classification(8) == 8);
+    }
+
+    SECTION("Create flat PointCloud")
+    {
+        std::vector<float> flat_points;
+        for (auto &pt : pts)
+        {
+            flat_points.push_back(pt.x());
+            flat_points.push_back(pt.y());
+            flat_points.push_back(pt.z());
+        }
+        PointCloud pc = CreatePointCloud(flat_points, cls);
         REQUIRE(pc.points_size() == 9 * 3);
         REQUIRE(pc.classification(0) == 0);
         REQUIRE(pc.classification(5) == 5);
