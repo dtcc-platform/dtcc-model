@@ -7,17 +7,17 @@ from affine import Affine
 
 @dataclass
 class GridField2D:
-    grid: np.ndarray = field(default_factory=lambda: np.empty((0, 2), dtype=np.float64))
+    grid: np.ndarray = field(default_factory=lambda: np.empty((0, 2), dtype=np.float32))
     transform: Affine = field(default_factory=lambda: Affine.identity())
     crs: str = ""
 
     @property
     def height(self) -> float:
-        return self.grid.shape[1]
+        return self.grid.shape[0]
 
     @property
     def width(self) -> float:
-        return self.grid.shape[0]
+        return self.grid.shape[1]
 
     @property
     def cell_size(self) -> Tuple[float, float]:
@@ -63,7 +63,7 @@ class GridField2D:
             _grid.ParseFromString(proto_grid)
             proto_grid = _grid
         self.grid = np.array(proto_grid.values).reshape(
-            proto_grid.grid.xSize, proto_grid.grid.ySize
+            proto_grid.grid.ySize, proto_grid.grid.xSize
         )
         self.transform = Affine(
             -proto_grid.grid.xStep,
