@@ -87,24 +87,13 @@ message MultiPolygon
 
 //--- Grids and meshes ---
 
-message Grid2D
+message Grid
 {
-  BoundingBox2D boundingBox = 1;
+  BoundingBox2D bounds = 1;
   int32 xSize = 2;
   int32 ySize = 3;
   float xStep = 4;
   float yStep = 5;
-}
-
-message Grid3D
-{
-  BoundingBox3D boundingBox = 1;
-  int32 xSize = 2;
-  int32 ySize = 3;
-  int32 zSize = 4;
-  float xStep = 5;
-  float yStep = 6;
-  float zStep = 7;
 }
 
 message Mesh
@@ -118,32 +107,19 @@ message VolumeMesh
 {
   repeated float vertices = 1;
   repeated float cells = 2;
-  repeated int32 markers = 3;
 }
 
 //--- Fields ---
 
-message GridField2D
+message GridField
 {
-  Grid2D grid = 1;
+  Grid grid = 1;
   repeated float values = 2;
 }
 
-message GridField3D
+message GridVectorField
 {
-  Grid3D grid = 1;
-  repeated float values = 2;
-}
-
-message GridVectorField2D
-{
-  Grid2D grid = 1;
-  repeated float values = 2;
-}
-
-message GridVectorField3D
-{
-  Grid3D grid = 1;
+  Grid grid = 1;
   repeated float values = 2;
 }
 
@@ -176,7 +152,7 @@ message VolumeVectorField
 message PointCloud
 {
   repeated float points = 1;
-  BoundingBox2D bounds =  2;
+  BoundingBox2D bounds = 2;
   repeated uint32 classification = 3;
   repeated uint32 intensity = 4;
   repeated uint32 returnNumber = 5;
@@ -200,7 +176,7 @@ message CityModel
   repeated Building buildings = 1;
   BoundingBox2D bounds = 2;
   Georeference georeference = 3;
-  GridField2D terrain = 4;
+  GridField terrain = 4;
 }
 
 
