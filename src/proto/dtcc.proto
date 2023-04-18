@@ -109,15 +109,15 @@ message Grid3D
 
 message Mesh
 {
-  repeated Vector3D vertices = 1;
-  repeated Vector3D normals = 2;
-  repeated Triangle faces = 3;
+  repeated float vertices = 1;
+  repeated float normals = 2;
+  repeated int32 faces = 3;
 }
 
 message VolumeMesh
 {
-  repeated Vector3D vertices = 1;
-  repeated Tetrahedron cells = 2;
+  repeated float vertices = 1;
+  repeated float cells = 2;
   repeated int32 markers = 3;
 }
 

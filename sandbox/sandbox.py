@@ -11,9 +11,15 @@ t = array([[0, 1, 2]])
 mesh = Mesh(v, n, t)
 proto_mesh = mesh.to_proto()
 mesh.from_proto(proto_mesh)
-
 print(mesh)
 
+v = array([[0, 0, 0], [1, 0, 0], [0, 1, 0], [0, 0, 1]], dtype=float)
+t = array([[0, 1, 2, 3]])
+
+volume_mesh = VolumeMesh(v, t)
+proto_volume_mesh = volume_mesh.to_proto()
+volume_mesh.from_proto(proto_volume_mesh)
+print(volume_mesh)
 
 # print(dir(mesh))
 
