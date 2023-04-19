@@ -46,8 +46,8 @@ class GridField2D:
     def to_proto(self):
         _proto_gridfield = proto.GridField2D()
         _proto_gridfield.values.extend(self.grid.flatten().tolist())
-        _proto_gridfield.grid.xSize = self.grid.shape[0]
-        _proto_gridfield.grid.ySize = self.grid.shape[1]
+        _proto_gridfield.grid.xSize = self.grid.shape[1]
+        _proto_gridfield.grid.ySize = self.grid.shape[0]
         _proto_gridfield.grid.xStep = self.cell_size[0]
         _proto_gridfield.grid.yStep = self.cell_size[1]
         _proto_gridfield.grid.boundingBox.p.x = self.bounds[0]
@@ -66,10 +66,10 @@ class GridField2D:
             proto_grid.grid.ySize, proto_grid.grid.xSize
         )
         self.transform = Affine(
-            -proto_grid.grid.xStep,
+            proto_grid.grid.xStep,
             0.0,
             proto_grid.grid.boundingBox.p.x,
-            proto_grid.grid.yStep,
             0.0,
-            proto_grid.grid.boundingBox.p.y,
+            -proto_grid.grid.yStep,
+            proto_grid.grid.boundingBox.q.y,
         )
