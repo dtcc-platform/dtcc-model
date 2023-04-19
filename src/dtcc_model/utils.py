@@ -1,3 +1,6 @@
+# Copyright(C) 2023 Dag Wästberg
+# Licensed under the MIT License
+
 import shapely.geometry
 from dtcc_model import dtcc_pb2
 

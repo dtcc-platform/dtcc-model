@@ -1,55 +1,41 @@
-from dataclasses import dataclass, field
+# Copyright(C) 2023 Dag Wästberg
+# Licensed under the MIT License
+
 import numpy as np
+from typing import Union
+from dataclasses import dataclass, field
+
+from . import dtcc_pb2 as proto
+from .geometry import Bounds, Georef
+from .gridfields import GridField
 from .building import Building
-from typing import Union, Tuple
-import dtcc_model.dtcc_pb2 as proto
 
 
 @dataclass
 class CityModel:
+    bounds: Bounds = field(default_factory=Bounds)
+    georef: Georef = field(default_factory=Georef)
+    terrain: GridField = field(default_factory=GridField)
     buildings: list[Building] = field(default_factory=list)
-    terrain: np.ndarray = np.empty((0, 2), dtype=np.float64)  # Height grid or Mesh?
-    crs: str = ""
-    origin: Tuple[float, float] = (0, 0)
-    bounds: Tuple[float, float, float, float] = (0, 0, 0, 0)
 
     def __str__(self):
-        return f"CityModel with {len(self.buildings)} buildings"
+        return f'DTCC CityModel on {self.bounds.bndstr} with {len(self.buildings)} building(s)'
 
-    def __len__(self):
-        return len(self.buildings)
+    def add_building(self, building: Building):
+        self.buildings.append(building)
+
+    def from_proto(self, pb: Union[proto.CityModel, bytes]):
+        if isinstance(pb, bytes):
+            pb = proto.CityModel.FromString(pb)
+        self.bounds.from_proto(pb.bounds)
+        self.georef.from_proto(pb.georefer)
+        self.terrain.from_proto(pb.terrain)
+        self.buildings = [Building.from_proto(b) for b in pb.buildings]
 
     def to_proto(self) -> proto.CityModel:
-        proto_citymodel = proto.CityModel()
-        proto_citymodel.buildings.extend([b.to_proto() for b in self.buildings])
-        proto_citymodel.georeference.crs = self.crs
-        proto_citymodel.georeference.x0 = self.origin[0]
-        proto_citymodel.georeference.y0 = self.origin[1]
-        proto_citymodel.bounds.p.x = self.bounds[0]
-        proto_citymodel.bounds.p.y = self.bounds[1]
-        proto_citymodel.bounds.q.x = self.bounds[2]
-        proto_citymodel.bounds.q.y = self.bounds[3]
-        return proto_citymodel
-
-    def from_proto(self, proto_citymodel: Union[proto.CityModel, bytes]):
-        if isinstance(proto_citymodel, bytes):
-            _citymodel = proto.CityModel()
-            _citymodel.ParseFromString(proto_citymodel)
-            proto_citymodel = _citymodel
-        buildings = []
-        for b in proto_citymodel.buildings:
-            bld = Building()
-            bld.from_proto(b)
-            buildings.append(bld)
-
-        self.buildings = buildings
-
-        if proto_citymodel.georeference.crs:
-            self.crs = proto_citymodel.georeference.crs
-        self.origin = (proto_citymodel.georeference.x0, proto_citymodel.georeference.y0)
-        self.bounds = (
-            proto_citymodel.bounds.p.x,
-            proto_citymodel.bounds.p.y,
-            proto_citymodel.bounds.q.x,
-            proto_citymodel.bounds.q.y,
-        )
+        pb = proto.CityModel()
+        pb.bounds.CopyFrom(self.bounds.to_proto())
+        pb.georef.CopyFrom(self.georef.to_proto())
+        pb.terrain.CopyFrom(self.terrain.to_proto())
+        pb.buildings.extend(self.buildings)
+        return pb

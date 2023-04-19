@@ -7,7 +7,7 @@ option optimize_for = LITE_RUNTIME;
 
 package DTCC;
 
-//--- Geometry ---
+//--- FIXME: Classes to reconsider ---
 
 message Vector2D
 {
@@ -20,33 +20,6 @@ message Vector3D
   float x = 1;
   float y = 2;
   float z = 3;
-}
-
-message Triangle
-{
-  int32 v0 = 1;
-  int32 v1 = 2;
-  int32 v2 = 3;
-}
-
-message Tetrahedron
-{
-  int32 v0 = 1;
-  int32 v1 = 2;
-  int32 v2 = 3;
-  int32 v3 = 4;
-}
-
-message BoundingBox2D
-{
-  Vector2D p = 1;
-  Vector2D q = 2;
-}
-
-message BoundingBox3D
-{
-  Vector3D p = 1;
-  Vector3D q = 2;
 }
 
 message MultiPoint
@@ -85,16 +58,50 @@ message MultiPolygon
   repeated Polygon polygons = 1;
 }
 
-//--- Grids and meshes ---
+//--- Geometry --
+
+message Bounds
+{
+  float xmin = 1;
+  float xmax = 2;
+  float ymin = 3;
+  float ymax = 4;
+}
+
+message Georef
+{
+  string crs = 1;
+  int32 epsg = 2;
+  float x0 = 3;
+  float y0 = 4;
+}
+
+//--- Point cloud ---
+
+
+message PointCloud
+{
+  Bounds bounds = 1;  
+  Georef georef = 2;  
+  repeated float points = 3;
+  repeated uint32 classification = 4;
+  repeated uint32 intensity = 5;
+  repeated uint32 return_number = 6;
+  repeated uint32 num_returns = 7;
+} 
+
+//--- Grids ---
 
 message Grid
 {
-  BoundingBox2D bounds = 1;
-  int32 xSize = 2;
-  int32 ySize = 3;
-  float xStep = 4;
-  float yStep = 5;
+  Bounds bounds = 1;
+  int32 width = 2;
+  int32 height = 3;
+  float xstep = 4;
+  float ystep = 5;
 }
+
+//--- Meshes ---
 
 message Mesh
 {
@@ -109,7 +116,7 @@ message VolumeMesh
   repeated float cells = 2;
 }
 
-//--- Fields ---
+//--- Grid fields ---
 
 message GridField
 {
@@ -122,6 +129,8 @@ message GridVectorField
   Grid grid = 1;
   repeated float values = 2;
 }
+
+//--- Mesh fields ---
 
 message MeshField
 {
@@ -141,7 +150,7 @@ message VolumeMeshField
   repeated float values = 2;
 }
 
-message VolumeVectorField
+message VolumeMeshVectorField
 {
   VolumeMesh mesh = 1;
   repeated float values = 2;
@@ -149,43 +158,23 @@ message VolumeVectorField
 
 //--- City model ---
 
-message PointCloud
-{
-  repeated float points = 1;
-  BoundingBox2D bounds = 2;
-  repeated uint32 classification = 3;
-  repeated uint32 intensity = 4;
-  repeated uint32 returnNumber = 5;
-  repeated uint32 numReturns = 6;
-  repeated uint32 usedClassifications = 7;
-  Georeference georeference = 8;
-}
-
+// FIXME: Can it be simplified?
+// FIXME: Change from camelCase to snake_case?
+// FIXME: Roof points not needed?
 message Building
 {
   string uuid = 1;
   Polygon footPrint = 2;
-  double height = 3;
-  double groundHeight = 4;
+  float height = 3;
+  float groundHeight = 4;
   PointCloud roofpoints = 5;
   uint64 error = 6;
 }
 
 message CityModel
 {
-  repeated Building buildings = 1;
-  BoundingBox2D bounds = 2;
-  Georeference georeference = 3;
-  GridField terrain = 4;
-}
-
-
-//--- Georeference ---
-
-message Georeference
-{
-  string crs = 1;
-  int32 epsg = 2;
-  double x0 = 3;
-  double y0 = 4;
+  Bounds bounds = 1;  
+  Georef georef = 2;
+  GridField terrain = 3;  
+  repeated Building buildings = 4;
 }

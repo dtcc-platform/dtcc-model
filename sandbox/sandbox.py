@@ -8,6 +8,8 @@ v = array([[0, 0, 0], [1, 0, 0], [0, 1, 0]], dtype=float)
 n = array([[0, 0, 1]], dtype=float)
 t = array([[0, 1, 2]])
 
+mesh = Mesh()
+
 mesh = Mesh(v, n, t)
 proto_mesh = mesh.to_proto()
 mesh.from_proto(proto_mesh)
@@ -20,6 +22,13 @@ volume_mesh = VolumeMesh(v, t)
 proto_volume_mesh = volume_mesh.to_proto()
 volume_mesh.from_proto(proto_volume_mesh)
 print(volume_mesh)
+
+building = Building()
+city_model = CityModel()
+city_model.add_building(building)
+print(building)
+print(city_model)
+
 
 # print(dir(mesh))
 
