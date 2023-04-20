@@ -7,6 +7,7 @@ from typing import Union
 from dataclasses import dataclass, field
 
 from . import dtcc_pb2 as proto
+from .pointcloud import PointCloud
 from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
 
@@ -16,8 +17,7 @@ class Building:
     footprint: Polygon = Polygon()
     height: float = 0
     ground_level: float = 0
-    roofpoints: np.ndarray = np.empty(
-        (0, 3), dtype=np.float64)  # or Pointcloud?
+    roofpoints: PointCloud = field(default_factory=PointCloud)
     crs: str = ''
     error: int = 0
     attributes: dict = field(default_factory=dict)
