@@ -188,7 +188,7 @@ message Raster
   int32 channels = 3;
   repeated float values = 4;
   float nodata = 5;
-  str dtype = 6;
+  string dtype = 6;
   AffineTransform transform = 7;
 }
 
