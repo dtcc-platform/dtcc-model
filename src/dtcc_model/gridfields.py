@@ -12,10 +12,10 @@ from .grid import Grid
 @dataclass
 class GridField:
     grid: Grid = field(default_factory=Grid)
-    values: np.ndarray = field(default_factory=lambda: np.empty(()))
+    values: np.ndarray = field(default_factory=lambda: np.empty((0)))
 
     def __str__(self):
-        return f'DTCC GridField on {self.grid.bounds.bndstr} with {len(self.values)} values'
+        return f"DTCC GridField on {self.grid.bounds.bndstr} with {len(self.values)} values"
 
     # FIXME: Implement evalution operator as in dtcc-builder C++ class
     # def get_value(self, x: float, y: float) -> float:
@@ -33,13 +33,13 @@ class GridField:
         return pb
 
 
-@ dataclass
+@dataclass
 class GridVectorField:
     grid: Grid = field(default_factory=Grid)
     values: np.ndarray = field(default_factory=lambda: np.empty(()))
 
     def __str__(self):
-        return f'DTCC GridVectorField on {self.grid.bounds.bndstr} with {len(self.values)} values'
+        return f"DTCC GridVectorField on {self.grid.bounds.bndstr} with {len(self.values)} values"
 
     def from_proto(self, pb: Union[proto.GridVectorField, bytes]):
         if isinstance(pb, bytes):
