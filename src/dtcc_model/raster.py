@@ -16,6 +16,7 @@ class Raster:
     data: np.ndarray = field(default_factory=lambda: np.empty(()))
     georef: Affine = field(default_factory=Affine.identity)
     nodata: float = np.nan
+    crs: str = ""
 
     def __str__(self):
         return f"DTCC Raster with {self.data.shape} values"
@@ -38,6 +39,10 @@ class Raster:
             return 1
         else:
             return self.data.shape[2]
+
+    @property
+    def cell_size(self):
+        return (self.georef.a, self.georef.e)
 
     def to_proto(self) -> proto.Raster:
         pb = proto.Raster()
