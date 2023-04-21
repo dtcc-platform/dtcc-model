@@ -8,11 +8,11 @@ data_dir = (Path(__file__).parent / ".." / "data").resolve()
 class TestBuilding(unittest.TestCase):
     def test_empty(self):
         b = Building()
-        self.assertEqual(b.uuid, "")
+        self.assertEqual(b.uuid, "NONE")
         self.assertEqual(b.footprint.area, 0)
         self.assertEqual(b.height, 0)
         self.assertEqual(b.ground_level, 0)
-        self.assertEqual(b.roofpoints.shape[1], 3)
+        self.assertEqual(len(b.roofpoints), 0)
         self.assertEqual(b.crs, "")
         self.assertEqual(b.error, 0)
         self.assertEqual(b.attributes, {})

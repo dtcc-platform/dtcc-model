@@ -16,11 +16,11 @@ class Bounds:
     ymax: float = 0.0
 
     def __str__(self):
-        return f'DTCC Bounds {self.bndstr}'
+        return f"DTCC Bounds {self.bndstr}"
 
     @property
     def bndstr(self) -> str:
-        return f'[{self.xmin}, {self.xmax}] x [{self.ymin}, {self.ymax}]'
+        return f"[{self.xmin}, {self.xmax}] x [{self.ymin}, {self.ymax}]"
 
     @property
     def width(self) -> float:
@@ -29,6 +29,10 @@ class Bounds:
     @property
     def height(self) -> float:
         return self.ymax - self.ymin
+
+    @property
+    def tuple(self) -> tuple:
+        return (self.xmin, self.ymin, self.xmax, self.ymax)
 
     def from_proto(self, pb: Union[proto.Bounds, bytes]):
         if isinstance(pb, bytes):
@@ -49,13 +53,15 @@ class Bounds:
 
 @dataclass
 class Georef:
-    crs: str = ''
+    crs: str = ""
     epsg: int = 0
     x0: float = 0.0
     y0: float = 0.0
 
     def __str__(self):
-        return f'DTCC Georef {self.crs} ({self.epsg}) with origin ({self.x0}, {self.y0})'
+        return (
+            f"DTCC Georef {self.crs} ({self.epsg}) with origin ({self.x0}, {self.y0})"
+        )
 
     def from_proto(self, pb: Union[proto.Georef, bytes]):
         if isinstance(pb, bytes):

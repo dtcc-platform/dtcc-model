@@ -13,17 +13,17 @@ from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
 @dataclass
 class Building:
-    uuid: str = 'NONE'
+    uuid: str = "NONE"
     footprint: Polygon = Polygon()
     height: float = 0
     ground_level: float = 0
     roofpoints: PointCloud = field(default_factory=PointCloud)
-    crs: str = ''
+    crs: str = ""
     error: int = 0
     attributes: dict = field(default_factory=dict)
 
     def __str__(self):
-        return f'DTCC Building {self.uuid} with {self.footprint.area} m² footprint'
+        return f"DTCC Building {self.uuid} with {self.footprint.area} m² footprint"
 
     def area(self):
         return self.footprint.area
@@ -36,9 +36,7 @@ class Building:
         self.height = pb.height
         self.ground_level = pb.groundHeight
         self.error = pb.error
-        self.roofpoints = np.array(
-            [[v.x, v.y, v.z] for v in proto_building.roofpoints.points]
-        )
+        self.roofpoints = np.array([[v.x, v.y, v.z] for v in pb.roofpoints.points])
 
     def to_proto(self) -> proto.Building:
         pb = proto.Building()

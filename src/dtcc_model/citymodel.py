@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 
 from . import dtcc_pb2 as proto
 from .geometry import Bounds, Georef
+from .raster import Raster
 from .gridfields import GridField
 from .building import Building
 
@@ -15,11 +16,11 @@ from .building import Building
 class CityModel:
     bounds: Bounds = field(default_factory=Bounds)
     georef: Georef = field(default_factory=Georef)
-    terrain: GridField = field(default_factory=GridField)
+    terrain: Raster = field(default_factory=Raster)
     buildings: list[Building] = field(default_factory=list)
 
     def __str__(self):
-        return f'DTCC CityModel on {self.bounds.bndstr} with {len(self.buildings)} building(s)'
+        return f"DTCC CityModel on {self.bounds.bndstr} with {len(self.buildings)} building(s)"
 
     def add_building(self, building: Building):
         self.buildings.append(building)
