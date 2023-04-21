@@ -12,7 +12,7 @@ from .grid import Grid
 @dataclass
 class GridField:
     grid: Grid = field(default_factory=Grid)
-    values: np.ndarray = field(default_factory=lambda: np.empty((0)))
+    values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
         return f"DTCC GridField on {self.grid.bounds.bndstr} with {len(self.values)} values"
@@ -36,7 +36,7 @@ class GridField:
 @dataclass
 class GridVectorField:
     grid: Grid = field(default_factory=Grid)
-    values: np.ndarray = field(default_factory=lambda: np.empty(()))
+    values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
         return f"DTCC GridVectorField on {self.grid.bounds.bndstr} with {len(self.values)} values"

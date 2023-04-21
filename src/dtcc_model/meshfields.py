@@ -12,7 +12,7 @@ from .meshes import Mesh, VolumeMesh
 @dataclass
 class MeshField:
     mesh: Mesh = field(default_factory=Mesh)
-    values: np.ndarray = field(default_factory=lambda: np.empty(()))
+    values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
         return f'DTCC MeshField with {len(self.values)} values'
@@ -33,7 +33,7 @@ class MeshField:
 @dataclass
 class MeshVectorField:
     mesh: Mesh = field(default_factory=Mesh)
-    values: np.ndarray = field(default_factory=lambda: np.empty(()))
+    values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
         return f'DTCC MeshVectorField with {len(self.values)} values'
@@ -54,7 +54,7 @@ class MeshVectorField:
 @dataclass
 class VolumeMeshField:
     mesh: Mesh = field(default_factory=Mesh)
-    values: np.ndarray = field(default_factory=lambda: np.empty(()))
+    values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
         return f'DTCC VolumeMeshField with {len(self.values)} values'
@@ -75,7 +75,7 @@ class VolumeMeshField:
 @dataclass
 class VolumeMeshVectorField:
     mesh: Mesh = field(default_factory=Mesh)
-    values: np.ndarray = field(default_factory=lambda: np.empty(()))
+    values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
         return f'DTCC VolumeMeshVectorField with {len(self.values)} values'

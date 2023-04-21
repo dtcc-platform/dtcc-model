@@ -10,9 +10,9 @@ from . import dtcc_pb2 as proto
 
 @dataclass
 class Mesh:
-    vertices: np.ndarray = field(default_factory=lambda: np.empty(()))
-    normals: np.ndarray = field(default_factory=lambda: np.empty(()))
-    faces: np.ndarray = field(default_factory=lambda: np.empty(()))
+    vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
+    normals: np.ndarray = field(default_factory=lambda: np.empty(0))
+    faces: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
         return f'DTCC Mesh with {len(self.vertices)} vertices, {len(self.normals)} normal(s), and {len(self.faces)} face(s)'
@@ -46,8 +46,8 @@ class Mesh:
 
 @dataclass
 class VolumeMesh:
-    vertices: np.ndarray = field(default_factory=lambda: np.empty(()))
-    cells: np.ndarray = field(default_factory=lambda: np.empty(()))
+    vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
+    cells: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
         return f'DTCC VolumeMesh with {len(self.vertices)} vertices and {len(self.cells)} cell(s)'
