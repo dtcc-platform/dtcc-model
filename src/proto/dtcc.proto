@@ -178,3 +178,26 @@ message CityModel
   GridField terrain = 3;  
   repeated Building buildings = 4;
 }
+
+//--- Raster ---
+
+message Raster
+{
+  int32 width = 1;
+  int32 height = 2;
+  int32 channels = 3;
+  repeated float values = 4;
+  float nodata = 5;
+  str dtype = 6;
+  AffineTransform transform = 7;
+}
+
+message AffineTransform
+{
+  float a = 1;
+  float b = 2;
+  float c = 3;
+  float d = 4;
+  float e = 5;
+  float f = 6;
+}
