@@ -18,9 +18,14 @@ class CityModel:
     georef: Georef = field(default_factory=Georef)
     terrain: Raster = field(default_factory=Raster)
     buildings: list[Building] = field(default_factory=list)
+    bounds: Bounds = field(default_factory=Bounds)
 
     def __str__(self):
         return f"DTCC CityModel on {self.bounds.bndstr} with {len(self.buildings)} building(s)"
+
+    @property
+    def origin(self):
+        return (self.bounds.xmin, self.bounds.ymin)
 
     def add_building(self, building: Building):
         self.buildings.append(building)

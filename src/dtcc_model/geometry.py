@@ -11,8 +11,8 @@ from . import dtcc_pb2 as proto
 @dataclass
 class Bounds:
     xmin: float = 0.0
-    xmax: float = 0.0
     ymin: float = 0.0
+    xmax: float = 0.0
     ymax: float = 0.0
 
     def __str__(self):

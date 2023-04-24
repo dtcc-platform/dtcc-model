@@ -11,7 +11,10 @@ from . import dtcc_pb2 as proto
 
 @dataclass
 class Raster:
-    """A georeferenced n-dimensional raster of values"""
+    """A georeferenced n-dimensional raster of values.
+    data is a numpy array of shape (height, width, channels) or (height, width)
+    if channels is 1.
+    """
 
     data: np.ndarray = field(default_factory=lambda: np.empty(()))
     georef: Affine = field(default_factory=Affine.identity)
@@ -41,8 +44,22 @@ class Raster:
             return self.data.shape[2]
 
     @property
+    def bounds(self):
+        return (
+            self.georef.c,
+            self.georef.f,
+            self.georef.c + self.georef.a * self.width,
+            self.georef.f + self.georef.e * self.height,
+        )
+
+    @property
     def cell_size(self):
         return (self.georef.a, self.georef.e)
+
+    def get_value(self, x: float, y: float):
+        """Get the value at the given coordinate"""
+        col, row = self.georef * (x, y)
+        return self.data[int(row), int(col)]
 
     def to_proto(self) -> proto.Raster:
         pb = proto.Raster()

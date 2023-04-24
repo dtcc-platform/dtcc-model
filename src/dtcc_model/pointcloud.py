@@ -42,8 +42,8 @@ class PointCloud:
             self.intensity = np.delete(self.intensity, indices, axis=0)
         if len(self.return_number) > 0:
             self.return_number = np.delete(self.return_number, indices, axis=0)
-        if len(self.num_of_returns) > 0:
-            self.num_of_returns = np.delete(self.num_of_returns, indices, axis=0)
+        if len(self.num_returns) > 0:
+            self.num_returns = np.delete(self.num_returns, indices, axis=0)
 
     def from_proto(self, pb: Union[proto.PointCloud, bytes]):
         if isinstance(pb, bytes):
