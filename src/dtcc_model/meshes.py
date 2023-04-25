@@ -15,7 +15,7 @@ class Mesh:
     faces: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        return f'DTCC Mesh with {len(self.vertices)} vertices, {len(self.normals)} normal(s), and {len(self.faces)} face(s)'
+        return f"DTCC Mesh with {len(self.vertices)} vertices, {len(self.normals)} normal(s), and {len(self.faces)} face(s)"
 
     @property
     def num_vertices(self) -> int:
@@ -48,15 +48,16 @@ class Mesh:
 class VolumeMesh:
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     cells: np.ndarray = field(default_factory=lambda: np.empty(0))
+    markers: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        return f'DTCC VolumeMesh with {len(self.vertices)} vertices and {len(self.cells)} cell(s)'
+        return f"DTCC VolumeMesh with {len(self.vertices)} vertices and {len(self.cells)} cell(s)"
 
-    @ property
+    @property
     def num_vertices(self) -> int:
         return len(self.vertices)
 
-    @ property
+    @property
     def num_cells(self) -> int:
         return len(self.cells)
 
