@@ -47,9 +47,9 @@ class Raster:
     def bounds(self):
         return (
             self.georef.c,
+            self.georef.f + self.georef.e * self.width,
+            self.georef.c + self.georef.a * self.height,
             self.georef.f,
-            self.georef.c + self.georef.a * self.width,
-            self.georef.f + self.georef.e * self.height,
         )
 
     @property

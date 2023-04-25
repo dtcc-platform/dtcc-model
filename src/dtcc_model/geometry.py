@@ -31,6 +31,22 @@ class Bounds:
         return self.ymax - self.ymin
 
     @property
+    def north(self) -> float:
+        return self.ymax
+
+    @property
+    def south(self) -> float:
+        return self.ymin
+
+    @property
+    def east(self) -> float:
+        return self.xmax
+
+    @property
+    def west(self) -> float:
+        return self.xmin
+
+    @property
     def tuple(self) -> tuple:
         return (self.xmin, self.ymin, self.xmax, self.ymax)
 
