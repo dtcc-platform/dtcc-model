@@ -5,6 +5,7 @@ import numpy as np
 from typing import Union
 from dataclasses import dataclass, field
 from affine import Affine
+from dtcc_model.geometry import Bounds
 
 from . import dtcc_pb2 as proto
 
@@ -45,11 +46,11 @@ class Raster:
 
     @property
     def bounds(self):
-        return (
-            self.georef.c,
-            self.georef.f + self.georef.e * self.width,
-            self.georef.c + self.georef.a * self.height,
-            self.georef.f,
+        return Bounds(
+            xmin=self.georef.c,
+            ymin=self.georef.f + self.georef.e * self.width,
+            xmax=self.georef.c + self.georef.a * self.height,
+            ymax=self.georef.f,
         )
 
     @property
@@ -58,8 +59,17 @@ class Raster:
 
     def get_value(self, x: float, y: float):
         """Get the value at the given coordinate"""
-        col, row = self.georef * (x, y)
-        return self.data[int(row), int(col)]
+        col, row = ~self.georef * (x, y)
+        try:
+            data = self.data[int(col), int(row)]
+        except IndexError:
+            print(f"IndexError in get_value at ({x}, {y})")
+            print(f"col: {col}, row: {row}")
+            print(f"georef: {self.georef}")
+            print(f"shape: {self.data.shape}")
+            raise
+            # data = self.nodata
+        return data
 
     def to_proto(self) -> proto.Raster:
         pb = proto.Raster()
