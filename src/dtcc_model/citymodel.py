@@ -2,7 +2,7 @@
 # Licensed under the MIT License
 
 import numpy as np
-from typing import Union
+from typing import Union, List
 from dataclasses import dataclass, field
 
 from . import dtcc_pb2 as proto
@@ -17,7 +17,7 @@ class CityModel:
     bounds: Bounds = field(default_factory=Bounds)
     georef: Georef = field(default_factory=Georef)
     terrain: Raster = field(default_factory=Raster)
-    buildings: list[Building] = field(default_factory=list)
+    buildings: List[Building] = field(default_factory=list)
     bounds: Bounds = field(default_factory=Bounds)
 
     def __str__(self):
