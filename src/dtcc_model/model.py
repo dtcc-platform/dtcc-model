@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import ClassVar
 from inspect import getmembers, isfunction, ismethod, ismodule
 import logging
@@ -7,8 +7,6 @@ import logging
 
 @dataclass
 class DTCCModel(ABC):
-    _processors: ClassVar[list] = []
-
     @abstractmethod
     def to_proto(self):
         pass
@@ -19,24 +17,19 @@ class DTCCModel(ABC):
 
     @classmethod
     def add_processors(cls, module, name=None):
+        # print(f"called with args {cls} and {module} and {name}")
+
+        # hack needed create a class variable for each subclass
+        if not hasattr(cls, "_processors"):
+            cls._processors = []
+
         if isfunction(module):
-            if name is None:
-                name = module.__name__
-            cls._processors.append((name, module.__module__, module.__doc__))
-            setattr(cls, name, module)
+            _add_proc_fn(cls, module, name)
         elif ismodule(module):
             for fn_name, fn in getmembers(module, isfunction):
                 # print(fn_name)
                 if not fn_name.startswith("_"):
-                    for idx, (name, _, _) in enumerate(cls._processors):
-                        if name == fn_name:
-                            logging.warn(
-                                f"Processor {fn_name} already exists, replacing it."
-                            )
-                            cls._processors.pop(idx)
-                            break
-                    cls._processors.append((fn_name, {fn.__module__}, fn.__doc__))
-                    setattr(cls, fn_name, fn)
+                    _add_proc_fn(cls, fn, fn_name)
 
     @classmethod
     def print_processors(cls, verbose=False):
@@ -45,3 +38,18 @@ class DTCCModel(ABC):
             print(f" - {name}: from {parent_module}")
             if verbose:
                 print(f"   - {doc}")
+
+
+def _add_proc_fn(cls, fn, name=None):
+    if not hasattr(cls, "_processors"):
+        cls._processors = []
+    print(f"called with args {cls} and {fn} and {name}")
+    if name is None:
+        name = fn.__name__
+    for idx, (fn_name, _, _) in enumerate(cls._processors):
+        if fn_name == name:
+            logging.warn(f"{fn} Processor {fn_name} already exists, replacing it.")
+            cls._processors.pop(idx)
+            break
+    cls._processors.append((name, fn.__module__, fn.__doc__))
+    setattr(cls, name, fn)
