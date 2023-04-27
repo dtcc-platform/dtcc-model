@@ -37,13 +37,11 @@ class DTCCModel(ABC):
         for name, parent_module, doc in cls._processors:
             print(f" - {name}: from {parent_module}")
             if verbose:
-                print(f"   - {doc}")
+                print(f"   * {doc}")
 
 
 def _add_proc_fn(cls, fn, name=None):
-    if not hasattr(cls, "_processors"):
-        cls._processors = []
-    print(f"called with args {cls} and {fn} and {name}")
+    # print(f"called with args {cls} and {fn} and {name}")
     if name is None:
         name = fn.__name__
     for idx, (fn_name, _, _) in enumerate(cls._processors):
