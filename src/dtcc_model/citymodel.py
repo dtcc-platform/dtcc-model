@@ -4,7 +4,9 @@
 import numpy as np
 from typing import Union, List
 from dataclasses import dataclass, field
+from inspect import getmembers, isfunction, ismethod
 
+from .model import DTCCModel
 from . import dtcc_pb2 as proto
 from .geometry import Bounds, Georef
 from .raster import Raster
@@ -13,7 +15,7 @@ from .building import Building
 
 
 @dataclass
-class CityModel:
+class CityModel(DTCCModel):
     bounds: Bounds = field(default_factory=Bounds)
     georef: Georef = field(default_factory=Georef)
     terrain: Raster = field(default_factory=Raster)

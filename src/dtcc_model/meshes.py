@@ -4,12 +4,14 @@
 import numpy as np
 from typing import Union
 from dataclasses import dataclass, field
+from inspect import getmembers, isfunction, ismethod
 
+from .model import DTCCModel
 from . import dtcc_pb2 as proto
 
 
 @dataclass
-class Mesh:
+class Mesh(DTCCModel):
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     normals: np.ndarray = field(default_factory=lambda: np.empty(0))
     faces: np.ndarray = field(default_factory=lambda: np.empty(0))
@@ -46,7 +48,7 @@ class Mesh:
 
 
 @dataclass
-class VolumeMesh:
+class VolumeMesh(DTCCModel):
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     cells: np.ndarray = field(default_factory=lambda: np.empty(0))
     markers: np.ndarray = field(default_factory=lambda: np.empty(0))

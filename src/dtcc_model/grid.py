@@ -4,13 +4,15 @@
 import numpy as np
 from typing import Union
 from dataclasses import dataclass, field
+from inspect import getmembers, isfunction, ismethod
 
+from .model import DTCCModel
 from . import dtcc_pb2 as proto
 from .geometry import Bounds
 
 
 @dataclass
-class Grid:
+class Grid(DTCCModel):
     bounds: Bounds = field(default_factory=Bounds)
     width: int = 0
     height: int = 0
@@ -18,7 +20,9 @@ class Grid:
     ystep: float = 0.0
 
     def __str__(self):
-        return f'DTCC Grid on {self.bounds.bndstr} with {self.width} x {self.height} cells'
+        return (
+            f"DTCC Grid on {self.bounds.bndstr} with {self.width} x {self.height} cells"
+        )
 
     @property
     def num_vertices(self) -> int:

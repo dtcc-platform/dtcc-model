@@ -4,13 +4,15 @@
 import numpy as np
 from typing import Union
 from dataclasses import dataclass, field
+from inspect import getmembers, isfunction, ismethod
 
+from .model import DTCCModel
 from . import dtcc_pb2 as proto
 from .grid import Grid
 
 
 @dataclass
-class GridField:
+class GridField(DTCCModel):
     grid: Grid = field(default_factory=Grid)
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
@@ -34,7 +36,7 @@ class GridField:
 
 
 @dataclass
-class GridVectorField:
+class GridVectorField(DTCCModel):
     grid: Grid = field(default_factory=Grid)
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
 

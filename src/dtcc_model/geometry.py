@@ -4,12 +4,14 @@
 import numpy as np
 from typing import Union
 from dataclasses import dataclass
+from inspect import getmembers, isfunction, ismethod
 
+from .model import DTCCModel
 from . import dtcc_pb2 as proto
 
 
 @dataclass
-class Bounds:
+class Bounds(DTCCModel):
     xmin: float = 0.0
     ymin: float = 0.0
     xmax: float = 0.0
@@ -68,7 +70,7 @@ class Bounds:
 
 
 @dataclass
-class Georef:
+class Georef(DTCCModel):
     crs: str = ""
     epsg: int = 0
     x0: float = 0.0

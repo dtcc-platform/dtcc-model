@@ -4,18 +4,20 @@
 import numpy as np
 from typing import Union
 from dataclasses import dataclass, field
+from inspect import getmembers, isfunction, ismethod
 
+from .model import DTCCModel
 from . import dtcc_pb2 as proto
 from .meshes import Mesh, VolumeMesh
 
 
 @dataclass
-class MeshField:
+class MeshField(DTCCModel):
     mesh: Mesh = field(default_factory=Mesh)
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        return f'DTCC MeshField with {len(self.values)} values'
+        return f"DTCC MeshField with {len(self.values)} values"
 
     def from_proto(self, pb: Union[proto.MeshField, bytes]):
         if isinstance(pb, bytes):
@@ -36,7 +38,7 @@ class MeshVectorField:
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        return f'DTCC MeshVectorField with {len(self.values)} values'
+        return f"DTCC MeshVectorField with {len(self.values)} values"
 
     def from_proto(self, pb: Union[proto.MeshVectorField, bytes]):
         if isinstance(pb, bytes):
@@ -52,12 +54,12 @@ class MeshVectorField:
 
 
 @dataclass
-class VolumeMeshField:
+class VolumeMeshField(DTCCModel):
     mesh: Mesh = field(default_factory=Mesh)
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        return f'DTCC VolumeMeshField with {len(self.values)} values'
+        return f"DTCC VolumeMeshField with {len(self.values)} values"
 
     def from_proto(self, pb: Union[proto.VolumeMeshField, bytes]):
         if isinstance(pb, bytes):
@@ -73,12 +75,12 @@ class VolumeMeshField:
 
 
 @dataclass
-class VolumeMeshVectorField:
+class VolumeMeshVectorField(DTCCModel):
     mesh: Mesh = field(default_factory=Mesh)
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        return f'DTCC VolumeMeshVectorField with {len(self.values)} values'
+        return f"DTCC VolumeMeshVectorField with {len(self.values)} values"
 
     def from_proto(self, pb: Union[proto.VolumeMeshVectorField, bytes]):
         if isinstance(pb, bytes):

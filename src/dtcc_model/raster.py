@@ -6,12 +6,14 @@ from typing import Union
 from dataclasses import dataclass, field
 from affine import Affine
 from dtcc_model.geometry import Bounds
+from inspect import getmembers, isfunction, ismethod
 
+from .model import DTCCModel
 from . import dtcc_pb2 as proto
 
 
 @dataclass
-class Raster:
+class Raster(DTCCModel):
     """A georeferenced n-dimensional raster of values.
     data is a numpy array of shape (height, width, channels) or (height, width)
     if channels is 1.

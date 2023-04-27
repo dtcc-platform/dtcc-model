@@ -5,14 +5,16 @@ import numpy as np
 from shapely.geometry import Polygon
 from typing import Union
 from dataclasses import dataclass, field
+from inspect import getmembers, isfunction, ismethod
 
+from .model import DTCCModel
 from . import dtcc_pb2 as proto
 from .pointcloud import PointCloud
 from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
 
 @dataclass
-class Building:
+class Building(DTCCModel):
     uuid: str = "NONE"
     footprint: Polygon = Polygon()
     height: float = 0
@@ -49,3 +51,19 @@ class Building:
             [proto.Vector3D(x=p[0], y=p[1], z=p[2]) for p in self.roofpoints]
         )
         return pb
+
+    @classmethod
+    def add_processors(cls, module):
+        for fn_name, fn in getmembers(module, isfunction):
+            print(fn_name)
+            if not fn_name.startswith("_"):
+                setattr(cls, fn_name, fn)
+
+    @classmethod
+    def show_processors(cls, verbose=False):
+        print(f"Processors for {cls.__name__}:")
+        for fn_name, fn in getmembers(cls, isfunction):
+            if not fn_name.startswith("_"):
+                print(f" - {fn_name}: from {fn.__module__}.{fn.__qualname__}")
+                if verbose:
+                    print(f"   {fn.__doc__}")

@@ -2,15 +2,17 @@
 # Licensed under the MIT License
 
 import numpy as np
-from typing import Union
+from typing import Union, ClassVar
 from dataclasses import dataclass, field
 
+
 from . import dtcc_pb2 as proto
+from .model import DTCCModel
 from .geometry import Bounds, Georef
 
 
 @dataclass
-class PointCloud:
+class PointCloud(DTCCModel):
     bounds: Bounds = field(default_factory=Bounds)
     georef: Georef = field(default_factory=Georef)
     points: np.ndarray = field(default_factory=lambda: np.empty(0))
