@@ -3,7 +3,7 @@
 
 import numpy as np
 from shapely.geometry import Polygon
-from typing import Union
+from typing import Any, Union
 from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 
@@ -22,7 +22,7 @@ class Building(DTCCModel):
     roofpoints: PointCloud = field(default_factory=PointCloud)
     crs: str = ""
     error: int = 0
-    attributes: dict = field(default_factory=dict)
+    properties: dict = field(default_factory=dict)
 
     def __str__(self):
         return f"DTCC Building {self.uuid} with {self.footprint.area} m² footprint"
@@ -52,18 +52,33 @@ class Building(DTCCModel):
         )
         return pb
 
-    @classmethod
-    def add_processors(cls, module):
-        for fn_name, fn in getmembers(module, isfunction):
-            print(fn_name)
-            if not fn_name.startswith("_"):
-                setattr(cls, fn_name, fn)
+    def __getitem__(self, key: str) -> Any:
+        #handle special properties
+        if key == "height":
+            return self.height
+        elif key == "ground_level":
+            return self.ground_level
+        elif key == "uuid":
+            return self.uuid
+        elif key == "error":
+            return self.error
+        # handle generic properties
+        elif key in self.properties:
+            return self.properties[key]
+        else:
+            raise KeyError(f"Property {key} not found")
 
-    @classmethod
-    def show_processors(cls, verbose=False):
-        print(f"Processors for {cls.__name__}:")
-        for fn_name, fn in getmembers(cls, isfunction):
-            if not fn_name.startswith("_"):
-                print(f" - {fn_name}: from {fn.__module__}.{fn.__qualname__}")
-                if verbose:
-                    print(f"   {fn.__doc__}")
+    def __setitem__(self,key:str,value:Any):
+        #handle special properties
+        if key == "height":
+            self.height = value
+        elif key == "ground_level":
+            self.ground_level = value
+        elif key == "uuid":
+            self.uuid = value
+        elif key == "error":
+            self.error = value
+        # handle generic properties
+        else:
+            self.properties[key] = value
+
