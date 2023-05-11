@@ -17,7 +17,7 @@ class LanduseClasses(Enum):
     GRASS = auto()
     FOREST = auto()
     FARMLAND = auto()
-    BUILTUP = auto()
+    URBAN = auto()
     INDUSTRIAL = auto()
     MILITARY = auto()
     ROAD = auto()
@@ -27,7 +27,7 @@ class LanduseClasses(Enum):
 @dataclass
 class Landuse(DTCCModel):
     footprint: Polygon = field(default_factory=Polygon)
-    landuse: LanduseClasses = LanduseClasses.GRASS
+    landuse: LanduseClasses = LanduseClasses.URBAN
     properties: dict = field(default_factory=dict)
 
     def __str__(self) -> str:
