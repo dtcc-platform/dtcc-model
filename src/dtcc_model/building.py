@@ -5,7 +5,6 @@ import numpy as np
 from shapely.geometry import Polygon
 from typing import Any, Union
 from dataclasses import dataclass, field
-from inspect import getmembers, isfunction, ismethod
 
 from .model import DTCCModel
 from . import dtcc_pb2 as proto
@@ -53,7 +52,7 @@ class Building(DTCCModel):
         return pb
 
     def __getitem__(self, key: str) -> Any:
-        #handle special properties
+        # handle special properties
         if key == "height":
             return self.height
         elif key == "ground_level":
@@ -68,8 +67,8 @@ class Building(DTCCModel):
         else:
             raise KeyError(f"Property {key} not found")
 
-    def __setitem__(self,key:str,value:Any):
-        #handle special properties
+    def __setitem__(self, key: str, value: Any):
+        # handle special properties
         if key == "height":
             self.height = value
         elif key == "ground_level":
@@ -81,4 +80,3 @@ class Building(DTCCModel):
         # handle generic properties
         else:
             self.properties[key] = value
-

@@ -45,7 +45,7 @@ struct TableStruct_dtcc_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[25]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[26]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -76,6 +76,9 @@ extern GridFieldDefaultTypeInternal _GridField_default_instance_;
 class GridVectorField;
 class GridVectorFieldDefaultTypeInternal;
 extern GridVectorFieldDefaultTypeInternal _GridVectorField_default_instance_;
+class LandUse;
+class LandUseDefaultTypeInternal;
+extern LandUseDefaultTypeInternal _LandUse_default_instance_;
 class LineString;
 class LineStringDefaultTypeInternal;
 extern LineStringDefaultTypeInternal _LineString_default_instance_;
@@ -137,6 +140,7 @@ template<> ::DTCC::Georef* Arena::CreateMaybeMessage<::DTCC::Georef>(Arena*);
 template<> ::DTCC::Grid* Arena::CreateMaybeMessage<::DTCC::Grid>(Arena*);
 template<> ::DTCC::GridField* Arena::CreateMaybeMessage<::DTCC::GridField>(Arena*);
 template<> ::DTCC::GridVectorField* Arena::CreateMaybeMessage<::DTCC::GridVectorField>(Arena*);
+template<> ::DTCC::LandUse* Arena::CreateMaybeMessage<::DTCC::LandUse>(Arena*);
 template<> ::DTCC::LineString* Arena::CreateMaybeMessage<::DTCC::LineString>(Arena*);
 template<> ::DTCC::LineString3D* Arena::CreateMaybeMessage<::DTCC::LineString3D>(Arena*);
 template<> ::DTCC::LinearRing* Arena::CreateMaybeMessage<::DTCC::LinearRing>(Arena*);
@@ -3743,6 +3747,7 @@ class CityModel PROTOBUF_FINAL :
 
   enum : int {
     kBuildingsFieldNumber = 4,
+    kLandUseFieldNumber = 5,
     kBoundsFieldNumber = 1,
     kGeorefFieldNumber = 2,
     kTerrainFieldNumber = 3,
@@ -3764,6 +3769,24 @@ class CityModel PROTOBUF_FINAL :
   ::DTCC::Building* add_buildings();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building >&
       buildings() const;
+
+  // repeated .DTCC.LandUse landUse = 5;
+  int landuse_size() const;
+  private:
+  int _internal_landuse_size() const;
+  public:
+  void clear_landuse();
+  ::DTCC::LandUse* mutable_landuse(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse >*
+      mutable_landuse();
+  private:
+  const ::DTCC::LandUse& _internal_landuse(int index) const;
+  ::DTCC::LandUse* _internal_add_landuse();
+  public:
+  const ::DTCC::LandUse& landuse(int index) const;
+  ::DTCC::LandUse* add_landuse();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse >&
+      landuse() const;
 
   // .DTCC.Bounds bounds = 1;
   bool has_bounds() const;
@@ -3827,9 +3850,168 @@ class CityModel PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building > buildings_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse > landuse_;
   ::DTCC::Bounds* bounds_;
   ::DTCC::Georef* georef_;
   ::DTCC::GridField* terrain_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LandUse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::MessageLite /* @@protoc_insertion_point(class_definition:DTCC.LandUse) */ {
+ public:
+  inline LandUse() : LandUse(nullptr) {};
+  virtual ~LandUse();
+
+  LandUse(const LandUse& from);
+  LandUse(LandUse&& from) noexcept
+    : LandUse() {
+    *this = ::std::move(from);
+  }
+
+  inline LandUse& operator=(const LandUse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LandUse& operator=(LandUse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const LandUse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const LandUse* internal_default_instance() {
+    return reinterpret_cast<const LandUse*>(
+               &_LandUse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(LandUse& a, LandUse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LandUse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LandUse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LandUse* New() const final {
+    return CreateMaybeMessage<LandUse>(nullptr);
+  }
+
+  LandUse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<LandUse>(arena);
+  }
+  void CheckTypeAndMergeFrom(const ::PROTOBUF_NAMESPACE_ID::MessageLite& from)
+    final;
+  void CopyFrom(const LandUse& from);
+  void MergeFrom(const LandUse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  void DiscardUnknownFields();
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(LandUse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.LandUse";
+  }
+  protected:
+  explicit LandUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  std::string GetTypeName() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypeFieldNumber = 2,
+    kFootPrintFieldNumber = 1,
+  };
+  // string type = 2;
+  void clear_type();
+  const std::string& type() const;
+  void set_type(const std::string& value);
+  void set_type(std::string&& value);
+  void set_type(const char* value);
+  void set_type(const char* value, size_t size);
+  std::string* mutable_type();
+  std::string* release_type();
+  void set_allocated_type(std::string* type);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_type();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_type(
+      std::string* type);
+  private:
+  const std::string& _internal_type() const;
+  void _internal_set_type(const std::string& value);
+  std::string* _internal_mutable_type();
+  public:
+
+  // .DTCC.Polygon footPrint = 1;
+  bool has_footprint() const;
+  private:
+  bool _internal_has_footprint() const;
+  public:
+  void clear_footprint();
+  const ::DTCC::Polygon& footprint() const;
+  ::DTCC::Polygon* release_footprint();
+  ::DTCC::Polygon* mutable_footprint();
+  void set_allocated_footprint(::DTCC::Polygon* footprint);
+  private:
+  const ::DTCC::Polygon& _internal_footprint() const;
+  ::DTCC::Polygon* _internal_mutable_footprint();
+  public:
+  void unsafe_arena_set_allocated_footprint(
+      ::DTCC::Polygon* footprint);
+  ::DTCC::Polygon* unsafe_arena_release_footprint();
+
+  // @@protoc_insertion_point(class_scope:DTCC.LandUse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_;
+  ::DTCC::Polygon* footprint_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dtcc_2eproto;
 };
@@ -3868,7 +4050,7 @@ class Raster PROTOBUF_FINAL :
                &_Raster_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(Raster& a, Raster& b) {
     a.Swap(&b);
@@ -4095,7 +4277,7 @@ class AffineTransform PROTOBUF_FINAL :
                &_AffineTransform_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(AffineTransform& a, AffineTransform& b) {
     a.Swap(&b);
@@ -7157,6 +7339,211 @@ CityModel::buildings() const {
   return buildings_;
 }
 
+// repeated .DTCC.LandUse landUse = 5;
+inline int CityModel::_internal_landuse_size() const {
+  return landuse_.size();
+}
+inline int CityModel::landuse_size() const {
+  return _internal_landuse_size();
+}
+inline void CityModel::clear_landuse() {
+  landuse_.Clear();
+}
+inline ::DTCC::LandUse* CityModel::mutable_landuse(int index) {
+  // @@protoc_insertion_point(field_mutable:DTCC.CityModel.landUse)
+  return landuse_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse >*
+CityModel::mutable_landuse() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.CityModel.landUse)
+  return &landuse_;
+}
+inline const ::DTCC::LandUse& CityModel::_internal_landuse(int index) const {
+  return landuse_.Get(index);
+}
+inline const ::DTCC::LandUse& CityModel::landuse(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.CityModel.landUse)
+  return _internal_landuse(index);
+}
+inline ::DTCC::LandUse* CityModel::_internal_add_landuse() {
+  return landuse_.Add();
+}
+inline ::DTCC::LandUse* CityModel::add_landuse() {
+  // @@protoc_insertion_point(field_add:DTCC.CityModel.landUse)
+  return _internal_add_landuse();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse >&
+CityModel::landuse() const {
+  // @@protoc_insertion_point(field_list:DTCC.CityModel.landUse)
+  return landuse_;
+}
+
+// -------------------------------------------------------------------
+
+// LandUse
+
+// .DTCC.Polygon footPrint = 1;
+inline bool LandUse::_internal_has_footprint() const {
+  return this != internal_default_instance() && footprint_ != nullptr;
+}
+inline bool LandUse::has_footprint() const {
+  return _internal_has_footprint();
+}
+inline void LandUse::clear_footprint() {
+  if (GetArena() == nullptr && footprint_ != nullptr) {
+    delete footprint_;
+  }
+  footprint_ = nullptr;
+}
+inline const ::DTCC::Polygon& LandUse::_internal_footprint() const {
+  const ::DTCC::Polygon* p = footprint_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Polygon*>(
+      &::DTCC::_Polygon_default_instance_);
+}
+inline const ::DTCC::Polygon& LandUse::footprint() const {
+  // @@protoc_insertion_point(field_get:DTCC.LandUse.footPrint)
+  return _internal_footprint();
+}
+inline void LandUse::unsafe_arena_set_allocated_footprint(
+    ::DTCC::Polygon* footprint) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(footprint_);
+  }
+  footprint_ = footprint;
+  if (footprint) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.LandUse.footPrint)
+}
+inline ::DTCC::Polygon* LandUse::release_footprint() {
+  auto temp = unsafe_arena_release_footprint();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Polygon* LandUse::unsafe_arena_release_footprint() {
+  // @@protoc_insertion_point(field_release:DTCC.LandUse.footPrint)
+  
+  ::DTCC::Polygon* temp = footprint_;
+  footprint_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Polygon* LandUse::_internal_mutable_footprint() {
+  
+  if (footprint_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Polygon>(GetArena());
+    footprint_ = p;
+  }
+  return footprint_;
+}
+inline ::DTCC::Polygon* LandUse::mutable_footprint() {
+  // @@protoc_insertion_point(field_mutable:DTCC.LandUse.footPrint)
+  return _internal_mutable_footprint();
+}
+inline void LandUse::set_allocated_footprint(::DTCC::Polygon* footprint) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete footprint_;
+  }
+  if (footprint) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(footprint);
+    if (message_arena != submessage_arena) {
+      footprint = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, footprint, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  footprint_ = footprint;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.LandUse.footPrint)
+}
+
+// string type = 2;
+inline void LandUse::clear_type() {
+  type_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& LandUse::type() const {
+  // @@protoc_insertion_point(field_get:DTCC.LandUse.type)
+  return _internal_type();
+}
+inline void LandUse::set_type(const std::string& value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:DTCC.LandUse.type)
+}
+inline std::string* LandUse::mutable_type() {
+  // @@protoc_insertion_point(field_mutable:DTCC.LandUse.type)
+  return _internal_mutable_type();
+}
+inline const std::string& LandUse::_internal_type() const {
+  return type_.Get();
+}
+inline void LandUse::_internal_set_type(const std::string& value) {
+  
+  type_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void LandUse::set_type(std::string&& value) {
+  
+  type_.SetLite(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:DTCC.LandUse.type)
+}
+inline void LandUse::set_type(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  type_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:DTCC.LandUse.type)
+}
+inline void LandUse::set_type(const char* value,
+    size_t size) {
+  
+  type_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:DTCC.LandUse.type)
+}
+inline std::string* LandUse::_internal_mutable_type() {
+  
+  return type_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* LandUse::release_type() {
+  // @@protoc_insertion_point(field_release:DTCC.LandUse.type)
+  return type_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void LandUse::set_allocated_type(std::string* type) {
+  if (type != nullptr) {
+    
+  } else {
+    
+  }
+  type_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), type,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:DTCC.LandUse.type)
+}
+inline std::string* LandUse::unsafe_arena_release_type() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:DTCC.LandUse.type)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return type_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void LandUse::unsafe_arena_set_allocated_type(
+    std::string* type) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (type != nullptr) {
+    
+  } else {
+    
+  }
+  type_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      type, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.LandUse.type)
+}
+
 // -------------------------------------------------------------------
 
 // Raster
@@ -7577,6 +7964,8 @@ inline void AffineTransform::set_f(float value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

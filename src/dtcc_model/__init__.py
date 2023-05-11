@@ -13,6 +13,7 @@ from .meshfields import (
 from .building import Building
 from .citymodel import CityModel
 from .raster import Raster
+from .landuse import Landuse
 
 __all__ = [
     "proto",

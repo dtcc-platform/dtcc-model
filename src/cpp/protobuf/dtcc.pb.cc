@@ -17,6 +17,7 @@ extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Georef_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Grid_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GridField_dtcc_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LandUse_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LinearRing_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Mesh_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_PointCloud_dtcc_2eproto;
@@ -117,6 +118,10 @@ class CityModelDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CityModel> _instance;
 } _CityModel_default_instance_;
+class LandUseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LandUse> _instance;
+} _LandUse_default_instance_;
 class RasterDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Raster> _instance;
@@ -181,12 +186,13 @@ static void InitDefaultsscc_info_CityModel_dtcc_2eproto() {
   ::DTCC::CityModel::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_CityModel_dtcc_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_CityModel_dtcc_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_CityModel_dtcc_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_CityModel_dtcc_2eproto}, {
       &scc_info_Bounds_dtcc_2eproto.base,
       &scc_info_Georef_dtcc_2eproto.base,
       &scc_info_GridField_dtcc_2eproto.base,
-      &scc_info_Building_dtcc_2eproto.base,}};
+      &scc_info_Building_dtcc_2eproto.base,
+      &scc_info_LandUse_dtcc_2eproto.base,}};
 
 static void InitDefaultsscc_info_Georef_dtcc_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -246,6 +252,21 @@ static void InitDefaultsscc_info_GridVectorField_dtcc_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GridVectorField_dtcc_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GridVectorField_dtcc_2eproto}, {
       &scc_info_Grid_dtcc_2eproto.base,}};
+
+static void InitDefaultsscc_info_LandUse_dtcc_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::DTCC::_LandUse_default_instance_;
+    new (ptr) ::DTCC::LandUse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::DTCC::LandUse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LandUse_dtcc_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_LandUse_dtcc_2eproto}, {
+      &scc_info_Polygon_dtcc_2eproto.base,}};
 
 static void InitDefaultsscc_info_LineString_dtcc_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -5819,14 +5840,16 @@ CityModel::_Internal::terrain(const CityModel* msg) {
 }
 CityModel::CityModel(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena),
-  buildings_(arena) {
+  buildings_(arena),
+  landuse_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:DTCC.CityModel)
 }
 CityModel::CityModel(const CityModel& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      buildings_(from.buildings_) {
+      buildings_(from.buildings_),
+      landuse_(from.landuse_) {
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   if (from._internal_has_bounds()) {
     bounds_ = new ::DTCC::Bounds(*from.bounds_);
@@ -5888,6 +5911,7 @@ void CityModel::Clear() {
   (void) cached_has_bits;
 
   buildings_.Clear();
+  landuse_.Clear();
   if (GetArena() == nullptr && bounds_ != nullptr) {
     delete bounds_;
   }
@@ -5942,6 +5966,18 @@ const char* CityModel::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // repeated .DTCC.LandUse landUse = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_landuse(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -6004,6 +6040,14 @@ failure:
       InternalWriteMessage(4, this->_internal_buildings(i), target, stream);
   }
 
+  // repeated .DTCC.LandUse landUse = 5;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_landuse_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, this->_internal_landuse(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
@@ -6023,6 +6067,13 @@ size_t CityModel::ByteSizeLong() const {
   // repeated .DTCC.Building buildings = 4;
   total_size += 1UL * this->_internal_buildings_size();
   for (const auto& msg : this->buildings_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated .DTCC.LandUse landUse = 5;
+  total_size += 1UL * this->_internal_landuse_size();
+  for (const auto& msg : this->landuse_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -6070,6 +6121,7 @@ void CityModel::MergeFrom(const CityModel& from) {
   (void) cached_has_bits;
 
   buildings_.MergeFrom(from.buildings_);
+  landuse_.MergeFrom(from.landuse_);
   if (from.has_bounds()) {
     _internal_mutable_bounds()->::DTCC::Bounds::MergeFrom(from._internal_bounds());
   }
@@ -6096,6 +6148,7 @@ void CityModel::InternalSwap(CityModel* other) {
   using std::swap;
   _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
   buildings_.InternalSwap(&other->buildings_);
+  landuse_.InternalSwap(&other->landuse_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CityModel, terrain_)
       + sizeof(CityModel::terrain_)
@@ -6106,6 +6159,242 @@ void CityModel::InternalSwap(CityModel* other) {
 
 std::string CityModel::GetTypeName() const {
   return "DTCC.CityModel";
+}
+
+
+// ===================================================================
+
+void LandUse::InitAsDefaultInstance() {
+  ::DTCC::_LandUse_default_instance_._instance.get_mutable()->footprint_ = const_cast< ::DTCC::Polygon*>(
+      ::DTCC::Polygon::internal_default_instance());
+}
+class LandUse::_Internal {
+ public:
+  static const ::DTCC::Polygon& footprint(const LandUse* msg);
+};
+
+const ::DTCC::Polygon&
+LandUse::_Internal::footprint(const LandUse* msg) {
+  return *msg->footprint_;
+}
+LandUse::LandUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:DTCC.LandUse)
+}
+LandUse::LandUse(const LandUse& from)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_type().empty()) {
+    type_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_type(),
+      GetArena());
+  }
+  if (from._internal_has_footprint()) {
+    footprint_ = new ::DTCC::Polygon(*from.footprint_);
+  } else {
+    footprint_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:DTCC.LandUse)
+}
+
+void LandUse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_LandUse_dtcc_2eproto.base);
+  type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  footprint_ = nullptr;
+}
+
+LandUse::~LandUse() {
+  // @@protoc_insertion_point(destructor:DTCC.LandUse)
+  SharedDtor();
+  _internal_metadata_.Delete<std::string>();
+}
+
+void LandUse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete footprint_;
+}
+
+void LandUse::ArenaDtor(void* object) {
+  LandUse* _this = reinterpret_cast< LandUse* >(object);
+  (void)_this;
+}
+void LandUse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void LandUse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const LandUse& LandUse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_LandUse_dtcc_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void LandUse::Clear() {
+// @@protoc_insertion_point(message_clear_start:DTCC.LandUse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  type_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  if (GetArena() == nullptr && footprint_ != nullptr) {
+    delete footprint_;
+  }
+  footprint_ = nullptr;
+  _internal_metadata_.Clear<std::string>();
+}
+
+const char* LandUse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .DTCC.Polygon footPrint = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_footprint(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string type = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_type();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<std::string>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* LandUse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:DTCC.LandUse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .DTCC.Polygon footPrint = 1;
+  if (this->has_footprint()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::footprint(this), target, stream);
+  }
+
+  // string type = 2;
+  if (this->type().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_type().data(), static_cast<int>(this->_internal_type().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "DTCC.LandUse.type");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_type(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
+        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:DTCC.LandUse)
+  return target;
+}
+
+size_t LandUse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:DTCC.LandUse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string type = 2;
+  if (this->type().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_type());
+  }
+
+  // .DTCC.Polygon footPrint = 1;
+  if (this->has_footprint()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *footprint_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void LandUse::CheckTypeAndMergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
+  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const LandUse*>(
+      &from));
+}
+
+void LandUse::MergeFrom(const LandUse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.LandUse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.type().size() > 0) {
+    _internal_set_type(from._internal_type());
+  }
+  if (from.has_footprint()) {
+    _internal_mutable_footprint()->::DTCC::Polygon::MergeFrom(from._internal_footprint());
+  }
+}
+
+void LandUse::CopyFrom(const LandUse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:DTCC.LandUse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LandUse::IsInitialized() const {
+  return true;
+}
+
+void LandUse::InternalSwap(LandUse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
+  type_.Swap(&other->type_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(footprint_, other->footprint_);
+}
+
+std::string LandUse::GetTypeName() const {
+  return "DTCC.LandUse";
 }
 
 
@@ -6848,6 +7137,9 @@ template<> PROTOBUF_NOINLINE ::DTCC::Building* Arena::CreateMaybeMessage< ::DTCC
 }
 template<> PROTOBUF_NOINLINE ::DTCC::CityModel* Arena::CreateMaybeMessage< ::DTCC::CityModel >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::CityModel >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DTCC::LandUse* Arena::CreateMaybeMessage< ::DTCC::LandUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DTCC::LandUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::DTCC::Raster* Arena::CreateMaybeMessage< ::DTCC::Raster >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Raster >(arena);

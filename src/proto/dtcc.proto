@@ -177,6 +177,13 @@ message CityModel
   Georef georef = 2;
   GridField terrain = 3;  
   repeated Building buildings = 4;
+  repeated LandUse landUse = 5;
+}
+
+message LandUse
+{
+  Polygon footPrint = 1;
+  string type = 2;
 }
 
 //--- Raster ---
