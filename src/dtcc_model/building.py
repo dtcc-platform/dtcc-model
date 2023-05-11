@@ -26,6 +26,7 @@ class Building(DTCCModel):
     def __str__(self):
         return f"DTCC Building {self.uuid} with {self.footprint.area} m² footprint"
 
+    @property
     def area(self):
         return self.footprint.area
 
