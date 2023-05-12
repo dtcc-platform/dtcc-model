@@ -45,7 +45,7 @@ struct TableStruct_dtcc_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[26]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[28]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -115,6 +115,12 @@ extern PolygonDefaultTypeInternal _Polygon_default_instance_;
 class Raster;
 class RasterDefaultTypeInternal;
 extern RasterDefaultTypeInternal _Raster_default_instance_;
+class Road;
+class RoadDefaultTypeInternal;
+extern RoadDefaultTypeInternal _Road_default_instance_;
+class RoadNetwork;
+class RoadNetworkDefaultTypeInternal;
+extern RoadNetworkDefaultTypeInternal _RoadNetwork_default_instance_;
 class Vector2D;
 class Vector2DDefaultTypeInternal;
 extern Vector2DDefaultTypeInternal _Vector2D_default_instance_;
@@ -153,6 +159,8 @@ template<> ::DTCC::MultiPolygon* Arena::CreateMaybeMessage<::DTCC::MultiPolygon>
 template<> ::DTCC::PointCloud* Arena::CreateMaybeMessage<::DTCC::PointCloud>(Arena*);
 template<> ::DTCC::Polygon* Arena::CreateMaybeMessage<::DTCC::Polygon>(Arena*);
 template<> ::DTCC::Raster* Arena::CreateMaybeMessage<::DTCC::Raster>(Arena*);
+template<> ::DTCC::Road* Arena::CreateMaybeMessage<::DTCC::Road>(Arena*);
+template<> ::DTCC::RoadNetwork* Arena::CreateMaybeMessage<::DTCC::RoadNetwork>(Arena*);
 template<> ::DTCC::Vector2D* Arena::CreateMaybeMessage<::DTCC::Vector2D>(Arena*);
 template<> ::DTCC::Vector3D* Arena::CreateMaybeMessage<::DTCC::Vector3D>(Arena*);
 template<> ::DTCC::VolumeMesh* Arena::CreateMaybeMessage<::DTCC::VolumeMesh>(Arena*);
@@ -4017,6 +4025,416 @@ class LandUse PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class Road PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::MessageLite /* @@protoc_insertion_point(class_definition:DTCC.Road) */ {
+ public:
+  inline Road() : Road(nullptr) {};
+  virtual ~Road();
+
+  Road(const Road& from);
+  Road(Road&& from) noexcept
+    : Road() {
+    *this = ::std::move(from);
+  }
+
+  inline Road& operator=(const Road& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Road& operator=(Road&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const Road& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Road* internal_default_instance() {
+    return reinterpret_cast<const Road*>(
+               &_Road_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(Road& a, Road& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Road* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Road* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Road* New() const final {
+    return CreateMaybeMessage<Road>(nullptr);
+  }
+
+  Road* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Road>(arena);
+  }
+  void CheckTypeAndMergeFrom(const ::PROTOBUF_NAMESPACE_ID::MessageLite& from)
+    final;
+  void CopyFrom(const Road& from);
+  void MergeFrom(const Road& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  void DiscardUnknownFields();
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(Road* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.Road";
+  }
+  protected:
+  explicit Road(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  std::string GetTypeName() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVerticesFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kIdFieldNumber = 7,
+    kTypeFieldNumber = 2,
+    kWidthFieldNumber = 4,
+    kLanesFieldNumber = 5,
+    kSpeedLimitFieldNumber = 6,
+  };
+  // repeated int32 vertices = 1;
+  int vertices_size() const;
+  private:
+  int _internal_vertices_size() const;
+  public:
+  void clear_vertices();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_vertices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+      _internal_vertices() const;
+  void _internal_add_vertices(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+      _internal_mutable_vertices();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::int32 vertices(int index) const;
+  void set_vertices(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
+  void add_vertices(::PROTOBUF_NAMESPACE_ID::int32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+      vertices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+      mutable_vertices();
+
+  // string name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_name();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_name(
+      std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // string id = 7;
+  void clear_id();
+  const std::string& id() const;
+  void set_id(const std::string& value);
+  void set_id(std::string&& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  std::string* mutable_id();
+  std::string* release_id();
+  void set_allocated_id(std::string* id);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_id();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_id(
+      std::string* id);
+  private:
+  const std::string& _internal_id() const;
+  void _internal_set_id(const std::string& value);
+  std::string* _internal_mutable_id();
+  public:
+
+  // int32 type = 2;
+  void clear_type();
+  ::PROTOBUF_NAMESPACE_ID::int32 type() const;
+  void set_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_type() const;
+  void _internal_set_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // float width = 4;
+  void clear_width();
+  float width() const;
+  void set_width(float value);
+  private:
+  float _internal_width() const;
+  void _internal_set_width(float value);
+  public:
+
+  // int32 lanes = 5;
+  void clear_lanes();
+  ::PROTOBUF_NAMESPACE_ID::int32 lanes() const;
+  void set_lanes(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_lanes() const;
+  void _internal_set_lanes(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 speedLimit = 6;
+  void clear_speedlimit();
+  ::PROTOBUF_NAMESPACE_ID::int32 speedlimit() const;
+  void set_speedlimit(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_speedlimit() const;
+  void _internal_set_speedlimit(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:DTCC.Road)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > vertices_;
+  mutable std::atomic<int> _vertices_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 type_;
+  float width_;
+  ::PROTOBUF_NAMESPACE_ID::int32 lanes_;
+  ::PROTOBUF_NAMESPACE_ID::int32 speedlimit_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RoadNetwork PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::MessageLite /* @@protoc_insertion_point(class_definition:DTCC.RoadNetwork) */ {
+ public:
+  inline RoadNetwork() : RoadNetwork(nullptr) {};
+  virtual ~RoadNetwork();
+
+  RoadNetwork(const RoadNetwork& from);
+  RoadNetwork(RoadNetwork&& from) noexcept
+    : RoadNetwork() {
+    *this = ::std::move(from);
+  }
+
+  inline RoadNetwork& operator=(const RoadNetwork& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RoadNetwork& operator=(RoadNetwork&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const RoadNetwork& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RoadNetwork* internal_default_instance() {
+    return reinterpret_cast<const RoadNetwork*>(
+               &_RoadNetwork_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(RoadNetwork& a, RoadNetwork& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RoadNetwork* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RoadNetwork* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RoadNetwork* New() const final {
+    return CreateMaybeMessage<RoadNetwork>(nullptr);
+  }
+
+  RoadNetwork* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RoadNetwork>(arena);
+  }
+  void CheckTypeAndMergeFrom(const ::PROTOBUF_NAMESPACE_ID::MessageLite& from)
+    final;
+  void CopyFrom(const RoadNetwork& from);
+  void MergeFrom(const RoadNetwork& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  void DiscardUnknownFields();
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(RoadNetwork* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "DTCC.RoadNetwork";
+  }
+  protected:
+  explicit RoadNetwork(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  std::string GetTypeName() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVertexFieldNumber = 1,
+    kRoadsFieldNumber = 2,
+    kGeorefFieldNumber = 3,
+  };
+  // repeated float vertex = 1;
+  int vertex_size() const;
+  private:
+  int _internal_vertex_size() const;
+  public:
+  void clear_vertex();
+  private:
+  float _internal_vertex(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_vertex() const;
+  void _internal_add_vertex(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_vertex();
+  public:
+  float vertex(int index) const;
+  void set_vertex(int index, float value);
+  void add_vertex(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      vertex() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_vertex();
+
+  // repeated .DTCC.Road roads = 2;
+  int roads_size() const;
+  private:
+  int _internal_roads_size() const;
+  public:
+  void clear_roads();
+  ::DTCC::Road* mutable_roads(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Road >*
+      mutable_roads();
+  private:
+  const ::DTCC::Road& _internal_roads(int index) const;
+  ::DTCC::Road* _internal_add_roads();
+  public:
+  const ::DTCC::Road& roads(int index) const;
+  ::DTCC::Road* add_roads();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Road >&
+      roads() const;
+
+  // .DTCC.Georef georef = 3;
+  bool has_georef() const;
+  private:
+  bool _internal_has_georef() const;
+  public:
+  void clear_georef();
+  const ::DTCC::Georef& georef() const;
+  ::DTCC::Georef* release_georef();
+  ::DTCC::Georef* mutable_georef();
+  void set_allocated_georef(::DTCC::Georef* georef);
+  private:
+  const ::DTCC::Georef& _internal_georef() const;
+  ::DTCC::Georef* _internal_mutable_georef();
+  public:
+  void unsafe_arena_set_allocated_georef(
+      ::DTCC::Georef* georef);
+  ::DTCC::Georef* unsafe_arena_release_georef();
+
+  // @@protoc_insertion_point(class_scope:DTCC.RoadNetwork)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > vertex_;
+  mutable std::atomic<int> _vertex_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Road > roads_;
+  ::DTCC::Georef* georef_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dtcc_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Raster PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::MessageLite /* @@protoc_insertion_point(class_definition:DTCC.Raster) */ {
  public:
@@ -4050,7 +4468,7 @@ class Raster PROTOBUF_FINAL :
                &_Raster_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(Raster& a, Raster& b) {
     a.Swap(&b);
@@ -4277,7 +4695,7 @@ class AffineTransform PROTOBUF_FINAL :
                &_AffineTransform_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(AffineTransform& a, AffineTransform& b) {
     a.Swap(&b);
@@ -7546,6 +7964,470 @@ inline void LandUse::unsafe_arena_set_allocated_type(
 
 // -------------------------------------------------------------------
 
+// Road
+
+// repeated int32 vertices = 1;
+inline int Road::_internal_vertices_size() const {
+  return vertices_.size();
+}
+inline int Road::vertices_size() const {
+  return _internal_vertices_size();
+}
+inline void Road::clear_vertices() {
+  vertices_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::_internal_vertices(int index) const {
+  return vertices_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::vertices(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.Road.vertices)
+  return _internal_vertices(index);
+}
+inline void Road::set_vertices(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
+  vertices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:DTCC.Road.vertices)
+}
+inline void Road::_internal_add_vertices(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  vertices_.Add(value);
+}
+inline void Road::add_vertices(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_add_vertices(value);
+  // @@protoc_insertion_point(field_add:DTCC.Road.vertices)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+Road::_internal_vertices() const {
+  return vertices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+Road::vertices() const {
+  // @@protoc_insertion_point(field_list:DTCC.Road.vertices)
+  return _internal_vertices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+Road::_internal_mutable_vertices() {
+  return &vertices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
+Road::mutable_vertices() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.Road.vertices)
+  return _internal_mutable_vertices();
+}
+
+// int32 type = 2;
+inline void Road::clear_type() {
+  type_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::_internal_type() const {
+  return type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::type() const {
+  // @@protoc_insertion_point(field_get:DTCC.Road.type)
+  return _internal_type();
+}
+inline void Road::_internal_set_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  type_ = value;
+}
+inline void Road::set_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:DTCC.Road.type)
+}
+
+// string name = 3;
+inline void Road::clear_name() {
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Road::name() const {
+  // @@protoc_insertion_point(field_get:DTCC.Road.name)
+  return _internal_name();
+}
+inline void Road::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:DTCC.Road.name)
+}
+inline std::string* Road::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:DTCC.Road.name)
+  return _internal_mutable_name();
+}
+inline const std::string& Road::_internal_name() const {
+  return name_.Get();
+}
+inline void Road::_internal_set_name(const std::string& value) {
+  
+  name_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Road::set_name(std::string&& value) {
+  
+  name_.SetLite(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:DTCC.Road.name)
+}
+inline void Road::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:DTCC.Road.name)
+}
+inline void Road::set_name(const char* value,
+    size_t size) {
+  
+  name_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:DTCC.Road.name)
+}
+inline std::string* Road::_internal_mutable_name() {
+  
+  return name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Road::release_name() {
+  // @@protoc_insertion_point(field_release:DTCC.Road.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Road::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:DTCC.Road.name)
+}
+inline std::string* Road::unsafe_arena_release_name() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:DTCC.Road.name)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return name_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Road::unsafe_arena_set_allocated_name(
+    std::string* name) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      name, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Road.name)
+}
+
+// float width = 4;
+inline void Road::clear_width() {
+  width_ = 0;
+}
+inline float Road::_internal_width() const {
+  return width_;
+}
+inline float Road::width() const {
+  // @@protoc_insertion_point(field_get:DTCC.Road.width)
+  return _internal_width();
+}
+inline void Road::_internal_set_width(float value) {
+  
+  width_ = value;
+}
+inline void Road::set_width(float value) {
+  _internal_set_width(value);
+  // @@protoc_insertion_point(field_set:DTCC.Road.width)
+}
+
+// int32 lanes = 5;
+inline void Road::clear_lanes() {
+  lanes_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::_internal_lanes() const {
+  return lanes_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::lanes() const {
+  // @@protoc_insertion_point(field_get:DTCC.Road.lanes)
+  return _internal_lanes();
+}
+inline void Road::_internal_set_lanes(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  lanes_ = value;
+}
+inline void Road::set_lanes(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_lanes(value);
+  // @@protoc_insertion_point(field_set:DTCC.Road.lanes)
+}
+
+// int32 speedLimit = 6;
+inline void Road::clear_speedlimit() {
+  speedlimit_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::_internal_speedlimit() const {
+  return speedlimit_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::speedlimit() const {
+  // @@protoc_insertion_point(field_get:DTCC.Road.speedLimit)
+  return _internal_speedlimit();
+}
+inline void Road::_internal_set_speedlimit(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  speedlimit_ = value;
+}
+inline void Road::set_speedlimit(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_speedlimit(value);
+  // @@protoc_insertion_point(field_set:DTCC.Road.speedLimit)
+}
+
+// string id = 7;
+inline void Road::clear_id() {
+  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Road::id() const {
+  // @@protoc_insertion_point(field_get:DTCC.Road.id)
+  return _internal_id();
+}
+inline void Road::set_id(const std::string& value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:DTCC.Road.id)
+}
+inline std::string* Road::mutable_id() {
+  // @@protoc_insertion_point(field_mutable:DTCC.Road.id)
+  return _internal_mutable_id();
+}
+inline const std::string& Road::_internal_id() const {
+  return id_.Get();
+}
+inline void Road::_internal_set_id(const std::string& value) {
+  
+  id_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Road::set_id(std::string&& value) {
+  
+  id_.SetLite(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:DTCC.Road.id)
+}
+inline void Road::set_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  id_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:DTCC.Road.id)
+}
+inline void Road::set_id(const char* value,
+    size_t size) {
+  
+  id_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:DTCC.Road.id)
+}
+inline std::string* Road::_internal_mutable_id() {
+  
+  return id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Road::release_id() {
+  // @@protoc_insertion_point(field_release:DTCC.Road.id)
+  return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Road::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:DTCC.Road.id)
+}
+inline std::string* Road::unsafe_arena_release_id() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:DTCC.Road.id)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return id_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Road::unsafe_arena_set_allocated_id(
+    std::string* id) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      id, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Road.id)
+}
+
+// -------------------------------------------------------------------
+
+// RoadNetwork
+
+// repeated float vertex = 1;
+inline int RoadNetwork::_internal_vertex_size() const {
+  return vertex_.size();
+}
+inline int RoadNetwork::vertex_size() const {
+  return _internal_vertex_size();
+}
+inline void RoadNetwork::clear_vertex() {
+  vertex_.Clear();
+}
+inline float RoadNetwork::_internal_vertex(int index) const {
+  return vertex_.Get(index);
+}
+inline float RoadNetwork::vertex(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.RoadNetwork.vertex)
+  return _internal_vertex(index);
+}
+inline void RoadNetwork::set_vertex(int index, float value) {
+  vertex_.Set(index, value);
+  // @@protoc_insertion_point(field_set:DTCC.RoadNetwork.vertex)
+}
+inline void RoadNetwork::_internal_add_vertex(float value) {
+  vertex_.Add(value);
+}
+inline void RoadNetwork::add_vertex(float value) {
+  _internal_add_vertex(value);
+  // @@protoc_insertion_point(field_add:DTCC.RoadNetwork.vertex)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+RoadNetwork::_internal_vertex() const {
+  return vertex_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+RoadNetwork::vertex() const {
+  // @@protoc_insertion_point(field_list:DTCC.RoadNetwork.vertex)
+  return _internal_vertex();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+RoadNetwork::_internal_mutable_vertex() {
+  return &vertex_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+RoadNetwork::mutable_vertex() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.RoadNetwork.vertex)
+  return _internal_mutable_vertex();
+}
+
+// repeated .DTCC.Road roads = 2;
+inline int RoadNetwork::_internal_roads_size() const {
+  return roads_.size();
+}
+inline int RoadNetwork::roads_size() const {
+  return _internal_roads_size();
+}
+inline void RoadNetwork::clear_roads() {
+  roads_.Clear();
+}
+inline ::DTCC::Road* RoadNetwork::mutable_roads(int index) {
+  // @@protoc_insertion_point(field_mutable:DTCC.RoadNetwork.roads)
+  return roads_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Road >*
+RoadNetwork::mutable_roads() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.RoadNetwork.roads)
+  return &roads_;
+}
+inline const ::DTCC::Road& RoadNetwork::_internal_roads(int index) const {
+  return roads_.Get(index);
+}
+inline const ::DTCC::Road& RoadNetwork::roads(int index) const {
+  // @@protoc_insertion_point(field_get:DTCC.RoadNetwork.roads)
+  return _internal_roads(index);
+}
+inline ::DTCC::Road* RoadNetwork::_internal_add_roads() {
+  return roads_.Add();
+}
+inline ::DTCC::Road* RoadNetwork::add_roads() {
+  // @@protoc_insertion_point(field_add:DTCC.RoadNetwork.roads)
+  return _internal_add_roads();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Road >&
+RoadNetwork::roads() const {
+  // @@protoc_insertion_point(field_list:DTCC.RoadNetwork.roads)
+  return roads_;
+}
+
+// .DTCC.Georef georef = 3;
+inline bool RoadNetwork::_internal_has_georef() const {
+  return this != internal_default_instance() && georef_ != nullptr;
+}
+inline bool RoadNetwork::has_georef() const {
+  return _internal_has_georef();
+}
+inline void RoadNetwork::clear_georef() {
+  if (GetArena() == nullptr && georef_ != nullptr) {
+    delete georef_;
+  }
+  georef_ = nullptr;
+}
+inline const ::DTCC::Georef& RoadNetwork::_internal_georef() const {
+  const ::DTCC::Georef* p = georef_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Georef*>(
+      &::DTCC::_Georef_default_instance_);
+}
+inline const ::DTCC::Georef& RoadNetwork::georef() const {
+  // @@protoc_insertion_point(field_get:DTCC.RoadNetwork.georef)
+  return _internal_georef();
+}
+inline void RoadNetwork::unsafe_arena_set_allocated_georef(
+    ::DTCC::Georef* georef) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(georef_);
+  }
+  georef_ = georef;
+  if (georef) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.RoadNetwork.georef)
+}
+inline ::DTCC::Georef* RoadNetwork::release_georef() {
+  auto temp = unsafe_arena_release_georef();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::DTCC::Georef* RoadNetwork::unsafe_arena_release_georef() {
+  // @@protoc_insertion_point(field_release:DTCC.RoadNetwork.georef)
+  
+  ::DTCC::Georef* temp = georef_;
+  georef_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Georef* RoadNetwork::_internal_mutable_georef() {
+  
+  if (georef_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Georef>(GetArena());
+    georef_ = p;
+  }
+  return georef_;
+}
+inline ::DTCC::Georef* RoadNetwork::mutable_georef() {
+  // @@protoc_insertion_point(field_mutable:DTCC.RoadNetwork.georef)
+  return _internal_mutable_georef();
+}
+inline void RoadNetwork::set_allocated_georef(::DTCC::Georef* georef) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete georef_;
+  }
+  if (georef) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(georef);
+    if (message_arena != submessage_arena) {
+      georef = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, georef, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  georef_ = georef;
+  // @@protoc_insertion_point(field_set_allocated:DTCC.RoadNetwork.georef)
+}
+
+// -------------------------------------------------------------------
+
 // Raster
 
 // int32 width = 1;
@@ -7964,6 +8846,10 @@ inline void AffineTransform::set_f(float value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

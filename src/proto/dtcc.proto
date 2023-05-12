@@ -186,6 +186,26 @@ message LandUse
   string type = 2;
 }
 
+//--- Road Network ---
+message Road
+{
+    repeated int32 vertices = 1;
+    int32 type = 2;
+    string name = 3;  
+    float width = 4; 
+    int32 lanes = 5;
+    int32 speedLimit = 6;
+    string id = 7;
+}
+
+message RoadNetwork
+{
+    repeated float vertex = 1; // flat list of x,y vertices
+    repeated Road roads = 2;
+    Georef georef = 3;
+
+}
+
 //--- Raster ---
 
 message Raster
