@@ -1,7 +1,7 @@
 import unittest
 from pathlib import Path
 
-from dtcc_model.roadnetwork import Road, RoadNetwork
+from dtcc_model.roadnetwork import Road, RoadNetwork, RoadType
 
 
 class TestRoadNetwork(unittest.TestCase):
@@ -14,7 +14,7 @@ class TestRoadNetwork(unittest.TestCase):
         road = Road()
         self.assertEqual(road.road_id, "")
         self.assertEqual(road.road_name, "")
-        self.assertEqual(road.road_type, 0)
+        self.assertEqual(road.road_type, RoadType.PRIMARY)
         self.assertEqual(road.road_width, 0)
         self.assertEqual(road.lanes, 1)
         self.assertEqual(road.speed_limit, 0)
