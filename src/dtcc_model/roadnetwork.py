@@ -2,18 +2,37 @@ from typing import Any, Union
 from dataclasses import dataclass, field
 from shapely.geometry import LineString
 import numpy as np
+from enum import Enum, auto
 
 from . import dtcc_pb2 as proto
 from .model import DTCCModel
 from .geometry import Georef
 
 
+class RoadType(Enum):
+    MOTORWAY = auto()
+
+    PRIMARY = auto()
+    SECONDARY = auto()
+    TERTIARY = auto()
+    RESIDENTIAL = auto()
+    SERVICE = auto()
+    TRACK = auto()
+    PEDESTRIAN = auto()
+    CYCLEWAY = auto()
+    FOOTWAY = auto()
+    BRIDLEWAY = auto()
+    PATH = auto()
+
+
 @dataclass
 class Road(DTCCModel):
     road_geometry: LineString = field(default_factory=LineString)
     road_vertices: list[int] = field(default_factory=list)
-    road_type: int = 0
+    road_type: RoadType = RoadType.PRIMARY
     road_width: float = 0
+    tunnel: bool = False
+    bridge: bool = False
     lanes: int = 1
     speed_limit: float = 0
     road_name: str = ""

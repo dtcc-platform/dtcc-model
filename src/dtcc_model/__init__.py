@@ -14,6 +14,7 @@ from .building import Building
 from .citymodel import CityModel
 from .raster import Raster
 from .landuse import Landuse
+from .roadnetwork import RoadNetwork, RoadType
 
 __all__ = [
     "proto",
@@ -32,4 +33,5 @@ __all__ = [
     "Building",
     "CityModel",
     "Raster",
+    "RoadNetwork",
 ]
