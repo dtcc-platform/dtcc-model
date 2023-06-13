@@ -21,7 +21,6 @@ class CityModel(DTCCModel):
     georef: Georef = field(default_factory=Georef)
     terrain: Raster = field(default_factory=Raster)
     buildings: List[Building] = field(default_factory=list)
-    bounds: Bounds = field(default_factory=Bounds)
     landuse: List[Landuse] = field(default_factory=list)
 
     def __str__(self):
