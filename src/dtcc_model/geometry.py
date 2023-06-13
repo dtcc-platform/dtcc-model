@@ -52,6 +52,28 @@ class Bounds(DTCCModel):
     def tuple(self) -> tuple:
         return (self.xmin, self.ymin, self.xmax, self.ymax)
 
+    @property
+    def area(self) -> float:
+        return self.width * self.height
+
+    def buffer(self, distance: float):
+        self.xmin -= distance
+        self.ymin -= distance
+        self.xmax += distance
+        self.ymax += distance
+
+    def union(self, other):
+        self.xmin = min(self.xmin, other.xmin)
+        self.ymin = min(self.ymin, other.ymin)
+        self.xmax = max(self.xmax, other.xmax)
+        self.ymax = max(self.ymax, other.ymax)
+
+    def intersect(self, other):
+        self.xmin = max(self.xmin, other.xmin)
+        self.ymin = max(self.ymin, other.ymin)
+        self.xmax = min(self.xmax, other.xmax)
+        self.ymax = min(self.ymax, other.ymax)
+
     def from_proto(self, pb: Union[proto.Bounds, bytes]):
         if isinstance(pb, bytes):
             pb = proto.Bounds.FromString(pb)
