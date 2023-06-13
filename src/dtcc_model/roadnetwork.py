@@ -1,4 +1,4 @@
-from typing import Any, Union
+from typing import Any, Union, List
 from dataclasses import dataclass, field
 from shapely.geometry import LineString
 import numpy as np
@@ -28,7 +28,7 @@ class RoadType(Enum):
 @dataclass
 class Road(DTCCModel):
     road_geometry: LineString = field(default_factory=LineString)
-    road_vertices: list[int] = field(default_factory=list)
+    road_vertices: List[int] = field(default_factory=list)
     road_type: RoadType = RoadType.PRIMARY
     road_width: float = 0
     tunnel: bool = False
