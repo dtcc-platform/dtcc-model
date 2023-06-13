@@ -70,7 +70,7 @@ class Road(DTCCModel):
 
 @dataclass
 class RoadNetwork(DTCCModel):
-    roads: list[Road] = field(default_factory=list)
+    roads: List[Road] = field(default_factory=list)
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     georef: Georef = field(default_factory=Georef)
 
