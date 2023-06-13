@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PROTODOT=./protodot
-PROTOBUF=../protobuf/dtcc.proto
+PROTOBUF=../../src/proto/dtcc.proto
 
 # Check for protodot binary
 if [ ! -x "$PROTODOT" ]; then
@@ -18,4 +18,9 @@ fi
 
 # Generate visualization
 $PROTODOT -src $PROTOBUF -output dtcc
+
+# Update documentation
+cp dtcc.dot.png ../../docs/images
+
+# View image
 open dtcc.dot.png
