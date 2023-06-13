@@ -5618,7 +5618,7 @@ const char* Building::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .DTCC.Polygon footPrint = 2;
+      // .DTCC.Polygon footprint = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_footprint(), ptr);
@@ -5691,7 +5691,7 @@ failure:
         1, this->_internal_uuid(), target);
   }
 
-  // .DTCC.Polygon footPrint = 2;
+  // .DTCC.Polygon footprint = 2;
   if (this->has_footprint()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5748,7 +5748,7 @@ size_t Building::ByteSizeLong() const {
         this->_internal_uuid());
   }
 
-  // .DTCC.Polygon footPrint = 2;
+  // .DTCC.Polygon footprint = 2;
   if (this->has_footprint()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -6007,7 +6007,7 @@ const char* CityModel::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .DTCC.LandUse landUse = 5;
+      // repeated .DTCC.LandUse landuse = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr -= 1;
@@ -6079,7 +6079,7 @@ failure:
       InternalWriteMessage(4, this->_internal_buildings(i), target, stream);
   }
 
-  // repeated .DTCC.LandUse landUse = 5;
+  // repeated .DTCC.LandUse landuse = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_landuse_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -6110,7 +6110,7 @@ size_t CityModel::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .DTCC.LandUse landUse = 5;
+  // repeated .DTCC.LandUse landuse = 5;
   total_size += 1UL * this->_internal_landuse_size();
   for (const auto& msg : this->landuse_) {
     total_size +=
@@ -6293,7 +6293,7 @@ const char* LandUse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .DTCC.Polygon footPrint = 1;
+      // .DTCC.Polygon footprint = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_footprint(), ptr);
@@ -6337,7 +6337,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .DTCC.Polygon footPrint = 1;
+  // .DTCC.Polygon footprint = 1;
   if (this->has_footprint()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6378,7 +6378,7 @@ size_t LandUse::ByteSizeLong() const {
         this->_internal_type());
   }
 
-  // .DTCC.Polygon footPrint = 1;
+  // .DTCC.Polygon footprint = 1;
   if (this->has_footprint()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -6467,8 +6467,8 @@ Road::Road(const Road& from)
       GetArena());
   }
   ::memcpy(&type_, &from.type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&speedlimit_) -
-    reinterpret_cast<char*>(&type_)) + sizeof(speedlimit_));
+    static_cast<size_t>(reinterpret_cast<char*>(&speed_limit_) -
+    reinterpret_cast<char*>(&type_)) + sizeof(speed_limit_));
   // @@protoc_insertion_point(copy_constructor:DTCC.Road)
 }
 
@@ -6477,8 +6477,8 @@ void Road::SharedCtor() {
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&speedlimit_) -
-      reinterpret_cast<char*>(&type_)) + sizeof(speedlimit_));
+      reinterpret_cast<char*>(&speed_limit_) -
+      reinterpret_cast<char*>(&type_)) + sizeof(speed_limit_));
 }
 
 Road::~Road() {
@@ -6518,8 +6518,8 @@ void Road::Clear() {
   name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::memset(&type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&speedlimit_) -
-      reinterpret_cast<char*>(&type_)) + sizeof(speedlimit_));
+      reinterpret_cast<char*>(&speed_limit_) -
+      reinterpret_cast<char*>(&type_)) + sizeof(speed_limit_));
   _internal_metadata_.Clear<std::string>();
 }
 
@@ -6571,10 +6571,10 @@ const char* Road::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int32 speedLimit = 6;
+      // int32 speed_limit = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          speedlimit_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          speed_limit_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -6652,10 +6652,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_lanes(), target);
   }
 
-  // int32 speedLimit = 6;
-  if (this->speedlimit() != 0) {
+  // int32 speed_limit = 6;
+  if (this->speed_limit() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_speedlimit(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_speed_limit(), target);
   }
 
   // string id = 7;
@@ -6732,11 +6732,11 @@ size_t Road::ByteSizeLong() const {
         this->_internal_lanes());
   }
 
-  // int32 speedLimit = 6;
-  if (this->speedlimit() != 0) {
+  // int32 speed_limit = 6;
+  if (this->speed_limit() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_speedlimit());
+        this->_internal_speed_limit());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6776,8 +6776,8 @@ void Road::MergeFrom(const Road& from) {
   if (from.lanes() != 0) {
     _internal_set_lanes(from._internal_lanes());
   }
-  if (from.speedlimit() != 0) {
-    _internal_set_speedlimit(from._internal_speedlimit());
+  if (from.speed_limit() != 0) {
+    _internal_set_speed_limit(from._internal_speed_limit());
   }
 }
 
@@ -6799,8 +6799,8 @@ void Road::InternalSwap(Road* other) {
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Road, speedlimit_)
-      + sizeof(Road::speedlimit_)
+      PROTOBUF_FIELD_OFFSET(Road, speed_limit_)
+      + sizeof(Road::speed_limit_)
       - PROTOBUF_FIELD_OFFSET(Road, type_)>(
           reinterpret_cast<char*>(&type_),
           reinterpret_cast<char*>(&other->type_));

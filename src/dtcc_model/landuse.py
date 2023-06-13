@@ -39,13 +39,13 @@ class Landuse(DTCCModel):
 
     def to_proto(self) -> proto.LandUse:
         pb = proto.LandUse()
-        pb.footPrint.CopyFrom(pb_polygon_from_shapely(self.footprint))
+        pb.footprint.CopyFrom(pb_polygon_from_shapely(self.footprint))
         pb.type = self.landuse.name
 
         return pb
 
     def from_proto(self, pb: Union[proto.LandUse, bytes]):
         if isinstance(pb, bytes):
-            pb = proto.LandUse.FromString(pb)
-        self.footprint = pb_polygon_to_shapely(pb.footPrint)
+            pb = proto.Landuse.FromString(pb)
+        self.footprint = pb_polygon_to_shapely(pb.footprint)
         self.landuse = LanduseClasses[pb.type.upper()]

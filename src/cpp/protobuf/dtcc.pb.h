@@ -3544,7 +3544,7 @@ class Building PROTOBUF_FINAL :
 
   enum : int {
     kUuidFieldNumber = 1,
-    kFootPrintFieldNumber = 2,
+    kFootprintFieldNumber = 2,
     kRoofpointsFieldNumber = 5,
     kHeightFieldNumber = 3,
     kGroundHeightFieldNumber = 4,
@@ -3575,7 +3575,7 @@ class Building PROTOBUF_FINAL :
   std::string* _internal_mutable_uuid();
   public:
 
-  // .DTCC.Polygon footPrint = 2;
+  // .DTCC.Polygon footprint = 2;
   bool has_footprint() const;
   private:
   bool _internal_has_footprint() const;
@@ -3755,7 +3755,7 @@ class CityModel PROTOBUF_FINAL :
 
   enum : int {
     kBuildingsFieldNumber = 4,
-    kLandUseFieldNumber = 5,
+    kLanduseFieldNumber = 5,
     kBoundsFieldNumber = 1,
     kGeorefFieldNumber = 2,
     kTerrainFieldNumber = 3,
@@ -3778,7 +3778,7 @@ class CityModel PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building >&
       buildings() const;
 
-  // repeated .DTCC.LandUse landUse = 5;
+  // repeated .DTCC.LandUse landuse = 5;
   int landuse_size() const;
   private:
   int _internal_landuse_size() const;
@@ -3966,7 +3966,7 @@ class LandUse PROTOBUF_FINAL :
 
   enum : int {
     kTypeFieldNumber = 2,
-    kFootPrintFieldNumber = 1,
+    kFootprintFieldNumber = 1,
   };
   // string type = 2;
   void clear_type();
@@ -3993,7 +3993,7 @@ class LandUse PROTOBUF_FINAL :
   std::string* _internal_mutable_type();
   public:
 
-  // .DTCC.Polygon footPrint = 1;
+  // .DTCC.Polygon footprint = 1;
   bool has_footprint() const;
   private:
   bool _internal_has_footprint() const;
@@ -4230,13 +4230,13 @@ class Road PROTOBUF_FINAL :
   void _internal_set_lanes(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 speedLimit = 6;
-  void clear_speedlimit();
-  ::PROTOBUF_NAMESPACE_ID::int32 speedlimit() const;
-  void set_speedlimit(::PROTOBUF_NAMESPACE_ID::int32 value);
+  // int32 speed_limit = 6;
+  void clear_speed_limit();
+  ::PROTOBUF_NAMESPACE_ID::int32 speed_limit() const;
+  void set_speed_limit(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_speedlimit() const;
-  void _internal_set_speedlimit(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_speed_limit() const;
+  void _internal_set_speed_limit(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:DTCC.Road)
@@ -4253,7 +4253,7 @@ class Road PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 type_;
   float width_;
   ::PROTOBUF_NAMESPACE_ID::int32 lanes_;
-  ::PROTOBUF_NAMESPACE_ID::int32 speedlimit_;
+  ::PROTOBUF_NAMESPACE_ID::int32 speed_limit_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dtcc_2eproto;
 };
@@ -7249,7 +7249,7 @@ inline void Building::unsafe_arena_set_allocated_uuid(
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Building.uuid)
 }
 
-// .DTCC.Polygon footPrint = 2;
+// .DTCC.Polygon footprint = 2;
 inline bool Building::_internal_has_footprint() const {
   return this != internal_default_instance() && footprint_ != nullptr;
 }
@@ -7268,7 +7268,7 @@ inline const ::DTCC::Polygon& Building::_internal_footprint() const {
       &::DTCC::_Polygon_default_instance_);
 }
 inline const ::DTCC::Polygon& Building::footprint() const {
-  // @@protoc_insertion_point(field_get:DTCC.Building.footPrint)
+  // @@protoc_insertion_point(field_get:DTCC.Building.footprint)
   return _internal_footprint();
 }
 inline void Building::unsafe_arena_set_allocated_footprint(
@@ -7282,7 +7282,7 @@ inline void Building::unsafe_arena_set_allocated_footprint(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Building.footPrint)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Building.footprint)
 }
 inline ::DTCC::Polygon* Building::release_footprint() {
   auto temp = unsafe_arena_release_footprint();
@@ -7292,7 +7292,7 @@ inline ::DTCC::Polygon* Building::release_footprint() {
   return temp;
 }
 inline ::DTCC::Polygon* Building::unsafe_arena_release_footprint() {
-  // @@protoc_insertion_point(field_release:DTCC.Building.footPrint)
+  // @@protoc_insertion_point(field_release:DTCC.Building.footprint)
   
   ::DTCC::Polygon* temp = footprint_;
   footprint_ = nullptr;
@@ -7307,7 +7307,7 @@ inline ::DTCC::Polygon* Building::_internal_mutable_footprint() {
   return footprint_;
 }
 inline ::DTCC::Polygon* Building::mutable_footprint() {
-  // @@protoc_insertion_point(field_mutable:DTCC.Building.footPrint)
+  // @@protoc_insertion_point(field_mutable:DTCC.Building.footprint)
   return _internal_mutable_footprint();
 }
 inline void Building::set_allocated_footprint(::DTCC::Polygon* footprint) {
@@ -7327,7 +7327,7 @@ inline void Building::set_allocated_footprint(::DTCC::Polygon* footprint) {
     
   }
   footprint_ = footprint;
-  // @@protoc_insertion_point(field_set_allocated:DTCC.Building.footPrint)
+  // @@protoc_insertion_point(field_set_allocated:DTCC.Building.footprint)
 }
 
 // float height = 3;
@@ -7757,7 +7757,7 @@ CityModel::buildings() const {
   return buildings_;
 }
 
-// repeated .DTCC.LandUse landUse = 5;
+// repeated .DTCC.LandUse landuse = 5;
 inline int CityModel::_internal_landuse_size() const {
   return landuse_.size();
 }
@@ -7768,31 +7768,31 @@ inline void CityModel::clear_landuse() {
   landuse_.Clear();
 }
 inline ::DTCC::LandUse* CityModel::mutable_landuse(int index) {
-  // @@protoc_insertion_point(field_mutable:DTCC.CityModel.landUse)
+  // @@protoc_insertion_point(field_mutable:DTCC.CityModel.landuse)
   return landuse_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse >*
 CityModel::mutable_landuse() {
-  // @@protoc_insertion_point(field_mutable_list:DTCC.CityModel.landUse)
+  // @@protoc_insertion_point(field_mutable_list:DTCC.CityModel.landuse)
   return &landuse_;
 }
 inline const ::DTCC::LandUse& CityModel::_internal_landuse(int index) const {
   return landuse_.Get(index);
 }
 inline const ::DTCC::LandUse& CityModel::landuse(int index) const {
-  // @@protoc_insertion_point(field_get:DTCC.CityModel.landUse)
+  // @@protoc_insertion_point(field_get:DTCC.CityModel.landuse)
   return _internal_landuse(index);
 }
 inline ::DTCC::LandUse* CityModel::_internal_add_landuse() {
   return landuse_.Add();
 }
 inline ::DTCC::LandUse* CityModel::add_landuse() {
-  // @@protoc_insertion_point(field_add:DTCC.CityModel.landUse)
+  // @@protoc_insertion_point(field_add:DTCC.CityModel.landuse)
   return _internal_add_landuse();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse >&
 CityModel::landuse() const {
-  // @@protoc_insertion_point(field_list:DTCC.CityModel.landUse)
+  // @@protoc_insertion_point(field_list:DTCC.CityModel.landuse)
   return landuse_;
 }
 
@@ -7800,7 +7800,7 @@ CityModel::landuse() const {
 
 // LandUse
 
-// .DTCC.Polygon footPrint = 1;
+// .DTCC.Polygon footprint = 1;
 inline bool LandUse::_internal_has_footprint() const {
   return this != internal_default_instance() && footprint_ != nullptr;
 }
@@ -7819,7 +7819,7 @@ inline const ::DTCC::Polygon& LandUse::_internal_footprint() const {
       &::DTCC::_Polygon_default_instance_);
 }
 inline const ::DTCC::Polygon& LandUse::footprint() const {
-  // @@protoc_insertion_point(field_get:DTCC.LandUse.footPrint)
+  // @@protoc_insertion_point(field_get:DTCC.LandUse.footprint)
   return _internal_footprint();
 }
 inline void LandUse::unsafe_arena_set_allocated_footprint(
@@ -7833,7 +7833,7 @@ inline void LandUse::unsafe_arena_set_allocated_footprint(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.LandUse.footPrint)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.LandUse.footprint)
 }
 inline ::DTCC::Polygon* LandUse::release_footprint() {
   auto temp = unsafe_arena_release_footprint();
@@ -7843,7 +7843,7 @@ inline ::DTCC::Polygon* LandUse::release_footprint() {
   return temp;
 }
 inline ::DTCC::Polygon* LandUse::unsafe_arena_release_footprint() {
-  // @@protoc_insertion_point(field_release:DTCC.LandUse.footPrint)
+  // @@protoc_insertion_point(field_release:DTCC.LandUse.footprint)
   
   ::DTCC::Polygon* temp = footprint_;
   footprint_ = nullptr;
@@ -7858,7 +7858,7 @@ inline ::DTCC::Polygon* LandUse::_internal_mutable_footprint() {
   return footprint_;
 }
 inline ::DTCC::Polygon* LandUse::mutable_footprint() {
-  // @@protoc_insertion_point(field_mutable:DTCC.LandUse.footPrint)
+  // @@protoc_insertion_point(field_mutable:DTCC.LandUse.footprint)
   return _internal_mutable_footprint();
 }
 inline void LandUse::set_allocated_footprint(::DTCC::Polygon* footprint) {
@@ -7878,7 +7878,7 @@ inline void LandUse::set_allocated_footprint(::DTCC::Polygon* footprint) {
     
   }
   footprint_ = footprint;
-  // @@protoc_insertion_point(field_set_allocated:DTCC.LandUse.footPrint)
+  // @@protoc_insertion_point(field_set_allocated:DTCC.LandUse.footprint)
 }
 
 // string type = 2;
@@ -8154,24 +8154,24 @@ inline void Road::set_lanes(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:DTCC.Road.lanes)
 }
 
-// int32 speedLimit = 6;
-inline void Road::clear_speedlimit() {
-  speedlimit_ = 0;
+// int32 speed_limit = 6;
+inline void Road::clear_speed_limit() {
+  speed_limit_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Road::_internal_speedlimit() const {
-  return speedlimit_;
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::_internal_speed_limit() const {
+  return speed_limit_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Road::speedlimit() const {
-  // @@protoc_insertion_point(field_get:DTCC.Road.speedLimit)
-  return _internal_speedlimit();
+inline ::PROTOBUF_NAMESPACE_ID::int32 Road::speed_limit() const {
+  // @@protoc_insertion_point(field_get:DTCC.Road.speed_limit)
+  return _internal_speed_limit();
 }
-inline void Road::_internal_set_speedlimit(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Road::_internal_set_speed_limit(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  speedlimit_ = value;
+  speed_limit_ = value;
 }
-inline void Road::set_speedlimit(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_speedlimit(value);
-  // @@protoc_insertion_point(field_set:DTCC.Road.speedLimit)
+inline void Road::set_speed_limit(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_speed_limit(value);
+  // @@protoc_insertion_point(field_set:DTCC.Road.speed_limit)
 }
 
 // string id = 7;

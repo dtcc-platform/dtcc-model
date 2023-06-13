@@ -31,8 +31,8 @@ class TestBuilding(unittest.TestCase):
         # tmpfile = NamedTemporaryFile(suffix=".pb", delete=False)
         pb_building = b.to_proto()
         self.assertEqual(pb_building.uuid, "3")
-        self.assertEqual(len(pb_building.footPrint.shell.vertices), 5)
-        self.assertEqual(len(pb_building.footPrint.holes), 1)
+        self.assertEqual(len(pb_building.footprint.shell.vertices), 5)
+        self.assertEqual(len(pb_building.footprint.holes), 1)
 
     def test_getitem(self):
         b = Building()

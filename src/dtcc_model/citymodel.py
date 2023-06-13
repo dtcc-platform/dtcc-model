@@ -48,5 +48,5 @@ class CityModel(DTCCModel):
         pb.georef.CopyFrom(self.georef.to_proto())
         pb.terrain.CopyFrom(self.terrain.to_proto())
         pb.buildings.extend([b.to_proto() for b in self.buildings])
-        pb.landuse.extend([lu.to_proto() for lu in self.landuse])
+        pb.landUse.extend([lu.to_proto() for lu in self.landuse])
         return pb

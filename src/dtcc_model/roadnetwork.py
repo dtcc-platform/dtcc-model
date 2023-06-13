@@ -51,7 +51,7 @@ class Road(DTCCModel):
         pb.type = self.road_type
         pb.width = self.road_width
         pb.lanes = self.lanes
-        pb.speedLimit = self.speed_limit
+        pb.speed_limit = self.speed_limit
         pb.name = self.road_name
         pb.id = self.road_id
         return pb
@@ -63,7 +63,7 @@ class Road(DTCCModel):
         self.road_type = pb.type
         self.road_width = pb.width
         self.lanes = pb.lanes
-        self.speed_limit = pb.speedLimit
+        self.speed_limit = pb.speed_limit
         self.road_name = pb.name
         self.road_id = pb.id
 

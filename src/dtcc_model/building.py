@@ -33,7 +33,7 @@ class Building(DTCCModel):
     def from_proto(self, pb: Union[proto.Building, bytes]):
         if isinstance(pb, bytes):
             pb = proto.Building.FromString(pb)
-        self.footprint = pb_polygon_to_shapely(pb.footPrint)
+        self.footprint = pb_polygon_to_shapely(pb.footprint)
         self.uuid = pb.uuid
         self.height = pb.height
         self.ground_level = pb.groundHeight
@@ -46,10 +46,8 @@ class Building(DTCCModel):
         pb.height = self.height
         pb.groundHeight = self.ground_level
         pb.error = self.error
-        pb.footPrint.CopyFrom(pb_polygon_from_shapely(self.footprint))
-        pb.roofpoints.points.extend(
-            [proto.Vector3D(x=p[0], y=p[1], z=p[2]) for p in self.roofpoints]
-        )
+        pb.footprint.CopyFrom(pb_polygon_from_shapely(self.footprint))
+        pb.roofpoints.points.extend(self.roofpoints.flatten())
         return pb
 
     def __getitem__(self, key: str) -> Any:
