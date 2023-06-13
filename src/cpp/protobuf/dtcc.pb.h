@@ -3832,23 +3832,23 @@ class CityModel PROTOBUF_FINAL :
       ::DTCC::Georef* georef);
   ::DTCC::Georef* unsafe_arena_release_georef();
 
-  // .DTCC.GridField terrain = 3;
+  // .DTCC.Raster terrain = 3;
   bool has_terrain() const;
   private:
   bool _internal_has_terrain() const;
   public:
   void clear_terrain();
-  const ::DTCC::GridField& terrain() const;
-  ::DTCC::GridField* release_terrain();
-  ::DTCC::GridField* mutable_terrain();
-  void set_allocated_terrain(::DTCC::GridField* terrain);
+  const ::DTCC::Raster& terrain() const;
+  ::DTCC::Raster* release_terrain();
+  ::DTCC::Raster* mutable_terrain();
+  void set_allocated_terrain(::DTCC::Raster* terrain);
   private:
-  const ::DTCC::GridField& _internal_terrain() const;
-  ::DTCC::GridField* _internal_mutable_terrain();
+  const ::DTCC::Raster& _internal_terrain() const;
+  ::DTCC::Raster* _internal_mutable_terrain();
   public:
   void unsafe_arena_set_allocated_terrain(
-      ::DTCC::GridField* terrain);
-  ::DTCC::GridField* unsafe_arena_release_terrain();
+      ::DTCC::Raster* terrain);
+  ::DTCC::Raster* unsafe_arena_release_terrain();
 
   // @@protoc_insertion_point(class_scope:DTCC.CityModel)
  private:
@@ -3861,7 +3861,7 @@ class CityModel PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse > landuse_;
   ::DTCC::Bounds* bounds_;
   ::DTCC::Georef* georef_;
-  ::DTCC::GridField* terrain_;
+  ::DTCC::Raster* terrain_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dtcc_2eproto;
 };
@@ -7637,7 +7637,7 @@ inline void CityModel::set_allocated_georef(::DTCC::Georef* georef) {
   // @@protoc_insertion_point(field_set_allocated:DTCC.CityModel.georef)
 }
 
-// .DTCC.GridField terrain = 3;
+// .DTCC.Raster terrain = 3;
 inline bool CityModel::_internal_has_terrain() const {
   return this != internal_default_instance() && terrain_ != nullptr;
 }
@@ -7650,17 +7650,17 @@ inline void CityModel::clear_terrain() {
   }
   terrain_ = nullptr;
 }
-inline const ::DTCC::GridField& CityModel::_internal_terrain() const {
-  const ::DTCC::GridField* p = terrain_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::GridField*>(
-      &::DTCC::_GridField_default_instance_);
+inline const ::DTCC::Raster& CityModel::_internal_terrain() const {
+  const ::DTCC::Raster* p = terrain_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::DTCC::Raster*>(
+      &::DTCC::_Raster_default_instance_);
 }
-inline const ::DTCC::GridField& CityModel::terrain() const {
+inline const ::DTCC::Raster& CityModel::terrain() const {
   // @@protoc_insertion_point(field_get:DTCC.CityModel.terrain)
   return _internal_terrain();
 }
 inline void CityModel::unsafe_arena_set_allocated_terrain(
-    ::DTCC::GridField* terrain) {
+    ::DTCC::Raster* terrain) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(terrain_);
   }
@@ -7672,33 +7672,33 @@ inline void CityModel::unsafe_arena_set_allocated_terrain(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.CityModel.terrain)
 }
-inline ::DTCC::GridField* CityModel::release_terrain() {
+inline ::DTCC::Raster* CityModel::release_terrain() {
   auto temp = unsafe_arena_release_terrain();
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::DTCC::GridField* CityModel::unsafe_arena_release_terrain() {
+inline ::DTCC::Raster* CityModel::unsafe_arena_release_terrain() {
   // @@protoc_insertion_point(field_release:DTCC.CityModel.terrain)
   
-  ::DTCC::GridField* temp = terrain_;
+  ::DTCC::Raster* temp = terrain_;
   terrain_ = nullptr;
   return temp;
 }
-inline ::DTCC::GridField* CityModel::_internal_mutable_terrain() {
+inline ::DTCC::Raster* CityModel::_internal_mutable_terrain() {
   
   if (terrain_ == nullptr) {
-    auto* p = CreateMaybeMessage<::DTCC::GridField>(GetArena());
+    auto* p = CreateMaybeMessage<::DTCC::Raster>(GetArena());
     terrain_ = p;
   }
   return terrain_;
 }
-inline ::DTCC::GridField* CityModel::mutable_terrain() {
+inline ::DTCC::Raster* CityModel::mutable_terrain() {
   // @@protoc_insertion_point(field_mutable:DTCC.CityModel.terrain)
   return _internal_mutable_terrain();
 }
-inline void CityModel::set_allocated_terrain(::DTCC::GridField* terrain) {
+inline void CityModel::set_allocated_terrain(::DTCC::Raster* terrain) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete terrain_;

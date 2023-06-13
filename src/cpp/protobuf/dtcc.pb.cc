@@ -16,12 +16,12 @@ extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Building_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Georef_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Grid_dtcc_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GridField_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LandUse_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_LinearRing_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Mesh_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_PointCloud_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Polygon_dtcc_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Raster_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Road_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vector2D_dtcc_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_dtcc_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vector3D_dtcc_2eproto;
@@ -199,7 +199,7 @@ static void InitDefaultsscc_info_CityModel_dtcc_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_CityModel_dtcc_2eproto}, {
       &scc_info_Bounds_dtcc_2eproto.base,
       &scc_info_Georef_dtcc_2eproto.base,
-      &scc_info_GridField_dtcc_2eproto.base,
+      &scc_info_Raster_dtcc_2eproto.base,
       &scc_info_Building_dtcc_2eproto.base,
       &scc_info_LandUse_dtcc_2eproto.base,}};
 
@@ -5855,14 +5855,14 @@ void CityModel::InitAsDefaultInstance() {
       ::DTCC::Bounds::internal_default_instance());
   ::DTCC::_CityModel_default_instance_._instance.get_mutable()->georef_ = const_cast< ::DTCC::Georef*>(
       ::DTCC::Georef::internal_default_instance());
-  ::DTCC::_CityModel_default_instance_._instance.get_mutable()->terrain_ = const_cast< ::DTCC::GridField*>(
-      ::DTCC::GridField::internal_default_instance());
+  ::DTCC::_CityModel_default_instance_._instance.get_mutable()->terrain_ = const_cast< ::DTCC::Raster*>(
+      ::DTCC::Raster::internal_default_instance());
 }
 class CityModel::_Internal {
  public:
   static const ::DTCC::Bounds& bounds(const CityModel* msg);
   static const ::DTCC::Georef& georef(const CityModel* msg);
-  static const ::DTCC::GridField& terrain(const CityModel* msg);
+  static const ::DTCC::Raster& terrain(const CityModel* msg);
 };
 
 const ::DTCC::Bounds&
@@ -5873,7 +5873,7 @@ const ::DTCC::Georef&
 CityModel::_Internal::georef(const CityModel* msg) {
   return *msg->georef_;
 }
-const ::DTCC::GridField&
+const ::DTCC::Raster&
 CityModel::_Internal::terrain(const CityModel* msg) {
   return *msg->terrain_;
 }
@@ -5901,7 +5901,7 @@ CityModel::CityModel(const CityModel& from)
     georef_ = nullptr;
   }
   if (from._internal_has_terrain()) {
-    terrain_ = new ::DTCC::GridField(*from.terrain_);
+    terrain_ = new ::DTCC::Raster(*from.terrain_);
   } else {
     terrain_ = nullptr;
   }
@@ -5988,7 +5988,7 @@ const char* CityModel::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .DTCC.GridField terrain = 3;
+      // .DTCC.Raster terrain = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_terrain(), ptr);
@@ -6063,7 +6063,7 @@ failure:
         2, _Internal::georef(this), target, stream);
   }
 
-  // .DTCC.GridField terrain = 3;
+  // .DTCC.Raster terrain = 3;
   if (this->has_terrain()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6131,7 +6131,7 @@ size_t CityModel::ByteSizeLong() const {
         *georef_);
   }
 
-  // .DTCC.GridField terrain = 3;
+  // .DTCC.Raster terrain = 3;
   if (this->has_terrain()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -6168,7 +6168,7 @@ void CityModel::MergeFrom(const CityModel& from) {
     _internal_mutable_georef()->::DTCC::Georef::MergeFrom(from._internal_georef());
   }
   if (from.has_terrain()) {
-    _internal_mutable_terrain()->::DTCC::GridField::MergeFrom(from._internal_terrain());
+    _internal_mutable_terrain()->::DTCC::Raster::MergeFrom(from._internal_terrain());
   }
 }
 

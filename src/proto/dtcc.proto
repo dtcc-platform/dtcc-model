@@ -175,7 +175,7 @@ message CityModel
 {
   Bounds bounds = 1;  
   Georef georef = 2;
-  GridField terrain = 3;  
+  Raster terrain = 3;  
   repeated Building buildings = 4;
   repeated LandUse landUse = 5;
 }
