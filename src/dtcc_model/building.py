@@ -38,7 +38,8 @@ class Building(DTCCModel):
         self.height = pb.height
         self.ground_level = pb.groundHeight
         self.error = pb.error
-        self.roofpoints = np.array([[v.x, v.y, v.z] for v in pb.roofpoints.points])
+        self.roofpoints = PointCloud()
+        self.roofpoints.points = np.array(pb.roofpoints.points).reshape(-1, 3)
 
     def to_proto(self) -> proto.Building:
         pb = proto.Building()
@@ -47,7 +48,7 @@ class Building(DTCCModel):
         pb.groundHeight = self.ground_level
         pb.error = self.error
         pb.footprint.CopyFrom(pb_polygon_from_shapely(self.footprint))
-        pb.roofpoints.points.extend(self.roofpoints.flatten())
+        pb.roofpoints.points.extend(self.roofpoints.points.flatten())
         return pb
 
     def __getitem__(self, key: str) -> Any:
