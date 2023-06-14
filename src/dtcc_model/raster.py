@@ -33,14 +33,20 @@ class Raster(DTCCModel):
 
     @property
     def height(self):
+        if len(self.data.shape) < 2:
+            return 0
         return self.data.shape[0]
 
     @property
     def width(self):
+        if len(self.data.shape) < 2:
+            return 0
         return self.data.shape[1]
 
     @property
     def channels(self):
+        if len(self.data.shape) < 2:
+            return 0
         if len(self.data.shape) == 2:
             return 1
         else:
@@ -97,7 +103,9 @@ class Raster(DTCCModel):
             _raster.FromString(pb)
             pb = _raster
 
-        if pb.channels == 1:
+        if pb.height == 0 or pb.width == 0 or pb.channels == 0:
+            self.data = np.empty(())
+        elif pb.channels == 1:
             self.data = self.data.reshape((pb.height, pb.width))
         else:
             self.data = np.array(pb.values).reshape((pb.height, pb.width, pb.channels))
