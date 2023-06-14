@@ -178,6 +178,7 @@ message CityModel
   Raster terrain = 3;  
   repeated Building buildings = 4;
   repeated LandUse landuse = 5;
+  string name = 6;
 }
 
 message LandUse

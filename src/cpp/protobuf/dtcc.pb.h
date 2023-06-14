@@ -3756,6 +3756,7 @@ class CityModel PROTOBUF_FINAL :
   enum : int {
     kBuildingsFieldNumber = 4,
     kLanduseFieldNumber = 5,
+    kNameFieldNumber = 6,
     kBoundsFieldNumber = 1,
     kGeorefFieldNumber = 2,
     kTerrainFieldNumber = 3,
@@ -3795,6 +3796,31 @@ class CityModel PROTOBUF_FINAL :
   ::DTCC::LandUse* add_landuse();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse >&
       landuse() const;
+
+  // string name = 6;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_name();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_name(
+      std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
 
   // .DTCC.Bounds bounds = 1;
   bool has_bounds() const;
@@ -3859,6 +3885,7 @@ class CityModel PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Building > buildings_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse > landuse_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::DTCC::Bounds* bounds_;
   ::DTCC::Georef* georef_;
   ::DTCC::Raster* terrain_;
@@ -7794,6 +7821,87 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::LandUse >&
 CityModel::landuse() const {
   // @@protoc_insertion_point(field_list:DTCC.CityModel.landuse)
   return landuse_;
+}
+
+// string name = 6;
+inline void CityModel::clear_name() {
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& CityModel::name() const {
+  // @@protoc_insertion_point(field_get:DTCC.CityModel.name)
+  return _internal_name();
+}
+inline void CityModel::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:DTCC.CityModel.name)
+}
+inline std::string* CityModel::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:DTCC.CityModel.name)
+  return _internal_mutable_name();
+}
+inline const std::string& CityModel::_internal_name() const {
+  return name_.Get();
+}
+inline void CityModel::_internal_set_name(const std::string& value) {
+  
+  name_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void CityModel::set_name(std::string&& value) {
+  
+  name_.SetLite(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:DTCC.CityModel.name)
+}
+inline void CityModel::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:DTCC.CityModel.name)
+}
+inline void CityModel::set_name(const char* value,
+    size_t size) {
+  
+  name_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:DTCC.CityModel.name)
+}
+inline std::string* CityModel::_internal_mutable_name() {
+  
+  return name_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* CityModel::release_name() {
+  // @@protoc_insertion_point(field_release:DTCC.CityModel.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CityModel::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:DTCC.CityModel.name)
+}
+inline std::string* CityModel::unsafe_arena_release_name() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:DTCC.CityModel.name)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return name_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void CityModel::unsafe_arena_set_allocated_name(
+    std::string* name) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      name, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.CityModel.name)
 }
 
 // -------------------------------------------------------------------

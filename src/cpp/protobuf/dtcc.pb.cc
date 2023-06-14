@@ -5890,6 +5890,11 @@ CityModel::CityModel(const CityModel& from)
       buildings_(from.buildings_),
       landuse_(from.landuse_) {
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
+      GetArena());
+  }
   if (from._internal_has_bounds()) {
     bounds_ = new ::DTCC::Bounds(*from.bounds_);
   } else {
@@ -5910,6 +5915,7 @@ CityModel::CityModel(const CityModel& from)
 
 void CityModel::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CityModel_dtcc_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&bounds_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&terrain_) -
       reinterpret_cast<char*>(&bounds_)) + sizeof(terrain_));
@@ -5923,6 +5929,7 @@ CityModel::~CityModel() {
 
 void CityModel::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete bounds_;
   if (this != internal_default_instance()) delete georef_;
   if (this != internal_default_instance()) delete terrain_;
@@ -5951,6 +5958,7 @@ void CityModel::Clear() {
 
   buildings_.Clear();
   landuse_.Clear();
+  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   if (GetArena() == nullptr && bounds_ != nullptr) {
     delete bounds_;
   }
@@ -6017,6 +6025,15 @@ const char* CityModel::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // string name = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -6087,6 +6104,16 @@ failure:
       InternalWriteMessage(5, this->_internal_landuse(i), target, stream);
   }
 
+  // string name = 6;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "DTCC.CityModel.name");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_name(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
@@ -6115,6 +6142,13 @@ size_t CityModel::ByteSizeLong() const {
   for (const auto& msg : this->landuse_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string name = 6;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
   }
 
   // .DTCC.Bounds bounds = 1;
@@ -6161,6 +6195,9 @@ void CityModel::MergeFrom(const CityModel& from) {
 
   buildings_.MergeFrom(from.buildings_);
   landuse_.MergeFrom(from.landuse_);
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
   if (from.has_bounds()) {
     _internal_mutable_bounds()->::DTCC::Bounds::MergeFrom(from._internal_bounds());
   }
@@ -6188,6 +6225,7 @@ void CityModel::InternalSwap(CityModel* other) {
   _internal_metadata_.Swap<std::string>(&other->_internal_metadata_);
   buildings_.InternalSwap(&other->buildings_);
   landuse_.InternalSwap(&other->landuse_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CityModel, terrain_)
       + sizeof(CityModel::terrain_)

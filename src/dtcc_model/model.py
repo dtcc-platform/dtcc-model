@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from typing import ClassVar
 from inspect import getmembers, isfunction, ismethod, ismodule
 import logging
+from google.protobuf.json_format import MessageToJson
 
 
 @dataclass
@@ -14,6 +15,9 @@ class DTCCModel(ABC):
     @abstractmethod
     def from_proto(self, pb):
         pass
+
+    def to_json(self):
+        return MessageToJson(self.to_proto(), including_default_value_fields=True)
 
     @classmethod
     def add_processors(cls, module, name=None):
