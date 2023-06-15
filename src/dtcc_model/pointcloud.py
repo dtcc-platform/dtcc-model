@@ -13,6 +13,21 @@ from .geometry import Bounds, Georef
 
 @dataclass
 class PointCloud(DTCCModel):
+    """A point cloud is a set of points with associated attributes.
+    Attributes:
+      bounds (Bounds): The bounds of the point cloud.
+      georef (Georef): The georeference of the point cloud.
+      points (np.ndarray): The points of the point cloud as (n,3) dimensional numpy array.
+
+      The following attributes are as defined in the las specification:
+      classification (np.ndarray): The classification of the points as (n,) dimensional numpy array.
+      intensity (np.ndarray): The intensity of the points as (n,) dimensional numpy array.
+      return_number (np.ndarray): The return number of the points as (n,) dimensional numpy array.
+      num_returns (np.ndarray): The number of returns of the points as (n,) dimensional numpy array.
+
+
+    """
+
     bounds: Bounds = field(default_factory=Bounds)
     georef: Georef = field(default_factory=Georef)
     points: np.ndarray = field(default_factory=lambda: np.empty(0))
@@ -31,12 +46,14 @@ class PointCloud(DTCCModel):
         return set(np.unique(self.classification))
 
     def calculate_bounds(self):
+        """Calculate the bounds of the point cloud and update the bounds attribute."""
         self.bounds.xmin = self.points[:, 0].min()
         self.bounds.xmax = self.points[:, 0].max()
         self.bounds.ymin = self.points[:, 1].min()
         self.bounds.ymax = self.points[:, 1].max()
 
     def remove_points(self, indices: np.ndarray):
+        """Remove points from the point cloud using the given indices."""
         self.points = np.delete(self.points, indices, axis=0)
         if len(self.classification) > 0:
             self.classification = np.delete(self.classification, indices, axis=0)

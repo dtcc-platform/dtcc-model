@@ -14,6 +14,20 @@ from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
 @dataclass
 class Building(DTCCModel):
+    """A base representation of a singele building.
+
+    Attributes:
+    uuid (str): The UUID of the building.
+    footprint (Polygon): The polygon representing the footprint of the building.
+    height (float): The height of the building.
+    ground_level (float): The ground level of base of the building.
+    roofpoints (PointCloud): The point cloud representing the roof points of the building.
+    crs (str): The coordinate reference system of the building.
+    error (int): Encoding the errors the occured when generating 3D represention of building.
+    properties (dict): Additional properties of the building.
+
+    """
+
     uuid: str = "NONE"
     footprint: Polygon = Polygon()
     height: float = 0

@@ -13,16 +13,22 @@ from .raster import Raster
 
 from .building import Building
 from .landuse import Landuse
+from .roadnetwork import RoadNetwork
 
 
 @dataclass
 class CityModel(DTCCModel):
+    """A city model is a container class for all data needed to represent a city.
+    currently that is a terrain, a set of buildings, a set of landuse polygons and a road network.
+    """
+
     name: str = ""
     bounds: Bounds = field(default_factory=Bounds)
     georef: Georef = field(default_factory=Georef)
     terrain: Raster = field(default_factory=Raster)
     buildings: List[Building] = field(default_factory=list)
     landuse: List[Landuse] = field(default_factory=list)
+    roadnetwork: RoadNetwork = field(default_factory=RoadNetwork)
 
     def __str__(self):
         return f"DTCC CityModel on {self.bounds.bndstr} with {len(self.buildings)} building(s)"

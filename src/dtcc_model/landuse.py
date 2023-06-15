@@ -26,6 +26,10 @@ class LanduseClasses(Enum):
 
 @dataclass
 class Landuse(DTCCModel):
+    """A polygon of a singele landuse area.:
+    available landuse types are:
+    WATER, GRASS, FOREST, FARMLAND, URBAN, INDUSTRIAL, MILITARY, ROAD, RAIL"""
+
     footprint: Polygon = field(default_factory=Polygon)
     landuse: LanduseClasses = LanduseClasses.URBAN
     properties: dict = field(default_factory=dict)

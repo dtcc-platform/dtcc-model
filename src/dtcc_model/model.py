@@ -8,6 +8,10 @@ from google.protobuf.json_format import MessageToJson
 
 @dataclass
 class DTCCModel(ABC):
+    """Base class for all DTCC models. Must implement to_proto and from_proto
+    methods that converts to and from the protobuf representation.
+    """
+
     @abstractmethod
     def to_proto(self):
         pass
