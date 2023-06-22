@@ -11,7 +11,7 @@ from .meshfields import (
     VolumeMeshVectorField,
 )
 from .building import Building
-from .citymodel import CityModel
+from .city import City
 from .raster import Raster
 from .landuse import Landuse
 from .roadnetwork import RoadNetwork, RoadType
@@ -31,7 +31,7 @@ __all__ = [
     "VolumeMeshField",
     "VolumeMeshVectorField",
     "Building",
-    "CityModel",
+    "City",
     "Raster",
     "RoadNetwork",
 ]

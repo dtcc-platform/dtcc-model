@@ -24,10 +24,10 @@ volume_mesh.from_proto(proto_volume_mesh)
 print(volume_mesh)
 
 building = Building()
-city_model = CityModel()
-city_model.add_building(building)
+city = City()
+city.add_building(building)
 print(building)
-print(city_model)
+print(city)
 
 
 # print(dir(mesh))
@@ -48,7 +48,7 @@ print(city_model)
 # pointcloud = PointCloud()
 # mesh = Mesh()
 # building = Building()
-# citymodel = CityModel()
+# city = City()
 
 # x2.x = 3.0
 # x2.y = 5.0
@@ -68,14 +68,14 @@ print(city_model)
 
 # building.uuid = 'da39f9a4-2ae1-402b-8b00-897b11e37c05'
 # building.height = 250.0
-# citymodel.add_building(building)
-# citymodel.add_building(building)
+# city.add_building(building)
+# city.add_building(building)
 
 # info(x2)
 # info(x3)
 # info(pointcloud)
 # info(mesh)
 # info(building)
-# info(citymodel)
+# info(city)
 
-# citymodel.remove_building(building)
+# city.remove_building(building)

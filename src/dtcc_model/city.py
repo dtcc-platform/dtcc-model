@@ -17,10 +17,8 @@ from .roadnetwork import RoadNetwork
 
 
 @dataclass
-class CityModel(DTCCModel):
-    """A city model is a container class for all data needed to represent a city.
-    currently that is a terrain, a set of buildings, a set of landuse polygons and a road network.
-    """
+class City(DTCCModel):
+    """A City is the top-level container class for city models"""
 
     name: str = ""
     bounds: Bounds = field(default_factory=Bounds)
@@ -31,7 +29,7 @@ class CityModel(DTCCModel):
     roadnetwork: RoadNetwork = field(default_factory=RoadNetwork)
 
     def __str__(self):
-        return f"DTCC CityModel on {self.bounds.bndstr} with {len(self.buildings)} building(s)"
+        return f"DTCC City on {self.bounds.bndstr} with {len(self.buildings)} building(s)"
 
     @property
     def origin(self):
@@ -40,9 +38,9 @@ class CityModel(DTCCModel):
     def add_building(self, building: Building):
         self.buildings.append(building)
 
-    def from_proto(self, pb: Union[proto.CityModel, bytes]):
+    def from_proto(self, pb: Union[proto.City, bytes]):
         if isinstance(pb, bytes):
-            pb = proto.CityModel.FromString(pb)
+            pb = proto.City.FromString(pb)
         self.name = pb.name
         self.bounds.from_proto(pb.bounds)
         self.georef.from_proto(pb.georef)
@@ -50,8 +48,8 @@ class CityModel(DTCCModel):
         self.buildings = [Building.from_proto(b) for b in pb.buildings]
         self.landuse = [Landuse.from_proto(l) for l in pb.landuse]
 
-    def to_proto(self) -> proto.CityModel:
-        pb = proto.CityModel()
+    def to_proto(self) -> proto.City:
+        pb = proto.City()
         pb.name = self.name
         pb.bounds.CopyFrom(self.bounds.to_proto())
         pb.georef.CopyFrom(self.georef.to_proto())
