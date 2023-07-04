@@ -24,38 +24,36 @@ class DTCCModel(ABC):
         return MessageToJson(self.to_proto(), including_default_value_fields=True)
 
     @classmethod
-    def add_processors(cls, module, name=None):
-        # print(f"called with args {cls} and {module} and {name}")
+    def add_methods(cls, module, name=None):
 
         # hack needed create a class variable for each subclass
-        if not hasattr(cls, "_processors"):
-            cls._processors = []
+        if not hasattr(cls, "_methods"):
+            cls._methods = []
 
         if isfunction(module):
-            _add_proc_fn(cls, module, name)
+            _add_method(cls, module, name)
         elif ismodule(module):
-            for fn_name, fn in getmembers(module, isfunction):
+            for function_name, function in getmembers(module, isfunction):
                 # print(fn_name)
-                if not fn_name.startswith("_"):
-                    _add_proc_fn(cls, fn, fn_name)
+                if not function_name.startswith("_"):
+                    _add_method(cls, function, function_name)
 
     @classmethod
-    def print_processors(cls, verbose=False):
-        print(f"Processors for {cls.__name__}:")
-        for name, parent_module, doc in cls._processors:
+    def print_methods(cls, verbose=False):
+        print(f"Methods for {cls.__name__}:")
+        for name, parent_module, doc in cls._methods:
             print(f" - {name}: from {parent_module}")
             if verbose:
                 print(f"   * {doc}")
 
 
-def _add_proc_fn(cls, fn, name=None):
-    # print(f"called with args {cls} and {fn} and {name}")
+def _add_method(cls, function, name=None):
     if name is None:
-        name = fn.__name__
-    for idx, (fn_name, _, _) in enumerate(cls._processors):
-        if fn_name == name:
-            logging.warn(f"{fn} Processor {fn_name} already exists, replacing it.")
-            cls._processors.pop(idx)
+        name = function.__name__
+    for idx, (function_name, _, _) in enumerate(cls._methods):
+        if function_name == name:
+            logging.warn(f"{function} Method {function_name} already exists, replacing it.")
+            cls._methods.pop(idx)
             break
-    cls._processors.append((name, fn.__module__, fn.__doc__))
-    setattr(cls, name, fn)
+    cls._methods.append((name, function.__module__, function.__doc__))
+    setattr(cls, name, function)
