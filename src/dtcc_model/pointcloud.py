@@ -30,7 +30,7 @@ class PointCloud(DTCCModel):
 
     bounds: Bounds = field(default_factory=Bounds)
     georef: Georef = field(default_factory=Georef)
-    points: np.ndarray = field(default_factory=lambda: np.empty(0))
+    points: np.ndarray = field(default_factory=lambda: np.empty((0, 3)))
     classification: np.ndarray = field(default_factory=lambda: np.empty(0))
     intensity: np.ndarray = field(default_factory=lambda: np.empty(0))
     return_number: np.ndarray = field(default_factory=lambda: np.empty(0))
@@ -89,3 +89,19 @@ class PointCloud(DTCCModel):
         if len(self.num_returns) > 0:
             pb.num_returns.extend(self.num_returns)
         return pb
+
+    def merge(self, other):
+        self.points = np.concatenate((self.points, other.points))
+        if len(other.classification) == len(other.points):
+            self.classification = np.concatenate(
+                (self.classification, other.classification)
+            )
+        if len(other.intensity) == len(other.points):
+            self.intensity = np.concatenate((self.intensity, other.intensity))
+        if len(other.return_number) == len(other.points):
+            self.return_number = np.concatenate(
+                (self.return_number, other.return_number)
+            )
+        if len(other.num_returns) == len(other.points):
+            self.num_returns = np.concatenate((self.num_returns, other.num_returns))
+        self.calculate_bounds()
