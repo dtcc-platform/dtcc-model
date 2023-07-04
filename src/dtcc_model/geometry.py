@@ -56,6 +56,9 @@ class Bounds(DTCCModel):
     def area(self) -> float:
         return self.width * self.height
 
+    def center(self) -> tuple:
+        return (self.xmin + self.width / 2, self.ymin + self.height / 2)
+
     def buffer(self, distance: float):
         self.xmin -= distance
         self.ymin -= distance
