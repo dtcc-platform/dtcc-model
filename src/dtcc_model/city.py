@@ -3,7 +3,7 @@
 
 import numpy as np
 from typing import Union, List
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from inspect import getmembers, isfunction, ismethod
 
 from .model import DTCCModel
@@ -29,7 +29,9 @@ class City(DTCCModel):
     roadnetwork: RoadNetwork = field(default_factory=RoadNetwork)
 
     def __str__(self):
-        return f"DTCC City on {self.bounds.bndstr} with {len(self.buildings)} building(s)"
+        return (
+            f"DTCC City on {self.bounds.bndstr} with {len(self.buildings)} building(s)"
+        )
 
     @property
     def origin(self):
