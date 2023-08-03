@@ -47,10 +47,13 @@ class PointCloud(DTCCModel):
 
     def calculate_bounds(self):
         """Calculate the bounds of the point cloud and update the bounds attribute."""
-        self.bounds.xmin = self.points[:, 0].min()
-        self.bounds.xmax = self.points[:, 0].max()
-        self.bounds.ymin = self.points[:, 1].min()
-        self.bounds.ymax = self.points[:, 1].max()
+        if len(self.points) == 0:
+            self.bounds = Bounds()
+        else:
+            self.bounds.xmin = self.points[:, 0].min()
+            self.bounds.xmax = self.points[:, 0].max()
+            self.bounds.ymin = self.points[:, 1].min()
+            self.bounds.ymax = self.points[:, 1].max()
 
     def remove_points(self, indices: np.ndarray):
         """Remove points from the point cloud using the given indices."""
