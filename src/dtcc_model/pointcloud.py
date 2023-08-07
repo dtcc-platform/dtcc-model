@@ -10,6 +10,8 @@ from . import dtcc_pb2 as proto
 from .model import DTCCModel
 from .geometry import Bounds, Georef
 
+import sys
+
 
 @dataclass
 class PointCloud(DTCCModel):
@@ -94,7 +96,16 @@ class PointCloud(DTCCModel):
         return pb
 
     def merge(self, other):
-        self.points = np.concatenate((self.points, other.points))
+        """Merge another point cloud into this point cloud."""
+
+        if len(other.points) == 0:
+            return
+
+        if len(self.points) == 0:
+            self.points = other.points
+        else:
+            self.points = np.concatenate((self.points, other.points))
+
         if len(other.classification) == len(other.points):
             self.classification = np.concatenate(
                 (self.classification, other.classification)
