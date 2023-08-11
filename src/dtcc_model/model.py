@@ -60,6 +60,18 @@ class DTCCModel(ABC):
 
     @classmethod
     def print_methods(cls, verbose=False):
+        """
+        Print the methods that have been added to the class.
+
+        Parameters
+        ----------
+        verbose : bool, optional
+            Whether to print the docstring of each method (default False).
+
+        Returns
+        -------
+        None
+        """
         print(f"Methods for {cls.__name__}:")
         for name, parent_module, doc in cls._methods:
             print(f" - {name}: from {parent_module}")
