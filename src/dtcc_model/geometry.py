@@ -198,8 +198,8 @@ class Georef(DTCCModel):
         """
         Sets the geospatial reference information from a protobuf message or bytes.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         pb : Union[proto.Georef, bytes]
             The protobuf message or its byte representation.
         """
