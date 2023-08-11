@@ -3,7 +3,7 @@
 
 import numpy as np
 from typing import Union, List
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 
 from .model import DTCCModel

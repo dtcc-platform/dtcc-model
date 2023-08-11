@@ -15,19 +15,25 @@ import sys
 
 @dataclass
 class PointCloud(DTCCModel):
-    """A point cloud is a set of points with associated attributes.
-    Attributes:
-      bounds (Bounds): The bounds of the point cloud.
-      georef (Georef): The georeference of the point cloud.
-      points (np.ndarray): The points of the point cloud as (n,3) dimensional numpy array.
+    """
+    A point cloud is a set of points with associated attributes.
 
-      The following attributes are as defined in the las specification:
-      classification (np.ndarray): The classification of the points as (n,) dimensional numpy array.
-      intensity (np.ndarray): The intensity of the points as (n,) dimensional numpy array.
-      return_number (np.ndarray): The return number of the points as (n,) dimensional numpy array.
-      num_returns (np.ndarray): The number of returns of the points as (n,) dimensional numpy array.
-
-
+    Attributes
+    ----------
+    bounds : Bounds
+        The bounds of the point cloud.
+    georef : Georef
+        The georeference of the point cloud.
+    points : np.ndarray
+        The points of the point cloud as (n,3) dimensional numpy array.
+    classification : np.ndarray
+        The classification of the points as (n,) dimensional numpy array.
+    intensity : np.ndarray
+        The intensity of the points as (n,) dimensional numpy array.
+    return_number : np.ndarray
+        The return number of the points as (n,) dimensional numpy array.
+    num_returns : np.ndarray
+        The number of returns of the points as (n,) dimensional numpy array.
     """
 
     bounds: Bounds = field(default_factory=Bounds)
