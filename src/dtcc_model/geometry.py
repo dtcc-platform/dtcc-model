@@ -15,8 +15,8 @@ class Bounds(DTCCModel):
     """
     A class representing spatial bounds.
 
-    Attributes:
-    -----------
+    Attributes
+    ----------
     xmin : float
         The minimum x-coordinate.
     ymin : float
@@ -36,8 +36,8 @@ class Bounds(DTCCModel):
         """
         Returns a string representation of the Bounds instance.
 
-        Returns:
-        --------
+        Returns
+        -------
         str
             A string detailing the bounds.
         """
@@ -96,8 +96,8 @@ class Bounds(DTCCModel):
         """
         Expands the bounds by the given distance in all directions.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         distance : float
             The distance to expand the bounds by.
         """
@@ -110,8 +110,8 @@ class Bounds(DTCCModel):
         """
         Modifies the bounds to be the union of itself and another Bounds object.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         other : Bounds
             The other bounds to union with.
         """
@@ -124,8 +124,8 @@ class Bounds(DTCCModel):
         """
         Modifies the bounds to be the intersection of itself and another Bounds object.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         other : Bounds
             The other bounds to intersect with.
         """
@@ -138,8 +138,8 @@ class Bounds(DTCCModel):
         """
         Sets the bounds from a protobuf message or bytes.
 
-        Parameters:
-        -----------
+        Parameters
+        ----------
         pb : Union[proto.Bounds, bytes]
             The protobuf message or its byte representation.
         """
@@ -164,8 +164,8 @@ class Georef(DTCCModel):
     """
     A class representing geospatial reference information.
 
-    Attributes:
-    -----------
+    Attributes
+    ----------
     crs : str
         The coordinate reference system identifier (e.g., 'EPSG:4326').
     epsg : int
@@ -185,8 +185,8 @@ class Georef(DTCCModel):
         """
         Returns a string representation of the Georef instance.
 
-        Returns:
-        --------
+        Returns
+        -------
         str
             A string detailing the geospatial reference information.
         """
@@ -214,8 +214,8 @@ class Georef(DTCCModel):
         """
         Converts the geospatial reference information to a protobuf message.
 
-        Returns:
-        --------
+        Returns
+        -------
         proto.Georef
             The protobuf representation of the geospatial reference information.
         """
