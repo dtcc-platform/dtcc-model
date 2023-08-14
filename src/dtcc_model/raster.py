@@ -6,8 +6,7 @@ from typing import Union
 from dataclasses import dataclass, field
 from affine import Affine
 from dtcc_model.geometry import Bounds
-from inspect import getmembers, isfunction, ismethod
-
+from logging import info, warning, error
 from .model import DTCCModel
 from . import dtcc_pb2 as proto
 
@@ -71,10 +70,11 @@ class Raster(DTCCModel):
         try:
             data = self.data[int(col), int(row)]
         except IndexError:
-            print(f"IndexError in get_value at ({x}, {y})")
-            print(f"col: {col}, row: {row}")
-            print(f"georef: {self.georef}")
-            print(f"shape: {self.data.shape}")
+            error_str = f"IndexError in get_value at ({x}, {y})"
+            error_str += f"\ncol: {col}, row: {row}"
+            error_str += f"\ngeoref: {self.georef}"
+            error_str += f"\nshape: {self.data.shape}"
+            error(error_str)
             raise
             # data = self.nodata
         return data
