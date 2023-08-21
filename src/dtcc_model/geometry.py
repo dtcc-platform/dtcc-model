@@ -114,13 +114,13 @@ class Bounds(DTCCModel):
 
     @property
     def tuple(self) -> tuple:
-       """Returns the bounds as a tuple.
+        """Returns the bounds as a tuple.
 
         Returns
         -------
         tuple
             Tuple representation of bounds.
-        """        
+        """
         return (self.xmin, self.ymin, self.xmax, self.ymax)
 
     @property
@@ -131,7 +131,7 @@ class Bounds(DTCCModel):
         -------
         float
             Area of the bounds.
-        """        
+        """
         return self.width * self.height
 
     def center(self) -> tuple:
@@ -141,7 +141,7 @@ class Bounds(DTCCModel):
         -------
         tuple
             Center point as (x, y).
-        """        
+        """
         return (self.xmin + self.width / 2, self.ymin + self.height / 2)
 
     def buffer(self, distance: float):
@@ -151,7 +151,7 @@ class Bounds(DTCCModel):
         ----------
         distance : float
             The distance to expand the bounds by.
-        """        
+        """
         self.xmin -= distance
         self.ymin -= distance
         self.xmax += distance
@@ -164,7 +164,7 @@ class Bounds(DTCCModel):
         ----------
         other : Bounds
             The other bounds to merge with.
-        """        
+        """
         self.xmin = min(self.xmin, other.xmin)
         self.ymin = min(self.ymin, other.ymin)
         self.xmax = max(self.xmax, other.xmax)
@@ -177,7 +177,7 @@ class Bounds(DTCCModel):
         ----------
         other : Bounds
             The other bounds to intersect with.
-        """        
+        """
         self.xmin = max(self.xmin, other.xmin)
         self.ymin = max(self.ymin, other.ymin)
         self.xmax = min(self.xmax, other.xmax)
@@ -190,7 +190,7 @@ class Bounds(DTCCModel):
         ----------
         pb : Union[proto.Bounds, bytes]
             The protobuf representation or bytes.
-        """        
+        """
         if isinstance(pb, bytes):
             pb = proto.Bounds.FromString(pb)
         self.xmin = pb.xmin
@@ -205,7 +205,7 @@ class Bounds(DTCCModel):
         -------
         proto.Bounds
             Protobuf representation of the bounds.
-        """        
+        """
         pb = proto.Bounds()
         pb.xmin = self.xmin
         pb.xmax = self.xmax
@@ -217,7 +217,7 @@ class Bounds(DTCCModel):
 @dataclass
 class Georef(DTCCModel):
     """Represents georeferencing information for spatial data.
-    
+
     Attributes
     ----------
     crs : str
@@ -227,7 +227,7 @@ class Georef(DTCCModel):
     x0 : float
         x-coordinate of the origin.
     y0 : float
-        y-coordinate of the origin.    
+        y-coordinate of the origin.
     """
 
 
@@ -249,7 +249,7 @@ class Georef(DTCCModel):
         ----------
         pb : Union[proto.Georef, bytes]
             The protobuf representation or bytes.
-        """        
+        """
         if isinstance(pb, bytes):
             pb = proto.Georef.FromString(pb)
         self.crs = pb.crs
@@ -264,7 +264,7 @@ class Georef(DTCCModel):
         -------
         proto.Georef
             Protobuf representation of the georeferencing information.
-        """        
+        """
         pb = proto.Georef()
         pb.crs = self.crs
         pb.epsg = self.epsg
