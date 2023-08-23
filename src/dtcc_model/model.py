@@ -4,6 +4,7 @@ from typing import ClassVar
 from inspect import getmembers, isfunction, ismethod, ismodule
 import logging
 from google.protobuf.json_format import MessageToJson
+from copy import deepcopy
 
 
 @dataclass
@@ -27,6 +28,14 @@ class DTCCModel(ABC):
             str: A JSON string representing the object.
         """
         return MessageToJson(self.to_proto(), including_default_value_fields=True)
+
+    def copy(self):
+        """Return a copy of the object.
+
+        Returns:
+            DTCCModel: A copy of the object.
+        """
+        return deepcopy(self)
 
     @classmethod
     def add_methods(cls, module, name=None):
