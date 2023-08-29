@@ -1,21 +1,19 @@
 # DTCC Model
 
-DTCC Model defines the common data model(s) and data formats for the
-DTCC Platform as well as utilities for working with the data model(s)
+DTCC Model defines the common data model and data formats for DTCC Platform.
+Additionally, DTCC Model provides utilities for working with the data model
 and data formats.
 
 This project is part the
-[Digital Twin Platform (DTCC Platform)](https://gitlab.com/dtcc-platform)
+[Digital Twin Platform (DTCC Platform)](https://github.com/dtcc-platform/)
 developed at the
 [Digital Twin Cities Centre](https://dtcc.chalmers.se/)
 supported by Sweden’s Innovation Agency Vinnova under Grant No. 2019-421 00041.
 
 ## Documentation
 
-* [Introduction](./docs/introduction.md)
-* [Installation](./docs/installation.md)
-* [Usage](./docs/usage.md)
-* [Development](./docs/development.md)
+This project is documented as part of the
+[DTCC Platform Documentation](https://platform.dtcc.chalmers.se/).
 
 ## Authors (in order of appearance)
 
@@ -25,7 +23,7 @@ supported by Sweden’s Innovation Agency Vinnova under Grant No. 2019-421 00041
 
 ## License
 
-DTCC Model is licensed under the
+This project is licensed under the
 [MIT license](https://opensource.org/licenses/MIT).
 
 Copyright is held by the individual authors as listed at the top of
