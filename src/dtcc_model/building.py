@@ -15,17 +15,26 @@ from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
 @dataclass
 class Building(DTCCModel):
-    """A base representation of a singele building.
+    """A base representation of a single building.
 
-    Attributes:
-    uuid (str): The UUID of the building.
-    footprint (Polygon): The polygon representing the footprint of the building.
-    height (float): The height of the building.
-    ground_level (float): The ground level of base of the building.
-    roofpoints (PointCloud): The point cloud representing the roof points of the building.
-    crs (str): The coordinate reference system of the building.
-    error (int): Encoding the errors the occured when generating 3D represention of building.
-    properties (dict): Additional properties of the building.
+    Parameters
+    ----------
+    uuid : str, optional
+        The UUID of the building, by default "NONE".
+    footprint : Polygon, optional
+        The polygon representing the footprint of the building, by default an empty Polygon.
+    height : float, optional
+        The height of the building, by default 0.
+    ground_level : float, optional
+        The ground level of the base of the building, by default 0.
+    roofpoints : PointCloud, optional
+        The point cloud representing the roof points of the building, by default an empty PointCloud.
+    crs : str, optional
+        The coordinate reference system of the building, by default "".
+    error : int, optional
+        Encoding the errors that occurred when generating a 3D representation of the building, by default 0.
+    properties : dict, optional
+        Additional properties of the building, by default an empty dict.
 
     """
 
@@ -40,13 +49,37 @@ class Building(DTCCModel):
     properties: dict = field(default_factory=dict)
 
     def __str__(self):
+        """Provide a human-readable representation of the building.
+
+        Returns
+        -------
+        str
+            A string representation of the building with its UUID and footprint area.
+
+        """
         return f"DTCC Building {self.uuid} with {self.footprint.area} m² footprint"
 
     @property
     def area(self):
+        """Calculate the area of the building's footprint.
+
+        Returns
+        -------
+        float
+            Area of the footprint.
+
+        """
         return self.footprint.area
 
     def from_proto(self, pb: Union[proto.Building, bytes]):
+        """Update the building attributes from a protobuf representation.
+
+        Parameters
+        ----------
+        pb : Union[proto.Building, bytes]
+            Protobuf representation of a building or its byte string.
+
+        """
         if isinstance(pb, bytes):
             pb = proto.Building.FromString(pb)
         self.footprint = pb_polygon_to_shapely(pb.footprint)
@@ -58,6 +91,14 @@ class Building(DTCCModel):
         self.roofpoints.points = np.array(pb.roofpoints.points).reshape(-1, 3)
 
     def to_proto(self) -> proto.Building:
+        """Convert the building attributes to a protobuf representation.
+
+        Returns
+        -------
+        proto.Building
+            Protobuf representation of the building.
+
+        """
         pb = proto.Building()
         pb.uuid = self.uuid
         pb.height = self.height
@@ -68,6 +109,24 @@ class Building(DTCCModel):
         return pb
 
     def __getitem__(self, key: str) -> Any:
+        """Retrieve property values using dictionary-like access.
+
+        Parameters
+        ----------
+        key : str
+            Name of the property.
+
+        Returns
+        -------
+        Any
+            Value of the property.
+
+        Raises
+        ------
+        KeyError
+            If the property is not found.
+
+        """
         # handle special properties
         if key == "height":
             return self.height
@@ -84,6 +143,16 @@ class Building(DTCCModel):
             raise KeyError(f"Property {key} not found")
 
     def __setitem__(self, key: str, value: Any):
+        """Set property values using dictionary-like access.
+
+        Parameters
+        ----------
+        key : str
+            Name of the property.
+        value : Any
+            Value to set for the property.
+
+        """
         # handle special properties
         if key == "height":
             self.height = value

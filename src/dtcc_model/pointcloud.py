@@ -10,22 +10,30 @@ from . import dtcc_pb2 as proto
 from .model import DTCCModel
 from .geometry import Bounds, Georef
 
+import sys
+
 
 @dataclass
 class PointCloud(DTCCModel):
-    """A point cloud is a set of points with associated attributes.
-    Attributes:
-      bounds (Bounds): The bounds of the point cloud.
-      georef (Georef): The georeference of the point cloud.
-      points (np.ndarray): The points of the point cloud as (n,3) dimensional numpy array.
+    """
+    A point cloud is a set of points with associated attributes.
 
-      The following attributes are as defined in the las specification:
-      classification (np.ndarray): The classification of the points as (n,) dimensional numpy array.
-      intensity (np.ndarray): The intensity of the points as (n,) dimensional numpy array.
-      return_number (np.ndarray): The return number of the points as (n,) dimensional numpy array.
-      num_returns (np.ndarray): The number of returns of the points as (n,) dimensional numpy array.
-
-
+    Attributes
+    ----------
+    bounds : Bounds
+        The bounds of the point cloud.
+    georef : Georef
+        The georeference of the point cloud.
+    points : np.ndarray
+        The points of the point cloud as (n,3) dimensional numpy array.
+    classification : np.ndarray
+        The classification of the points as (n,) dimensional numpy array.
+    intensity : np.ndarray
+        The intensity of the points as (n,) dimensional numpy array.
+    return_number : np.ndarray
+        The return number of the points as (n,) dimensional numpy array.
+    num_returns : np.ndarray
+        The number of returns of the points as (n,) dimensional numpy array.
     """
 
     bounds: Bounds = field(default_factory=Bounds)
@@ -47,10 +55,13 @@ class PointCloud(DTCCModel):
 
     def calculate_bounds(self):
         """Calculate the bounds of the point cloud and update the bounds attribute."""
-        self.bounds.xmin = self.points[:, 0].min()
-        self.bounds.xmax = self.points[:, 0].max()
-        self.bounds.ymin = self.points[:, 1].min()
-        self.bounds.ymax = self.points[:, 1].max()
+        if len(self.points) == 0:
+            self.bounds = Bounds()
+        else:
+            self.bounds.xmin = self.points[:, 0].min()
+            self.bounds.xmax = self.points[:, 0].max()
+            self.bounds.ymin = self.points[:, 1].min()
+            self.bounds.ymax = self.points[:, 1].max()
 
     def remove_points(self, indices: np.ndarray):
         """Remove points from the point cloud using the given indices."""
@@ -91,7 +102,16 @@ class PointCloud(DTCCModel):
         return pb
 
     def merge(self, other):
-        self.points = np.concatenate((self.points, other.points))
+        """Merge another point cloud into this point cloud."""
+
+        if len(other.points) == 0:
+            return
+
+        if len(self.points) == 0:
+            self.points = other.points
+        else:
+            self.points = np.concatenate((self.points, other.points))
+
         if len(other.classification) == len(other.points):
             self.classification = np.concatenate(
                 (self.classification, other.classification)

@@ -29,7 +29,9 @@ class City(DTCCModel):
     roadnetwork: RoadNetwork = field(default_factory=RoadNetwork)
 
     def __str__(self):
-        return f"DTCC City on {self.bounds.bndstr} with {len(self.buildings)} building(s)"
+        return (
+            f"DTCC City on {self.bounds.bndstr} with {len(self.buildings)} building(s)"
+        )
 
     @property
     def origin(self):
