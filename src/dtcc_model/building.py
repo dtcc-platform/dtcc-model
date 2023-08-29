@@ -9,6 +9,7 @@ from dataclasses import dataclass, field
 from .model import DTCCModel
 from . import dtcc_pb2 as proto
 from .pointcloud import PointCloud
+from .meshes import Mesh
 from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
 
@@ -35,6 +36,7 @@ class Building(DTCCModel):
     roofpoints: PointCloud = field(default_factory=PointCloud)
     crs: str = ""
     error: int = 0
+    mesh: Mesh = field(default_factory=Mesh)
     properties: dict = field(default_factory=dict)
 
     def __str__(self):
