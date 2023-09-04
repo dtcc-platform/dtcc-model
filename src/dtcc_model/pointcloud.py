@@ -74,6 +74,7 @@ class PointCloud(DTCCModel):
             self.return_number = np.delete(self.return_number, indices, axis=0)
         if len(self.num_returns) > 0:
             self.num_returns = np.delete(self.num_returns, indices, axis=0)
+        return self
 
     def from_proto(self, pb: Union[proto.PointCloud, bytes]):
         if isinstance(pb, bytes):
