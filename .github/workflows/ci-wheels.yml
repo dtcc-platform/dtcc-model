@@ -23,7 +23,7 @@ jobs:
   
       - name: Build wheels
         #uses: pypa/cibuildwheel@v2.15.0
-        run: pip wheel -w dtcc-model/
+        run: python -m pip wheel .
 
       - uses: actions/upload-artifact@v3
         with:
