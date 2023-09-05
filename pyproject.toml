@@ -3,7 +3,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-version = "0.7.5"
+version = "0.7.6"
 name = "dtcc-model"
 description = "DTCC Model"
 readme = "README.md"
