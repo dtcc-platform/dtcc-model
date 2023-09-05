@@ -22,3 +22,6 @@ dependencies = ["protobuf >= 3.20.0, < 3.21.0", "numpy", "shapely", "affine"]
 
 [project.optional-dependencies]
 test = ["pytest"]
+
+[tool.cibuildwheel]
+skip=["cp311-*", "pp*"]
