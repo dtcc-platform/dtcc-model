@@ -25,7 +25,7 @@ jobs:
       - name: Build wheels
         #uses: pypa/cibuildwheel@v2.15.0
         #uses: actions/setup-python@v2
-        run: python -m pip wheel .
+        run: python -m pip wheel . -w ./wheelhouse/ && pwd && ls -altR 
 
       - uses: actions/upload-artifact@v3
         with:
