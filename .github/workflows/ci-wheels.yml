@@ -17,12 +17,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-
+        python-version: ["3.10"]
     steps:
       - uses: actions/checkout@v3
   
       - name: Build wheels
         #uses: pypa/cibuildwheel@v2.15.0
+        #uses: actions/setup-python@v2
         run: python -m pip wheel .
 
       - uses: actions/upload-artifact@v3
