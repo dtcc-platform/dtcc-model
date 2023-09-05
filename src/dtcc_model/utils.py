@@ -6,6 +6,20 @@ from dtcc_model import dtcc_pb2
 
 
 def coords_to_pb_linear_ring(coords):
+    """
+    Convert a list of coordinates to a protobuf LinearRing.
+
+    Parameters
+    ----------
+    coords : list of tuple
+        A list of (x, y) coordinate tuples.
+
+    Returns
+    -------
+    dtcc_pb2.LinearRing
+        A protobuf LinearRing object.
+
+    """
     lr = dtcc_pb2.LinearRing()
     vertices = []
     for c in coords:
@@ -18,6 +32,20 @@ def coords_to_pb_linear_ring(coords):
 
 
 def pb_polygon_to_shapely(pb_polygon: dtcc_pb2.Polygon) -> shapely.geometry.Polygon:
+    """
+    Convert a protobuf Polygon to a Shapely Polygon.
+
+    Parameters
+    ----------
+    pb_polygon : dtcc_pb2.Polygon
+        A protobuf Polygon object.
+
+    Returns
+    -------
+    shapely.geometry.Polygon
+        A Shapely Polygon object.
+
+    """
     shell = []
     holes = []
     for vert in pb_polygon.shell.vertices:
@@ -33,6 +61,20 @@ def pb_polygon_to_shapely(pb_polygon: dtcc_pb2.Polygon) -> shapely.geometry.Poly
 
 
 def pb_polygon_from_shapely(polygon):
+    """
+    Convert a Shapely Polygon to a protobuf Polygon.
+
+    Parameters
+    ----------
+    polygon : shapely.geometry.Polygon
+        A Shapely Polygon object.
+
+    Returns
+    -------
+    dtcc_pb2.Polygon
+        A protobuf Polygon object.
+
+    """
     pb_polygon = dtcc_pb2.Polygon()
     shell = polygon.exterior.coords
     shell = coords_to_pb_linear_ring(shell)

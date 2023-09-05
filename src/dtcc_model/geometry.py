@@ -35,12 +35,6 @@ class Bounds(DTCCModel):
         """Returns a formatted string representation of the bounds."""
         return f"DTCC Bounds {self.bndstr}"
     
-    def __getitem__(self,item):
-        return self.tuple[item]
-    
-    def __len__(self):
-        return len(self.tuple)
-
     @property
     def bndstr(self) -> str:
         """Returns the bounds as a formatted string.

@@ -13,9 +13,24 @@ from . import dtcc_pb2 as proto
 
 @dataclass
 class Raster(DTCCModel):
-    """A georeferenced n-dimensional raster of values.
-    data is a numpy array of shape (height, width, channels) or (height, width)
-    if channels is 1.
+    
+    """
+    A georeferenced n-dimensional raster of values.
+
+    This class represents a georeferenced n-dimensional raster of values, where `data` is a
+    NumPy array of shape (height, width, channels) or (height, width) if `channels` is 1.
+
+    Attributes
+    ----------
+    data : np.ndarray
+        The data of the raster as a NumPy array.
+    georef : Affine
+        The georeference of the raster.
+    nodata : float
+        The value representing nodata or missing data.
+    crs : str
+        The coordinate reference system (CRS) information.
+
     """
 
     data: np.ndarray = field(default_factory=lambda: np.empty(()))
@@ -24,26 +39,71 @@ class Raster(DTCCModel):
     crs: str = ""
 
     def __str__(self):
+        """
+        Return a string representation of the Raster.
+
+        Returns
+        -------
+        str
+            A string representation of the Raster.
+
+        """
         return f"DTCC Raster with {self.data.shape} values"
 
     @property
     def shape(self):
+        """
+        Get the shape of the raster data.
+
+        Returns
+        -------
+        tuple
+            A tuple representing the shape of the raster data.
+
+        """
         return self.data.shape
 
     @property
     def height(self):
+        """
+        Get the height (number of rows) of the raster data.
+
+        Returns
+        -------
+        int
+            The height of the raster data.
+
+        """
         if len(self.data.shape) < 2:
             return 0
         return self.data.shape[0]
 
     @property
     def width(self):
+        """
+        Get the width (number of columns) of the raster data.
+
+        Returns
+        -------
+        int
+            The width of the raster data.
+
+        """
         if len(self.data.shape) < 2:
             return 0
         return self.data.shape[1]
 
     @property
     def channels(self):
+        """
+        Get the number of channels in the raster data.
+
+        Returns
+        -------
+        int
+            The number of channels in the raster data.
+
+        """
         if len(self.data.shape) < 2:
             return 0
         if len(self.data.shape) == 2:
@@ -53,6 +113,15 @@ class Raster(DTCCModel):
 
     @property
     def bounds(self):
+        """
+        Get the spatial bounds of the raster.
+
+        Returns
+        -------
+        Bounds
+            The spatial bounds of the raster.
+
+        """
         return Bounds(
             xmin=self.georef.c,
             ymin=self.georef.f + self.georef.e * self.width,
@@ -62,10 +131,34 @@ class Raster(DTCCModel):
 
     @property
     def cell_size(self):
+        """
+        Get the cell size (pixel size) of the raster.
+
+        Returns
+        -------
+        tuple
+            A tuple containing the horizontal and vertical cell sizes.
+
+        """
         return (self.georef.a, self.georef.e)
 
     def get_value(self, x: float, y: float):
-        """Get the value at the given coordinate"""
+        """
+        Get the value at the given coordinate.
+
+        Parameters
+        ----------
+        x : float
+            The x-coordinate.
+        y : float
+            The y-coordinate.
+
+        Returns
+        -------
+        data
+            The value at the given coordinate.
+
+        """
         col, row = ~self.georef * (x, y)
         try:
             data = self.data[int(col), int(row)]
@@ -80,6 +173,15 @@ class Raster(DTCCModel):
         return data
 
     def to_proto(self) -> proto.Raster:
+        """
+        Convert the Raster object to a protobuf representation.
+
+        Returns
+        -------
+        proto.Raster
+            A protobuf representation of the Raster.
+
+        """
         pb = proto.Raster()
         pb.height = self.height
         pb.width = self.width
@@ -98,6 +200,19 @@ class Raster(DTCCModel):
         return pb
 
     def from_proto(self, pb: Union[proto.Raster, bytes]):
+        """
+        Initialize the Raster object from a protobuf representation.
+
+        Parameters
+        ----------
+        pb : Union[proto.Raster, bytes]
+            A protobuf representation of the Raster or a bytes object.
+
+        Returns
+        -------
+        None
+
+        """
         if isinstance(pb, bytes):
             _raster = proto.Raster()
             _raster.FromString(pb)
