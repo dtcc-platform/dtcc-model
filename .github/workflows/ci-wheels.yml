@@ -11,22 +11,22 @@ on:
       - published
 
 jobs:
-  build_wheels:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
+  #build_wheels:
+  #  name: Build wheels on ${{ matrix.os }}
+  #  runs-on: ${{ matrix.os }}
+  #  strategy:
+  #    matrix:
+  #      os: [ubuntu-latest, macos-latest]
 
-    steps:
-      - uses: actions/checkout@v3
+  #  steps:
+  #    - uses: actions/checkout@v3
+  #
+  #    - name: Build wheels
+  #      uses: pypa/cibuildwheel@v2.15.0
 
-      - name: Build wheels
-        uses: pypa/cibuildwheel@v2.15.0
-
-      - uses: actions/upload-artifact@v3
-        with:
-          path: ./wheelhouse/*.whl
+  #    - uses: actions/upload-artifact@v3
+  #      with:
+  #        path: ./wheelhouse/*.whl
 
   build_sdist:
     name: Build source distribution
@@ -42,7 +42,7 @@ jobs:
           path: dist/*.tar.gz
 
   upload_pypi:
-    needs: [build_wheels, build_sdist]
+    needs: [build_sdist]
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
