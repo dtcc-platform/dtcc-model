@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - develop
+      - release
   release:
     types:
       - published
@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          path: ./wheelhouse/dtcc*.whl
+          path: ./wheelhouse/dtcc_model*.whl
 
   build_sdist:
     name: Build source distribution
@@ -41,7 +41,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          path: dist/*.tar.gz
+          path: dist/dtcc_model*.tar.gz
 
   upload_pypi:
     needs: [build_sdist, build_wheels]
