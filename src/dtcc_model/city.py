@@ -41,6 +41,7 @@ class City(DTCCModel):
         The road network data for the city.
 
     """
+
     name: str = ""
     bounds: Bounds = field(default_factory=Bounds)
     georef: Georef = field(default_factory=Georef)
@@ -101,8 +102,17 @@ class City(DTCCModel):
         self.bounds.from_proto(pb.bounds)
         self.georef.from_proto(pb.georef)
         self.terrain.from_proto(pb.terrain)
-        self.buildings = [Building.from_proto(b) for b in pb.buildings]
-        self.landuse = [Landuse.from_proto(l) for l in pb.landuse]
+
+        self.buildings = []
+        for b in pb.buildings:
+            building = Building()
+            building.from_proto(b)
+            self.buildings.append(building)
+        self.landuse = []
+        for l in pb.landuse:
+            landuse = Landuse()
+            landuse.from_proto(l)
+            self.landuse.append(landuse)
 
     def to_proto(self) -> proto.City:
         """Convert the City object to a Protocol Buffers message.
