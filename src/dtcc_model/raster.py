@@ -161,7 +161,7 @@ class Raster(DTCCModel):
         """
         col, row = ~self.georef * (x, y)
         try:
-            data = self.data[int(col), int(row)]
+            data = self.data[int(row), int(col)]
         except IndexError:
             error_str = f"IndexError in get_value at ({x}, {y})"
             error_str += f"\ncol: {col}, row: {row}"
