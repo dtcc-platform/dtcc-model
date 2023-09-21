@@ -13,7 +13,7 @@ from . import dtcc_pb2 as proto
 
 @dataclass
 class Raster(DTCCModel):
-    
+
     """
     A georeferenced n-dimensional raster of values.
 
@@ -124,8 +124,8 @@ class Raster(DTCCModel):
         """
         return Bounds(
             xmin=self.georef.c,
-            ymin=self.georef.f + self.georef.e * self.width,
-            xmax=self.georef.c + self.georef.a * self.height,
+            ymin=self.georef.f + self.georef.e * self.height,
+            xmax=self.georef.c + self.georef.a * self.width,
             ymax=self.georef.f,
         )
 
@@ -161,7 +161,7 @@ class Raster(DTCCModel):
         """
         col, row = ~self.georef * (x, y)
         try:
-            data = self.data[int(col), int(row)]
+            data = self.data[int(row), int(col)]
         except IndexError:
             error_str = f"IndexError in get_value at ({x}, {y})"
             error_str += f"\ncol: {col}, row: {row}"

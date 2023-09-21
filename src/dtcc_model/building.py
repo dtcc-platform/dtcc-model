@@ -42,6 +42,7 @@ class Building(DTCCModel):
     footprint: Polygon = Polygon()
     height: float = 0
     ground_level: float = 0
+    floors: int = 1
     roofpoints: PointCloud = field(default_factory=PointCloud)
     crs: str = ""
     error: int = 0
