@@ -4,6 +4,7 @@ from typing import ClassVar
 from inspect import getmembers, isfunction, ismethod, ismodule
 import logging
 from google.protobuf.json_format import MessageToJson
+from copy import deepcopy
 
 
 @dataclass
@@ -23,24 +24,41 @@ class DTCCModel(ABC):
     def to_json(self) -> str:
         """Return a JSON representation of the object.
 
-        Returns:
-            str: A JSON string representing the object.
+        Returns
+        -------
+            str
+                A JSON string representing the object.
         """
         return MessageToJson(self.to_proto(), including_default_value_fields=True)
+
+    def copy(self):
+        """Return a copy of the object.
+
+        Returns
+        -------
+            DTCCModel: A copy of the object.
+        """
+        return deepcopy(self)
 
     @classmethod
     def add_methods(cls, module, name=None):
         """Adds methods from a module or function to the class.
 
-        Args:
-            module: A function or module containing the methods to add.
-            name (str): The name of the method to add, if None use the
-                        function/method name (default None).
+        Parameters
+        ----------
+            module: module or function
+                A function or module containing the methods to add.
+            name : str
+                The name of the method to add, if None use the
+                function/method name (default None).
 
-        Raises:
-            TypeError: Not a module or function.
+        Raises
+        ------
+            TypeError
+             If module parameter is not a module or function.
 
-        Returns:
+        Returns
+        -------
             None
         """
         # hack needed create a class variable for each subclass
