@@ -158,7 +158,7 @@ message VolumeMeshVectorField
 
 message Surface
 {
-  repeated Vector3D verices = 1;
+  repeated float verices = 1;
   Vector3D normal = 2;
 }
 

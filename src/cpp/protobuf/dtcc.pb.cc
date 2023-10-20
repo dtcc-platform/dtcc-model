@@ -5630,7 +5630,7 @@ Surface::~Surface() {
 
 inline void Surface::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.verices_.~RepeatedPtrField();
+  _impl_.verices_.~RepeatedField();
   if (this != internal_default_instance()) delete _impl_.normal_;
 }
 
@@ -5658,16 +5658,14 @@ const char* Surface::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .DTCC.Vector3D verices = 1;
+      // repeated float verices = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_verices(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_verices(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 13) {
+          _internal_add_verices(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
@@ -5708,12 +5706,9 @@ uint8_t* Surface::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .DTCC.Vector3D verices = 1;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_verices_size()); i < n; i++) {
-    const auto& repfield = this->_internal_verices(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  // repeated float verices = 1;
+  if (this->_internal_verices_size() > 0) {
+    target = stream->WriteFixedPacked(1, _internal_verices(), target);
   }
 
   // .DTCC.Vector3D normal = 2;
@@ -5739,11 +5734,15 @@ size_t Surface::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .DTCC.Vector3D verices = 1;
-  total_size += 1UL * this->_internal_verices_size();
-  for (const auto& msg : this->_impl_.verices_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // repeated float verices = 1;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_verices_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    total_size += data_size;
   }
 
   // .DTCC.Vector3D normal = 2;

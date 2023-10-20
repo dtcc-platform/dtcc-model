@@ -3695,23 +3695,27 @@ class Surface final :
     kVericesFieldNumber = 1,
     kNormalFieldNumber = 2,
   };
-  // repeated .DTCC.Vector3D verices = 1;
+  // repeated float verices = 1;
   int verices_size() const;
   private:
   int _internal_verices_size() const;
   public:
   void clear_verices();
-  ::DTCC::Vector3D* mutable_verices(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >*
-      mutable_verices();
   private:
-  const ::DTCC::Vector3D& _internal_verices(int index) const;
-  ::DTCC::Vector3D* _internal_add_verices();
+  float _internal_verices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+      _internal_verices() const;
+  void _internal_add_verices(float value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      _internal_mutable_verices();
   public:
-  const ::DTCC::Vector3D& verices(int index) const;
-  ::DTCC::Vector3D* add_verices();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >&
+  float verices(int index) const;
+  void set_verices(int index, float value);
+  void add_verices(float value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
       verices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+      mutable_verices();
 
   // .DTCC.Vector3D normal = 2;
   bool has_normal() const;
@@ -3739,7 +3743,7 @@ class Surface final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D > verices_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > verices_;
     ::DTCC::Vector3D* normal_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -7691,7 +7695,7 @@ VolumeMeshVectorField::mutable_values() {
 
 // Surface
 
-// repeated .DTCC.Vector3D verices = 1;
+// repeated float verices = 1;
 inline int Surface::_internal_verices_size() const {
   return _impl_.verices_.size();
 }
@@ -7701,34 +7705,41 @@ inline int Surface::verices_size() const {
 inline void Surface::clear_verices() {
   _impl_.verices_.Clear();
 }
-inline ::DTCC::Vector3D* Surface::mutable_verices(int index) {
-  // @@protoc_insertion_point(field_mutable:DTCC.Surface.verices)
-  return _impl_.verices_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >*
-Surface::mutable_verices() {
-  // @@protoc_insertion_point(field_mutable_list:DTCC.Surface.verices)
-  return &_impl_.verices_;
-}
-inline const ::DTCC::Vector3D& Surface::_internal_verices(int index) const {
+inline float Surface::_internal_verices(int index) const {
   return _impl_.verices_.Get(index);
 }
-inline const ::DTCC::Vector3D& Surface::verices(int index) const {
+inline float Surface::verices(int index) const {
   // @@protoc_insertion_point(field_get:DTCC.Surface.verices)
   return _internal_verices(index);
 }
-inline ::DTCC::Vector3D* Surface::_internal_add_verices() {
-  return _impl_.verices_.Add();
+inline void Surface::set_verices(int index, float value) {
+  _impl_.verices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:DTCC.Surface.verices)
 }
-inline ::DTCC::Vector3D* Surface::add_verices() {
-  ::DTCC::Vector3D* _add = _internal_add_verices();
+inline void Surface::_internal_add_verices(float value) {
+  _impl_.verices_.Add(value);
+}
+inline void Surface::add_verices(float value) {
+  _internal_add_verices(value);
   // @@protoc_insertion_point(field_add:DTCC.Surface.verices)
-  return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::DTCC::Vector3D >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
+Surface::_internal_verices() const {
+  return _impl_.verices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >&
 Surface::verices() const {
   // @@protoc_insertion_point(field_list:DTCC.Surface.verices)
-  return _impl_.verices_;
+  return _internal_verices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+Surface::_internal_mutable_verices() {
+  return &_impl_.verices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
+Surface::mutable_verices() {
+  // @@protoc_insertion_point(field_mutable_list:DTCC.Surface.verices)
+  return _internal_mutable_verices();
 }
 
 // .DTCC.Vector3D normal = 2;
