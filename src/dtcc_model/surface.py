@@ -18,7 +18,7 @@ class Surface(DTCCModel):
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     normal: np.ndarray = field(default_factory=lambda: np.empty(0))
 
-    def calculate_normal(self):
+    def calculate_normal(self) -> np.ndarray:
         """Calculate the normal of the surface."""
         if self.vertices.shape[0] < 3:
             raise ValueError("The surface must have at least 3 vertices.")
@@ -26,6 +26,7 @@ class Surface(DTCCModel):
             self.vertices[1] - self.vertices[0], self.vertices[2] - self.vertices[0]
         )
         self.normal /= np.linalg.norm(self.normal)
+        return self.normal
 
     def is_planar(self, tol=1e-5):
         """Check if the surface is planar."""
@@ -47,6 +48,9 @@ class Surface(DTCCModel):
         pb.normal = proto.Vector(x=self.normal[0], y=self.normal[1], z=self.normal[2])
         return pb
 
+    def __str__(self) -> str:
+        return f"DTCC Surface with {len(self.vertices)} vertices"
+
 
 class MultiSurface(DTCCModel):
     """A collection of 3D planar surface."""
@@ -62,3 +66,6 @@ class MultiSurface(DTCCModel):
         if isinstance(pb, bytes):
             pb = proto.MultiSurface.FromString(pb)
         self.surfaces = [Surface().from_proto(s) for s in pb.surfaces]
+
+    def __str__(self) -> str:
+        return f"DTCC MultiSurface with {len(self.surfaces)} surfaces"
