@@ -2,7 +2,7 @@
 
 # Generate diagram for dtcc_model.object
 pyreverse -o puml dtcc_model.object
-mv classes.puml uml_diagram_model.puml
+mv classes.puml uml_diagram_object.puml
 rm -f packages.puml
 
 # Generate diagram for dtcc_model.geometry
