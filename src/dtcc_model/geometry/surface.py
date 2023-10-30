@@ -7,13 +7,13 @@ from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 
 
-from .model import DTCCModel
-from . import dtcc_pb2 as proto
+from .geometry import Geometry
+from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
-class Surface(DTCCModel):
-    """A 3D planar surface."""
+class Surface(Geometry):
+    """Represents a planar surface in 3D."""
 
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     normal: np.ndarray = field(default_factory=lambda: np.empty(0))
@@ -52,8 +52,8 @@ class Surface(DTCCModel):
         return f"DTCC Surface with {len(self.vertices)} vertices"
 
 
-class MultiSurface(DTCCModel):
-    """A collection of 3D planar surface."""
+class MultiSurface(Geometry):
+    """Represents a planar surfaces in 3D."""
 
     surfaces: list[Surface] = field(default_factory=lambda: [])
 

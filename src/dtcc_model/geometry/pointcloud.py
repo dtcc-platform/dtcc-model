@@ -2,30 +2,21 @@
 # Licensed under the MIT License
 
 from dataclasses import dataclass, field
-from typing import Union, ClassVar
+from typing import Union
 import numpy as np
 
-from dtcc_model.model import DTCCModel
+
+from .geometry import Geometry
 from dtcc_model import dtcc_pb2 as proto
-from .bounds import Bounds
-from .georef import Georef
 
 
 @dataclass
-class PointCloud(DTCCModel):
+class PointCloud(Geometry):
     """Represents a set of points in 3D.
 
-    This class represents a point cloud, which consists of points with various
-    attributes such as classification, intensity, and return number. It also
-    includes information about the spatial bounds and georeference of the point
-    cloud.
 
     Attributes
     ----------
-    bounds : Bounds
-        The bounds of the point cloud.
-    georef : Georef
-        The georeference of the point cloud.
     points : np.ndarray
         The points of the point cloud as (n,3) dimensional numpy array.
     classification : np.ndarray
@@ -38,8 +29,6 @@ class PointCloud(DTCCModel):
         The number of returns of the points as (n,) dimensional numpy array.
     """
 
-    bounds: Bounds = field(default_factory=Bounds)
-    georef: Georef = field(default_factory=Georef)
     points: np.ndarray = field(default_factory=lambda: np.empty((0, 3)))
     classification: np.ndarray = field(default_factory=lambda: np.empty(0))
     intensity: np.ndarray = field(default_factory=lambda: np.empty(0))
@@ -143,7 +132,6 @@ class PointCloud(DTCCModel):
         if isinstance(pb, bytes):
             pb.PointCloud.FromString(pb)
         self.bounds.from_proto(pb.bounds)
-        self.georef.from_proto(pb.georef)
         self.points = np.array(pb.points).reshape(-1, 3)
         self.classification = np.array(pb.classification).astype(np.uint8)
         self.intensity = np.array(pb.intensity).astype(np.uint16)
@@ -162,7 +150,6 @@ class PointCloud(DTCCModel):
         """
         pb = proto.PointCloud()
         pb.bounds.CopyFrom(self.bounds.to_proto())
-        pb.georef.CopyFrom(self.georef.to_proto())
         pb.points.extend(self.points.flatten())
         if len(self.classification) > 0:
             pb.classification.extend(self.classification)

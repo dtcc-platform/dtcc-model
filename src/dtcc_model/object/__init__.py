@@ -1,5 +1,6 @@
-from .object import Object
-from .city import NewCity
 from .building import NewBuilding
+from .city import NewCity
+from .object import Object
 
-__all__ = ["Object", "NewCity", "NewBuilding"]
+
+__all__ = ["NewBuilding", "NewCity", "Object"]

@@ -6,7 +6,6 @@ from dtcc_model import PointCloud
 class TestPointCloud(unittest.TestCase):
     def test_empty(self):
         pc = PointCloud()
-        self.assertEqual(pc.georef.crs, "")
         self.assertEqual(pc.bounds.tuple, (0, 0, 0, 0))
 
     def test_calc_bounds(self):
