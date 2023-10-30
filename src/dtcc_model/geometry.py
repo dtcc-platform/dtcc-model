@@ -230,7 +230,6 @@ class Georef(DTCCModel):
         y-coordinate of the origin.
     """
 
-
     crs: str = ""
     epsg: int = 0
     x0: float = 0.0
