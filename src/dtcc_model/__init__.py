@@ -1,27 +1,27 @@
 from . import dtcc_pb2 as proto
 
+from .object import *
 from .geometry import *
 
-from .grid import Grid
-from .meshes import Mesh, VolumeMesh
-from .gridfields import GridField, GridVectorField
-from .meshfields import (
+from .gridfield import GridField, GridVectorField
+from .meshfield import (
     MeshField,
     MeshVectorField,
     VolumeMeshField,
     VolumeMeshVectorField,
 )
+
 from .building import Building
 from .city import City
 from .raster import Raster
 from .landuse import Landuse
 from .roadnetwork import RoadNetwork, RoadType
 
-
+from . import object
 from . import geometry
 
 # Collect __all__ from submodules
-modules = [geometry]
+modules = [object, geometry]
 __all__ = []
 for module in modules:
     for name in module.__all__:
@@ -31,12 +31,6 @@ for module in modules:
 # FIXME
 __all__ += [
     "proto",
-    "Bounds",
-    "Georef",
-    "PointCloud",
-    "Grid",
-    "Mesh",
-    "VolumeMesh",
     "GridField",
     "GridVectorField",
     "MeshField",

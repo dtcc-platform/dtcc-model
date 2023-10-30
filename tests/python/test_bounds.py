@@ -37,3 +37,7 @@ class TestBounds(unittest.TestCase):
         self.assertEqual(bounds.ymin, 5)
         self.assertEqual(bounds.xmax, 10)
         self.assertEqual(bounds.ymax, 10)
+
+
+if __name__ == "__main__":
+    unittest.main()

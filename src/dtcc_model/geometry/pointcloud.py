@@ -13,12 +13,12 @@ from .georef import Georef
 
 @dataclass
 class PointCloud(DTCCModel):
-    """
-    A point cloud is a set of points with associated attributes.
+    """Represents a set of points in 3D.
 
-    This class represents a point cloud, which consists of points with various attributes such as
-    classification, intensity, and return number. It also includes information about the spatial
-    bounds and georeference of the point cloud.
+    This class represents a point cloud, which consists of points with various
+    attributes such as classification, intensity, and return number. It also
+    includes information about the spatial bounds and georeference of the point
+    cloud.
 
     Attributes
     ----------

@@ -1,22 +1,18 @@
 # Copyright(C) 2023 Anders Logg
 # Licensed under the MIT License
 
-import numpy as np
+from dataclasses import dataclass
 from typing import Union
-from dataclasses import dataclass, field
-from inspect import getmembers, isfunction, ismethod
+import numpy as np
 
-from .model import DTCCModel
-from . import dtcc_pb2 as proto
-from .geometry import Bounds
+
+from .geometry import Geometry
+from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
-class Grid(DTCCModel):
-    """A Grid represents a structured grid mesh.
-
-    The Grid class represents a structured grid mesh, which is a regularly
-    spaced grid of cells organized in rows and columns. 
+class Grid(Geometry):
+    """Represents a structured quadrilateral grid in 2D.
 
     Attributes
     ----------
@@ -33,7 +29,6 @@ class Grid(DTCCModel):
 
     """
 
-    bounds: Bounds = field(default_factory=Bounds)
     width: int = 0
     height: int = 0
     xstep: float = 0.0

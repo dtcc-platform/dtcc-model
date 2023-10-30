@@ -48,3 +48,7 @@ class TestBuilding(unittest.TestCase):
         # self.assertRaises(b["foo"], KeyError)
         b["foo"] = "bar"
         self.assertEqual(b["foo"], "bar")
+
+
+if __name__ == "__main__":
+    unittest.main()

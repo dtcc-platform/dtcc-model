@@ -34,7 +34,7 @@ class Object(DTCCModel):
         Dictionary of geometries.
     """
 
-    id: string = ""
+    id: str = ""
     attributes: dict = field(default_factory=dict)
     children: list = field(default_factory=list)
     parents: list = field(default_factory=list)

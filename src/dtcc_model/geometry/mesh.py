@@ -6,13 +6,13 @@ from typing import Union
 from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 
-from .model import DTCCModel
-from . import dtcc_pb2 as proto
+from .geometry import Geometry
+from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
-class Mesh(DTCCModel):
-    """A Mesh represents a 3D triangular mesh.
+class Mesh(Geometry):
+    """Represents an unstructured triangular mesh in 3D.
 
     The Mesh class represents a 3D triangular mesh, which consists of vertices,
     vertex colors, normals, faces, face colors, and markers. It is commonly
@@ -126,8 +126,8 @@ class Mesh(DTCCModel):
 
 
 @dataclass
-class VolumeMesh(DTCCModel):
-    """A VolumeMesh represents a 3D volumetric mesh.
+class VolumeMesh(Geometry):
+    """Represents an unstructured tetrahedral mesh in 3D.
 
     The VolumeMesh class represents a 3D volumetric mesh, which consists of
     vertices, tetrahedral cells, and markers. It is used for representing

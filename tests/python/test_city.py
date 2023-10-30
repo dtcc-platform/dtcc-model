@@ -64,3 +64,7 @@ class TestCity(unittest.TestCase):
     #     self.assertEqual(pb_city.bounds.p.y, 0)
     #     self.assertEqual(pb_city.bounds.q.x, 0)
     #     self.assertEqual(pb_city.bounds.q.y, 0)
+
+
+if __name__ == "__main__":
+    unittest.main()

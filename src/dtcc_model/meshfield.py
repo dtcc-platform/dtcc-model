@@ -8,7 +8,7 @@ from inspect import getmembers, isfunction, ismethod
 
 from .model import DTCCModel
 from . import dtcc_pb2 as proto
-from .meshes import Mesh, VolumeMesh
+from .geometry.mesh import Mesh, VolumeMesh
 
 
 @dataclass
@@ -156,7 +156,7 @@ class VolumeMeshField(DTCCModel):
         An array of scalar values associated with each vertex in the mesh.
 
     """
-    
+
     mesh: Mesh = field(default_factory=Mesh)
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
 

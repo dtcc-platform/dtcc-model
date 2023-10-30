@@ -8,7 +8,7 @@ from inspect import getmembers, isfunction, ismethod
 
 from .model import DTCCModel
 from . import dtcc_pb2 as proto
-from .grid import Grid
+from .geometry.grid import Grid
 
 
 @dataclass

@@ -55,3 +55,7 @@ class TestPointCloud(unittest.TestCase):
         pc2.from_proto(proto_pc)
         self.assertEqual(pc2.points.tolist(), pc.points.tolist())
         self.assertEqual(pc2.classification.tolist(), pc.classification.tolist())
+
+
+if __name__ == "__main__":
+    unittest.main()

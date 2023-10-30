@@ -10,7 +10,7 @@ from shapely.geometry import Polygon
 from .model import DTCCModel
 from . import dtcc_pb2 as proto
 from .geometry.pointcloud import PointCloud
-from .meshes import Mesh
+from .geometry.mesh import Mesh
 from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
 

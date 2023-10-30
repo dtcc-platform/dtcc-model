@@ -19,3 +19,7 @@ class TestRoadNetwork(unittest.TestCase):
         self.assertEqual(road.lanes, 1)
         self.assertEqual(road.speed_limit, 0)
         self.assertEqual(road.length, 0)
+
+
+if __name__ == "__main__":
+    unittest.main()

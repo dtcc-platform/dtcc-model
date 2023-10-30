@@ -32,3 +32,7 @@ class TestCopyRaster(unittest.TestCase):
 
         self.assertEqual(copy_raster.data.shape, ())
         self.assertEqual(copy_raster.crs, raster.crs)
+
+
+if __name__ == "__main__":
+    unittest.main()
