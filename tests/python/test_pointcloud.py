@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from dtcc_model.pointcloud import PointCloud
+from dtcc_model import PointCloud
 
 
 class TestPointCloud(unittest.TestCase):

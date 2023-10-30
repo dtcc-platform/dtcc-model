@@ -1,16 +1,14 @@
 # Copyright(C) 2023 Anders Logg
 # Licensed under the MIT License
 
-import numpy as np
-from typing import Union, ClassVar
 from dataclasses import dataclass, field
+from typing import Union, ClassVar
+import numpy as np
 
-
-from . import dtcc_pb2 as proto
-from .model import DTCCModel
-from .geometry import Bounds, Georef
-
-import sys
+from dtcc_model.model import DTCCModel
+from dtcc_model import dtcc_pb2 as proto
+from .bounds import Bounds
+from .georef import Georef
 
 
 @dataclass
@@ -50,7 +48,7 @@ class PointCloud(DTCCModel):
 
     def __str__(self):
         """
-        Return a string representation of the PointCloud, containing its boundaries 
+        Return a string representation of the PointCloud, containing its boundaries
         and number of points.
 
         Returns

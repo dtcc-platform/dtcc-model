@@ -1,6 +1,7 @@
 from . import dtcc_pb2 as proto
-from .geometry import Bounds, Georef
-from .pointcloud import PointCloud
+
+from .geometry import Bounds, Georef, PointCloud
+
 from .grid import Grid
 from .meshes import Mesh, VolumeMesh
 from .gridfields import GridField, GridVectorField

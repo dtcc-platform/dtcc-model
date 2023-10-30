@@ -1,14 +1,15 @@
 # Copyright(C) 2023 Dag Wästberg
 # Licensed under the MIT License
 
+from dataclasses import dataclass, field
+from typing import Any, Union
 import numpy as np
 from shapely.geometry import Polygon
-from typing import Any, Union
-from dataclasses import dataclass, field
+
 
 from .model import DTCCModel
 from . import dtcc_pb2 as proto
-from .pointcloud import PointCloud
+from .geometry.pointcloud import PointCloud
 from .meshes import Mesh
 from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
