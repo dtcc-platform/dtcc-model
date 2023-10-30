@@ -1,5 +1,10 @@
 from . import dtcc_pb2 as proto
 
+# Import submodules
+from . import object
+from . import geometry
+
+
 # Import all classes from submodules
 from .object import *
 from .geometry import *
