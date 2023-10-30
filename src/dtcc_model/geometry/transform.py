@@ -11,8 +11,14 @@ from dtcc_model import dtcc_pb2 as proto
 
 @dataclass
 class Transform(DTCCModel):
-    """Represents an affine transformation in 3D to a global coordinate
-    system.
+    """Represents an affine transformation to a global coordinate system.
+
+    The affine transformation is represented by a 4x4 matrix, where the
+    upper-left 3x3 submatrix represents the rotation and scaling, and the last
+    column represents the translation. By applying the affine transformation to
+    the coordinates of a point in the local coordinate system, one obtains the
+    coordinates of the point in the global coordinate system specified by the
+    spatial reference system (SRS).
 
     Attributes
     ----------
@@ -58,6 +64,17 @@ class Transform(DTCCModel):
         self.affine[0, 3] = dx
         self.affine[1, 3] = dy
         self.affine[2, 3] = dz
+
+    def set_rotation(self, rotation_matrix):
+        """
+        Sets the rotation part of the affine transform.
+        :param rotation_matrix: a 3x3 numpy array representing the rotation.
+        """
+        assert rotation_matrix.shape == (
+            3,
+            3,
+        ), "Rotation matrix should be of shape (3, 3)"
+        self.affine[:3, :3] = rotation_matrix
 
     def from_proto(self, pb: Union[proto.Transform, bytes]):
         """Initialize the Transform object from a Protocol Buffers message.
