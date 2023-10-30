@@ -5,14 +5,14 @@ from dataclasses import dataclass
 from typing import Union
 import numpy as np
 
-from dtcc_model.model import DTCCModel
+from dtcc_model.model import Model
 from dtcc_model import dtcc_pb2 as proto
 
 # FIXME: REMOVE THIS CLASS (replaced by Transform)
 
 
 @dataclass
-class Georef(DTCCModel):
+class Georef(Model):
     """Represents georeferencing information for spatial data.
 
     Attributes

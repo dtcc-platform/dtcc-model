@@ -3,12 +3,12 @@
 
 from dataclasses import dataclass, field
 
-from dtcc_model.model import DTCCModel
+from dtcc_model.model import Model
 from dtcc_model.geometry import Geometry
 
 
 @dataclass
-class Object(DTCCModel):
+class Object(Model):
     """Base class for all object classes.
 
     Object classes represent city objects such as buildings, roads, and trees.

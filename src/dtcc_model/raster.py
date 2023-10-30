@@ -8,12 +8,12 @@ from affine import Affine
 from copy import deepcopy
 from dtcc_model.geometry import Bounds
 from logging import info, warning, error
-from .model import DTCCModel
+from .model import Model
 from . import dtcc_pb2 as proto
 
 
 @dataclass
-class Raster(DTCCModel):
+class Raster(Model):
 
     """
     A georeferenced n-dimensional raster of values.

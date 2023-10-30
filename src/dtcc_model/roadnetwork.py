@@ -5,7 +5,7 @@ import numpy as np
 from enum import Enum, auto
 
 from . import dtcc_pb2 as proto
-from .model import DTCCModel
+from .model import Model
 from .geometry import Georef
 
 
@@ -27,7 +27,7 @@ class RoadType(Enum):
 
 
 @dataclass
-class Road(DTCCModel):
+class Road(Model):
 
     """
     A representation of a road.
@@ -141,7 +141,7 @@ class Road(DTCCModel):
 
 
 @dataclass
-class RoadNetwork(DTCCModel):
+class RoadNetwork(Model):
     """
     A representation of a road network.
 

@@ -1,6 +1,8 @@
+# Copyright(C) 2023 Dag Wästberg
+# Licensed under the MIT License
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import ClassVar
 from inspect import getmembers, isfunction, ismethod, ismodule
 import logging
 from google.protobuf.json_format import MessageToJson
@@ -8,10 +10,8 @@ from copy import deepcopy
 
 
 @dataclass
-class DTCCModel(ABC):
-    """Base class for all DTCC models. Must implement to_proto and from_proto
-    methods that converts to and from the protobuf representation.
-    """
+class Model(ABC):
+    """Base class for all DTCC Model classes."""
 
     @abstractmethod
     def to_proto(self):
@@ -36,7 +36,7 @@ class DTCCModel(ABC):
 
         Returns
         -------
-            DTCCModel: A copy of the object.
+            Model: A copy of the object.
         """
         return deepcopy(self)
 

@@ -7,7 +7,7 @@ import numpy as np
 from shapely.geometry import Polygon
 
 
-from .model import DTCCModel
+from .model import Model
 from . import dtcc_pb2 as proto
 from .geometry.pointcloud import PointCloud
 from .geometry.mesh import Mesh
@@ -15,7 +15,7 @@ from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
 
 @dataclass
-class Building(DTCCModel):
+class Building(Model):
     """A base representation of a single building.
 
     Attributes

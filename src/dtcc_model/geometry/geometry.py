@@ -3,13 +3,13 @@
 
 from dataclasses import dataclass, field
 
-from dtcc_model.model import DTCCModel
+from dtcc_model.model import Model
 from .bounds import Bounds
 from .transform import Transform
 
 
 @dataclass
-class Geometry(DTCCModel):
+class Geometry(Model):
     """Base class for all geometry classes.
 
     Geometry classes represent geometric objects such as point clouds,

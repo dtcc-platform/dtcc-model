@@ -5,12 +5,12 @@ from dataclasses import dataclass, field
 from typing import Union
 import numpy as np
 
-from dtcc_model.model import DTCCModel
+from dtcc_model.model import Model
 from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
-class Transform(DTCCModel):
+class Transform(Model):
     """Represents an affine transformation to a global coordinate system.
 
     The affine transformation is represented by a 4x4 matrix, where the
