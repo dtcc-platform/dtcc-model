@@ -5,6 +5,7 @@ import numpy as np
 from typing import Union
 from dataclasses import dataclass, field
 from affine import Affine
+from copy import deepcopy
 from dtcc_model.geometry import Bounds
 from logging import info, warning, error
 from .model import DTCCModel
@@ -171,6 +172,16 @@ class Raster(DTCCModel):
             raise
             # data = self.nodata
         return data
+
+    def copy(self, no_data=False):
+        if not no_data:
+            return deepcopy(self)
+        else:
+            copy_raster = Raster()
+            copy_raster.georef = self.georef
+            copy_raster.nodata = self.nodata
+            copy_raster.crs = self.crs
+            return copy_raster
 
     def to_proto(self) -> proto.Raster:
         """

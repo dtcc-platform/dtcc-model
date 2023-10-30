@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'H\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\ndtcc.proto\x12\x04\x44TCC\" \n\x08Vector2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"+\n\x08Vector3D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\",\n\nMultiPoint\x12\x1e\n\x06points\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector2D\".\n\x0cMultiPoint3D\x12\x1e\n\x06points\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector3D\".\n\nLineString\x12 \n\x08vertices\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector2D\"0\n\x0cLineString3D\x12 \n\x08vertices\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector3D\".\n\nLinearRing\x12 \n\x08vertices\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector2D\"K\n\x07Polygon\x12\x1f\n\x05shell\x18\x01 \x01(\x0b\x32\x10.DTCC.LinearRing\x12\x1f\n\x05holes\x18\x02 \x03(\x0b\x32\x10.DTCC.LinearRing\"/\n\x0cMultiPolygon\x12\x1f\n\x08polygons\x18\x01 \x03(\x0b\x32\r.DTCC.Polygon\"@\n\x06\x42ounds\x12\x0c\n\x04xmin\x18\x01 \x01(\x02\x12\x0c\n\x04xmax\x18\x02 \x01(\x02\x12\x0c\n\x04ymin\x18\x03 \x01(\x02\x12\x0c\n\x04ymax\x18\x04 \x01(\x02\";\n\x06Georef\x12\x0b\n\x03\x63rs\x18\x01 \x01(\t\x12\x0c\n\x04\x65psg\x18\x02 \x01(\x05\x12\n\n\x02x0\x18\x03 \x01(\x02\x12\n\n\x02y0\x18\x04 \x01(\x02\"(\n\tTransform\x12\x0b\n\x03srs\x18\x01 \x01(\t\x12\x0e\n\x06\x61\x66\x66ine\x18\x02 \x03(\x02\"\xaf\x01\n\nPointCloud\x12\x1c\n\x06\x62ounds\x18\x01 \x01(\x0b\x32\x0c.DTCC.Bounds\x12\x1c\n\x06georef\x18\x02 \x01(\x0b\x32\x0c.DTCC.Georef\x12\x0e\n\x06points\x18\x03 \x03(\x02\x12\x16\n\x0e\x63lassification\x18\x04 \x03(\r\x12\x11\n\tintensity\x18\x05 \x03(\r\x12\x15\n\rreturn_number\x18\x06 \x03(\r\x12\x13\n\x0bnum_returns\x18\x07 \x03(\r\"a\n\x04Grid\x12\x1c\n\x06\x62ounds\x18\x01 \x01(\x0b\x32\x0c.DTCC.Bounds\x12\r\n\x05width\x18\x02 \x01(\x05\x12\x0e\n\x06height\x18\x03 \x01(\x05\x12\r\n\x05xstep\x18\x04 \x01(\x02\x12\r\n\x05ystep\x18\x05 \x01(\x02\"8\n\x04Mesh\x12\x10\n\x08vertices\x18\x01 \x03(\x02\x12\x0f\n\x07normals\x18\x02 \x03(\x02\x12\r\n\x05\x66\x61\x63\x65s\x18\x03 \x03(\x05\"-\n\nVolumeMesh\x12\x10\n\x08vertices\x18\x01 \x03(\x02\x12\r\n\x05\x63\x65lls\x18\x02 \x03(\x02\"5\n\tGridField\x12\x18\n\x04grid\x18\x01 \x01(\x0b\x32\n.DTCC.Grid\x12\x0e\n\x06values\x18\x02 \x03(\x02\";\n\x0fGridVectorField\x12\x18\n\x04grid\x18\x01 \x01(\x0b\x32\n.DTCC.Grid\x12\x0e\n\x06values\x18\x02 \x03(\x02\"5\n\tMeshField\x12\x18\n\x04mesh\x18\x01 \x01(\x0b\x32\n.DTCC.Mesh\x12\x0e\n\x06values\x18\x02 \x03(\x02\";\n\x0fMeshVectorField\x12\x18\n\x04mesh\x18\x01 \x01(\x0b\x32\n.DTCC.Mesh\x12\x0e\n\x06values\x18\x02 \x03(\x02\"A\n\x0fVolumeMeshField\x12\x1e\n\x04mesh\x18\x01 \x01(\x0b\x32\x10.DTCC.VolumeMesh\x12\x0e\n\x06values\x18\x02 \x03(\x02\"G\n\x15VolumeMeshVectorField\x12\x1e\n\x04mesh\x18\x01 \x01(\x0b\x32\x10.DTCC.VolumeMesh\x12\x0e\n\x06values\x18\x02 \x03(\x02\"\x95\x01\n\x08\x42uilding\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12 \n\tfootprint\x18\x02 \x01(\x0b\x32\r.DTCC.Polygon\x12\x0e\n\x06height\x18\x03 \x01(\x02\x12\x14\n\x0cgroundHeight\x18\x04 \x01(\x02\x12$\n\nroofpoints\x18\x05 \x01(\x0b\x32\x10.DTCC.PointCloud\x12\r\n\x05\x65rror\x18\x06 \x01(\x04\"\xb2\x01\n\x04\x43ity\x12\x1c\n\x06\x62ounds\x18\x01 \x01(\x0b\x32\x0c.DTCC.Bounds\x12\x1c\n\x06georef\x18\x02 \x01(\x0b\x32\x0c.DTCC.Georef\x12\x1d\n\x07terrain\x18\x03 \x01(\x0b\x32\x0c.DTCC.Raster\x12!\n\tbuildings\x18\x04 \x03(\x0b\x32\x0e.DTCC.Building\x12\x1e\n\x07landuse\x18\x05 \x03(\x0b\x32\r.DTCC.LandUse\x12\x0c\n\x04name\x18\x06 \x01(\t\"9\n\x07LandUse\x12 \n\tfootprint\x18\x01 \x01(\x0b\x32\r.DTCC.Polygon\x12\x0c\n\x04type\x18\x02 \x01(\t\"s\n\x04Road\x12\x10\n\x08vertices\x18\x01 \x03(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05width\x18\x04 \x01(\x02\x12\r\n\x05lanes\x18\x05 \x01(\x05\x12\x13\n\x0bspeed_limit\x18\x06 \x01(\x05\x12\n\n\x02id\x18\x07 \x01(\t\"V\n\x0bRoadNetwork\x12\x0e\n\x06vertex\x18\x01 \x03(\x02\x12\x19\n\x05roads\x18\x02 \x03(\x0b\x32\n.DTCC.Road\x12\x1c\n\x06georef\x18\x03 \x01(\x0b\x32\x0c.DTCC.Georef\"\x92\x01\n\x06Raster\x12\r\n\x05width\x18\x01 \x01(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\x10\n\x08\x63hannels\x18\x03 \x01(\x05\x12\x0e\n\x06values\x18\x04 \x03(\x02\x12\x0e\n\x06nodata\x18\x05 \x01(\x02\x12\r\n\x05\x64type\x18\x06 \x01(\t\x12(\n\ttransform\x18\x07 \x01(\x0b\x32\x15.DTCC.AffineTransform\"S\n\x0f\x41\x66\x66ineTransform\x12\t\n\x01\x61\x18\x01 \x01(\x02\x12\t\n\x01\x62\x18\x02 \x01(\x02\x12\t\n\x01\x63\x18\x03 \x01(\x02\x12\t\n\x01\x64\x18\x04 \x01(\x02\x12\t\n\x01\x65\x18\x05 \x01(\x02\x12\t\n\x01\x66\x18\x06 \x01(\x02\x42\x02H\x03\x62\x06proto3'
+  serialized_pb=b'\n\ndtcc.proto\x12\x04\x44TCC\" \n\x08Vector2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"+\n\x08Vector3D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\",\n\nMultiPoint\x12\x1e\n\x06points\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector2D\".\n\x0cMultiPoint3D\x12\x1e\n\x06points\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector3D\".\n\nLineString\x12 \n\x08vertices\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector2D\"0\n\x0cLineString3D\x12 \n\x08vertices\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector3D\".\n\nLinearRing\x12 \n\x08vertices\x18\x01 \x03(\x0b\x32\x0e.DTCC.Vector2D\"K\n\x07Polygon\x12\x1f\n\x05shell\x18\x01 \x01(\x0b\x32\x10.DTCC.LinearRing\x12\x1f\n\x05holes\x18\x02 \x03(\x0b\x32\x10.DTCC.LinearRing\"/\n\x0cMultiPolygon\x12\x1f\n\x08polygons\x18\x01 \x03(\x0b\x32\r.DTCC.Polygon\"@\n\x06\x42ounds\x12\x0c\n\x04xmin\x18\x01 \x01(\x02\x12\x0c\n\x04xmax\x18\x02 \x01(\x02\x12\x0c\n\x04ymin\x18\x03 \x01(\x02\x12\x0c\n\x04ymax\x18\x04 \x01(\x02\";\n\x06Georef\x12\x0b\n\x03\x63rs\x18\x01 \x01(\t\x12\x0c\n\x04\x65psg\x18\x02 \x01(\x05\x12\n\n\x02x0\x18\x03 \x01(\x02\x12\n\n\x02y0\x18\x04 \x01(\x02\"(\n\tTransform\x12\x0b\n\x03srs\x18\x01 \x01(\t\x12\x0e\n\x06\x61\x66\x66ine\x18\x02 \x03(\x02\"\xaf\x01\n\nPointCloud\x12\x1c\n\x06\x62ounds\x18\x01 \x01(\x0b\x32\x0c.DTCC.Bounds\x12\x1c\n\x06georef\x18\x02 \x01(\x0b\x32\x0c.DTCC.Georef\x12\x0e\n\x06points\x18\x03 \x03(\x02\x12\x16\n\x0e\x63lassification\x18\x04 \x03(\r\x12\x11\n\tintensity\x18\x05 \x03(\r\x12\x15\n\rreturn_number\x18\x06 \x03(\r\x12\x13\n\x0bnum_returns\x18\x07 \x03(\r\"a\n\x04Grid\x12\x1c\n\x06\x62ounds\x18\x01 \x01(\x0b\x32\x0c.DTCC.Bounds\x12\r\n\x05width\x18\x02 \x01(\x05\x12\x0e\n\x06height\x18\x03 \x01(\x05\x12\r\n\x05xstep\x18\x04 \x01(\x02\x12\r\n\x05ystep\x18\x05 \x01(\x02\"8\n\x04Mesh\x12\x10\n\x08vertices\x18\x01 \x03(\x02\x12\x0f\n\x07normals\x18\x02 \x03(\x02\x12\r\n\x05\x66\x61\x63\x65s\x18\x03 \x03(\x05\"-\n\nVolumeMesh\x12\x10\n\x08vertices\x18\x01 \x03(\x02\x12\r\n\x05\x63\x65lls\x18\x02 \x03(\x02\"5\n\tGridField\x12\x18\n\x04grid\x18\x01 \x01(\x0b\x32\n.DTCC.Grid\x12\x0e\n\x06values\x18\x02 \x03(\x02\";\n\x0fGridVectorField\x12\x18\n\x04grid\x18\x01 \x01(\x0b\x32\n.DTCC.Grid\x12\x0e\n\x06values\x18\x02 \x03(\x02\"5\n\tMeshField\x12\x18\n\x04mesh\x18\x01 \x01(\x0b\x32\n.DTCC.Mesh\x12\x0e\n\x06values\x18\x02 \x03(\x02\";\n\x0fMeshVectorField\x12\x18\n\x04mesh\x18\x01 \x01(\x0b\x32\n.DTCC.Mesh\x12\x0e\n\x06values\x18\x02 \x03(\x02\"A\n\x0fVolumeMeshField\x12\x1e\n\x04mesh\x18\x01 \x01(\x0b\x32\x10.DTCC.VolumeMesh\x12\x0e\n\x06values\x18\x02 \x03(\x02\"G\n\x15VolumeMeshVectorField\x12\x1e\n\x04mesh\x18\x01 \x01(\x0b\x32\x10.DTCC.VolumeMesh\x12\x0e\n\x06values\x18\x02 \x03(\x02\":\n\x07Surface\x12\x0f\n\x07verices\x18\x01 \x03(\x02\x12\x1e\n\x06normal\x18\x02 \x01(\x0b\x32\x0e.DTCC.Vector3D\"/\n\x0cMultiSurface\x12\x1f\n\x08surfaces\x18\x01 \x03(\x0b\x32\r.DTCC.Surface\"\x95\x01\n\x08\x42uilding\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12 \n\tfootprint\x18\x02 \x01(\x0b\x32\r.DTCC.Polygon\x12\x0e\n\x06height\x18\x03 \x01(\x02\x12\x14\n\x0cgroundHeight\x18\x04 \x01(\x02\x12$\n\nroofpoints\x18\x05 \x01(\x0b\x32\x10.DTCC.PointCloud\x12\r\n\x05\x65rror\x18\x06 \x01(\x04\"\xb2\x01\n\x04\x43ity\x12\x1c\n\x06\x62ounds\x18\x01 \x01(\x0b\x32\x0c.DTCC.Bounds\x12\x1c\n\x06georef\x18\x02 \x01(\x0b\x32\x0c.DTCC.Georef\x12\x1d\n\x07terrain\x18\x03 \x01(\x0b\x32\x0c.DTCC.Raster\x12!\n\tbuildings\x18\x04 \x03(\x0b\x32\x0e.DTCC.Building\x12\x1e\n\x07landuse\x18\x05 \x03(\x0b\x32\r.DTCC.LandUse\x12\x0c\n\x04name\x18\x06 \x01(\t\"9\n\x07LandUse\x12 \n\tfootprint\x18\x01 \x01(\x0b\x32\r.DTCC.Polygon\x12\x0c\n\x04type\x18\x02 \x01(\t\"s\n\x04Road\x12\x10\n\x08vertices\x18\x01 \x03(\x05\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\r\n\x05width\x18\x04 \x01(\x02\x12\r\n\x05lanes\x18\x05 \x01(\x05\x12\x13\n\x0bspeed_limit\x18\x06 \x01(\x05\x12\n\n\x02id\x18\x07 \x01(\t\"V\n\x0bRoadNetwork\x12\x0e\n\x06vertex\x18\x01 \x03(\x02\x12\x19\n\x05roads\x18\x02 \x03(\x0b\x32\n.DTCC.Road\x12\x1c\n\x06georef\x18\x03 \x01(\x0b\x32\x0c.DTCC.Georef\"\x92\x01\n\x06Raster\x12\r\n\x05width\x18\x01 \x01(\x05\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\x10\n\x08\x63hannels\x18\x03 \x01(\x05\x12\x0e\n\x06values\x18\x04 \x03(\x02\x12\x0e\n\x06nodata\x18\x05 \x01(\x02\x12\r\n\x05\x64type\x18\x06 \x01(\t\x12(\n\ttransform\x18\x07 \x01(\x0b\x32\x15.DTCC.AffineTransform\"S\n\x0f\x41\x66\x66ineTransform\x12\t\n\x01\x61\x18\x01 \x01(\x02\x12\t\n\x01\x62\x18\x02 \x01(\x02\x12\t\n\x01\x63\x18\x03 \x01(\x02\x12\t\n\x01\x64\x18\x04 \x01(\x02\x12\t\n\x01\x65\x18\x05 \x01(\x02\x12\t\n\x01\x66\x18\x06 \x01(\x02\x42\x02H\x03\x62\x06proto3'
 )
 
 
@@ -939,6 +939,77 @@ _VOLUMEMESHVECTORFIELD = _descriptor.Descriptor(
 )
 
 
+_SURFACE = _descriptor.Descriptor(
+  name='Surface',
+  full_name='DTCC.Surface',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='verices', full_name='DTCC.Surface.verices', index=0,
+      number=1, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='normal', full_name='DTCC.Surface.normal', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1388,
+  serialized_end=1446,
+)
+
+
+_MULTISURFACE = _descriptor.Descriptor(
+  name='MultiSurface',
+  full_name='DTCC.MultiSurface',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='surfaces', full_name='DTCC.MultiSurface.surfaces', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1448,
+  serialized_end=1495,
+)
+
+
 _BUILDING = _descriptor.Descriptor(
   name='Building',
   full_name='DTCC.Building',
@@ -1001,8 +1072,8 @@ _BUILDING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1389,
-  serialized_end=1538,
+  serialized_start=1498,
+  serialized_end=1647,
 )
 
 
@@ -1068,8 +1139,8 @@ _CITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1541,
-  serialized_end=1719,
+  serialized_start=1650,
+  serialized_end=1828,
 )
 
 
@@ -1107,8 +1178,8 @@ _LANDUSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1721,
-  serialized_end=1778,
+  serialized_start=1830,
+  serialized_end=1887,
 )
 
 
@@ -1181,8 +1252,8 @@ _ROAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1780,
-  serialized_end=1895,
+  serialized_start=1889,
+  serialized_end=2004,
 )
 
 
@@ -1227,8 +1298,8 @@ _ROADNETWORK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1897,
-  serialized_end=1983,
+  serialized_start=2006,
+  serialized_end=2092,
 )
 
 
@@ -1301,8 +1372,8 @@ _RASTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1986,
-  serialized_end=2132,
+  serialized_start=2095,
+  serialized_end=2241,
 )
 
 
@@ -1368,8 +1439,8 @@ _AFFINETRANSFORM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2134,
-  serialized_end=2217,
+  serialized_start=2243,
+  serialized_end=2326,
 )
 
 _MULTIPOINT.fields_by_name['points'].message_type = _VECTOR2D
@@ -1389,6 +1460,8 @@ _MESHFIELD.fields_by_name['mesh'].message_type = _MESH
 _MESHVECTORFIELD.fields_by_name['mesh'].message_type = _MESH
 _VOLUMEMESHFIELD.fields_by_name['mesh'].message_type = _VOLUMEMESH
 _VOLUMEMESHVECTORFIELD.fields_by_name['mesh'].message_type = _VOLUMEMESH
+_SURFACE.fields_by_name['normal'].message_type = _VECTOR3D
+_MULTISURFACE.fields_by_name['surfaces'].message_type = _SURFACE
 _BUILDING.fields_by_name['footprint'].message_type = _POLYGON
 _BUILDING.fields_by_name['roofpoints'].message_type = _POINTCLOUD
 _CITY.fields_by_name['bounds'].message_type = _BOUNDS
@@ -1422,6 +1495,8 @@ DESCRIPTOR.message_types_by_name['MeshField'] = _MESHFIELD
 DESCRIPTOR.message_types_by_name['MeshVectorField'] = _MESHVECTORFIELD
 DESCRIPTOR.message_types_by_name['VolumeMeshField'] = _VOLUMEMESHFIELD
 DESCRIPTOR.message_types_by_name['VolumeMeshVectorField'] = _VOLUMEMESHVECTORFIELD
+DESCRIPTOR.message_types_by_name['Surface'] = _SURFACE
+DESCRIPTOR.message_types_by_name['MultiSurface'] = _MULTISURFACE
 DESCRIPTOR.message_types_by_name['Building'] = _BUILDING
 DESCRIPTOR.message_types_by_name['City'] = _CITY
 DESCRIPTOR.message_types_by_name['LandUse'] = _LANDUSE
@@ -1584,6 +1659,20 @@ VolumeMeshVectorField = _reflection.GeneratedProtocolMessageType('VolumeMeshVect
   # @@protoc_insertion_point(class_scope:DTCC.VolumeMeshVectorField)
   })
 _sym_db.RegisterMessage(VolumeMeshVectorField)
+
+Surface = _reflection.GeneratedProtocolMessageType('Surface', (_message.Message,), {
+  'DESCRIPTOR' : _SURFACE,
+  '__module__' : 'dtcc_pb2'
+  # @@protoc_insertion_point(class_scope:DTCC.Surface)
+  })
+_sym_db.RegisterMessage(Surface)
+
+MultiSurface = _reflection.GeneratedProtocolMessageType('MultiSurface', (_message.Message,), {
+  'DESCRIPTOR' : _MULTISURFACE,
+  '__module__' : 'dtcc_pb2'
+  # @@protoc_insertion_point(class_scope:DTCC.MultiSurface)
+  })
+_sym_db.RegisterMessage(MultiSurface)
 
 Building = _reflection.GeneratedProtocolMessageType('Building', (_message.Message,), {
   'DESCRIPTOR' : _BUILDING,

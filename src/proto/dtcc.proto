@@ -163,6 +163,17 @@ message VolumeMeshVectorField
   repeated float values = 2;
 }
 
+message Surface
+{
+  repeated float verices = 1;
+  Vector3D normal = 2;
+}
+
+message MultiSurface 
+{
+  repeated Surface surfaces = 1;
+}
+
 //--- City model ---
 
 // FIXME: Can it be simplified?

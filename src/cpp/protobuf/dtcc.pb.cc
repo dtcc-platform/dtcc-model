@@ -313,6 +313,31 @@ struct VolumeMeshVectorFieldDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT VolumeMeshVectorFieldDefaultTypeInternal _VolumeMeshVectorField_default_instance_;
+constexpr Surface::Surface(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : verices_()
+  , normal_(nullptr){}
+struct SurfaceDefaultTypeInternal {
+  constexpr SurfaceDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SurfaceDefaultTypeInternal() {}
+  union {
+    Surface _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SurfaceDefaultTypeInternal _Surface_default_instance_;
+constexpr MultiSurface::MultiSurface(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : surfaces_(){}
+struct MultiSurfaceDefaultTypeInternal {
+  constexpr MultiSurfaceDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~MultiSurfaceDefaultTypeInternal() {}
+  union {
+    MultiSurface _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MultiSurfaceDefaultTypeInternal _MultiSurface_default_instance_;
 constexpr Building::Building(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : uuid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -5444,6 +5469,410 @@ std::string VolumeMeshVectorField::GetTypeName() const {
 
 // ===================================================================
 
+class Surface::_Internal {
+ public:
+  static const ::DTCC::Vector3D& normal(const Surface* msg);
+};
+
+const ::DTCC::Vector3D&
+Surface::_Internal::normal(const Surface* msg) {
+  return *msg->normal_;
+}
+Surface::Surface(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
+  verices_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:DTCC.Surface)
+}
+Surface::Surface(const Surface& from)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
+      verices_(from.verices_) {
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  if (from._internal_has_normal()) {
+    normal_ = new ::DTCC::Vector3D(*from.normal_);
+  } else {
+    normal_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:DTCC.Surface)
+}
+
+inline void Surface::SharedCtor() {
+normal_ = nullptr;
+}
+
+Surface::~Surface() {
+  // @@protoc_insertion_point(destructor:DTCC.Surface)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<std::string>();
+}
+
+inline void Surface::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete normal_;
+}
+
+void Surface::ArenaDtor(void* object) {
+  Surface* _this = reinterpret_cast< Surface* >(object);
+  (void)_this;
+}
+void Surface::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Surface::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void Surface::Clear() {
+// @@protoc_insertion_point(message_clear_start:DTCC.Surface)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  verices_.Clear();
+  if (GetArenaForAllocation() == nullptr && normal_ != nullptr) {
+    delete normal_;
+  }
+  normal_ = nullptr;
+  _internal_metadata_.Clear<std::string>();
+}
+
+const char* Surface::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated float verices = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_verices(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13) {
+          _internal_add_verices(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // .DTCC.Vector3D normal = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_normal(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<std::string>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Surface::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:DTCC.Surface)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated float verices = 1;
+  if (this->_internal_verices_size() > 0) {
+    target = stream->WriteFixedPacked(1, _internal_verices(), target);
+  }
+
+  // .DTCC.Vector3D normal = 2;
+  if (this->_internal_has_normal()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::normal(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
+        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:DTCC.Surface)
+  return target;
+}
+
+size_t Surface::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:DTCC.Surface)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated float verices = 1;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_verices_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    total_size += data_size;
+  }
+
+  // .DTCC.Vector3D normal = 2;
+  if (this->_internal_has_normal()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *normal_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Surface::CheckTypeAndMergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
+  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Surface*>(
+      &from));
+}
+
+void Surface::MergeFrom(const Surface& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Surface)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  verices_.MergeFrom(from.verices_);
+  if (from._internal_has_normal()) {
+    _internal_mutable_normal()->::DTCC::Vector3D::MergeFrom(from._internal_normal());
+  }
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+}
+
+void Surface::CopyFrom(const Surface& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:DTCC.Surface)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Surface::IsInitialized() const {
+  return true;
+}
+
+void Surface::InternalSwap(Surface* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  verices_.InternalSwap(&other->verices_);
+  swap(normal_, other->normal_);
+}
+
+std::string Surface::GetTypeName() const {
+  return "DTCC.Surface";
+}
+
+
+// ===================================================================
+
+class MultiSurface::_Internal {
+ public:
+};
+
+MultiSurface::MultiSurface(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
+  surfaces_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:DTCC.MultiSurface)
+}
+MultiSurface::MultiSurface(const MultiSurface& from)
+  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
+      surfaces_(from.surfaces_) {
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:DTCC.MultiSurface)
+}
+
+inline void MultiSurface::SharedCtor() {
+}
+
+MultiSurface::~MultiSurface() {
+  // @@protoc_insertion_point(destructor:DTCC.MultiSurface)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<std::string>();
+}
+
+inline void MultiSurface::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void MultiSurface::ArenaDtor(void* object) {
+  MultiSurface* _this = reinterpret_cast< MultiSurface* >(object);
+  (void)_this;
+}
+void MultiSurface::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void MultiSurface::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void MultiSurface::Clear() {
+// @@protoc_insertion_point(message_clear_start:DTCC.MultiSurface)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  surfaces_.Clear();
+  _internal_metadata_.Clear<std::string>();
+}
+
+const char* MultiSurface::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .DTCC.Surface surfaces = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_surfaces(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<std::string>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* MultiSurface::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:DTCC.MultiSurface)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .DTCC.Surface surfaces = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_surfaces_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_surfaces(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
+        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:DTCC.MultiSurface)
+  return target;
+}
+
+size_t MultiSurface::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:DTCC.MultiSurface)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .DTCC.Surface surfaces = 1;
+  total_size += 1UL * this->_internal_surfaces_size();
+  for (const auto& msg : this->surfaces_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MultiSurface::CheckTypeAndMergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
+  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const MultiSurface*>(
+      &from));
+}
+
+void MultiSurface::MergeFrom(const MultiSurface& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.MultiSurface)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  surfaces_.MergeFrom(from.surfaces_);
+  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+}
+
+void MultiSurface::CopyFrom(const MultiSurface& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:DTCC.MultiSurface)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MultiSurface::IsInitialized() const {
+  return true;
+}
+
+void MultiSurface::InternalSwap(MultiSurface* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  surfaces_.InternalSwap(&other->surfaces_);
+}
+
+std::string MultiSurface::GetTypeName() const {
+  return "DTCC.MultiSurface";
+}
+
+
+// ===================================================================
+
 class Building::_Internal {
  public:
   static const ::DTCC::Polygon& footprint(const Building* msg);
@@ -7773,6 +8202,12 @@ template<> PROTOBUF_NOINLINE ::DTCC::VolumeMeshField* Arena::CreateMaybeMessage<
 }
 template<> PROTOBUF_NOINLINE ::DTCC::VolumeMeshVectorField* Arena::CreateMaybeMessage< ::DTCC::VolumeMeshVectorField >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::VolumeMeshVectorField >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DTCC::Surface* Arena::CreateMaybeMessage< ::DTCC::Surface >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DTCC::Surface >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DTCC::MultiSurface* Arena::CreateMaybeMessage< ::DTCC::MultiSurface >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DTCC::MultiSurface >(arena);
 }
 template<> PROTOBUF_NOINLINE ::DTCC::Building* Arena::CreateMaybeMessage< ::DTCC::Building >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Building >(arena);
