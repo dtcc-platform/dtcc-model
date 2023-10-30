@@ -68,12 +68,19 @@ message Bounds
   float ymax = 4;
 }
 
+// FIXME: Remove
 message Georef
 {
   string crs = 1;
   int32 epsg = 2;
   float x0 = 3;
   float y0 = 4;
+}
+
+message Transform
+{
+  string srs = 1;
+  repeated float affine = 2;
 }
 
 //--- Point cloud ---

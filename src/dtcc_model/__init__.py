@@ -1,6 +1,6 @@
 from . import dtcc_pb2 as proto
 
-from .geometry import Bounds, Georef, PointCloud
+from .geometry import *
 
 from .grid import Grid
 from .meshes import Mesh, VolumeMesh
@@ -17,7 +17,19 @@ from .raster import Raster
 from .landuse import Landuse
 from .roadnetwork import RoadNetwork, RoadType
 
-__all__ = [
+
+from . import geometry
+
+# Collect __all__ from submodules
+modules = [geometry]
+__all__ = []
+for module in modules:
+    for name in module.__all__:
+        globals()[name] = getattr(module, name)
+    __all__ += module.__all__
+
+# FIXME
+__all__ += [
     "proto",
     "Bounds",
     "Georef",

@@ -35,6 +35,7 @@ class Mesh(DTCCModel):
         An array of markers or labels associated with mesh elements.
 
     """
+
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     vertex_colors: np.ndarray = field(default_factory=lambda: np.empty(0))
     normals: np.ndarray = field(default_factory=lambda: np.empty(0))
@@ -148,7 +149,7 @@ class VolumeMesh(DTCCModel):
     markers: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        """Return a string representation of the DTCC VolumeMesh, containing the number of 
+        """Return a string representation of the DTCC VolumeMesh, containing the number of
         vertices and cells.
 
         Returns

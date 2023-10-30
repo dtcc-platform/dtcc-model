@@ -18,7 +18,7 @@ from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 class Building(DTCCModel):
     """A base representation of a single building.
 
-    Parameters
+    Attributes
     ----------
     uuid : str, optional
         The UUID of the building, by default "NONE".
