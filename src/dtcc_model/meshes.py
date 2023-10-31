@@ -35,6 +35,7 @@ class Mesh(DTCCModel):
         An array of markers or labels associated with mesh elements.
 
     """
+
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     vertex_colors: np.ndarray = field(default_factory=lambda: np.empty(0))
     normals: np.ndarray = field(default_factory=lambda: np.empty(0))
@@ -89,6 +90,25 @@ class Mesh(DTCCModel):
 
         """
         return len(self.faces)
+
+    def translate(self, x: float, y: float, z: float):
+        """Translate the mesh.
+
+        Parameters
+        ----------
+        x : float
+            The x component of the translation vector.
+        y : float
+            The y component of the translation vector.
+        z : float
+            The z component of the translation vector.
+
+        """
+        self.vertices += np.array([x, y, z])
+
+    def center(self):
+        """Return the center of the mesh."""
+        return list(self.vertices.mean(axis=0))
 
     def from_proto(self, pb: Union[proto.Mesh, bytes]):
         """Initialize the Mesh object from a Protocol Buffers message.
@@ -148,7 +168,7 @@ class VolumeMesh(DTCCModel):
     markers: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        """Return a string representation of the DTCC VolumeMesh, containing the number of 
+        """Return a string representation of the DTCC VolumeMesh, containing the number of
         vertices and cells.
 
         Returns
