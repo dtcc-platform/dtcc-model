@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Generate diagram for dtcc_model.object
+pyreverse -o puml dtcc_model.object
+mv classes.puml uml_diagram_object.puml
+rm -f packages.puml
+
+# Generate diagram for dtcc_model.geometry
+pyreverse -o puml dtcc_model.geometry
+mv classes.puml uml_diagram_geometry.puml
+rm -f packages.puml
+
+echo ""
+echo "For further instructions, visit"
+echo ""
+echo "  https://platform.dtcc.chalmers.se/development.html#generating-the-uml-class-diagram"
+echo ""

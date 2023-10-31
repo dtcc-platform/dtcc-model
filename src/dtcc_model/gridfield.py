@@ -6,13 +6,13 @@ from typing import Union
 from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 
-from .model import DTCCModel
+from .model import Model
 from . import dtcc_pb2 as proto
-from .grid import Grid
+from .geometry.grid import Grid
 
 
 @dataclass
-class GridField(DTCCModel):
+class GridField(Model):
     """A GridField represents a scalar field associated with a grid.
 
     The GridField class represents a scalar field associated with a structured
@@ -71,7 +71,7 @@ class GridField(DTCCModel):
 
 
 @dataclass
-class GridVectorField(DTCCModel):
+class GridVectorField(Model):
     """A GridVectorField represents a vector field associated with a grid.
 
     The GridVectorField class represents a vector field associated with a

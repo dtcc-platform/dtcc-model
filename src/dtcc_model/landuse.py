@@ -8,7 +8,7 @@ from typing import Any, Union
 
 from .utils import pb_polygon_to_shapely, pb_polygon_from_shapely
 
-from .model import DTCCModel
+from .model import Model
 from . import dtcc_pb2 as proto
 
 
@@ -25,7 +25,7 @@ class LanduseClasses(Enum):
 
 
 @dataclass
-class Landuse(DTCCModel):
+class Landuse(Model):
     """A polygon representing a single landuse area.
 
     This class represents a polygon that defines a landuse area. Various landuse

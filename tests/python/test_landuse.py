@@ -19,3 +19,7 @@ class TestLanduse(unittest.TestCase):
         lu2 = Landuse()
         lu2.from_proto(pb)
         self.assertEqual(lu2.landuse.name, "URBAN")
+
+
+if __name__ == "__main__":
+    unittest.main()

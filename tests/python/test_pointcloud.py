@@ -1,12 +1,11 @@
 import unittest
 import numpy as np
-from dtcc_model.pointcloud import PointCloud
+from dtcc_model import PointCloud
 
 
 class TestPointCloud(unittest.TestCase):
     def test_empty(self):
         pc = PointCloud()
-        self.assertEqual(pc.georef.crs, "")
         self.assertEqual(pc.bounds.tuple, (0, 0, 0, 0))
 
     def test_calc_bounds(self):
@@ -55,3 +54,7 @@ class TestPointCloud(unittest.TestCase):
         pc2.from_proto(proto_pc)
         self.assertEqual(pc2.points.tolist(), pc.points.tolist())
         self.assertEqual(pc2.classification.tolist(), pc.classification.tolist())
+
+
+if __name__ == "__main__":
+    unittest.main()

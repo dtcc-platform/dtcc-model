@@ -6,7 +6,7 @@ from typing import Union, List
 from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 
-from .model import DTCCModel
+from .model import Model
 from . import dtcc_pb2 as proto
 from .geometry import Bounds, Georef
 from .raster import Raster
@@ -17,7 +17,7 @@ from .roadnetwork import RoadNetwork
 
 
 @dataclass
-class City(DTCCModel):
+class City(Model):
     """A City is the top-level container class for city models.
 
     This class represents a city model and serves as a container for various

@@ -6,13 +6,13 @@ from typing import Union
 from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 
-from .model import DTCCModel
+from .model import Model
 from . import dtcc_pb2 as proto
-from .meshes import Mesh, VolumeMesh
+from .geometry.mesh import Mesh, VolumeMesh
 
 
 @dataclass
-class MeshField(DTCCModel):
+class MeshField(Model):
 
     """A MeshField represents a scalar field associated with a Mesh.
 
@@ -140,7 +140,7 @@ class MeshVectorField:
 
 
 @dataclass
-class VolumeMeshField(DTCCModel):
+class VolumeMeshField(Model):
 
     """A VolumeMeshField represents a scalar field associated with a VolumeMesh.
 
@@ -156,7 +156,7 @@ class VolumeMeshField(DTCCModel):
         An array of scalar values associated with each vertex in the mesh.
 
     """
-    
+
     mesh: Mesh = field(default_factory=Mesh)
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
 
@@ -203,7 +203,7 @@ class VolumeMeshField(DTCCModel):
 
 
 @dataclass
-class VolumeMeshVectorField(DTCCModel):
+class VolumeMeshVectorField(Model):
 
     """A VolumeMeshVectorField represents a vector field associated with a VolumeMesh.
 
