@@ -91,6 +91,25 @@ class Mesh(Geometry):
         """
         return len(self.faces)
 
+    def translate(self, x: float, y: float, z: float):
+        """Translate the mesh.
+
+        Parameters
+        ----------
+        x : float
+            The x component of the translation vector.
+        y : float
+            The y component of the translation vector.
+        z : float
+            The z component of the translation vector.
+
+        """
+        self.vertices += np.array([x, y, z])
+
+    def center(self):
+        """Return the center of the mesh."""
+        return list(self.vertices.mean(axis=0))
+
     def from_proto(self, pb: Union[proto.Mesh, bytes]):
         """Initialize the Mesh object from a Protocol Buffers message.
 
