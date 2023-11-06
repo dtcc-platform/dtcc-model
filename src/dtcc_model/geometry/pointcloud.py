@@ -7,6 +7,7 @@ import numpy as np
 
 
 from .geometry import Geometry
+from .bounds import Bounds
 from dtcc_model import dtcc_pb2 as proto
 
 
