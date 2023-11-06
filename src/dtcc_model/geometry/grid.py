@@ -16,8 +16,6 @@ class Grid(Geometry):
 
     Attributes
     ----------
-    bounds : Bounds
-        The geographic boundaries of the grid.
     width : int
         The number of cells in the horizontal direction.
     height : int
