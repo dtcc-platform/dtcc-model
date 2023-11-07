@@ -5,6 +5,8 @@ from dataclasses import dataclass, field
 
 from dtcc_model.model import Model
 from dtcc_model.geometry import Geometry
+from collections import defaultdict
+from uuid import uuid4
 
 
 @dataclass
@@ -34,8 +36,17 @@ class Object(Model):
         Dictionary of geometries.
     """
 
-    id: str = ""
+    id: str = field(default_factory=lambda: str(uuid4()))
     attributes: dict = field(default_factory=dict)
-    children: list = field(default_factory=list)
+    children: dict = field(default_factory=lambda: defaultdict(list))
     parents: list = field(default_factory=list)
     geometry: dict = field(default_factory=dict)
+
+    def defined_geometries(self):
+        """Return a list of the types of geometries
+        defined on this object."""
+        return sorted(list(self.geometry.keys()))
+
+    def definted_attributes(self):
+        """Return a list of the attributes defined on this object."""
+        return sorted(list(self.attributes.keys()))

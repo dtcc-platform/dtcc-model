@@ -4,6 +4,7 @@ from .grid import Grid
 from .mesh import Mesh, VolumeMesh
 from .pointcloud import PointCloud
 from .transform import Transform
+from .polygon import Polygon
 
 
 __all__ = [

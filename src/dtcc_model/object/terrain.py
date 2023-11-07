@@ -7,9 +7,8 @@ from .object import Object
 from dtcc_model import dtcc_pb2 as proto
 
 
-@dataclass
-class NewBuilding(Object):
-    """Represents a building in a city."""
+class Terrain(Object):
+    """Represents a terrain model."""
 
     pass
 
