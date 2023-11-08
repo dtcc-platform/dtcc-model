@@ -3,12 +3,12 @@ from . import dtcc_pb2 as proto
 # Import submodules
 from . import object
 from . import geometry
-
+from . import quantity
 
 # Import all classes from submodules
 from .object import *
 from .geometry import *
-
+from .quantity import *
 
 # Collect __all__ from submodules
 modules = [object, geometry]
