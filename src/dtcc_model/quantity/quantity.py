@@ -2,9 +2,11 @@
 # Licensed under the MIT License
 
 import numpy as np
+from typing import Union
 from dataclasses import dataclass, field
 
 from dtcc_model.model import Model
+from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
@@ -27,21 +29,55 @@ class Quantity(Model):
     ----------
     name: str
         Name of the quantity.
-    value: np.ndarray
-        An array of values (scalar or vector-valued) of the quantity.
-        The dimension is n x d, where n is the number of elements in the geometry and d is the dimension of the quantity.
     unit: str
         Unit of measurement of the quantity.
     geometry: str
         Name (key) of the geometry on which the quantity is defined.
+    values: np.ndarray
+        An array of values (scalar or vector-valued) of the quantity.
+        The dimension is n x d, where n is the number of elements in the geometry and d is the dimension of the quantity.
     """
 
     name: str = ""
-    value: np.ndarray = field(default_factory=lambda: np.empty(0))
     unit: str = ""
     geometry: str = ""
+    values: np.ndarray = field(default_factory=lambda: np.empty(0))
+
 
     @property
     def shape(self):
         """Return the value shape of the quantity."""
-        return self.value.shape[1]
+        return self.values.shape[1]
+
+    def from_proto(self, pb: Union[proto.Quantity, bytes]):
+        """Initialize the Quantity object from a Protocol Buffers message.
+
+        This method populates the Quantity object's attributes based on the
+        information in a Protocol Buffers message.
+
+        Parameters
+        ----------
+        pb : Union[proto.Quantity, bytes]
+            The Protocol Buffers message or its serialized bytes representation.
+
+        """
+        if isinstance(pb, bytes):
+            pb = proto.Quantity.FromString(pb)
+        #self.vertices = np.array(pb.vertices).reshape((-1, 3))
+        #self.normals = np.array(pb.normals).reshape((-1, 3))
+        #self.faces = np.array(pb.faces, dtype=np.int64).reshape((-1, 3))
+
+    def to_proto(self) -> proto.Quantity:
+        """Convert the Quantity object to a Protocol Buffers message.
+
+        Returns
+        -------
+        proto.Quantity
+            A Protocol Buffers message representing the Quantity object.
+
+        """
+        pb = proto.Quantity()
+        #pb.vertices.extend(self.vertices.flatten())
+        #pb.normals.extend(self.normals.flatten())
+        #pb.faces.extend(self.faces.flatten())
+        #return pb

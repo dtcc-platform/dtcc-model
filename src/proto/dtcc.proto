@@ -185,7 +185,15 @@ message RoadNetwork
 
 }
 
-//--- Raster ---
+//--- Quantity ---
+
+message Quantity
+{
+  string name = 1;
+  string unit = 2;
+  string geometry = 3;
+  repeated float values = 4;
+}
 
 message Raster
 {
