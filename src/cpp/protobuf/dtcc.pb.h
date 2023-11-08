@@ -4066,12 +4066,13 @@ class Quantity PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kValuesFieldNumber = 4,
+    kValuesFieldNumber = 5,
     kNameFieldNumber = 1,
     kUnitFieldNumber = 2,
     kGeometryFieldNumber = 3,
+    kDimFieldNumber = 4,
   };
-  // repeated float values = 4;
+  // repeated float values = 5;
   int values_size() const;
   private:
   int _internal_values_size() const;
@@ -4168,6 +4169,15 @@ class Quantity PROTOBUF_FINAL :
   std::string* _internal_mutable_geometry();
   public:
 
+  // int32 dim = 4;
+  void clear_dim();
+  ::PROTOBUF_NAMESPACE_ID::int32 dim() const;
+  void set_dim(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_dim() const;
+  void _internal_set_dim(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:DTCC.Quantity)
  private:
   class _Internal;
@@ -4180,6 +4190,7 @@ class Quantity PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr unit_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr geometry_;
+  ::PROTOBUF_NAMESPACE_ID::int32 dim_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dtcc_2eproto;
 };
@@ -8019,7 +8030,27 @@ inline void Quantity::unsafe_arena_set_allocated_geometry(
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.Quantity.geometry)
 }
 
-// repeated float values = 4;
+// int32 dim = 4;
+inline void Quantity::clear_dim() {
+  dim_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Quantity::_internal_dim() const {
+  return dim_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Quantity::dim() const {
+  // @@protoc_insertion_point(field_get:DTCC.Quantity.dim)
+  return _internal_dim();
+}
+inline void Quantity::_internal_set_dim(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  dim_ = value;
+}
+inline void Quantity::set_dim(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_dim(value);
+  // @@protoc_insertion_point(field_set:DTCC.Quantity.dim)
+}
+
+// repeated float values = 5;
 inline int Quantity::_internal_values_size() const {
   return values_.size();
 }

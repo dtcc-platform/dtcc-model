@@ -6354,6 +6354,7 @@ Quantity::Quantity(const Quantity& from)
     geometry_.SetLite(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_geometry(),
       GetArena());
   }
+  dim_ = from.dim_;
   // @@protoc_insertion_point(copy_constructor:DTCC.Quantity)
 }
 
@@ -6362,6 +6363,7 @@ void Quantity::SharedCtor() {
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   unit_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   geometry_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  dim_ = 0;
 }
 
 Quantity::~Quantity() {
@@ -6402,6 +6404,7 @@ void Quantity::Clear() {
   name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   unit_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   geometry_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  dim_ = 0;
   _internal_metadata_.Clear<std::string>();
 }
 
@@ -6440,12 +6443,19 @@ const char* Quantity::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated float values = 4;
+      // int32 dim = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          dim_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated float values = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_values(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37) {
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45) {
           _internal_add_values(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
         } else goto handle_unusual;
@@ -6508,9 +6518,15 @@ failure:
         3, this->_internal_geometry(), target);
   }
 
-  // repeated float values = 4;
+  // int32 dim = 4;
+  if (this->dim() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_dim(), target);
+  }
+
+  // repeated float values = 5;
   if (this->_internal_values_size() > 0) {
-    target = stream->WriteFixedPacked(4, _internal_values(), target);
+    target = stream->WriteFixedPacked(5, _internal_values(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6529,7 +6545,7 @@ size_t Quantity::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated float values = 4;
+  // repeated float values = 5;
   {
     unsigned int count = static_cast<unsigned int>(this->_internal_values_size());
     size_t data_size = 4UL * count;
@@ -6565,6 +6581,13 @@ size_t Quantity::ByteSizeLong() const {
         this->_internal_geometry());
   }
 
+  // int32 dim = 4;
+  if (this->dim() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_dim());
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
@@ -6596,6 +6619,9 @@ void Quantity::MergeFrom(const Quantity& from) {
   if (from.geometry().size() > 0) {
     _internal_set_geometry(from._internal_geometry());
   }
+  if (from.dim() != 0) {
+    _internal_set_dim(from._internal_dim());
+  }
 }
 
 void Quantity::CopyFrom(const Quantity& from) {
@@ -6616,6 +6642,7 @@ void Quantity::InternalSwap(Quantity* other) {
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   unit_.Swap(&other->unit_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   geometry_.Swap(&other->geometry_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(dim_, other->dim_);
 }
 
 std::string Quantity::GetTypeName() const {
