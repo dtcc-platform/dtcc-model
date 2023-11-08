@@ -20,13 +20,6 @@ for module in modules:
 
 # FIXME: Old stuff below, remove when stuff is correctly moved into submodules
 
-from .gridfield import GridField, GridVectorField
-from .meshfield import (
-    MeshField,
-    MeshVectorField,
-    VolumeMeshField,
-    VolumeMeshVectorField,
-)
 from .building import Building
 from .city import City
 from .raster import Raster
@@ -35,12 +28,6 @@ from .roadnetwork import RoadNetwork, RoadType
 
 __all__ += [
     "proto",
-    "GridField",
-    "GridVectorField",
-    "MeshField",
-    "MeshVectorField",
-    "VolumeMeshField",
-    "VolumeMeshVectorField",
     "Building",
     "City",
     "Raster",

@@ -126,7 +126,7 @@ class Mesh(Geometry):
             pb = proto.Mesh.FromString(pb)
         self.vertices = np.array(pb.vertices).reshape((-1, 3))
         self.normals = np.array(pb.normals).reshape((-1, 3))
-        self.faces = np.array(pb.faces).reshape((-1, 3))
+        self.faces = np.array(pb.faces, dtype=np.int64).reshape((-1, 3))
 
     def to_proto(self) -> proto.Mesh:
         """Convert the Mesh object to a Protocol Buffers message.
@@ -218,7 +218,7 @@ class VolumeMesh(Geometry):
         if isinstance(pb, bytes):
             pb = proto.VolumeMesh.FromString(pb)
         self.vertices = np.array(pb.vertices).reshape((-1, 3))
-        self.cells = np.array(pb.cells).reshape((-1, 4))
+        self.cells = np.array(pb.cells, dtype=np.int64).reshape((-1, 4))
 
     def to_proto(self) -> proto.Mesh:
         """Convert the VolumeMesh object to a Protocol Buffers message.
