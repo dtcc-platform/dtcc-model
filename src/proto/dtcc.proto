@@ -88,14 +88,14 @@ message Transform
 
 message PointCloud
 {
-  Bounds bounds = 1;  
-  Georef georef = 2;  
+  Bounds bounds = 1;
+  Georef georef = 2;
   repeated float points = 3;
   repeated uint32 classification = 4;
   repeated uint32 intensity = 5;
   repeated uint32 return_number = 6;
   repeated uint32 num_returns = 7;
-} 
+}
 
 //--- Grids ---
 
@@ -123,53 +123,13 @@ message VolumeMesh
   repeated float cells = 2;
 }
 
-//--- Grid fields ---
-
-message GridField
-{
-  Grid grid = 1;
-  repeated float values = 2;
-}
-
-message GridVectorField
-{
-  Grid grid = 1;
-  repeated float values = 2;
-}
-
-//--- Mesh fields ---
-
-message MeshField
-{
-  Mesh mesh = 1;
-  repeated float values = 2;
-}
-
-message MeshVectorField
-{
-  Mesh mesh = 1;
-  repeated float values = 2;
-}
-
-message VolumeMeshField
-{
-  VolumeMesh mesh = 1;
-  repeated float values = 2;
-}
-
-message VolumeMeshVectorField
-{
-  VolumeMesh mesh = 1;
-  repeated float values = 2;
-}
-
 message Surface
 {
-  repeated float verices = 1;
+  repeated float vertices = 1;
   Vector3D normal = 2;
 }
 
-message MultiSurface 
+message MultiSurface
 {
   repeated Surface surfaces = 1;
 }
@@ -191,9 +151,9 @@ message Building
 
 message City
 {
-  Bounds bounds = 1;  
+  Bounds bounds = 1;
   Georef georef = 2;
-  Raster terrain = 3;  
+  Raster terrain = 3;
   repeated Building buildings = 4;
   repeated LandUse landuse = 5;
   string name = 6;
@@ -210,8 +170,8 @@ message Road
 {
     repeated int32 vertices = 1;
     int32 type = 2;
-    string name = 3;  
-    float width = 4; 
+    string name = 3;
+    float width = 4;
     int32 lanes = 5;
     int32 speed_limit = 6;
     string id = 7;
