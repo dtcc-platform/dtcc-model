@@ -4,6 +4,7 @@ from .grid import Grid
 from .mesh import Mesh, VolumeMesh
 from .pointcloud import PointCloud
 from .transform import Transform
+from .surface import Surface, MultiSurface
 
 
 __all__ = [
@@ -14,6 +15,8 @@ __all__ = [
     "PointCloud",
     "Transform",
     "VolumeMesh",
+    "Surface",
+    "MultiSurface",
 ]
 
 # FIXME: Remove
