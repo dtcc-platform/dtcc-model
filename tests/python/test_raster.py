@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 
-from dtcc_model.raster import Raster
+from dtcc_model import Raster
 
 
 class TestCreateRaster(unittest.TestCase):
