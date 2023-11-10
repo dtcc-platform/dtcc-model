@@ -233,7 +233,7 @@ class Raster(Model):
         if pb.height == 0 or pb.width == 0 or pb.channels == 0:
             self.data = np.empty(())
         elif pb.channels == 1:
-            self.data = self.data.reshape((pb.height, pb.width))
+            self.data = np.array(pb.values).reshape((pb.height, pb.width))
         else:
             self.data = np.array(pb.values).reshape((pb.height, pb.width, pb.channels))
         if pb.dtype:
