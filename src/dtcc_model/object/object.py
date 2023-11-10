@@ -27,15 +27,25 @@ class Object(Model):
     attributes : dict
         Dictionary of attributes.
     children : list
-        List of child objects.
+        List of child objects (key is type).
     parents : list
-        List of parent objects.
+        Dictionary of parent objects (key is type).
     geometry : dict
         Dictionary of geometries.
     """
 
     id: str = ""
     attributes: dict = field(default_factory=dict)
-    children: list = field(default_factory=list)
-    parents: list = field(default_factory=list)
+    children: list = field(default_factory=dict)
+    parents: list = field(default_factory=dict)
     geometry: dict = field(default_factory=dict)
+
+    @property
+    def num_children(self):
+        """Return number of child objects."""
+        return len(self.children)
+
+    @property
+    def num_parents(self):
+        """Return number of parent objects."""
+        return len(self.parents)
