@@ -22,7 +22,6 @@ for module in modules:
 
 from .building import Building
 from .city import City
-from .raster import Raster
 from .landuse import Landuse
 from .roadnetwork import RoadNetwork, RoadType
 
@@ -30,6 +29,5 @@ __all__ += [
     "proto",
     "Building",
     "City",
-    "Raster",
     "RoadNetwork",
 ]
