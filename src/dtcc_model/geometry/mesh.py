@@ -36,10 +36,10 @@ class Mesh(Geometry):
 
     """
 
-    vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
+    vertices: np.ndarray = field(default_factory=lambda: np.empty(0, dtype=np.float64))
     vertex_colors: np.ndarray = field(default_factory=lambda: np.empty(0))
     normals: np.ndarray = field(default_factory=lambda: np.empty(0))
-    faces: np.ndarray = field(default_factory=lambda: np.empty(0))
+    faces: np.ndarray = field(default_factory=lambda: np.empty(0, dtype=np.int64))
     face_colors: np.ndarray = field(default_factory=lambda: np.empty(0))
     markers: np.ndarray = field(default_factory=lambda: np.empty(0))
 
