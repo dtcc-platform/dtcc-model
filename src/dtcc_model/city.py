@@ -9,7 +9,7 @@ from inspect import getmembers, isfunction, ismethod
 from .model import Model
 from . import dtcc_pb2 as proto
 from .geometry import Bounds, Georef
-from .raster import Raster
+from .quantity.raster import Raster
 
 from .building import Building
 from .landuse import Landuse
