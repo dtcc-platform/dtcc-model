@@ -105,6 +105,7 @@ class Mesh(Geometry):
 
         """
         self.vertices += np.array([x, y, z])
+        return self
 
     def center(self):
         """Return the center of the mesh."""
