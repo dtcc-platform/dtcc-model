@@ -63,3 +63,34 @@ class Object(Model):
     def num_parents(self):
         """Return number of parent objects."""
         return len(self.parents)
+
+    @property
+    def lod0(self):
+        """Return LOD0 geometry."""
+        return self.geometry.get(GeometryType.LOD0, [])
+
+    @property
+    def lod1(self):
+        """Return LOD0 geometry."""
+        return self.geometry.get(GeometryType.LOD1, [])
+
+    @property
+    def lod2(self):
+        """Return LOD0 geometry."""
+        return self.geometry.get(GeometryType.LOD2, [])
+
+    @property
+    def lod3(self):
+        """Return LOD0 geometry."""
+        return self.geometry.get(GeometryType.LOD3, [])
+
+    @property
+    def mesh(self):
+        """Return LOD0 geometry."""
+        return self.geometry.get(GeometryType.MESH, [])
+
+    @property
+    def volumemesh(self):
+        """Return LOD0 geometry."""
+        return self.geometry.get(GeometryType.VOLUMEMESH, [])
+
