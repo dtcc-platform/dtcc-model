@@ -66,6 +66,17 @@ class MultiSurface(Geometry):
     """Represents a planar surfaces in 3D."""
     surfaces: list[Surface] = field(default_factory=list)
 
+    def __len__(self):
+        return len(self.surfaces)
+
+    def merge(self, other):
+        """Merge two MultiSurfaces."""
+        if not isinstance(other, MultiSurface):
+            raise ValueError("Can only merge with another MultiSurface.")
+        self.surfaces.extend(other.surfaces)
+        self.calc_bounds()
+        return self
+
     def calc_bounds(self):
         """Calculate the bounding box of the surface."""
         self.bounds = Bounds()
