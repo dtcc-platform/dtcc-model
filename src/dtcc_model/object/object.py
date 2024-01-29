@@ -64,6 +64,20 @@ class Object(Model):
     parents: list = field(default_factory=lambda: defaultdict(list))
     geometry: dict = field(default_factory=dict)
 
+    def flatten_geometry(self, geom_type: GeometryType):
+        """Retunes a single geometry of the specified type, merging all the geometries of the childern."""
+        geom = self.geometry.get(geom_type, None)
+
+        for child_list in self.children.values():
+            for child in child_list:
+                child_geom = child.geometry.get(geom_type, None)
+                if geom is None and child_geom is not None:
+                    geom = child_geom
+                if child_geom is not None:
+                    geom.merge(child_geom)
+        return geom
+
+
     @property
     def num_children(self):
         """Return number of child objects."""

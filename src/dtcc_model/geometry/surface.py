@@ -79,7 +79,6 @@ class MultiSurface(Geometry):
 
     def calc_bounds(self):
         """Calculate the bounding box of the surface."""
-        self.bounds = Bounds()
         if len(self.surfaces) == 0:
             return
         else:
@@ -87,7 +86,7 @@ class MultiSurface(Geometry):
             self.bounds = self.surfaces[0].bounds
         for s in self.surfaces[1:]:
             s.calc_bounds()
-            self.bounds = self.bounds.union(s.bounds)
+            self.bounds.union(s.bounds)
     def to_proto(self):
         pb = proto.MultiSurface()
         pb.surfaces.extend([s.to_proto() for s in self.surfaces])

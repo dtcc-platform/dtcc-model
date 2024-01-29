@@ -155,6 +155,7 @@ class Bounds(Model):
         self.ymin -= distance
         self.xmax += distance
         self.ymax += distance
+        return self
 
     def union(self, other):
         """Merges this bounds with another, taking the outermost bounds.
@@ -168,6 +169,7 @@ class Bounds(Model):
         self.ymin = min(self.ymin, other.ymin)
         self.xmax = max(self.xmax, other.xmax)
         self.ymax = max(self.ymax, other.ymax)
+        return self
 
     def intersect(self, other):
         """Modifies this bounds to be the intersection with another.
@@ -181,6 +183,7 @@ class Bounds(Model):
         self.ymin = max(self.ymin, other.ymin)
         self.xmax = min(self.xmax, other.xmax)
         self.ymax = min(self.ymax, other.ymax)
+        return self
 
     def from_proto(self, pb: Union[proto.Bounds, bytes]):
         """Loads the bounds from a protobuf representation.
