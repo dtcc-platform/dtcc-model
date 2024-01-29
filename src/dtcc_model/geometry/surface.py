@@ -5,7 +5,7 @@ import numpy as np
 from typing import Union
 from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
-
+from dtcc_model.geometry import Bounds
 
 from .geometry import Geometry
 from dtcc_model import dtcc_pb2 as proto
@@ -17,6 +17,15 @@ class Surface(Geometry):
 
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     normal: np.ndarray = field(default_factory=lambda: np.empty(0))
+
+    def calc_bounds(self):
+        """Calculate the bounding box of the surface."""
+        self.bounds = Bounds(
+                np.min(self.vertices[:, 0]),
+                np.min(self.vertices[:, 1]),
+                np.max(self.vertices[:, 0]),
+                np.max(self.vertices[:, 1]),
+        )
 
     def calculate_normal(self) -> np.ndarray:
         """Calculate the normal of the surface."""
@@ -52,11 +61,22 @@ class Surface(Geometry):
         return f"DTCC Surface with {len(self.vertices)} vertices"
 
 
+@dataclass
 class MultiSurface(Geometry):
     """Represents a planar surfaces in 3D."""
+    surfaces: list[Surface] = field(default_factory=list)
 
-    surfaces: list[Surface] = field(default_factory=lambda: [])
-
+    def calc_bounds(self):
+        """Calculate the bounding box of the surface."""
+        self.bounds = Bounds()
+        if len(self.surfaces) == 0:
+            return
+        else:
+            self.surfaces[0].calc_bounds()
+            self.bounds = self.surfaces[0].bounds
+        for s in self.surfaces[1:]:
+            s.calc_bounds()
+            self.bounds = self.bounds.union(s.bounds)
     def to_proto(self):
         pb = proto.MultiSurface()
         pb.surfaces.extend([s.to_proto() for s in self.surfaces])

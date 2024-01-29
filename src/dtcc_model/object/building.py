@@ -11,4 +11,21 @@ from dtcc_model import dtcc_pb2 as proto
 class NewBuilding(Object):
     """Represents a building in a city."""
 
-    pass
+
+
+#TODO: Implement to_proto and from_proto
+    def to_proto(self):
+        pass
+
+    def from_proto(self, pb):
+        pass
+
+
+class BuildingPart(Object):
+
+    # TODO: Implement to_proto and from_proto
+    def to_proto(self):
+        pass
+
+    def from_proto(self, pb):
+        pass

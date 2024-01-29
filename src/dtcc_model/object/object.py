@@ -2,9 +2,23 @@
 # Licensed under the MIT License
 
 from dataclasses import dataclass, field
+from collections import defaultdict
+from enum import Enum, auto
 
 from dtcc_model.model import Model
 from dtcc_model.geometry import Geometry
+
+class GeometryType(Enum):
+    LOD0 = auto()
+    LOD1 = auto()
+    LOD2 = auto()
+    LOD3 = auto()
+    MESH = auto()
+    VOLUMEMESH = auto()
+    POINTCLOUD = auto()
+    RASTER = auto()
+
+
 
 
 @dataclass
@@ -36,8 +50,8 @@ class Object(Model):
 
     id: str = ""
     attributes: dict = field(default_factory=dict)
-    children: list = field(default_factory=dict)
-    parents: list = field(default_factory=dict)
+    children: list = field(default_factory=lambda: defaultdict(list))
+    parents: list = field(default_factory=lambda: defaultdict(list))
     geometry: dict = field(default_factory=dict)
 
     @property

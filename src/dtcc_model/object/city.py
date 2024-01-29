@@ -21,3 +21,10 @@ class NewCity(Object):
     def num_buildings(self):
         """Return number of buildings in city."""
         return len(self.buildings)
+
+#TODO: Implement to_proto and from_proto
+    def to_proto(self):
+        pass
+
+    def from_proto(self, pb):
+        pass
