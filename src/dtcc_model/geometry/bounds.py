@@ -133,6 +133,7 @@ class Bounds(Model):
         """
         return self.width * self.height
 
+    # FIXME: Should be a property?
     def center(self) -> tuple:
         """Returns the center point of the bounds.
 
