@@ -9,6 +9,7 @@ from dtcc_model.model import Model
 from dtcc_model.geometry import Geometry
 
 class GeometryType(Enum):
+    BOUNDS = auto()
     LOD0 = auto()
     LOD1 = auto()
     LOD2 = auto()
@@ -17,6 +18,15 @@ class GeometryType(Enum):
     VOLUMEMESH = auto()
     POINTCLOUD = auto()
     RASTER = auto()
+
+    @staticmethod
+    def from_str(s):
+        s = s.upper()
+        try:
+            t = GeometryType[s]
+        except KeyError:
+            raise ValueError(f"Unknown geometry type: {s}")
+        return t
 
 
 
@@ -65,32 +75,37 @@ class Object(Model):
         return len(self.parents)
 
     @property
+    def bounds(self):
+        """Return bounds of object."""
+        return self.geometry.get(GeometryType.BOUNDS, None)
+
+    @property
     def lod0(self):
         """Return LOD0 geometry."""
-        return self.geometry.get(GeometryType.LOD0, [])
+        return self.geometry.get(GeometryType.LOD0, None)
 
     @property
     def lod1(self):
         """Return LOD0 geometry."""
-        return self.geometry.get(GeometryType.LOD1, [])
+        return self.geometry.get(GeometryType.LOD1, None)
 
     @property
     def lod2(self):
         """Return LOD0 geometry."""
-        return self.geometry.get(GeometryType.LOD2, [])
+        return self.geometry.get(GeometryType.LOD2, None)
 
     @property
     def lod3(self):
         """Return LOD0 geometry."""
-        return self.geometry.get(GeometryType.LOD3, [])
+        return self.geometry.get(GeometryType.LOD3, None)
 
     @property
     def mesh(self):
         """Return LOD0 geometry."""
-        return self.geometry.get(GeometryType.MESH, [])
+        return self.geometry.get(GeometryType.MESH, None)
 
     @property
     def volumemesh(self):
         """Return LOD0 geometry."""
-        return self.geometry.get(GeometryType.VOLUMEMESH, [])
+        return self.geometry.get(GeometryType.VOLUMEMESH, None)
 
