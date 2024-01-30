@@ -8,6 +8,7 @@ from enum import Enum, auto
 from dtcc_model.model import Model
 from dtcc_model.geometry import Geometry
 
+
 class GeometryType(Enum):
     BOUNDS = auto()
     LOD0 = auto()
@@ -15,8 +16,8 @@ class GeometryType(Enum):
     LOD2 = auto()
     LOD3 = auto()
     MESH = auto()
-    VOLUMEMESH = auto()
-    POINTCLOUD = auto()
+    VOLUME_MESH = auto()
+    POINT_CLOUD = auto()
     RASTER = auto()
 
     @staticmethod
@@ -27,8 +28,6 @@ class GeometryType(Enum):
         except KeyError:
             raise ValueError(f"Unknown geometry type: {s}")
         return t
-
-
 
 
 @dataclass
@@ -50,9 +49,9 @@ class Object(Model):
         Unique identifier of the object.
     attributes : dict
         Dictionary of attributes.
-    children : list
-        List of child objects (key is type).
-    parents : list
+    children : dict of lists
+        Dictionary of child objects (key is type).
+    parents : dict of lists
         Dictionary of parent objects (key is type).
     geometry : dict
         Dictionary of geometries.
@@ -60,12 +59,12 @@ class Object(Model):
 
     id: str = ""
     attributes: dict = field(default_factory=dict)
-    children: list = field(default_factory=lambda: defaultdict(list))
-    parents: list = field(default_factory=lambda: defaultdict(list))
+    children: dict = field(default_factory=dict)
+    parents: dict = field(default_factory=dict)
     geometry: dict = field(default_factory=dict)
 
     def flatten_geometry(self, geom_type: GeometryType):
-        """Retunes a single geometry of the specified type, merging all the geometries of the childern."""
+        """Returns a single geometry of the specified type, merging all the geometries of the children."""
         geom = self.geometry.get(geom_type, None)
 
         for child_list in self.children.values():
@@ -76,7 +75,6 @@ class Object(Model):
                 if child_geom is not None:
                     geom.merge(child_geom)
         return geom
-
 
     @property
     def num_children(self):
@@ -119,7 +117,6 @@ class Object(Model):
         return self.geometry.get(GeometryType.MESH, None)
 
     @property
-    def volumemesh(self):
+    def volume_mesh(self):
         """Return LOD0 geometry."""
-        return self.geometry.get(GeometryType.VOLUMEMESH, None)
-
+        return self.geometry.get(GeometryType.VOLUME_MESH, None)
