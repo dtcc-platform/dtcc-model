@@ -14,38 +14,26 @@ from dtcc_model import dtcc_pb2 as proto
 class Mesh(Geometry):
     """Represents an unstructured triangular mesh in 3D.
 
-    The Mesh class represents a 3D triangular mesh, which consists of vertices,
-    vertex colors, normals, faces, face colors, and markers. It is commonly
-    used for representing complex 3D geometries in computer graphics and
-    simulation.
+    The Mesh class represents a 3D triangular mesh, which consists of vertices
+    and triangular faces.
 
     Attributes
     ----------
     vertices : np.ndarray
         An array of vertices in 3D space.
-    vertex_colors : np.ndarray
-        An array of colors associated with each vertex.
-    normals : np.ndarray
-        An array of normal vectors for each vertex.
     faces : np.ndarray
         An array of triangular faces defined by vertex indices.
-    face_colors : np.ndarray
-        An array of colors associated with each face.
     markers : np.ndarray
-        An array of markers or labels associated with mesh elements.
+        An array of markers or labels associated with the faces.
 
     """
 
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0, dtype=np.float64))
-    vertex_colors: np.ndarray = field(default_factory=lambda: np.empty(0))
-    normals: np.ndarray = field(default_factory=lambda: np.empty(0))
     faces: np.ndarray = field(default_factory=lambda: np.empty(0, dtype=np.int64))
-    face_colors: np.ndarray = field(default_factory=lambda: np.empty(0))
     markers: np.ndarray = field(default_factory=lambda: np.empty(0))
 
     def __str__(self):
-        """Return a string representation of the DTCC Mesh, containing the number of vertices,
-        normals and faces.
+        """Return a string representation of the DTCC Mesh
 
         Returns
         -------
@@ -53,7 +41,7 @@ class Mesh(Geometry):
             A string describing the Mesh object.
 
         """
-        return f"DTCC Mesh with {len(self.vertices)} vertices, {len(self.normals)} normal(s), and {len(self.faces)} face(s)"
+        return f"DTCC Mesh with {len(self.vertices)} vertices and {len(self.faces)} face(s)"
 
     @property
     def num_vertices(self) -> int:
@@ -68,18 +56,6 @@ class Mesh(Geometry):
         return len(self.vertices)
 
     @property
-    def num_normals(self) -> int:
-        """Get the number of normal vectors in the mesh.
-
-        Returns
-        -------
-        int
-            The number of normal vectors in the mesh.
-
-        """
-        return len(self.normals)
-
-    @property
     def num_faces(self) -> int:
         """Calculate the number of faces in the mesh.
 
@@ -90,26 +66,6 @@ class Mesh(Geometry):
 
         """
         return len(self.faces)
-
-    def translate(self, x: float, y: float, z: float):
-        """Translate the mesh.
-
-        Parameters
-        ----------
-        x : float
-            The x component of the translation vector.
-        y : float
-            The y component of the translation vector.
-        z : float
-            The z component of the translation vector.
-
-        """
-        self.vertices += np.array([x, y, z])
-        return self
-
-    def center(self):
-        """Return the center of the mesh."""
-        return list(self.vertices.mean(axis=0))
 
     def from_proto(self, pb: Union[proto.Mesh, bytes]):
         """Initialize the Mesh object from a Protocol Buffers message.
@@ -126,7 +82,6 @@ class Mesh(Geometry):
         if isinstance(pb, bytes):
             pb = proto.Mesh.FromString(pb)
         self.vertices = np.array(pb.vertices).reshape((-1, 3))
-        self.normals = np.array(pb.normals).reshape((-1, 3))
         self.faces = np.array(pb.faces, dtype=np.int64).reshape((-1, 3))
 
     def to_proto(self) -> proto.Mesh:
@@ -140,7 +95,6 @@ class Mesh(Geometry):
         """
         pb = proto.Mesh()
         pb.vertices.extend(self.vertices.flatten())
-        pb.normals.extend(self.normals.flatten())
         pb.faces.extend(self.faces.flatten())
         return pb
 
@@ -150,17 +104,16 @@ class VolumeMesh(Geometry):
     """Represents an unstructured tetrahedral mesh in 3D.
 
     The VolumeMesh class represents a 3D volumetric mesh, which consists of
-    vertices, tetrahedral cells, and markers. It is used for representing
-    three-dimensional finite element meshes in scientific simulations.
+    vertices and tetrahedral cells.
 
     Attributes
     ----------
     vertices : np.ndarray
         An array of vertices in 3D space.
     cells : np.ndarray
-        An array of cells or elements defined by vertex indices.
+        An array of tetrahedral cells defined by vertex indices.
     markers : np.ndarray
-        An array of markers or labels associated with mesh elements.
+        An array of markers or labels associated with th cells.
 
     """
 
