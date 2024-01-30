@@ -18,6 +18,8 @@ class GeometryType(Enum):
     VOLUMEMESH = auto()
     POINTCLOUD = auto()
     RASTER = auto()
+    POLYGON = auto()
+    LINESTRING = auto()
 
     @staticmethod
     def from_str(s):
@@ -60,8 +62,8 @@ class Object(Model):
 
     id: str = ""
     attributes: dict = field(default_factory=dict)
-    children: list = field(default_factory=lambda: defaultdict(list))
-    parents: list = field(default_factory=lambda: defaultdict(list))
+    children: dict = field(default_factory=lambda: defaultdict(list))
+    parents: dict = field(default_factory=lambda: defaultdict(list))
     geometry: dict = field(default_factory=dict)
 
     def flatten_geometry(self, geom_type: GeometryType):
