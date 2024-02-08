@@ -8,6 +8,7 @@ from .building import NewBuilding as Building
 from dtcc_model import dtcc_pb2 as proto
 
 
+
 @dataclass
 class NewCity(Object):
     """Represents a city, the top-level container class for city models."""
@@ -23,6 +24,17 @@ class NewCity(Object):
         return len(self.buildings)
 
     # TODO: Implement to_proto and from_proto
+    def to_proto(self):
+        pass
+
+    def from_proto(self, pb):
+        pass
+
+@dataclass
+class CityObject(Object):
+    """Fallback for any object in a City which doesn't have a more specific object class."""
+
+
     def to_proto(self):
         pass
 

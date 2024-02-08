@@ -5,12 +5,12 @@ from dataclasses import dataclass
 
 from .object import Object
 
+
 @dataclass
 class Terrain(Object):
     """Represents a terrain object in a city."""
 
-
-#TODO: Implement to_proto and from_proto
+    # TODO: Implement to_proto and from_proto
     def to_proto(self):
         pass
 
