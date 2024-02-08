@@ -17,14 +17,15 @@ class Surface(Geometry):
 
     vertices: np.ndarray = field(default_factory=lambda: np.empty(0))
     normal: np.ndarray = field(default_factory=lambda: np.empty(0))
+    holes: list[np.ndarray] = field(default_factory=lambda: [])
 
     def calc_bounds(self):
         """Calculate the bounding box of the surface."""
         self.bounds = Bounds(
-                np.min(self.vertices[:, 0]),
-                np.min(self.vertices[:, 1]),
-                np.max(self.vertices[:, 0]),
-                np.max(self.vertices[:, 1]),
+            np.min(self.vertices[:, 0]),
+            np.min(self.vertices[:, 1]),
+            np.max(self.vertices[:, 0]),
+            np.max(self.vertices[:, 1]),
         )
 
     def calculate_normal(self) -> np.ndarray:
@@ -64,6 +65,7 @@ class Surface(Geometry):
 @dataclass
 class MultiSurface(Geometry):
     """Represents a planar surfaces in 3D."""
+
     surfaces: list[Surface] = field(default_factory=list)
 
     def __len__(self):
@@ -87,6 +89,7 @@ class MultiSurface(Geometry):
         for s in self.surfaces[1:]:
             s.calc_bounds()
             self.bounds.union(s.bounds)
+
     def to_proto(self):
         pb = proto.MultiSurface()
         pb.surfaces.extend([s.to_proto() for s in self.surfaces])
