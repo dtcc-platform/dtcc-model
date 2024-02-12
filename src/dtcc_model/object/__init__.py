@@ -1,12 +1,7 @@
 from .object import Object
 
-from .building import NewBuilding
 from .city import NewCity, CityObject
+from .building import NewBuilding, BuildingPart
 from .terrain import Terrain
 
-__all__ = [
-    "Object",
-    "NewBuilding",
-    "NewCity",
-    "Terrain",
-]
+__all__ = ["Object", "NewCity", "CityObject", "NewBuilding", "BuildingPart", "Terrain"]
