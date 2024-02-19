@@ -131,7 +131,9 @@ constexpr Bounds::Bounds(
   : xmin_(0)
   , xmax_(0)
   , ymin_(0)
-  , ymax_(0){}
+  , ymax_(0)
+  , zmin_(0)
+  , zmax_(0){}
 struct BoundsDefaultTypeInternal {
   constexpr BoundsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -2171,16 +2173,16 @@ Bounds::Bounds(const Bounds& from)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
   ::memcpy(&xmin_, &from.xmin_,
-    static_cast<size_t>(reinterpret_cast<char*>(&ymax_) -
-    reinterpret_cast<char*>(&xmin_)) + sizeof(ymax_));
+    static_cast<size_t>(reinterpret_cast<char*>(&zmax_) -
+    reinterpret_cast<char*>(&xmin_)) + sizeof(zmax_));
   // @@protoc_insertion_point(copy_constructor:DTCC.Bounds)
 }
 
 inline void Bounds::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&xmin_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&ymax_) -
-    reinterpret_cast<char*>(&xmin_)) + sizeof(ymax_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&zmax_) -
+    reinterpret_cast<char*>(&xmin_)) + sizeof(zmax_));
 }
 
 Bounds::~Bounds() {
@@ -2211,8 +2213,8 @@ void Bounds::Clear() {
   (void) cached_has_bits;
 
   ::memset(&xmin_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&ymax_) -
-      reinterpret_cast<char*>(&xmin_)) + sizeof(ymax_));
+      reinterpret_cast<char*>(&zmax_) -
+      reinterpret_cast<char*>(&xmin_)) + sizeof(zmax_));
   _internal_metadata_.Clear<std::string>();
 }
 
@@ -2247,6 +2249,20 @@ const char* Bounds::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
           ymax_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float zmin = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
+          zmin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float zmax = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
+          zmax_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
@@ -2303,6 +2319,18 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_ymax(), target);
   }
 
+  // float zmin = 5;
+  if (!(this->_internal_zmin() <= 0 && this->_internal_zmin() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_zmin(), target);
+  }
+
+  // float zmax = 6;
+  if (!(this->_internal_zmax() <= 0 && this->_internal_zmax() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_zmax(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
@@ -2339,6 +2367,16 @@ size_t Bounds::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
+  // float zmin = 5;
+  if (!(this->_internal_zmin() <= 0 && this->_internal_zmin() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float zmax = 6;
+  if (!(this->_internal_zmax() <= 0 && this->_internal_zmax() >= 0)) {
+    total_size += 1 + 4;
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
   }
@@ -2371,6 +2409,12 @@ void Bounds::MergeFrom(const Bounds& from) {
   if (!(from._internal_ymax() <= 0 && from._internal_ymax() >= 0)) {
     _internal_set_ymax(from._internal_ymax());
   }
+  if (!(from._internal_zmin() <= 0 && from._internal_zmin() >= 0)) {
+    _internal_set_zmin(from._internal_zmin());
+  }
+  if (!(from._internal_zmax() <= 0 && from._internal_zmax() >= 0)) {
+    _internal_set_zmax(from._internal_zmax());
+  }
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
 
@@ -2389,8 +2433,8 @@ void Bounds::InternalSwap(Bounds* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Bounds, ymax_)
-      + sizeof(Bounds::ymax_)
+      PROTOBUF_FIELD_OFFSET(Bounds, zmax_)
+      + sizeof(Bounds::zmax_)
       - PROTOBUF_FIELD_OFFSET(Bounds, xmin_)>(
           reinterpret_cast<char*>(&xmin_),
           reinterpret_cast<char*>(&other->xmin_));

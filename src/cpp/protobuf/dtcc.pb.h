@@ -1502,6 +1502,8 @@ class Bounds final :
     kXmaxFieldNumber = 2,
     kYminFieldNumber = 3,
     kYmaxFieldNumber = 4,
+    kZminFieldNumber = 5,
+    kZmaxFieldNumber = 6,
   };
   // float xmin = 1;
   void clear_xmin();
@@ -1539,6 +1541,24 @@ class Bounds final :
   void _internal_set_ymax(float value);
   public:
 
+  // float zmin = 5;
+  void clear_zmin();
+  float zmin() const;
+  void set_zmin(float value);
+  private:
+  float _internal_zmin() const;
+  void _internal_set_zmin(float value);
+  public:
+
+  // float zmax = 6;
+  void clear_zmax();
+  float zmax() const;
+  void set_zmax(float value);
+  private:
+  float _internal_zmax() const;
+  void _internal_set_zmax(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:DTCC.Bounds)
  private:
   class _Internal;
@@ -1550,6 +1570,8 @@ class Bounds final :
   float xmax_;
   float ymin_;
   float ymax_;
+  float zmin_;
+  float zmax_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dtcc_2eproto;
 };
@@ -5277,6 +5299,46 @@ inline void Bounds::_internal_set_ymax(float value) {
 inline void Bounds::set_ymax(float value) {
   _internal_set_ymax(value);
   // @@protoc_insertion_point(field_set:DTCC.Bounds.ymax)
+}
+
+// float zmin = 5;
+inline void Bounds::clear_zmin() {
+  zmin_ = 0;
+}
+inline float Bounds::_internal_zmin() const {
+  return zmin_;
+}
+inline float Bounds::zmin() const {
+  // @@protoc_insertion_point(field_get:DTCC.Bounds.zmin)
+  return _internal_zmin();
+}
+inline void Bounds::_internal_set_zmin(float value) {
+  
+  zmin_ = value;
+}
+inline void Bounds::set_zmin(float value) {
+  _internal_set_zmin(value);
+  // @@protoc_insertion_point(field_set:DTCC.Bounds.zmin)
+}
+
+// float zmax = 6;
+inline void Bounds::clear_zmax() {
+  zmax_ = 0;
+}
+inline float Bounds::_internal_zmax() const {
+  return zmax_;
+}
+inline float Bounds::zmax() const {
+  // @@protoc_insertion_point(field_get:DTCC.Bounds.zmax)
+  return _internal_zmax();
+}
+inline void Bounds::_internal_set_zmax(float value) {
+  
+  zmax_ = value;
+}
+inline void Bounds::set_zmax(float value) {
+  _internal_set_zmax(value);
+  // @@protoc_insertion_point(field_set:DTCC.Bounds.zmax)
 }
 
 // -------------------------------------------------------------------
