@@ -11,7 +11,7 @@ from .geometry import *
 from .quantity import *
 
 # Collect __all__ from submodules
-modules = [object, geometry]
+modules = [object, geometry, quantity]
 __all__ = []
 for module in modules:
     for name in module.__all__:

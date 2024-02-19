@@ -31,6 +31,8 @@ class Quantity(Model):
         Name of the quantity.
     unit: str
         Unit of measurement of the quantity.
+    description: str
+        Description of the quantity.
     geometry: str
         Name (key) of the geometry on which the quantity is defined.
     dim: int
@@ -42,6 +44,7 @@ class Quantity(Model):
 
     name: str = ""
     unit: str = ""
+    description: str = ""
     geometry: str = ""
     dim: int = 1
     values: np.ndarray = field(default_factory=lambda: np.empty(0))
@@ -61,13 +64,14 @@ class Quantity(Model):
             pb = proto.Quantity.FromString(pb)
         self.name = pb.name
         self.unit = pb.unit
+        self.description = pb.description
         self.geometry = pb.geometry
         self.dim = pb.dim
         self.values = np.array(pb.values).reshape((-1, pb.dim))
 
-        #self.vertices = np.array(pb.vertices).reshape((-1, 3))
-        #self.normals = np.array(pb.normals).reshape((-1, 3))
-        #self.faces = np.array(pb.faces, dtype=np.int64).reshape((-1, 3))
+        # self.vertices = np.array(pb.vertices).reshape((-1, 3))
+        # self.normals = np.array(pb.normals).reshape((-1, 3))
+        # self.faces = np.array(pb.faces, dtype=np.int64).reshape((-1, 3))
 
     def to_proto(self) -> proto.Quantity:
         """Convert the Quantity object to a Protocol Buffers message.
@@ -80,6 +84,7 @@ class Quantity(Model):
         pb = proto.Quantity()
         pb.name = self.name
         pb.unit = self.unit
+        pb.description = self.description
         pb.geometry = self.geometry
         pb.dim = self.dim
         pb.values.extend(self.values.flatten())

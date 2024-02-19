@@ -11,7 +11,8 @@ from dtcc_model import dtcc_pb2 as proto
 
 @dataclass
 class Bounds(Model):
-    """Represents the boundaries of a rectangular region.
+    """Represents the boundaries of a rectangular region in the xy plane) with
+    optional extension along the z-axis (depth)
 
     Attributes
     ----------
@@ -23,12 +24,18 @@ class Bounds(Model):
         Maximum x-coordinate.
     ymax : float
         Maximum y-coordinate.
+    zmin: float
+        Minimum z-coordinate.
+    zmax: float
+        Maximum z-coordinate.
     """
 
     xmin: float = 0.0
     ymin: float = 0.0
     xmax: float = 0.0
     ymax: float = 0.0
+    zmin: float = 0.0
+    zmax: float = 0.0
 
     def __str__(self):
         """Returns a formatted string representation of the bounds."""
@@ -47,7 +54,7 @@ class Bounds(Model):
 
     @property
     def width(self) -> float:
-        """Returns the width of the bounds.
+        """Returns the width of the bounds (x-axis).
 
         Returns
         -------
@@ -58,7 +65,7 @@ class Bounds(Model):
 
     @property
     def height(self) -> float:
-        """Returns the height of the bounds.
+        """Returns the height of the bounds (y-axis).
 
         Returns
         -------
@@ -66,6 +73,17 @@ class Bounds(Model):
             Height of the bounds.
         """
         return self.ymax - self.ymin
+
+    @property
+    def depth(self) -> float:
+        """Returns the depth of the bounds (z-axis).
+
+        Returns
+        -------
+        float
+            Depth of the bounds.
+        """
+        return self.zmax - self.zmin
 
     @property
     def north(self) -> float:
@@ -133,7 +151,19 @@ class Bounds(Model):
         """
         return self.width * self.height
 
-    # FIXME: Should be a property?
+    @property
+    def volume(self) -> float:
+        """Returns the volume enclosed by the bounds.
+
+        Returns
+        -------
+        float
+            Volume of the bounds.
+        """
+        return self.width * self.height * self.depth
+
+    # FIXME: How to handle z-axis?
+    @property
     def center(self) -> tuple:
         """Returns the center point of the bounds.
 
@@ -144,6 +174,7 @@ class Bounds(Model):
         """
         return (self.xmin + self.width / 2, self.ymin + self.height / 2)
 
+    # FIXME: How to handle z-axis?
     def buffer(self, distance: float):
         """Increases the size of the bounds by a specified distance.
 
@@ -158,6 +189,7 @@ class Bounds(Model):
         self.ymax += distance
         return self
 
+    # FIXME: How to handle z-axis?
     def union(self, other):
         """Merges this bounds with another, taking the outermost bounds.
 
@@ -172,6 +204,7 @@ class Bounds(Model):
         self.ymax = max(self.ymax, other.ymax)
         return self
 
+    # FIXME: How to handle z-axis?
     def intersect(self, other):
         """Modifies this bounds to be the intersection with another.
 
@@ -200,6 +233,8 @@ class Bounds(Model):
         self.xmax = pb.xmax
         self.ymin = pb.ymin
         self.ymax = pb.ymax
+        self.zmin = pb.zmin
+        self.zmax = pb.zmax
 
     def to_proto(self) -> proto.Bounds:
         """Converts the bounds to a protobuf representation.
@@ -214,4 +249,6 @@ class Bounds(Model):
         pb.xmax = self.xmax
         pb.ymin = self.ymin
         pb.ymax = self.ymax
+        pb.zmin = self.zmin
+        pb.zmax = self.zmax
         return pb

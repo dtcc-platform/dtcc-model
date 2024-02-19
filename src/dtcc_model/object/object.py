@@ -5,8 +5,10 @@ from dataclasses import dataclass, field
 from collections import defaultdict
 from enum import Enum, auto
 
+from dtcc_model.logging import info, warning, error
 from dtcc_model.model import Model
 from dtcc_model.geometry import Geometry
+from dtcc_model.quantity import Quantity
 
 
 class GeometryType(Enum):
@@ -64,19 +66,7 @@ class Object(Model):
     children: dict = field(default_factory=lambda: defaultdict(list))
     parents: dict = field(default_factory=lambda: defaultdict(list))
     geometry: dict = field(default_factory=dict)
-
-    def flatten_geometry(self, geom_type: GeometryType):
-        """Returns a single geometry of the specified type, merging all the geometries of the children."""
-        geom = self.geometry.get(geom_type, None)
-
-        for child_list in self.children.values():
-            for child in child_list:
-                child_geom = child.geometry.get(geom_type, None)
-                if geom is None and child_geom is not None:
-                    geom = child_geom
-                if child_geom is not None:
-                    geom.merge(child_geom)
-        return geom
+    quantities: list[Quantity] = field(default_factory=list)
 
     @property
     def num_children(self):
@@ -122,3 +112,28 @@ class Object(Model):
     def volume_mesh(self):
         """Return LOD0 geometry."""
         return self.geometry.get(GeometryType.VOLUME_MESH, None)
+
+    def add_geometry(self, geometry: Geometry, geometry_type: GeometryType):
+        """Add geometry to object."""
+        if not isinstance(geometry_type, GeometryType):
+            warning(f"Invalid geometry type (but I'll allow it): {geometry_type}")
+        self.geometry[geometry_type] = geometry
+
+    def add_quantity(self, quantity):
+        """Add quantity to object."""
+        if not quantity.geometry in self.geometry:
+            error(f"Unable to add quantity; missing geometry: {quantity.geometry}")
+        self.quantities.append(quantity)
+
+    def flatten_geometry(self, geom_type: GeometryType):
+        """Returns a single geometry of the specified type, merging all the geometries of the children."""
+        geom = self.geometry.get(geom_type, None)
+
+        for child_list in self.children.values():
+            for child in child_list:
+                child_geom = child.geometry.get(geom_type, None)
+                if geom is None and child_geom is not None:
+                    geom = child_geom
+                if child_geom is not None:
+                    geom.merge(child_geom)
+        return geom
