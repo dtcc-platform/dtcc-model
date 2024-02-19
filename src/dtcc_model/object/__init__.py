@@ -1,12 +1,13 @@
-from .object import Object
+from .object import Object, GeometryType
 
-from .building import NewBuilding
-from .city import NewCity, CityObject
+from .building import Building
+from .city import City, CityObject
 from .terrain import Terrain
 
 __all__ = [
     "Object",
-    "NewBuilding",
-    "NewCity",
+    "Building",
+    "City",
     "Terrain",
+    "GeometryType",
 ]

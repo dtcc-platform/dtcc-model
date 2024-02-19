@@ -4,13 +4,12 @@
 from dataclasses import dataclass
 
 from .object import Object
-from .building import NewBuilding as Building
+from .building import Building
 from dtcc_model import dtcc_pb2 as proto
 
 
-
 @dataclass
-class NewCity(Object):
+class City(Object):
     """Represents a city, the top-level container class for city models."""
 
     @property
@@ -30,10 +29,10 @@ class NewCity(Object):
     def from_proto(self, pb):
         pass
 
+
 @dataclass
 class CityObject(Object):
     """Fallback for any object in a City which doesn't have a more specific object class."""
-
 
     def to_proto(self):
         pass

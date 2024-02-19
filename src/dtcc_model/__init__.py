@@ -20,8 +20,8 @@ for module in modules:
 
 # FIXME: Old stuff below, remove when stuff is correctly moved into submodules
 
-from .building import Building
-from .city import City
+# from .building import Building
+# from .city import City
 from .landuse import Landuse
 from .roadnetwork import RoadNetwork, RoadType
 
