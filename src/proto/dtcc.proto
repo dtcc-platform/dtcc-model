@@ -66,6 +66,8 @@ message Bounds
   float xmax = 2;
   float ymin = 3;
   float ymax = 4;
+  float zmin = 5;
+  float zmax = 6;
 }
 
 // FIXME: Remove
@@ -85,7 +87,6 @@ message Transform
 
 //--- Point cloud ---
 
-
 message PointCloud
 {
   Bounds bounds = 1;
@@ -104,8 +105,14 @@ message Grid
   Bounds bounds = 1;
   int32 width = 2;
   int32 height = 3;
-  float xstep = 4;
-  float ystep = 5;
+}
+
+message VolumeGrid
+{
+  Bounds bounds = 1;
+  int32 width = 2;
+  int32 height = 3;
+  int32 depth = 4;
 }
 
 //--- Meshes ---
@@ -191,9 +198,10 @@ message Quantity
 {
   string name = 1;
   string unit = 2;
-  string geometry = 3;
-  int32 dim = 4;
-  repeated float values = 5;
+  string description = 3;
+  string geometry = 4;
+  int32 dim = 5;
+  repeated float values = 6;
 }
 
 message Raster
