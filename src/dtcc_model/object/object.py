@@ -8,6 +8,8 @@ from enum import Enum, auto
 from dtcc_model.logging import info, warning, error
 from dtcc_model.model import Model
 from dtcc_model.geometry import Geometry
+from collections import defaultdict
+from uuid import uuid4
 from dtcc_model.quantity import Quantity
 
 
@@ -61,7 +63,7 @@ class Object(Model):
         Dictionary of geometries.
     """
 
-    id: str = ""
+    id: str = field(default_factory=lambda: str(uuid4()))
     attributes: dict = field(default_factory=dict)
     children: dict = field(default_factory=lambda: defaultdict(list))
     parents: dict = field(default_factory=lambda: defaultdict(list))
@@ -149,3 +151,12 @@ class Object(Model):
                 if child_geom is not None:
                     geom.merge(child_geom)
         return geom
+
+    def defined_geometries(self):
+        """Return a list of the types of geometries
+        defined on this object."""
+        return sorted(list(self.geometry.keys()))
+
+    def definted_attributes(self):
+        """Return a list of the attributes defined on this object."""
+        return sorted(list(self.attributes.keys()))
