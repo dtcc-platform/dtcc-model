@@ -6,6 +6,7 @@ from typing import Union
 from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 from dtcc_model.geometry import Bounds
+from shapely.geometry import Polygon
 
 from .geometry import Geometry
 from dtcc_model import dtcc_pb2 as proto
@@ -46,11 +47,21 @@ class Surface(Geometry):
             np.dot(self.vertices - self.vertices[0], self.normal), 0, atol=tol
         )
 
+    def translate(self, x=0, y=0, z=0):
+        """Translate the surface."""
+        self.vertices += np.array([x, y, z])
+        for hole in self.holes:
+            hole += np.array([x, y, z])
+
     def from_proto(self, pb):
         if isinstance(pb, bytes):
             pb = proto.Surface.FromString(pb)
         self.vertices = np.array(pb.vertices).reshape(-1, 3)
         self.normal = np.array([pb.normal.x, pb.normal.y, pb.normal.z])
+
+    def to_polygon(self) -> Polygon:
+        """Convert the surface to a Shapely Polygon."""
+        return Polygon(self.vertices, self.holes)
 
     def to_proto(self):
         pb = proto.Surface()
@@ -89,6 +100,11 @@ class MultiSurface(Geometry):
         for s in self.surfaces[1:]:
             s.calc_bounds()
             self.bounds.union(s.bounds)
+
+    def translate(self, x=0, y=0, z=0):
+        """Translate the surface."""
+        for s in self.surfaces:
+            s.translate(x, y, z)
 
     def to_proto(self):
         pb = proto.MultiSurface()
