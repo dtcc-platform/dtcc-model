@@ -125,6 +125,18 @@ class Object(Model):
             error(f"Unable to add quantity; missing geometry: {quantity.geometry}")
         self.quantities.append(quantity)
 
+    def add_child(self, child):
+        """Add child object."""
+        if not isinstance(child, Object):
+            raise ValueError(f"Invalid child object: {child}")
+        self.children[type(child)].append(child)
+        child.parents[type(self)].append(self)
+
+    def add_children(self, children):
+        """Adds a list of children objects."""
+        for child in children:
+            self.add_child(child)
+
     def flatten_geometry(self, geom_type: GeometryType):
         """Returns a single geometry of the specified type, merging all the geometries of the children."""
         geom = self.geometry.get(geom_type, None)
