@@ -115,6 +115,11 @@ class Object(Model):
         """Return LOD0 geometry."""
         return self.geometry.get(GeometryType.VOLUME_MESH, None)
 
+    @property
+    def point_cloud(self):
+        """Return POINT_CLOUD geometry."""
+        return self.geometry.get(GeometryType.POINT_CLOUD, None)
+
     def add_geometry(self, geometry: Geometry, geometry_type: GeometryType):
         """Add geometry to object."""
         if not isinstance(geometry_type, GeometryType):

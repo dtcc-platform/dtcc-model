@@ -22,6 +22,14 @@ class City(Object):
         """Return number of buildings in city."""
         return len(self.buildings)
 
+    def add_terrain(self, terrain):
+        """Add terrain to city."""
+        self.add_child(terrain)
+
+    def add_buildings(self, buildings: list[Building]):
+        """Add building to city."""
+        self.add_children(buildings)
+
     # TODO: Implement to_proto and from_proto
     def to_proto(self):
         pass

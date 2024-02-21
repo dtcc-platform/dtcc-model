@@ -9,12 +9,12 @@ from copy import deepcopy
 
 from dtcc_model.geometry import Bounds
 from dtcc_model.logging import info, warning, error
-from dtcc_model.model import Model
+from dtcc_model.object import Object
 from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
-class Raster(Model):
+class Raster(Object):
 
     """
     A georeferenced n-dimensional raster of values.

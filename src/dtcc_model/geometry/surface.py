@@ -28,6 +28,35 @@ class Surface(Geometry):
             np.max(self.vertices[:, 0]),
             np.max(self.vertices[:, 1]),
         )
+        return self.bounds
+
+    @property
+    def xmin(self):
+        return np.min(self.vertices[:, 0])
+
+    @property
+    def ymin(self):
+        return np.min(self.vertices[:, 1])
+
+    @property
+    def zmin(self):
+        return np.min(self.vertices[:, 2])
+
+    @property
+    def xmax(self):
+        return np.max(self.vertices[:, 0])
+
+    @property
+    def ymax(self):
+        return np.max(self.vertices[:, 1])
+
+    @property
+    def zmax(self):
+        return np.max(self.vertices[:, 2])
+
+    @property
+    def centroid(self):
+        return np.mean(self.vertices, axis=0)
 
     def calculate_normal(self) -> np.ndarray:
         """Calculate the normal of the surface."""
@@ -52,6 +81,12 @@ class Surface(Geometry):
         self.vertices += np.array([x, y, z])
         for hole in self.holes:
             hole += np.array([x, y, z])
+
+    def set_z(self, z):
+        """Set the z-coordinate of the surface."""
+        self.vertices[:, 2] = z
+        for hole in self.holes:
+            hole[:, 2] = z
 
     def from_proto(self, pb):
         if isinstance(pb, bytes):
@@ -105,6 +140,11 @@ class MultiSurface(Geometry):
         """Translate the surface."""
         for s in self.surfaces:
             s.translate(x, y, z)
+
+    def set_z(self, z):
+        """Set the z-coordinate of the surface."""
+        for s in self.surfaces:
+            s.set_z(z)
 
     def to_proto(self):
         pb = proto.MultiSurface()
