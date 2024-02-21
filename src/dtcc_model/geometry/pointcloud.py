@@ -47,7 +47,7 @@ class PointCloud(Geometry):
             A string representation of the PointCloud.
 
         """
-        return f"DTCC PointCloud on {self.bounds.bndstr} with {len(self.points)} points"
+        return f"DTCC PointCloud on {self.bounds} with {len(self.points)} points"
 
     def __len__(self):
         """
@@ -178,7 +178,7 @@ class PointCloud(Geometry):
         """
 
         if len(other.points) == 0:
-            return
+            return self
 
         if len(self.points) == 0:
             self.points = other.points
@@ -198,3 +198,4 @@ class PointCloud(Geometry):
         if len(other.num_returns) == len(other.points):
             self.num_returns = np.concatenate((self.num_returns, other.num_returns))
         self.calculate_bounds()
+        return self

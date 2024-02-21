@@ -144,6 +144,32 @@ class Raster(Object):
         """
         return (self.georef.a, self.georef.e)
 
+    @property
+    def min(self):
+        """
+        Get the minimum value of the raster.
+
+        Returns
+        -------
+        float
+            The minimum value of the raster.
+
+        """
+        return self.data.min()
+
+    @property
+    def max(self):
+        """
+        Get the maximum value of the raster.
+
+        Returns
+        -------
+        float
+            The maximum value of the raster.
+
+        """
+        return self.data.max()
+
     def get_value(self, x: float, y: float):
         """
         Get the value at the given coordinate.
