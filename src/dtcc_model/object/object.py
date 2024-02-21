@@ -120,6 +120,11 @@ class Object(Model):
         """Return POINT_CLOUD geometry."""
         return self.geometry.get(GeometryType.POINT_CLOUD, None)
 
+    @property
+    def raster(self):
+        """Return RASTER geometry."""
+        return self.geometry.get(GeometryType.RASTER, None)
+
     def add_geometry(self, geometry: Geometry, geometry_type: GeometryType):
         """Add geometry to object."""
         if not isinstance(geometry_type, GeometryType):
