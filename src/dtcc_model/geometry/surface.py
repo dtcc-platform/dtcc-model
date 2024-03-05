@@ -197,7 +197,10 @@ class MultiSurface(Geometry):
     def from_proto(self, pb):
         if isinstance(pb, bytes):
             pb = proto.MultiSurface.FromString(pb)
-        self.surfaces = [Surface().from_proto(s) for s in pb.surfaces]
+        for pb_s in pb.surfaces:
+            _s = Surface()
+            _s.from_proto(pb_s)
+            self.surfaces.append(_s)
 
     def __str__(self) -> str:
         return f"DTCC MultiSurface with {len(self.surfaces)} surfaces"

@@ -57,5 +57,33 @@ class TestSurface(unittest.TestCase):
         self.assertListEqual(list(np.round(s2.holes[0][2], 6)), [0.9, 0.9, 12])
 
 
+class TestMultiSurface(unittest.TestCase):
+
+    def test_zmax(self):
+        s1 = Surface(vertices=np.array([[0, 0, 0], [1, 0, 0], [1, 1, 0]]))
+        s2 = Surface(vertices=np.array([[0, 0, 1], [1, 0, 1], [1, 1, 2]]))
+        ms = MultiSurface(surfaces=[s1, s2])
+        self.assertEqual(ms.zmax, 2)
+
+    def test_to_proto(self):
+        s1 = Surface(vertices=np.array([[0, 0, 0], [1, 0, 0], [1, 1, 0]]))
+        s2 = Surface(vertices=np.array([[0, 0, 1], [1, 0, 1], [1, 1, 2]]))
+        ms = MultiSurface(surfaces=[s1, s2])
+        pb = ms.to_proto()
+        self.assertEqual(len(pb.surfaces), 2)
+
+    def test_from_proto(self):
+        s1 = Surface(vertices=np.array([[0, 0, 0], [1, 0, 0], [1, 1, 0]]))
+        s2 = Surface(vertices=np.array([[0, 0, 1], [1, 0, 1], [1, 1, 2]]))
+        ms = MultiSurface(surfaces=[s1, s2])
+        pb = ms.to_proto()
+        pb = pb.SerializeToString()
+
+        ms2 = MultiSurface()
+        ms2.from_proto(pb)
+        self.assertEqual(len(ms2.surfaces), 2)
+        self.assertEqual(ms2.zmax, 2)
+
+
 if __name__ == "__main__":
     unittest.main()
