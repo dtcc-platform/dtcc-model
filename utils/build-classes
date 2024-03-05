@@ -2,7 +2,7 @@
 
 PROTO_DIR=./src/proto
 CPP_DIR=./src/cpp/protobuf
-PYTHON_DIR=./src/dtcc_model/
+PYTHON_DIR=./src/dtcc_model
 
 echo "Building C++ classes..."
 protoc --cpp_out=$CPP_DIR --proto_path=$PROTO_DIR dtcc.proto

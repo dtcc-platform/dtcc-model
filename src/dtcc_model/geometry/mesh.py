@@ -55,6 +55,18 @@ class Mesh(Geometry):
         """
         return len(self.vertices)
 
+    def calculate_bounds(self):
+        """Calculate the bounding box of the mesh."""
+        self.bounds = Bounds(
+            np.min(self.vertices[:, 0]),
+            np.min(self.vertices[:, 1]),
+            np.min(self.vertices[:, 2]),
+            np.max(self.vertices[:, 0]),
+            np.max(self.vertices[:, 1]),
+            np.max(self.vertices[:, 2]),
+        )
+        return self.bounds
+
     @property
     def num_faces(self) -> int:
         """Calculate the number of faces in the mesh.

@@ -15,7 +15,6 @@ from dtcc_model import dtcc_pb2 as proto
 
 @dataclass
 class Raster(Object):
-
     """
     A georeferenced n-dimensional raster of values.
 

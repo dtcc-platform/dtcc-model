@@ -1,0 +1,61 @@
+import unittest
+from shapely.geometry import Polygon
+import numpy as np
+from dtcc_model import Surface, MultiSurface
+
+
+class TestSurface(unittest.TestCase):
+
+    def test_convert_polygon(self):
+        s = Surface()
+        s.from_polygon(Polygon([(0, 0), (1, 0), (1, 1), (0, 1)]), 10)
+        v1 = s.vertices[1]
+        self.assertEqual(len(s.vertices), 4)
+        self.assertEqual(v1[0], 1)
+        self.assertEqual(v1[1], 0)
+        self.assertEqual(v1[2], 10)
+        self.assertEqual(s.zmax, 10)
+
+    def test_to_polygon(self):
+        s = Surface()
+        s.from_polygon(Polygon([(0, 0), (1, 0), (1, 1), (0, 1)]), 10)
+        p = s.to_polygon()
+
+        self.assertEqual(len(p.exterior.coords), 4 + 1)
+        self.assertEqual(list(p.exterior.coords)[0], (0, 0))
+        self.assertEqual(list(p.exterior.coords)[1], (1, 0))
+        self.assertEqual(list(p.exterior.coords)[2], (1, 1))
+        self.assertEqual(list(p.exterior.coords)[3], (0, 1))
+
+    def test_to_proto(self):
+        verts = np.array([[0, 0, 10], [1, 0, 10], [1, 1, 12], [0, 1, 12]])
+        hole = np.array(
+            [[0.1, 0.1, 10], [0.9, 0.1, 10], [0.9, 0.9, 12], [0.1, 0.9, 12]]
+        )
+        s = Surface(vertices=verts, holes=[hole])
+        pb = s.to_proto()
+        self.assertEqual(len(pb.vertices), 4 * 3)
+        self.assertEqual(pb.vertices[0], 0)
+        self.assertEqual(pb.vertices[-1], 12)
+        self.assertEqual(len(pb.holes), 1)
+
+    def test_from_proto(self):
+        verts = np.array([[0, 0, 10], [1, 0, 10], [1, 1, 12], [0, 1, 12]])
+        hole = np.array(
+            [[0.1, 0.1, 10], [0.9, 0.1, 10], [0.9, 0.9, 12], [0.1, 0.9, 12]]
+        )
+        s = Surface(vertices=verts, holes=[hole])
+        pb = s.to_proto()
+        pb = pb.SerializeToString()
+
+        s2 = Surface()
+        s2.from_proto(pb)
+
+        self.assertEqual(len(s2.vertices), 4)
+        self.assertEqual(len(s2.holes), 1)
+        self.assertListEqual(list(s2.vertices[0]), [0, 0, 10])
+        self.assertListEqual(list(np.round(s2.holes[0][2], 6)), [0.9, 0.9, 12])
+
+
+if __name__ == "__main__":
+    unittest.main()

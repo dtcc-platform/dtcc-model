@@ -90,6 +90,9 @@ class PointCloud(Geometry):
             self.bounds.xmax = self.points[:, 0].max()
             self.bounds.ymin = self.points[:, 1].min()
             self.bounds.ymax = self.points[:, 1].max()
+            self.bounds.zmin = self.points[:, 2].min()
+            self.bounds.zmax = self.points[:, 2].max()
+        return self.bounds
 
     def remove_points(self, indices: np.ndarray):
         """

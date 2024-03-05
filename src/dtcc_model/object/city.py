@@ -5,6 +5,8 @@ from dataclasses import dataclass
 
 from .object import Object
 from .building import Building
+from .terrain import Terrain
+
 from dtcc_model import dtcc_pb2 as proto
 
 
@@ -16,6 +18,14 @@ class City(Object):
     def buildings(self):
         """Return list of buildings in city."""
         return self.children[Building] if Building in self.children else []
+
+    @property
+    def terrain(self):
+        """Return terrain in city."""
+        if Terrain in self.children:
+            return self.children[Terrain][0]
+        else:
+            return Terrain()
 
     @property
     def num_buildings(self):

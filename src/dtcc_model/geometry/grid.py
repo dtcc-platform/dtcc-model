@@ -7,7 +7,7 @@ import numpy as np
 
 
 from .geometry import Geometry
-from dtcc_model import dtcc_pb2 as proto
+from dtcc_model import proto
 
 
 @dataclass
