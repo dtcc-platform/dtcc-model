@@ -1,7 +1,15 @@
-from .object import Object
+from .object import Object, GeometryType
 
-from .city import NewCity, CityObject
-from .building import NewBuilding, BuildingPart
+from .building import Building
+from .city import City, CityObject
 from .terrain import Terrain
+from .raster import Raster
 
-__all__ = ["Object", "NewCity", "CityObject", "NewBuilding", "BuildingPart", "Terrain"]
+__all__ = [
+    "Object",
+    "Building",
+    "City",
+    "Terrain",
+    "GeometryType",
+    "Raster",
+]

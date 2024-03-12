@@ -10,6 +10,7 @@ from .object import *
 from .geometry import *
 from .quantity import *
 
+
 # Collect __all__ from submodules
 modules = [object, geometry, quantity]
 __all__ = []
@@ -20,10 +21,10 @@ for module in modules:
 
 # FIXME: Old stuff below, remove when stuff is correctly moved into submodules
 
-from .building import Building
-from .city import City
-from .landuse import Landuse
-from .roadnetwork import RoadNetwork, RoadType
+# from .building import Building
+# from .city import City
+# from .landuse import Landuse
+# from .roadnetwork import RoadNetwork, RoadType
 
 __all__ += [
     "proto",

@@ -38,7 +38,7 @@ class Georef(Model):
             f"DTCC Georef {self.crs} ({self.epsg}) with origin ({self.x0}, {self.y0})"
         )
 
-    def from_proto(self, pb: Union[proto.Georef, bytes]):
+    def from_proto(self, pb):
         """Loads the georeferencing information from a protobuf representation.
 
         Parameters
@@ -53,7 +53,7 @@ class Georef(Model):
         self.x0 = pb.x0
         self.y0 = pb.y0
 
-    def to_proto(self) -> proto.Georef:
+    def to_proto(self):
         """Converts the georeferencing information to a protobuf representation.
 
         Returns

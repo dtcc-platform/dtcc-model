@@ -7,7 +7,9 @@ from enum import Enum, auto
 
 from dtcc_model.logging import info, warning, error
 from dtcc_model.model import Model
-from dtcc_model.geometry import Geometry
+from dtcc_model.geometry import Geometry, Bounds
+from collections import defaultdict
+from uuid import uuid4
 from dtcc_model.quantity import Quantity
 
 
@@ -61,7 +63,7 @@ class Object(Model):
         Dictionary of geometries.
     """
 
-    id: str = ""
+    id: str = field(default_factory=lambda: str(uuid4()))
     attributes: dict = field(default_factory=dict)
     children: dict = field(default_factory=lambda: defaultdict(list))
     parents: dict = field(default_factory=lambda: defaultdict(list))
@@ -113,6 +115,24 @@ class Object(Model):
         """Return LOD0 geometry."""
         return self.geometry.get(GeometryType.VOLUME_MESH, None)
 
+    @property
+    def point_cloud(self):
+        """Return POINT_CLOUD geometry."""
+        return self.geometry.get(GeometryType.POINT_CLOUD, None)
+
+    @property
+    def raster(self):
+        """Return RASTER geometry."""
+        return self.geometry.get(GeometryType.RASTER, None)
+
+    @property
+    def bounds(self):
+        """Return BOUNDS geometry."""
+        bounds = self.geometry.get(GeometryType.BOUNDS, None)
+        if bounds is None:
+            bounds = self.calculate_bounds()
+        return bounds
+
     def add_geometry(self, geometry: Geometry, geometry_type: GeometryType):
         """Add geometry to object."""
         if not isinstance(geometry_type, GeometryType):
@@ -125,10 +145,23 @@ class Object(Model):
             error(f"Unable to add quantity; missing geometry: {quantity.geometry}")
         self.quantities.append(quantity)
 
+    def add_child(self, child):
+        """Add child object."""
+        if not isinstance(child, Object):
+            raise ValueError(f"Invalid child object: {child}")
+        self.children[type(child)].append(child)
+        child.parents[type(self)].append(self)
+
+    def add_children(self, children):
+        """Adds a list of children objects."""
+        for child in children:
+            self.add_child(child)
+
     def flatten_geometry(self, geom_type: GeometryType):
         """Returns a single geometry of the specified type, merging all the geometries of the children."""
         geom = self.geometry.get(geom_type, None)
-
+        print(geom, geom_type)
+        child_list = list(self.children)
         for child_list in self.children.values():
             for child in child_list:
                 child_geom = child.geometry.get(geom_type, None)
@@ -137,3 +170,32 @@ class Object(Model):
                 if child_geom is not None:
                     geom.merge(child_geom)
         return geom
+
+    def calculate_bounds(self, lod=None):
+        """Calculate the bounding box of the object."""
+        if lod is not None:
+            lods = [lod]
+        else:
+            lods = list(GeometryType)
+        bounds = None
+        for lod in lods:
+            print(lod)
+            geom = self.flatten_geometry(lod)
+            print(geom)
+            if geom is not None:
+                lod_bounds = geom.calculate_bounds()
+                if bounds is None:
+                    bounds = lod_bounds
+                else:
+                    bounds = bounds.union(lod_bounds)
+        self.add_geometry(bounds, GeometryType.BOUNDS)
+        return bounds
+
+    def defined_geometries(self):
+        """Return a list of the types of geometries
+        defined on this object."""
+        return sorted(list(self.geometry.keys()))
+
+    def definted_attributes(self):
+        """Return a list of the attributes defined on this object."""
+        return sorted(list(self.attributes.keys()))

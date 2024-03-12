@@ -6,7 +6,6 @@ from typing import Union
 import numpy as np
 
 from dtcc_model.model import Model
-from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
@@ -40,6 +39,10 @@ class Bounds(Model):
     def __str__(self):
         """Returns a formatted string representation of the bounds."""
         return f"DTCC Bounds {self.bndstr}"
+
+    def calculate_bounds(self):
+        """Calculate the bounds of the object."""
+        return self
 
     @property
     def bndstr(self) -> str:
@@ -219,7 +222,7 @@ class Bounds(Model):
         self.ymax = min(self.ymax, other.ymax)
         return self
 
-    def from_proto(self, pb: Union[proto.Bounds, bytes]):
+    def from_proto(self, pb):
         """Loads the bounds from a protobuf representation.
 
         Parameters
@@ -236,7 +239,7 @@ class Bounds(Model):
         self.zmin = pb.zmin
         self.zmax = pb.zmax
 
-    def to_proto(self) -> proto.Bounds:
+    def to_proto(self):
         """Converts the bounds to a protobuf representation.
 
         Returns

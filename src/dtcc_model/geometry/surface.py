@@ -6,7 +6,9 @@ from typing import Union
 from dataclasses import dataclass, field
 from inspect import getmembers, isfunction, ismethod
 from dtcc_model.geometry import Bounds
-
+from shapely.geometry import Polygon
+from shapely.validation import make_valid
+from dtcc_model.logging import info, warning, error, debug
 from .geometry import Geometry
 from dtcc_model import dtcc_pb2 as proto
 
@@ -19,14 +21,45 @@ class Surface(Geometry):
     normal: np.ndarray = field(default_factory=lambda: np.empty(0))
     holes: list[np.ndarray] = field(default_factory=lambda: [])
 
-    def calc_bounds(self):
+    def calculate_bounds(self):
         """Calculate the bounding box of the surface."""
+        if len(self.vertices) == 0:
+            return Bounds()
         self.bounds = Bounds(
             np.min(self.vertices[:, 0]),
             np.min(self.vertices[:, 1]),
             np.max(self.vertices[:, 0]),
             np.max(self.vertices[:, 1]),
         )
+        return self.bounds
+
+    @property
+    def xmin(self):
+        return np.min(self.vertices[:, 0])
+
+    @property
+    def ymin(self):
+        return np.min(self.vertices[:, 1])
+
+    @property
+    def zmin(self):
+        return np.min(self.vertices[:, 2])
+
+    @property
+    def xmax(self):
+        return np.max(self.vertices[:, 0])
+
+    @property
+    def ymax(self):
+        return np.max(self.vertices[:, 1])
+
+    @property
+    def zmax(self):
+        return np.max(self.vertices[:, 2])
+
+    @property
+    def centroid(self):
+        return np.mean(self.vertices, axis=0)
 
     def calculate_normal(self) -> np.ndarray:
         """Calculate the normal of the surface."""
@@ -46,17 +79,65 @@ class Surface(Geometry):
             np.dot(self.vertices - self.vertices[0], self.normal), 0, atol=tol
         )
 
-    def from_proto(self, pb):
-        if isinstance(pb, bytes):
-            pb = proto.Surface.FromString(pb)
-        self.vertices = np.array(pb.vertices).reshape(-1, 3)
-        self.normal = np.array([pb.normal.x, pb.normal.y, pb.normal.z])
+    def translate(self, x=0, y=0, z=0):
+        """Translate the surface."""
+        self.vertices += np.array([x, y, z])
+        for hole in self.holes:
+            hole += np.array([x, y, z])
+
+    def set_z(self, z):
+        """Set the z-coordinate of the surface."""
+        self.vertices[:, 2] = z
+        for hole in self.holes:
+            hole[:, 2] = z
+
+    def to_polygon(self, simplify=1e-2) -> Polygon:
+        """Convert the surface to a Shapely Polygon."""
+        if len(self.vertices) < 3:
+            # warning("Surface has less than 3 vertices.")
+            return Polygon()
+        p = Polygon(self.vertices[:, :2], self.holes)
+        if not p.is_valid:
+            p = make_valid(p)
+        if not p.is_valid and p.geom_type != "Polygon":
+            warning("Cannot convert surface to valid polygon.")
+            return Polygon()
+        if simplify > 0:
+            p = p.simplify(simplify, True)
+        return p
+
+    def from_polygon(self, polygon: Polygon, height=0):
+        """Convert a Shapely Polygon to a surface."""
+        verts = np.array(polygon.exterior.coords)[
+            :-1, :2
+        ]  # remove last duplicate vertex
+        self.vertices = np.hstack((verts, np.full((verts.shape[0], 1), height)))
+        for hole in polygon.interiors:
+            hole_verts = np.array(hole.coords)[:, :2]
+            hole_verts = np.hstack(
+                [hole_verts, np.full((hole_verts.shape[0], 1), height)]
+            )
+            self.holes.append(hole_verts)
+        self.calculate_bounds()
+        return self
 
     def to_proto(self):
         pb = proto.Surface()
         pb.vertices.extend(self.vertices.flatten())
-        pb.normal = proto.Vector(x=self.normal[0], y=self.normal[1], z=self.normal[2])
+        for hole in self.holes:
+            hole_pb = proto.LineString()
+            hole_pb.vertices.extend(hole.flatten())
+            pb.holes.append(hole_pb)
+        # pb.normal = proto.Vector(x=self.normal[0], y=self.normal[1], z=self.normal[2])
         return pb
+
+    def from_proto(self, pb):
+        if isinstance(pb, bytes):
+            pb = proto.Surface.FromString(pb)
+        self.vertices = np.array(pb.vertices).reshape(-1, 3)
+        self.holes = []
+        for hole in pb.holes:
+            self.holes.append(np.array(hole.vertices).reshape(-1, 3))
 
     def __str__(self) -> str:
         return f"DTCC Surface with {len(self.vertices)} vertices"
@@ -76,19 +157,37 @@ class MultiSurface(Geometry):
         if not isinstance(other, MultiSurface):
             raise ValueError("Can only merge with another MultiSurface.")
         self.surfaces.extend(other.surfaces)
-        self.calc_bounds()
+        self.calculate_bounds()
         return self
 
-    def calc_bounds(self):
+    def calculate_bounds(self):
         """Calculate the bounding box of the surface."""
         if len(self.surfaces) == 0:
             return
         else:
-            self.surfaces[0].calc_bounds()
+            self.surfaces[0].calculate_bounds()
             self.bounds = self.surfaces[0].bounds
         for s in self.surfaces[1:]:
-            s.calc_bounds()
+            s.calculate_bounds()
             self.bounds.union(s.bounds)
+
+    @property
+    def zmax(self):
+        return max([s.zmax for s in self.surfaces])
+
+    def translate(self, x=0, y=0, z=0):
+        """Translate the surface."""
+        for s in self.surfaces:
+            s.translate(x, y, z)
+
+    def set_z(self, z):
+        """Set the z-coordinate of the surface."""
+        for s in self.surfaces:
+            s.set_z(z)
+
+    def centroid(self):
+        """Get the centroid of the MultiSurface."""
+        return np.mean([s.centroid for s in self.surfaces], axis=0)
 
     def to_proto(self):
         pb = proto.MultiSurface()
@@ -98,7 +197,10 @@ class MultiSurface(Geometry):
     def from_proto(self, pb):
         if isinstance(pb, bytes):
             pb = proto.MultiSurface.FromString(pb)
-        self.surfaces = [Surface().from_proto(s) for s in pb.surfaces]
+        for pb_s in pb.surfaces:
+            _s = Surface()
+            _s.from_proto(pb_s)
+            self.surfaces.append(_s)
 
     def __str__(self) -> str:
         return f"DTCC MultiSurface with {len(self.surfaces)} surfaces"

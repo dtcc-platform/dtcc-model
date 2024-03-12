@@ -6,7 +6,8 @@ from typing import Union
 import numpy as np
 
 from dtcc_model.model import Model
-from dtcc_model import dtcc_pb2 as proto
+
+from dtcc_model import proto
 
 
 @dataclass

@@ -9,13 +9,12 @@ from copy import deepcopy
 
 from dtcc_model.geometry import Bounds
 from dtcc_model.logging import info, warning, error
-from dtcc_model.model import Model
+from dtcc_model.object import Object
 from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
-class Raster(Model):
-
+class Raster(Object):
     """
     A georeferenced n-dimensional raster of values.
 
@@ -143,6 +142,32 @@ class Raster(Model):
 
         """
         return (self.georef.a, self.georef.e)
+
+    @property
+    def min(self):
+        """
+        Get the minimum value of the raster.
+
+        Returns
+        -------
+        float
+            The minimum value of the raster.
+
+        """
+        return self.data.min()
+
+    @property
+    def max(self):
+        """
+        Get the maximum value of the raster.
+
+        Returns
+        -------
+        float
+            The maximum value of the raster.
+
+        """
+        return self.data.max()
 
     def get_value(self, x: float, y: float):
         """

@@ -7,95 +7,106 @@ option optimize_for = LITE_RUNTIME;
 
 package DTCC;
 
-//--- FIXME: Classes to reconsider ---
 
-message Vector2D
+message Object
 {
-  float x = 1;
-  float y = 2;
+    string id = 1;
+    string attributes = 2;
+    MultiSurface lod0 = 3;
+    MultiSurface lod1 = 4;
+    MultiSurface lod2 = 5;
+    MultiSurface lod3 = 6;
+    Mesh mesh = 7;
 }
 
-message Vector3D
+message Building 
 {
-  float x = 1;
-  float y = 2;
-  float z = 3;
+    Object object = 1;
+    repeated BuildingPart children = 2;
 }
 
-message MultiPoint
+message BuildingPart
 {
-  repeated Vector2D points = 1;
+    Object object = 1;
 }
 
-message MultiPoint3D
+message Terrain
 {
-  repeated Vector3D points = 1;
+    Object object = 1;
+}
+
+message City
+{
+    repeated Building buildings = 1;
+    Terrain terrain = 2;
+}
+
+
+// Quantity
+
+message Quantity
+{
+  string name = 1;
+  string unit = 2;
+  string description = 3;
+  string geometry = 4;
+  int32 dim = 5;
+  repeated float values = 6;
+}
+
+// Geometry
+
+message Bounds 
+{
+  float xmin =1;
+  float ymin =2;
+  float zmin =3;
+  float xmax =4;
+  float ymax=5;
+  float zmax = 6;  
 }
 
 message LineString
 {
-  repeated Vector2D vertices = 1;
+    repeated float vertices = 1;
 }
 
-message LineString3D
+message Surface
 {
-  repeated Vector3D vertices = 1;
+    repeated float vertices =1;
+    repeated LineString holes =2 ;
+    Transform transform =3;
 }
 
-message LinearRing
+message MultiSurface
 {
-  repeated Vector2D vertices = 1;
+    repeated Surface surfaces = 1;
+    Transform transform =2;
 }
 
-message Polygon
+message Mesh
 {
-  LinearRing shell = 1;
-  repeated LinearRing holes = 2;
+    repeated float vertice =1;
+    repeated float normals =2;
+    repeated uint32 faces =3;
+    Transform transform =4;
 }
 
-message MultiPolygon
+message VolumeMesh
 {
-  repeated Polygon polygons = 1;
+  repeated float vertices = 1;
+  repeated float cells = 2;
 }
 
-//--- Geometry --
-
-message Bounds
-{
-  float xmin = 1;
-  float xmax = 2;
-  float ymin = 3;
-  float ymax = 4;
-  float zmin = 5;
-  float zmax = 6;
-}
-
-// FIXME: Remove
-message Georef
-{
-  string crs = 1;
-  int32 epsg = 2;
-  float x0 = 3;
-  float y0 = 4;
-}
-
-message Transform
-{
-  string srs = 1;
-  repeated float affine = 2;
-}
-
-//--- Point cloud ---
 
 message PointCloud
 {
-  Bounds bounds = 1;
-  Georef georef = 2;
-  repeated float points = 3;
-  repeated uint32 classification = 4;
-  repeated uint32 intensity = 5;
-  repeated uint32 return_number = 6;
-  repeated uint32 num_returns = 7;
+    repeated float points = 1;
+    repeated uint32 classification = 2;
+    repeated uint32 intensity = 3;
+    repeated uint32 return_number = 4;
+    repeated uint32 num_returns = 5;
+    Transform transform =6;
 }
 
 //--- Grids ---
@@ -115,112 +126,18 @@ message VolumeGrid
   int32 depth = 4;
 }
 
-//--- Meshes ---
-
-message Mesh
-{
-  repeated float vertices = 1;
-  repeated float normals = 2;
-  repeated int32 faces = 3;
-}
-
-message VolumeMesh
-{
-  repeated float vertices = 1;
-  repeated float cells = 2;
-}
-
-message Surface
-{
-  repeated float vertices = 1;
-  Vector3D normal = 2;
-}
-
-message MultiSurface
-{
-  repeated Surface surfaces = 1;
-}
-
-//--- City model ---
-
-// FIXME: Can it be simplified?
-// FIXME: Change from camelCase to snake_case?
-// FIXME: Roof points not needed?
-message Building
-{
-  string uuid = 1;
-  Polygon footprint = 2;
-  float height = 3;
-  float groundHeight = 4;
-  PointCloud roofpoints = 5;
-  uint64 error = 6;
-}
-
-message City
-{
-  Bounds bounds = 1;
-  Georef georef = 2;
-  Raster terrain = 3;
-  repeated Building buildings = 4;
-  repeated LandUse landuse = 5;
-  string name = 6;
-}
-
-message LandUse
-{
-  Polygon footprint = 1;
-  string type = 2;
-}
-
-//--- Road Network ---
-message Road
-{
-    repeated int32 vertices = 1;
-    int32 type = 2;
-    string name = 3;
-    float width = 4;
-    int32 lanes = 5;
-    int32 speed_limit = 6;
-    string id = 7;
-}
-
-message RoadNetwork
-{
-    repeated float vertex = 1; // flat list of x,y vertices
-    repeated Road roads = 2;
-    Georef georef = 3;
-
-}
-
-//--- Quantity ---
-
-message Quantity
-{
-  string name = 1;
-  string unit = 2;
-  string description = 3;
-  string geometry = 4;
-  int32 dim = 5;
-  repeated float values = 6;
-}
 
 message Raster
 {
-  int32 width = 1;
-  int32 height = 2;
-  int32 channels = 3;
-  repeated float values = 4;
-  float nodata = 5;
-  string dtype = 6;
-  AffineTransform transform = 7;
+  repeated float data = 1;
+  uint32 heigh = 2;
+  uint32 width = 3;
+  uint32 dims = 4;
+
 }
 
-message AffineTransform
+message Transform 
 {
-  float a = 1;
-  float b = 2;
-  float c = 3;
-  float d = 4;
-  float e = 5;
-  float f = 6;
+    string srs =1;
+    repeated float affine =2;
 }
