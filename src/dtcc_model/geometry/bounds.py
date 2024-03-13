@@ -6,6 +6,7 @@ from typing import Union
 import numpy as np
 
 from dtcc_model.model import Model
+from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
@@ -222,30 +223,13 @@ class Bounds(Model):
         self.ymax = min(self.ymax, other.ymax)
         return self
 
-    def from_proto(self, pb):
-        """Loads the bounds from a protobuf representation.
-
-        Parameters
-        ----------
-        pb : Union[proto.Bounds, bytes]
-            The protobuf representation or bytes.
-        """
-        if isinstance(pb, bytes):
-            pb = proto.Bounds.FromString(pb)
-        self.xmin = pb.xmin
-        self.xmax = pb.xmax
-        self.ymin = pb.ymin
-        self.ymax = pb.ymax
-        self.zmin = pb.zmin
-        self.zmax = pb.zmax
-
     def to_proto(self):
-        """Converts the bounds to a protobuf representation.
+        """Return a protobuf representation of the Bounds.
 
         Returns
         -------
         proto.Bounds
-            Protobuf representation of the bounds.
+            A protobuf representation of the Bounds.
         """
         pb = proto.Bounds()
         pb.xmin = self.xmin
@@ -255,3 +239,20 @@ class Bounds(Model):
         pb.zmin = self.zmin
         pb.zmax = self.zmax
         return pb
+
+    def from_proto(self, pb):
+        """Initialize Bounds from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Bounds, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+        if isinstance(pb, bytes):
+            pb = proto.Bounds.FromString(pb)
+        self.xmin = pb.xmin
+        self.xmax = pb.xmax
+        self.ymin = pb.ymin
+        self.ymax = pb.ymax
+        self.zmin = pb.zmin
+        self.zmax = pb.zmax

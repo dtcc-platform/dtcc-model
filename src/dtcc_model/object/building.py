@@ -2,11 +2,12 @@
 # Licensed under the MIT License
 
 from dataclasses import dataclass, field
+from shapely.geometry import Polygon
 
 from .object import Object
 from dtcc_model.geometry import Bounds
 from dtcc_model.object import GeometryType
-from shapely.geometry import Polygon
+from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
@@ -22,11 +23,37 @@ class Building(Object):
     def height(self):
         self.bounds.zmax
 
-    # TODO: Implement to_proto and from_proto
     def to_proto(self):
-        pass
+        """Return a protobuf representation of the Building.
+
+        Returns
+        -------
+        proto.Object
+            A protobuf representation of the Building and as an Object.
+        """
+
+        # Handle Object fields
+        pb = Object.to_proto(self)
+
+        # Handle specific fields (currently none)
+        _building = proto.Building()
+        pb.building.CopyFrom(_building)
+
+        return pb
 
     def from_proto(self, pb):
+        """Initialize Building from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Object, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle Object fields
+        Object.from_proto(self, pb)
+
+        # Handle specific fields (currently none)
         pass
 
 

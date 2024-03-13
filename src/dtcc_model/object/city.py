@@ -40,11 +40,37 @@ class City(Object):
         """Add building to city."""
         self.add_children(buildings)
 
-    # TODO: Implement to_proto and from_proto
     def to_proto(self):
-        pass
+        """Return a protobuf representation of the City.
+
+        Returns
+        -------
+        proto.City
+            A protobuf representation of the Building and as an Object.
+        """
+
+        # Handle Object fields
+        pb = Object.to_proto(self)
+
+        # Handle specific fields (currently none)
+        _city = proto.City()
+        pb.city.CopyFrom(_city)
+
+        return pb
 
     def from_proto(self, pb):
+        """Initialize City from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Object, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle Object fields
+        Object.from_proto(self, pb)
+
+        # Handle specific fields (currently none)
         pass
 
 

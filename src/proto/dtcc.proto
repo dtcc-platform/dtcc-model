@@ -7,42 +7,147 @@ option optimize_for = LITE_RUNTIME;
 
 package DTCC;
 
+//------------------------------------------------------------------------------
+// Object
+//------------------------------------------------------------------------------
 
 message Object
 {
     string id = 1;
     string attributes = 2;
-    MultiSurface lod0 = 3;
-    MultiSurface lod1 = 4;
-    MultiSurface lod2 = 5;
-    MultiSurface lod3 = 6;
-    Mesh mesh = 7;
-}
-
-message Building 
-{
-    Object object = 1;
-    repeated BuildingPart children = 2;
-}
-
-message BuildingPart
-{
-    Object object = 1;
-}
-
-message Terrain
-{
-    Object object = 1;
+    map<string, Geometry> geometry = 3;        
+    repeated Quantity quantities = 4;
+    repeated Object children = 5;
+    oneof type
+    {
+        City city = 6;
+        Building building = 7;
+        Terrain terrain = 8;
+        CityObject city_object = 9;
+        BuildingPart building_part = 10;
+    }
 }
 
 message City
 {
-    repeated Building buildings = 1;
-    Terrain terrain = 2;
+  // Do nothing
 }
 
+message Building 
+{
+  // Do nothing
+}
 
+message Terrain
+{
+  // Do nothing
+}
+
+message CityObject
+{
+  // Do nothing
+}
+
+message BuildingPart
+{
+  // Do nothing
+}
+
+//------------------------------------------------------------------------------
+// Geometryt
+//------------------------------------------------------------------------------
+
+message Bounds 
+{
+  float xmin = 1;
+  float ymin = 2;
+  float zmin = 3;
+  float xmax = 4;
+  float ymax = 5;
+  float zmax = 6;  
+}
+
+message Transform 
+{
+    string srs = 1;
+    repeated float affine = 2;
+}
+
+message LineString
+{
+    repeated float vertices = 1;
+}
+
+message Geometry
+{
+  Bounds bounds = 1;
+  Transform transform = 2;
+  oneof type
+  {
+    Surface surface = 3;
+    MultiSurface multi_surface = 4;
+    PointCloud point_cloud = 5;
+    Mesh mesh = 6;
+    VolumeMesh volume_mesh = 7;
+    Grid grid = 8;
+    VolumeGrid volume_grid = 9;
+  }
+}
+
+message Surface
+{
+    repeated float vertices = 1;
+    repeated float normal = 2;
+    repeated LineString holes = 3;
+}
+
+message MultiSurface
+{
+    repeated Surface surfaces = 1;
+}
+
+message PointCloud
+{
+    repeated float points = 1;
+    repeated uint32 classification = 2;
+    repeated uint32 intensity = 3;
+    repeated uint32 return_number = 4;
+    repeated uint32 num_returns = 5;
+}
+
+message Mesh
+{
+    repeated float vertices = 1;
+    repeated uint32 faces = 2;
+}
+
+message VolumeMesh
+{
+  repeated float vertices = 1;
+  repeated uint32 cells = 2;
+}
+
+message Grid
+{
+  int32 width = 1;
+  int32 height = 2;
+  float xstep = 3;
+  float ystep = 4;
+}
+
+message VolumeGrid
+{
+  int32 width = 1;
+  int32 height = 2;
+  int32 depth = 3;  
+  float xstep = 4;
+  float ystep = 5;
+  float zstep = 6;
+}
+
+//------------------------------------------------------------------------------
 // Quantity
+//------------------------------------------------------------------------------
 
 message Quantity
 {
@@ -54,90 +159,12 @@ message Quantity
   repeated float values = 6;
 }
 
-// Geometry
-
-message Bounds 
-{
-  float xmin =1;
-  float ymin =2;
-  float zmin =3;
-  float xmax =4;
-  float ymax=5;
-  float zmax = 6;  
-}
-
-message LineString
-{
-    repeated float vertices = 1;
-}
-
-message Surface
-{
-    repeated float vertices =1;
-    repeated LineString holes =2 ;
-    Transform transform =3;
-}
-
-message MultiSurface
-{
-    repeated Surface surfaces = 1;
-    Transform transform =2;
-}
-
-message Mesh
-{
-    repeated float vertice =1;
-    repeated float normals =2;
-    repeated uint32 faces =3;
-    Transform transform =4;
-}
-
-message VolumeMesh
-{
-  repeated float vertices = 1;
-  repeated float cells = 2;
-}
-
-
-message PointCloud
-{
-    repeated float points = 1;
-    repeated uint32 classification = 2;
-    repeated uint32 intensity = 3;
-    repeated uint32 return_number = 4;
-    repeated uint32 num_returns = 5;
-    Transform transform =6;
-}
-
-//--- Grids ---
-
-message Grid
-{
-  Bounds bounds = 1;
-  int32 width = 2;
-  int32 height = 3;
-}
-
-message VolumeGrid
-{
-  Bounds bounds = 1;
-  int32 width = 2;
-  int32 height = 3;
-  int32 depth = 4;
-}
-
-
 message Raster
 {
-  repeated float data = 1;
-  uint32 heigh = 2;
-  uint32 width = 3;
-  uint32 dims = 4;
-
-}
-
-message Transform 
-{
-    string srs =1;
-    repeated float affine =2;
+  string name = 1;
+  string unit = 2;
+  string description = 3;
+  Grid grid = 4;
+  int32 dim = 5;
+  repeated float values = 6;  
 }

@@ -1,16 +1,33 @@
 # Copyright(C) 2023 Anders Logg
 # Licensed under the MIT License
 
+
 from dataclasses import dataclass, field
 from collections import defaultdict
+from typing import Union
 from enum import Enum, auto
+import json
 
 from dtcc_model.logging import info, warning, error
 from dtcc_model.model import Model
-from dtcc_model.geometry import Geometry, Bounds
+from dtcc_model.geometry import (
+    Geometry,
+    Bounds,
+    Surface,
+    MultiSurface,
+    PointCloud,
+    Mesh,
+    VolumeMesh,
+    Grid,
+    VolumeGrid,
+    Grid,
+    VolumeGrid,
+)
 from collections import defaultdict
 from uuid import uuid4
 from dtcc_model.quantity import Quantity
+
+from dtcc_model import dtcc_pb2 as proto
 
 
 class GeometryType(Enum):
@@ -160,7 +177,6 @@ class Object(Model):
     def flatten_geometry(self, geom_type: GeometryType):
         """Returns a single geometry of the specified type, merging all the geometries of the children."""
         geom = self.geometry.get(geom_type, None)
-        print(geom, geom_type)
         child_list = list(self.children)
         for child_list in self.children.values():
             for child in child_list:
@@ -179,9 +195,7 @@ class Object(Model):
             lods = list(GeometryType)
         bounds = None
         for lod in lods:
-            print(lod)
             geom = self.flatten_geometry(lod)
-            print(geom)
             if geom is not None:
                 lod_bounds = geom.calculate_bounds()
                 if bounds is None:
@@ -196,6 +210,76 @@ class Object(Model):
         defined on this object."""
         return sorted(list(self.geometry.keys()))
 
-    def definted_attributes(self):
+    def defined_attributes(self):
         """Return a list of the attributes defined on this object."""
         return sorted(list(self.attributes.keys()))
+
+    def to_proto(self):
+        """Return a protobuf representation of the Object.
+
+        Returns
+        -------
+        proto.Object
+            A protobuf representation of the Object.
+        """
+
+        # Handle basic fields
+        pb = proto.Object()
+        pb.id = self.id
+        pb.attributes = json.dumps(self.attributes)
+
+        # Handle geometries
+        for key, geometry in self.geometry.items():
+            _key = str(key)
+            pb.geometry[_key].CopyFrom(geometry.to_proto())
+            # print(geometry.to_proto().WhichOneof("type"))
+
+        # Handle quantities
+        # FIXME: Implement quantities
+
+        # Handle children
+        children = [c for cs in self.children.values() for c in cs]
+        pb.children.extend([c.to_proto() for c in children])
+
+        return pb
+
+    def from_proto(self, pb: Union[proto.Object, bytes]):
+        """Initialize Object from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Object, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
+
+        # Handle basic fields
+        self.id = pb.id
+        self.attributes = json.loads(pb.attributes)
+
+        # Handle geometries
+        types = {
+            "surface": Surface,
+            "multi_surface": MultiSurface,
+            "point_cloud": PointCloud,
+            "mesh": Mesh,
+            "volume_mesh": VolumeMesh,
+            "grid": Grid,
+            "volume_grid": VolumeGrid,
+        }
+        for key, geometry in pb.geometry.items():
+            _type = geometry.WhichOneof("type")
+            if _type is None:
+                error(f"Invalid geometry type: {_type}")
+            _geometry = types[_type]()
+            _geometry.from_proto(geometry)
+            self.geometry[key] = _geometry
+
+        # Handle quantities
+        # FIXME: Implement quantities
+
+        # Handle children
+        self.children = [Object().from_proto(c) for c in pb.children]

@@ -3,9 +3,10 @@
 
 # Configure logging
 import logging
+
 format = "%(asctime)s [%(name)s] [%(levelname)s] %(message)s"
 logging.basicConfig(format=format)
-logger = logging.getLogger('dtcc_model')
+logger = logging.getLogger("dtcc_model")
 
 # Expose logging functions
 debug = logger.debug
@@ -16,5 +17,5 @@ critical = logger.critical
 
 
 def set_log_level(level):
-    'Set log level'
+    "Set log level"
     logger.setLevel(level)

@@ -2,8 +2,10 @@
 # Licensed under the MIT License
 
 from dataclasses import dataclass, field
+from typing import Union
 
 from dtcc_model.model import Model
+from dtcc_model import dtcc_pb2 as proto
 from .bounds import Bounds
 from .transform import Transform
 
@@ -30,3 +32,31 @@ class Geometry(Model):
 
     bounds: Bounds = field(default_factory=Bounds)
     transform: Transform = field(default_factory=Transform)
+
+    def to_proto(self):
+        """Return a protobuf representation of the Geometry.
+
+        Returns
+        -------
+        proto.Geometry
+            A protobuf representation of the Geometry.
+        """
+        pb = proto.Geometry()
+        pb.bounds.CopyFrom(self.bounds.to_proto())
+        pb.transform.CopyFrom(self.transform.to_proto())
+
+        return pb
+
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
+        """Initialize Geometry from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Geometry, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
+
+        self.bounds.from_proto(pb.bounds)
+        self.transform.from_proto(pb.transform)
