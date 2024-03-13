@@ -30,5 +30,4 @@ __all__ += [
     "proto",
     "Building",
     "City",
-    "RoadNetwork",
 ]
