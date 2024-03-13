@@ -160,7 +160,6 @@ class Object(Model):
     def flatten_geometry(self, geom_type: GeometryType):
         """Returns a single geometry of the specified type, merging all the geometries of the children."""
         geom = self.geometry.get(geom_type, None)
-        print(geom, geom_type)
         child_list = list(self.children)
         for child_list in self.children.values():
             for child in child_list:
@@ -179,9 +178,7 @@ class Object(Model):
             lods = list(GeometryType)
         bounds = None
         for lod in lods:
-            print(lod)
             geom = self.flatten_geometry(lod)
-            print(geom)
             if geom is not None:
                 lod_bounds = geom.calculate_bounds()
                 if bounds is None:
