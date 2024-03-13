@@ -11,8 +11,8 @@ authors = [
   { name = "Anders Logg", email = "logg@chalmers.se" },
   { name = "Vasilis Naserentin", email = "vasilis.naserentin@chalmers.se" },
   { name = "Dag Wästberg", email = "dwastberg@gmail.com" },
-  { name = "George Spaias" , email= "gspaiasa@ece.auth.gr" },
-  { name = "Jens Olsson" , email= "jens.olsson@chalmersindustriteknik.se" },
+  { name = "George Spaias", email = "gspaiasa@ece.auth.gr" },
+  { name = "Jens Olsson", email = "jens.olsson@chalmersindustriteknik.se" },
 ]
 requires-python = ">=3.10"
 classifiers = [
@@ -20,10 +20,16 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "License :: OSI Approved :: MIT License",
 ]
-dependencies = ["protobuf >= 3.20.0, < 3.21.0", "numpy", "shapely", "affine"]
+dependencies = [
+  "protobuf >= 3.20.0, < 3.21.0",
+  "numpy",
+  "shapely",
+  "affine",
+  "dtcc-common",
+]
 
 [project.optional-dependencies]
 test = ["pytest"]
 
 [tool.cibuildwheel]
-skip=["cp311-*", "pp*"]
+skip = ["cp311-*", "pp*"]

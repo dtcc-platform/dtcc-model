@@ -1,20 +1,3 @@
-# Copyright(C) 2023 Anders Logg
-# Licensed under the MIT License
+from dtcc_common import init_logging
 
-# Configure logging
-import logging
-format = "%(asctime)s [%(name)s] [%(levelname)s] %(message)s"
-logging.basicConfig(format=format)
-logger = logging.getLogger('dtcc_model')
-
-# Expose logging functions
-debug = logger.debug
-info = logger.info
-warning = logger.warning
-error = logger.error
-critical = logger.critical
-
-
-def set_log_level(level):
-    'Set log level'
-    logger.setLevel(level)
+debug, info, warning, error, critical = init_logging("dtcc-io")
