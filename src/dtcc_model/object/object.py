@@ -246,7 +246,6 @@ class Object(Model):
         for key, geometry in self.geometry.items():
             _key = str(key)
             pb.geometry[_key].CopyFrom(geometry.to_proto())
-            # print(geometry.to_proto().WhichOneof("type"))
 
         # Handle quantities
         # FIXME: Implement quantities
