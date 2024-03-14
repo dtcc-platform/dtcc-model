@@ -29,6 +29,8 @@ from dtcc_model.quantity import Quantity
 
 from dtcc_model import dtcc_pb2 as proto
 
+import dtcc_model
+
 
 class GeometryType(Enum):
     BOUNDS = auto()
@@ -51,6 +53,18 @@ class GeometryType(Enum):
         except KeyError:
             raise ValueError(f"Unknown geometry type: {s}")
         return t
+
+
+def _proto_type_to_object_class(s):
+    """Get object class from protobuf type string."""
+    class_name = s.title().replace("_", "")
+    return getattr(dtcc_model.object, class_name, None)
+
+
+def _proto_type_to_geometry_class(s):
+    """Get geometry class from protobuf type string."""
+    class_name = s.title().replace("_", "")
+    return getattr(dtcc_model.geometry, class_name, None)
 
 
 @dataclass
@@ -261,25 +275,24 @@ class Object(Model):
         self.attributes = json.loads(pb.attributes)
 
         # Handle geometries
-        types = {
-            "surface": Surface,
-            "multi_surface": MultiSurface,
-            "point_cloud": PointCloud,
-            "mesh": Mesh,
-            "volume_mesh": VolumeMesh,
-            "grid": Grid,
-            "volume_grid": VolumeGrid,
-        }
         for key, geometry in pb.geometry.items():
             _type = geometry.WhichOneof("type")
             if _type is None:
                 error(f"Invalid geometry type: {_type}")
-            _geometry = types[_type]()
+            _class = _proto_type_to_geometry_class(_type)
+            _geometry = _class()
             _geometry.from_proto(geometry)
-            self.geometry[key] = _geometry
+            self.add_geometry(_geometry, key)
 
         # Handle quantities
         # FIXME: Implement quantities
 
         # Handle children
-        self.children = [Object().from_proto(c) for c in pb.children]
+        for child in pb.children:
+            _type = child.WhichOneof("type")
+            if _type is None:
+                error(f"Invalid child type: {_type}")
+            _class = _proto_type_to_object_class(_type)
+            _child = _class()
+            _child.from_proto(child)
+            self.add_child(_child)
