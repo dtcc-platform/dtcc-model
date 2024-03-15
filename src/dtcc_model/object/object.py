@@ -55,16 +55,20 @@ class GeometryType(Enum):
         return t
 
 
-def _proto_type_to_object_class(s):
+def _proto_type_to_object_class(_type):
     """Get object class from protobuf type string."""
-    class_name = s.title().replace("_", "")
-    return getattr(dtcc_model.object, class_name, None)
+    class_name = _type.title().replace("_", "")
+    _class = getattr(dtcc_model.object, class_name, None)
+    if _class is None:
+        error(f"Invalid object type: {_type}")
 
 
-def _proto_type_to_geometry_class(s):
+def _proto_type_to_geometry_class(_type):
     """Get geometry class from protobuf type string."""
-    class_name = s.title().replace("_", "")
-    return getattr(dtcc_model.geometry, class_name, None)
+    class_name = _type.title().replace("_", "")
+    _class = getattr(dtcc_model.geometry, class_name, None)
+    if _class is None:
+        error(f"Invalid geometry type: {_type}")
 
 
 @dataclass
@@ -276,8 +280,6 @@ class Object(Model):
         # Handle geometries
         for key, geometry in pb.geometry.items():
             _type = geometry.WhichOneof("type")
-            if _type is None:
-                error(f"Invalid geometry type: {_type}")
             _class = _proto_type_to_geometry_class(_type)
             _geometry = _class()
             _geometry.from_proto(geometry)
@@ -289,8 +291,6 @@ class Object(Model):
         # Handle children
         for child in pb.children:
             _type = child.WhichOneof("type")
-            if _type is None:
-                error(f"Invalid child type: {_type}")
             _class = _proto_type_to_object_class(_type)
             _child = _class()
             _child.from_proto(child)

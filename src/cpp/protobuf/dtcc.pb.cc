@@ -8,292 +8,617 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/io/zero_copy_stream_impl_lite.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/reflection_ops.h>
+#include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace DTCC {
-constexpr Object_GeometryEntry_DoNotUse::Object_GeometryEntry_DoNotUse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_CONSTEXPR Object_GeometryEntry_DoNotUse::Object_GeometryEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
 struct Object_GeometryEntry_DoNotUseDefaultTypeInternal {
-  constexpr Object_GeometryEntry_DoNotUseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR Object_GeometryEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~Object_GeometryEntry_DoNotUseDefaultTypeInternal() {}
   union {
     Object_GeometryEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Object_GeometryEntry_DoNotUseDefaultTypeInternal _Object_GeometryEntry_DoNotUse_default_instance_;
-constexpr Object::Object(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : geometry_()
-  , quantities_()
-  , children_()
-  , id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , attributes_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , _oneof_case_{}{}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Object_GeometryEntry_DoNotUseDefaultTypeInternal _Object_GeometryEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR Object::Object(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.geometry_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.quantities_)*/{}
+  , /*decltype(_impl_.children_)*/{}
+  , /*decltype(_impl_.id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.attributes_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.type_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
 struct ObjectDefaultTypeInternal {
-  constexpr ObjectDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ObjectDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ObjectDefaultTypeInternal() {}
   union {
     Object _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ObjectDefaultTypeInternal _Object_default_instance_;
-constexpr City::City(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObjectDefaultTypeInternal _Object_default_instance_;
+PROTOBUF_CONSTEXPR City::City(
+    ::_pbi::ConstantInitialized) {}
 struct CityDefaultTypeInternal {
-  constexpr CityDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CityDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CityDefaultTypeInternal() {}
   union {
     City _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CityDefaultTypeInternal _City_default_instance_;
-constexpr Building::Building(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CityDefaultTypeInternal _City_default_instance_;
+PROTOBUF_CONSTEXPR Building::Building(
+    ::_pbi::ConstantInitialized) {}
 struct BuildingDefaultTypeInternal {
-  constexpr BuildingDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR BuildingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~BuildingDefaultTypeInternal() {}
   union {
     Building _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT BuildingDefaultTypeInternal _Building_default_instance_;
-constexpr Terrain::Terrain(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BuildingDefaultTypeInternal _Building_default_instance_;
+PROTOBUF_CONSTEXPR Terrain::Terrain(
+    ::_pbi::ConstantInitialized) {}
 struct TerrainDefaultTypeInternal {
-  constexpr TerrainDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR TerrainDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~TerrainDefaultTypeInternal() {}
   union {
     Terrain _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT TerrainDefaultTypeInternal _Terrain_default_instance_;
-constexpr CityObject::CityObject(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TerrainDefaultTypeInternal _Terrain_default_instance_;
+PROTOBUF_CONSTEXPR CityObject::CityObject(
+    ::_pbi::ConstantInitialized) {}
 struct CityObjectDefaultTypeInternal {
-  constexpr CityObjectDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR CityObjectDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~CityObjectDefaultTypeInternal() {}
   union {
     CityObject _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CityObjectDefaultTypeInternal _CityObject_default_instance_;
-constexpr BuildingPart::BuildingPart(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CityObjectDefaultTypeInternal _CityObject_default_instance_;
+PROTOBUF_CONSTEXPR BuildingPart::BuildingPart(
+    ::_pbi::ConstantInitialized) {}
 struct BuildingPartDefaultTypeInternal {
-  constexpr BuildingPartDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR BuildingPartDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~BuildingPartDefaultTypeInternal() {}
   union {
     BuildingPart _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT BuildingPartDefaultTypeInternal _BuildingPart_default_instance_;
-constexpr Bounds::Bounds(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : xmin_(0)
-  , ymin_(0)
-  , zmin_(0)
-  , xmax_(0)
-  , ymax_(0)
-  , zmax_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BuildingPartDefaultTypeInternal _BuildingPart_default_instance_;
+PROTOBUF_CONSTEXPR Bounds::Bounds(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.xmin_)*/0
+  , /*decltype(_impl_.ymin_)*/0
+  , /*decltype(_impl_.zmin_)*/0
+  , /*decltype(_impl_.xmax_)*/0
+  , /*decltype(_impl_.ymax_)*/0
+  , /*decltype(_impl_.zmax_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct BoundsDefaultTypeInternal {
-  constexpr BoundsDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR BoundsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~BoundsDefaultTypeInternal() {}
   union {
     Bounds _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT BoundsDefaultTypeInternal _Bounds_default_instance_;
-constexpr Transform::Transform(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : affine_()
-  , srs_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BoundsDefaultTypeInternal _Bounds_default_instance_;
+PROTOBUF_CONSTEXPR Transform::Transform(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.affine_)*/{}
+  , /*decltype(_impl_.srs_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct TransformDefaultTypeInternal {
-  constexpr TransformDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR TransformDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~TransformDefaultTypeInternal() {}
   union {
     Transform _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT TransformDefaultTypeInternal _Transform_default_instance_;
-constexpr LineString::LineString(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : vertices_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TransformDefaultTypeInternal _Transform_default_instance_;
+PROTOBUF_CONSTEXPR LineString::LineString(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.vertices_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct LineStringDefaultTypeInternal {
-  constexpr LineStringDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR LineStringDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~LineStringDefaultTypeInternal() {}
   union {
     LineString _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT LineStringDefaultTypeInternal _LineString_default_instance_;
-constexpr Geometry::Geometry(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : bounds_(nullptr)
-  , transform_(nullptr)
-  , _oneof_case_{}{}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LineStringDefaultTypeInternal _LineString_default_instance_;
+PROTOBUF_CONSTEXPR Geometry::Geometry(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.bounds_)*/nullptr
+  , /*decltype(_impl_.transform_)*/nullptr
+  , /*decltype(_impl_.type_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
 struct GeometryDefaultTypeInternal {
-  constexpr GeometryDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR GeometryDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~GeometryDefaultTypeInternal() {}
   union {
     Geometry _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GeometryDefaultTypeInternal _Geometry_default_instance_;
-constexpr Surface::Surface(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : vertices_()
-  , normal_()
-  , holes_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GeometryDefaultTypeInternal _Geometry_default_instance_;
+PROTOBUF_CONSTEXPR Surface::Surface(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.vertices_)*/{}
+  , /*decltype(_impl_.normal_)*/{}
+  , /*decltype(_impl_.holes_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SurfaceDefaultTypeInternal {
-  constexpr SurfaceDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR SurfaceDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~SurfaceDefaultTypeInternal() {}
   union {
     Surface _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SurfaceDefaultTypeInternal _Surface_default_instance_;
-constexpr MultiSurface::MultiSurface(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : surfaces_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SurfaceDefaultTypeInternal _Surface_default_instance_;
+PROTOBUF_CONSTEXPR MultiSurface::MultiSurface(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.surfaces_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MultiSurfaceDefaultTypeInternal {
-  constexpr MultiSurfaceDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR MultiSurfaceDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~MultiSurfaceDefaultTypeInternal() {}
   union {
     MultiSurface _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MultiSurfaceDefaultTypeInternal _MultiSurface_default_instance_;
-constexpr PointCloud::PointCloud(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : points_()
-  , classification_()
-  , _classification_cached_byte_size_(0)
-  , intensity_()
-  , _intensity_cached_byte_size_(0)
-  , return_number_()
-  , _return_number_cached_byte_size_(0)
-  , num_returns_()
-  , _num_returns_cached_byte_size_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MultiSurfaceDefaultTypeInternal _MultiSurface_default_instance_;
+PROTOBUF_CONSTEXPR PointCloud::PointCloud(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.points_)*/{}
+  , /*decltype(_impl_.classification_)*/{}
+  , /*decltype(_impl_._classification_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.intensity_)*/{}
+  , /*decltype(_impl_._intensity_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.return_number_)*/{}
+  , /*decltype(_impl_._return_number_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.num_returns_)*/{}
+  , /*decltype(_impl_._num_returns_cached_byte_size_)*/{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct PointCloudDefaultTypeInternal {
-  constexpr PointCloudDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR PointCloudDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~PointCloudDefaultTypeInternal() {}
   union {
     PointCloud _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PointCloudDefaultTypeInternal _PointCloud_default_instance_;
-constexpr Mesh::Mesh(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : vertices_()
-  , faces_()
-  , _faces_cached_byte_size_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PointCloudDefaultTypeInternal _PointCloud_default_instance_;
+PROTOBUF_CONSTEXPR Mesh::Mesh(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.vertices_)*/{}
+  , /*decltype(_impl_.faces_)*/{}
+  , /*decltype(_impl_._faces_cached_byte_size_)*/{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MeshDefaultTypeInternal {
-  constexpr MeshDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR MeshDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~MeshDefaultTypeInternal() {}
   union {
     Mesh _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MeshDefaultTypeInternal _Mesh_default_instance_;
-constexpr VolumeMesh::VolumeMesh(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : vertices_()
-  , cells_()
-  , _cells_cached_byte_size_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MeshDefaultTypeInternal _Mesh_default_instance_;
+PROTOBUF_CONSTEXPR VolumeMesh::VolumeMesh(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.vertices_)*/{}
+  , /*decltype(_impl_.cells_)*/{}
+  , /*decltype(_impl_._cells_cached_byte_size_)*/{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct VolumeMeshDefaultTypeInternal {
-  constexpr VolumeMeshDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR VolumeMeshDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~VolumeMeshDefaultTypeInternal() {}
   union {
     VolumeMesh _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT VolumeMeshDefaultTypeInternal _VolumeMesh_default_instance_;
-constexpr Grid::Grid(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : width_(0)
-  , height_(0)
-  , xstep_(0)
-  , ystep_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VolumeMeshDefaultTypeInternal _VolumeMesh_default_instance_;
+PROTOBUF_CONSTEXPR Grid::Grid(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.width_)*/0
+  , /*decltype(_impl_.height_)*/0
+  , /*decltype(_impl_.xstep_)*/0
+  , /*decltype(_impl_.ystep_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct GridDefaultTypeInternal {
-  constexpr GridDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR GridDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~GridDefaultTypeInternal() {}
   union {
     Grid _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GridDefaultTypeInternal _Grid_default_instance_;
-constexpr VolumeGrid::VolumeGrid(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : width_(0)
-  , height_(0)
-  , depth_(0)
-  , xstep_(0)
-  , ystep_(0)
-  , zstep_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GridDefaultTypeInternal _Grid_default_instance_;
+PROTOBUF_CONSTEXPR VolumeGrid::VolumeGrid(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.width_)*/0
+  , /*decltype(_impl_.height_)*/0
+  , /*decltype(_impl_.depth_)*/0
+  , /*decltype(_impl_.xstep_)*/0
+  , /*decltype(_impl_.ystep_)*/0
+  , /*decltype(_impl_.zstep_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct VolumeGridDefaultTypeInternal {
-  constexpr VolumeGridDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR VolumeGridDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~VolumeGridDefaultTypeInternal() {}
   union {
     VolumeGrid _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT VolumeGridDefaultTypeInternal _VolumeGrid_default_instance_;
-constexpr Quantity::Quantity(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : values_()
-  , name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , unit_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , description_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , geometry_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , dim_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VolumeGridDefaultTypeInternal _VolumeGrid_default_instance_;
+PROTOBUF_CONSTEXPR Quantity::Quantity(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.values_)*/{}
+  , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.unit_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.description_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.geometry_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.dim_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct QuantityDefaultTypeInternal {
-  constexpr QuantityDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR QuantityDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~QuantityDefaultTypeInternal() {}
   union {
     Quantity _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT QuantityDefaultTypeInternal _Quantity_default_instance_;
-constexpr Raster::Raster(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : values_()
-  , name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , unit_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , description_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , grid_(nullptr)
-  , dim_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QuantityDefaultTypeInternal _Quantity_default_instance_;
+PROTOBUF_CONSTEXPR Raster::Raster(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.values_)*/{}
+  , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.unit_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.description_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.grid_)*/nullptr
+  , /*decltype(_impl_.dim_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RasterDefaultTypeInternal {
-  constexpr RasterDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RasterDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RasterDefaultTypeInternal() {}
   union {
     Raster _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RasterDefaultTypeInternal _Raster_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RasterDefaultTypeInternal _Raster_default_instance_;
 }  // namespace DTCC
+static ::_pb::Metadata file_level_metadata_dtcc_2eproto[20];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_dtcc_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_dtcc_2eproto = nullptr;
+
+const uint32_t TableStruct_dtcc_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object_GeometryEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object_GeometryEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object_GeometryEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object_GeometryEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object, _impl_.id_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object, _impl_.attributes_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object, _impl_.geometry_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object, _impl_.quantities_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object, _impl_.children_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::DTCC::Object, _impl_.type_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::City, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Building, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Terrain, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::CityObject, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::BuildingPart, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Bounds, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Bounds, _impl_.xmin_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Bounds, _impl_.ymin_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Bounds, _impl_.zmin_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Bounds, _impl_.xmax_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Bounds, _impl_.ymax_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Bounds, _impl_.zmax_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Transform, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Transform, _impl_.srs_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Transform, _impl_.affine_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::LineString, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::LineString, _impl_.vertices_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Geometry, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Geometry, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Geometry, _impl_.bounds_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Geometry, _impl_.transform_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::DTCC::Geometry, _impl_.type_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Surface, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Surface, _impl_.vertices_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Surface, _impl_.normal_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Surface, _impl_.holes_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::MultiSurface, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::MultiSurface, _impl_.surfaces_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::PointCloud, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::PointCloud, _impl_.points_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::PointCloud, _impl_.classification_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::PointCloud, _impl_.intensity_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::PointCloud, _impl_.return_number_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::PointCloud, _impl_.num_returns_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Mesh, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Mesh, _impl_.vertices_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Mesh, _impl_.faces_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeMesh, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeMesh, _impl_.vertices_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeMesh, _impl_.cells_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Grid, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Grid, _impl_.width_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Grid, _impl_.height_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Grid, _impl_.xstep_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Grid, _impl_.ystep_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeGrid, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeGrid, _impl_.width_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeGrid, _impl_.height_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeGrid, _impl_.depth_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeGrid, _impl_.xstep_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeGrid, _impl_.ystep_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::VolumeGrid, _impl_.zstep_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Quantity, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Quantity, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Quantity, _impl_.unit_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Quantity, _impl_.description_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Quantity, _impl_.geometry_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Quantity, _impl_.dim_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Quantity, _impl_.values_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Raster, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DTCC::Raster, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Raster, _impl_.unit_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Raster, _impl_.description_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Raster, _impl_.grid_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Raster, _impl_.dim_),
+  PROTOBUF_FIELD_OFFSET(::DTCC::Raster, _impl_.values_),
+};
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, 8, -1, sizeof(::DTCC::Object_GeometryEntry_DoNotUse)},
+  { 10, -1, -1, sizeof(::DTCC::Object)},
+  { 27, -1, -1, sizeof(::DTCC::City)},
+  { 33, -1, -1, sizeof(::DTCC::Building)},
+  { 39, -1, -1, sizeof(::DTCC::Terrain)},
+  { 45, -1, -1, sizeof(::DTCC::CityObject)},
+  { 51, -1, -1, sizeof(::DTCC::BuildingPart)},
+  { 57, -1, -1, sizeof(::DTCC::Bounds)},
+  { 69, -1, -1, sizeof(::DTCC::Transform)},
+  { 77, -1, -1, sizeof(::DTCC::LineString)},
+  { 84, -1, -1, sizeof(::DTCC::Geometry)},
+  { 100, -1, -1, sizeof(::DTCC::Surface)},
+  { 109, -1, -1, sizeof(::DTCC::MultiSurface)},
+  { 116, -1, -1, sizeof(::DTCC::PointCloud)},
+  { 127, -1, -1, sizeof(::DTCC::Mesh)},
+  { 135, -1, -1, sizeof(::DTCC::VolumeMesh)},
+  { 143, -1, -1, sizeof(::DTCC::Grid)},
+  { 153, -1, -1, sizeof(::DTCC::VolumeGrid)},
+  { 165, -1, -1, sizeof(::DTCC::Quantity)},
+  { 177, -1, -1, sizeof(::DTCC::Raster)},
+};
+
+static const ::_pb::Message* const file_default_instances[] = {
+  &::DTCC::_Object_GeometryEntry_DoNotUse_default_instance_._instance,
+  &::DTCC::_Object_default_instance_._instance,
+  &::DTCC::_City_default_instance_._instance,
+  &::DTCC::_Building_default_instance_._instance,
+  &::DTCC::_Terrain_default_instance_._instance,
+  &::DTCC::_CityObject_default_instance_._instance,
+  &::DTCC::_BuildingPart_default_instance_._instance,
+  &::DTCC::_Bounds_default_instance_._instance,
+  &::DTCC::_Transform_default_instance_._instance,
+  &::DTCC::_LineString_default_instance_._instance,
+  &::DTCC::_Geometry_default_instance_._instance,
+  &::DTCC::_Surface_default_instance_._instance,
+  &::DTCC::_MultiSurface_default_instance_._instance,
+  &::DTCC::_PointCloud_default_instance_._instance,
+  &::DTCC::_Mesh_default_instance_._instance,
+  &::DTCC::_VolumeMesh_default_instance_._instance,
+  &::DTCC::_Grid_default_instance_._instance,
+  &::DTCC::_VolumeGrid_default_instance_._instance,
+  &::DTCC::_Quantity_default_instance_._instance,
+  &::DTCC::_Raster_default_instance_._instance,
+};
+
+const char descriptor_table_protodef_dtcc_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\ndtcc.proto\022\004DTCC\"\233\003\n\006Object\022\n\n\002id\030\001 \001("
+  "\t\022\022\n\nattributes\030\002 \001(\t\022,\n\010geometry\030\003 \003(\0132"
+  "\032.DTCC.Object.GeometryEntry\022\"\n\nquantitie"
+  "s\030\004 \003(\0132\016.DTCC.Quantity\022\036\n\010children\030\005 \003("
+  "\0132\014.DTCC.Object\022\032\n\004city\030\006 \001(\0132\n.DTCC.Cit"
+  "yH\000\022\"\n\010building\030\007 \001(\0132\016.DTCC.BuildingH\000\022"
+  " \n\007terrain\030\010 \001(\0132\r.DTCC.TerrainH\000\022\'\n\013cit"
+  "y_object\030\t \001(\0132\020.DTCC.CityObjectH\000\022+\n\rbu"
+  "ilding_part\030\n \001(\0132\022.DTCC.BuildingPartH\000\032"
+  "\?\n\rGeometryEntry\022\013\n\003key\030\001 \001(\t\022\035\n\005value\030\002"
+  " \001(\0132\016.DTCC.Geometry:\0028\001B\006\n\004type\"\006\n\004City"
+  "\"\n\n\010Building\"\t\n\007Terrain\"\014\n\nCityObject\"\016\n"
+  "\014BuildingPart\"\\\n\006Bounds\022\014\n\004xmin\030\001 \001(\002\022\014\n"
+  "\004ymin\030\002 \001(\002\022\014\n\004zmin\030\003 \001(\002\022\014\n\004xmax\030\004 \001(\002\022"
+  "\014\n\004ymax\030\005 \001(\002\022\014\n\004zmax\030\006 \001(\002\"(\n\tTransform"
+  "\022\013\n\003srs\030\001 \001(\t\022\016\n\006affine\030\002 \003(\002\"\036\n\nLineStr"
+  "ing\022\020\n\010vertices\030\001 \003(\002\"\326\002\n\010Geometry\022\034\n\006bo"
+  "unds\030\001 \001(\0132\014.DTCC.Bounds\022\"\n\ttransform\030\002 "
+  "\001(\0132\017.DTCC.Transform\022 \n\007surface\030\003 \001(\0132\r."
+  "DTCC.SurfaceH\000\022+\n\rmulti_surface\030\004 \001(\0132\022."
+  "DTCC.MultiSurfaceH\000\022\'\n\013point_cloud\030\005 \001(\013"
+  "2\020.DTCC.PointCloudH\000\022\032\n\004mesh\030\006 \001(\0132\n.DTC"
+  "C.MeshH\000\022\'\n\013volume_mesh\030\007 \001(\0132\020.DTCC.Vol"
+  "umeMeshH\000\022\032\n\004grid\030\010 \001(\0132\n.DTCC.GridH\000\022\'\n"
+  "\013volume_grid\030\t \001(\0132\020.DTCC.VolumeGridH\000B\006"
+  "\n\004type\"L\n\007Surface\022\020\n\010vertices\030\001 \003(\002\022\016\n\006n"
+  "ormal\030\002 \003(\002\022\037\n\005holes\030\003 \003(\0132\020.DTCC.LineSt"
+  "ring\"/\n\014MultiSurface\022\037\n\010surfaces\030\001 \003(\0132\r"
+  ".DTCC.Surface\"s\n\nPointCloud\022\016\n\006points\030\001 "
+  "\003(\002\022\026\n\016classification\030\002 \003(\r\022\021\n\tintensity"
+  "\030\003 \003(\r\022\025\n\rreturn_number\030\004 \003(\r\022\023\n\013num_ret"
+  "urns\030\005 \003(\r\"\'\n\004Mesh\022\020\n\010vertices\030\001 \003(\002\022\r\n\005"
+  "faces\030\002 \003(\r\"-\n\nVolumeMesh\022\020\n\010vertices\030\001 "
+  "\003(\002\022\r\n\005cells\030\002 \003(\r\"C\n\004Grid\022\r\n\005width\030\001 \001("
+  "\005\022\016\n\006height\030\002 \001(\005\022\r\n\005xstep\030\003 \001(\002\022\r\n\005yste"
+  "p\030\004 \001(\002\"g\n\nVolumeGrid\022\r\n\005width\030\001 \001(\005\022\016\n\006"
+  "height\030\002 \001(\005\022\r\n\005depth\030\003 \001(\005\022\r\n\005xstep\030\004 \001"
+  "(\002\022\r\n\005ystep\030\005 \001(\002\022\r\n\005zstep\030\006 \001(\002\"j\n\010Quan"
+  "tity\022\014\n\004name\030\001 \001(\t\022\014\n\004unit\030\002 \001(\t\022\023\n\013desc"
+  "ription\030\003 \001(\t\022\020\n\010geometry\030\004 \001(\t\022\013\n\003dim\030\005"
+  " \001(\005\022\016\n\006values\030\006 \003(\002\"p\n\006Raster\022\014\n\004name\030\001"
+  " \001(\t\022\014\n\004unit\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022"
+  "\030\n\004grid\030\004 \001(\0132\n.DTCC.Grid\022\013\n\003dim\030\005 \001(\005\022\016"
+  "\n\006values\030\006 \003(\002b\006proto3"
+  ;
+static ::_pbi::once_flag descriptor_table_dtcc_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_dtcc_2eproto = {
+    false, false, 1742, descriptor_table_protodef_dtcc_2eproto,
+    "dtcc.proto",
+    &descriptor_table_dtcc_2eproto_once, nullptr, 0, 20,
+    schemas, file_default_instances, TableStruct_dtcc_2eproto::offsets,
+    file_level_metadata_dtcc_2eproto, file_level_enum_descriptors_dtcc_2eproto,
+    file_level_service_descriptors_dtcc_2eproto,
+};
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_dtcc_2eproto_getter() {
+  return &descriptor_table_dtcc_2eproto;
+}
+
+// Force running AddDescriptors() at dynamic initialization time.
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_dtcc_2eproto(&descriptor_table_dtcc_2eproto);
 namespace DTCC {
 
 // ===================================================================
@@ -303,6 +628,11 @@ Object_GeometryEntry_DoNotUse::Object_GeometryEntry_DoNotUse(::PROTOBUF_NAMESPAC
     : SuperType(arena) {}
 void Object_GeometryEntry_DoNotUse::MergeFrom(const Object_GeometryEntry_DoNotUse& other) {
   MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata Object_GeometryEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[0]);
 }
 
 // ===================================================================
@@ -318,36 +648,36 @@ class Object::_Internal {
 
 const ::DTCC::City&
 Object::_Internal::city(const Object* msg) {
-  return *msg->type_.city_;
+  return *msg->_impl_.type_.city_;
 }
 const ::DTCC::Building&
 Object::_Internal::building(const Object* msg) {
-  return *msg->type_.building_;
+  return *msg->_impl_.type_.building_;
 }
 const ::DTCC::Terrain&
 Object::_Internal::terrain(const Object* msg) {
-  return *msg->type_.terrain_;
+  return *msg->_impl_.type_.terrain_;
 }
 const ::DTCC::CityObject&
 Object::_Internal::city_object(const Object* msg) {
-  return *msg->type_.city_object_;
+  return *msg->_impl_.type_.city_object_;
 }
 const ::DTCC::BuildingPart&
 Object::_Internal::building_part(const Object* msg) {
-  return *msg->type_.building_part_;
+  return *msg->_impl_.type_.building_part_;
 }
 void Object::set_allocated_city(::DTCC::City* city) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_type();
   if (city) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::City>::GetOwningArena(city);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(city);
     if (message_arena != submessage_arena) {
       city = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, city, submessage_arena);
     }
     set_has_city();
-    type_.city_ = city;
+    _impl_.type_.city_ = city;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Object.city)
 }
@@ -356,13 +686,13 @@ void Object::set_allocated_building(::DTCC::Building* building) {
   clear_type();
   if (building) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::Building>::GetOwningArena(building);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(building);
     if (message_arena != submessage_arena) {
       building = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, building, submessage_arena);
     }
     set_has_building();
-    type_.building_ = building;
+    _impl_.type_.building_ = building;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Object.building)
 }
@@ -371,13 +701,13 @@ void Object::set_allocated_terrain(::DTCC::Terrain* terrain) {
   clear_type();
   if (terrain) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::Terrain>::GetOwningArena(terrain);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(terrain);
     if (message_arena != submessage_arena) {
       terrain = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, terrain, submessage_arena);
     }
     set_has_terrain();
-    type_.terrain_ = terrain;
+    _impl_.type_.terrain_ = terrain;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Object.terrain)
 }
@@ -386,13 +716,13 @@ void Object::set_allocated_city_object(::DTCC::CityObject* city_object) {
   clear_type();
   if (city_object) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::CityObject>::GetOwningArena(city_object);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(city_object);
     if (message_arena != submessage_arena) {
       city_object = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, city_object, submessage_arena);
     }
     set_has_city_object();
-    type_.city_object_ = city_object;
+    _impl_.type_.city_object_ = city_object;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Object.city_object)
 }
@@ -401,64 +731,81 @@ void Object::set_allocated_building_part(::DTCC::BuildingPart* building_part) {
   clear_type();
   if (building_part) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::BuildingPart>::GetOwningArena(building_part);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(building_part);
     if (message_arena != submessage_arena) {
       building_part = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, building_part, submessage_arena);
     }
     set_has_building_part();
-    type_.building_part_ = building_part;
+    _impl_.type_.building_part_ = building_part;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Object.building_part)
 }
 Object::Object(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  geometry_(arena),
-  quantities_(arena),
-  children_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &Object::ArenaDtor);
   }
   // @@protoc_insertion_point(arena_constructor:DTCC.Object)
 }
 Object::Object(const Object& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      quantities_(from.quantities_),
-      children_(from.children_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  geometry_.MergeFrom(from.geometry_);
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Object* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.geometry_)*/{}
+    , decltype(_impl_.quantities_){from._impl_.quantities_}
+    , decltype(_impl_.children_){from._impl_.children_}
+    , decltype(_impl_.id_){}
+    , decltype(_impl_.attributes_){}
+    , decltype(_impl_.type_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.geometry_.MergeFrom(from._impl_.geometry_);
+  _impl_.id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_id().empty()) {
-    id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_id(), 
-      GetArenaForAllocation());
+    _this->_impl_.id_.Set(from._internal_id(), 
+      _this->GetArenaForAllocation());
   }
-  attributes_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.attributes_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.attributes_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_attributes().empty()) {
-    attributes_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_attributes(), 
-      GetArenaForAllocation());
+    _this->_impl_.attributes_.Set(from._internal_attributes(), 
+      _this->GetArenaForAllocation());
   }
   clear_has_type();
   switch (from.type_case()) {
     case kCity: {
-      _internal_mutable_city()->::DTCC::City::MergeFrom(from._internal_city());
+      _this->_internal_mutable_city()->::DTCC::City::MergeFrom(
+          from._internal_city());
       break;
     }
     case kBuilding: {
-      _internal_mutable_building()->::DTCC::Building::MergeFrom(from._internal_building());
+      _this->_internal_mutable_building()->::DTCC::Building::MergeFrom(
+          from._internal_building());
       break;
     }
     case kTerrain: {
-      _internal_mutable_terrain()->::DTCC::Terrain::MergeFrom(from._internal_terrain());
+      _this->_internal_mutable_terrain()->::DTCC::Terrain::MergeFrom(
+          from._internal_terrain());
       break;
     }
     case kCityObject: {
-      _internal_mutable_city_object()->::DTCC::CityObject::MergeFrom(from._internal_city_object());
+      _this->_internal_mutable_city_object()->::DTCC::CityObject::MergeFrom(
+          from._internal_city_object());
       break;
     }
     case kBuildingPart: {
-      _internal_mutable_building_part()->::DTCC::BuildingPart::MergeFrom(from._internal_building_part());
+      _this->_internal_mutable_building_part()->::DTCC::BuildingPart::MergeFrom(
+          from._internal_building_part());
       break;
     }
     case TYPE_NOT_SET: {
@@ -468,23 +815,49 @@ Object::Object(const Object& from)
   // @@protoc_insertion_point(copy_constructor:DTCC.Object)
 }
 
-inline void Object::SharedCtor() {
-id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-attributes_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-clear_has_type();
+inline void Object::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.geometry_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.quantities_){arena}
+    , decltype(_impl_.children_){arena}
+    , decltype(_impl_.id_){}
+    , decltype(_impl_.attributes_){}
+    , decltype(_impl_.type_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  _impl_.id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.attributes_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.attributes_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  clear_has_type();
 }
 
 Object::~Object() {
   // @@protoc_insertion_point(destructor:DTCC.Object)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Object::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  attributes_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.geometry_.Destruct();
+  _impl_.geometry_.~MapField();
+  _impl_.quantities_.~RepeatedPtrField();
+  _impl_.children_.~RepeatedPtrField();
+  _impl_.id_.Destroy();
+  _impl_.attributes_.Destroy();
   if (has_type()) {
     clear_type();
   }
@@ -492,12 +865,10 @@ inline void Object::SharedDtor() {
 
 void Object::ArenaDtor(void* object) {
   Object* _this = reinterpret_cast< Object* >(object);
-  (void)_this;
-}
-void Object::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->_impl_.geometry_.Destruct();
 }
 void Object::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Object::clear_type() {
@@ -505,31 +876,31 @@ void Object::clear_type() {
   switch (type_case()) {
     case kCity: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.city_;
+        delete _impl_.type_.city_;
       }
       break;
     }
     case kBuilding: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.building_;
+        delete _impl_.type_.building_;
       }
       break;
     }
     case kTerrain: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.terrain_;
+        delete _impl_.type_.terrain_;
       }
       break;
     }
     case kCityObject: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.city_object_;
+        delete _impl_.type_.city_object_;
       }
       break;
     }
     case kBuildingPart: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.building_part_;
+        delete _impl_.type_.building_part_;
       }
       break;
     }
@@ -537,64 +908,67 @@ void Object::clear_type() {
       break;
     }
   }
-  _oneof_case_[0] = TYPE_NOT_SET;
+  _impl_._oneof_case_[0] = TYPE_NOT_SET;
 }
 
 
 void Object::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Object)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  geometry_.Clear();
-  quantities_.Clear();
-  children_.Clear();
-  id_.ClearToEmpty();
-  attributes_.ClearToEmpty();
+  _impl_.geometry_.Clear();
+  _impl_.quantities_.Clear();
+  _impl_.children_.Clear();
+  _impl_.id_.ClearToEmpty();
+  _impl_.attributes_.ClearToEmpty();
   clear_type();
-  _internal_metadata_.Clear<std::string>();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Object::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Object::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Object.id"));
+        } else
+          goto handle_unusual;
         continue;
       // string attributes = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_attributes();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Object.attributes"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .DTCC.Geometry> geometry = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&geometry_, ptr);
+            ptr = ctx->ParseMessage(&_impl_.geometry_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .DTCC.Quantity quantities = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -602,11 +976,12 @@ const char* Object::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .DTCC.Object children = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -614,70 +989,76 @@ const char* Object::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.City city = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_city(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.Building building = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_building(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.Terrain terrain = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_terrain(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.CityObject city_object = 9;
       case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
           ptr = ctx->ParseMessage(_internal_mutable_city_object(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.BuildingPart building_part = 10;
       case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_building_part(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Object::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Object::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Object)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string id = 1;
@@ -702,105 +1083,84 @@ failure:
 
   // map<string, .DTCC.Geometry> geometry = 3;
   if (!this->_internal_geometry().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::DTCC::Geometry >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        (void)p;
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "DTCC.Object.GeometryEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::DTCC::Geometry>;
+    using WireHelper = Object_GeometryEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_geometry();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "DTCC.Object.GeometryEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_geometry().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_geometry().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::DTCC::Geometry >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::DTCC::Geometry >::const_iterator
-          it = this->_internal_geometry().begin();
-          it != this->_internal_geometry().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = Object_GeometryEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::DTCC::Geometry >::const_iterator
-          it = this->_internal_geometry().begin();
-          it != this->_internal_geometry().end(); ++it) {
-        target = Object_GeometryEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // repeated .DTCC.Quantity quantities = 4;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_quantities_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_quantities_size()); i < n; i++) {
+    const auto& repfield = this->_internal_quantities(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, this->_internal_quantities(i), target, stream);
+        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated .DTCC.Object children = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_children_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_children_size()); i < n; i++) {
+    const auto& repfield = this->_internal_children(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_children(i), target, stream);
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // .DTCC.City city = 6;
   if (_internal_has_city()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::city(this), target, stream);
+      InternalWriteMessage(6, _Internal::city(this),
+        _Internal::city(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.Building building = 7;
   if (_internal_has_building()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        7, _Internal::building(this), target, stream);
+      InternalWriteMessage(7, _Internal::building(this),
+        _Internal::building(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.Terrain terrain = 8;
   if (_internal_has_terrain()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        8, _Internal::terrain(this), target, stream);
+      InternalWriteMessage(8, _Internal::terrain(this),
+        _Internal::terrain(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.CityObject city_object = 9;
   if (_internal_has_city_object()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        9, _Internal::city_object(this), target, stream);
+      InternalWriteMessage(9, _Internal::city_object(this),
+        _Internal::city_object(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.BuildingPart building_part = 10;
   if (_internal_has_building_part()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        10, _Internal::building_part(this), target, stream);
+      InternalWriteMessage(10, _Internal::building_part(this),
+        _Internal::building_part(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Object)
   return target;
@@ -810,7 +1170,7 @@ size_t Object::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Object)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -825,14 +1185,14 @@ size_t Object::ByteSizeLong() const {
 
   // repeated .DTCC.Quantity quantities = 4;
   total_size += 1UL * this->_internal_quantities_size();
-  for (const auto& msg : this->quantities_) {
+  for (const auto& msg : this->_impl_.quantities_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // repeated .DTCC.Object children = 5;
   total_size += 1UL * this->_internal_children_size();
-  for (const auto& msg : this->children_) {
+  for (const auto& msg : this->_impl_.children_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -856,96 +1216,99 @@ size_t Object::ByteSizeLong() const {
     case kCity: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.city_);
+          *_impl_.type_.city_);
       break;
     }
     // .DTCC.Building building = 7;
     case kBuilding: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.building_);
+          *_impl_.type_.building_);
       break;
     }
     // .DTCC.Terrain terrain = 8;
     case kTerrain: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.terrain_);
+          *_impl_.type_.terrain_);
       break;
     }
     // .DTCC.CityObject city_object = 9;
     case kCityObject: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.city_object_);
+          *_impl_.type_.city_object_);
       break;
     }
     // .DTCC.BuildingPart building_part = 10;
     case kBuildingPart: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.building_part_);
+          *_impl_.type_.building_part_);
       break;
     }
     case TYPE_NOT_SET: {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Object::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Object*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Object::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Object::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Object::GetClassData() const { return &_class_data_; }
 
-void Object::MergeFrom(const Object& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Object)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Object::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Object*>(&to_msg);
+  auto& from = static_cast<const Object&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Object)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  geometry_.MergeFrom(from.geometry_);
-  quantities_.MergeFrom(from.quantities_);
-  children_.MergeFrom(from.children_);
+  _this->_impl_.geometry_.MergeFrom(from._impl_.geometry_);
+  _this->_impl_.quantities_.MergeFrom(from._impl_.quantities_);
+  _this->_impl_.children_.MergeFrom(from._impl_.children_);
   if (!from._internal_id().empty()) {
-    _internal_set_id(from._internal_id());
+    _this->_internal_set_id(from._internal_id());
   }
   if (!from._internal_attributes().empty()) {
-    _internal_set_attributes(from._internal_attributes());
+    _this->_internal_set_attributes(from._internal_attributes());
   }
   switch (from.type_case()) {
     case kCity: {
-      _internal_mutable_city()->::DTCC::City::MergeFrom(from._internal_city());
+      _this->_internal_mutable_city()->::DTCC::City::MergeFrom(
+          from._internal_city());
       break;
     }
     case kBuilding: {
-      _internal_mutable_building()->::DTCC::Building::MergeFrom(from._internal_building());
+      _this->_internal_mutable_building()->::DTCC::Building::MergeFrom(
+          from._internal_building());
       break;
     }
     case kTerrain: {
-      _internal_mutable_terrain()->::DTCC::Terrain::MergeFrom(from._internal_terrain());
+      _this->_internal_mutable_terrain()->::DTCC::Terrain::MergeFrom(
+          from._internal_terrain());
       break;
     }
     case kCityObject: {
-      _internal_mutable_city_object()->::DTCC::CityObject::MergeFrom(from._internal_city_object());
+      _this->_internal_mutable_city_object()->::DTCC::CityObject::MergeFrom(
+          from._internal_city_object());
       break;
     }
     case kBuildingPart: {
-      _internal_mutable_building_part()->::DTCC::BuildingPart::MergeFrom(from._internal_building_part());
+      _this->_internal_mutable_building_part()->::DTCC::BuildingPart::MergeFrom(
+          from._internal_building_part());
       break;
     }
     case TYPE_NOT_SET: {
       break;
     }
   }
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Object::CopyFrom(const Object& from) {
@@ -961,28 +1324,29 @@ bool Object::IsInitialized() const {
 
 void Object::InternalSwap(Object* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  geometry_.InternalSwap(&other->geometry_);
-  quantities_.InternalSwap(&other->quantities_);
-  children_.InternalSwap(&other->children_);
+  _impl_.geometry_.InternalSwap(&other->_impl_.geometry_);
+  _impl_.quantities_.InternalSwap(&other->_impl_.quantities_);
+  _impl_.children_.InternalSwap(&other->_impl_.children_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &id_, GetArenaForAllocation(),
-      &other->id_, other->GetArenaForAllocation()
+      &_impl_.id_, lhs_arena,
+      &other->_impl_.id_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &attributes_, GetArenaForAllocation(),
-      &other->attributes_, other->GetArenaForAllocation()
+      &_impl_.attributes_, lhs_arena,
+      &other->_impl_.attributes_, rhs_arena
   );
-  swap(type_, other->type_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  swap(_impl_.type_, other->_impl_.type_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
-std::string Object::GetTypeName() const {
-  return "DTCC.Object";
+::PROTOBUF_NAMESPACE_ID::Metadata Object::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[1]);
 }
-
 
 // ===================================================================
 
@@ -992,141 +1356,37 @@ class City::_Internal {
 
 City::City(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:DTCC.City)
 }
 City::City(const City& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  City* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.City)
 }
 
-inline void City::SharedCtor() {
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData City::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*City::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata City::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[2]);
 }
-
-City::~City() {
-  // @@protoc_insertion_point(destructor:DTCC.City)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<std::string>();
-}
-
-inline void City::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void City::ArenaDtor(void* object) {
-  City* _this = reinterpret_cast< City* >(object);
-  (void)_this;
-}
-void City::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void City::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void City::Clear() {
-// @@protoc_insertion_point(message_clear_start:DTCC.City)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear<std::string>();
-}
-
-const char* City::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* City::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:DTCC.City)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:DTCC.City)
-  return target;
-}
-
-size_t City::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:DTCC.City)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void City::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const City*>(
-      &from));
-}
-
-void City::MergeFrom(const City& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.City)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-}
-
-void City::CopyFrom(const City& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:DTCC.City)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool City::IsInitialized() const {
-  return true;
-}
-
-void City::InternalSwap(City* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-}
-
-std::string City::GetTypeName() const {
-  return "DTCC.City";
-}
-
 
 // ===================================================================
 
@@ -1136,141 +1396,37 @@ class Building::_Internal {
 
 Building::Building(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:DTCC.Building)
 }
 Building::Building(const Building& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  Building* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.Building)
 }
 
-inline void Building::SharedCtor() {
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Building::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Building::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata Building::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[3]);
 }
-
-Building::~Building() {
-  // @@protoc_insertion_point(destructor:DTCC.Building)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<std::string>();
-}
-
-inline void Building::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void Building::ArenaDtor(void* object) {
-  Building* _this = reinterpret_cast< Building* >(object);
-  (void)_this;
-}
-void Building::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Building::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void Building::Clear() {
-// @@protoc_insertion_point(message_clear_start:DTCC.Building)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear<std::string>();
-}
-
-const char* Building::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Building::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:DTCC.Building)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:DTCC.Building)
-  return target;
-}
-
-size_t Building::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:DTCC.Building)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Building::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Building*>(
-      &from));
-}
-
-void Building::MergeFrom(const Building& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Building)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-}
-
-void Building::CopyFrom(const Building& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:DTCC.Building)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Building::IsInitialized() const {
-  return true;
-}
-
-void Building::InternalSwap(Building* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-}
-
-std::string Building::GetTypeName() const {
-  return "DTCC.Building";
-}
-
 
 // ===================================================================
 
@@ -1280,141 +1436,37 @@ class Terrain::_Internal {
 
 Terrain::Terrain(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:DTCC.Terrain)
 }
 Terrain::Terrain(const Terrain& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  Terrain* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.Terrain)
 }
 
-inline void Terrain::SharedCtor() {
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Terrain::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Terrain::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata Terrain::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[4]);
 }
-
-Terrain::~Terrain() {
-  // @@protoc_insertion_point(destructor:DTCC.Terrain)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<std::string>();
-}
-
-inline void Terrain::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void Terrain::ArenaDtor(void* object) {
-  Terrain* _this = reinterpret_cast< Terrain* >(object);
-  (void)_this;
-}
-void Terrain::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Terrain::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void Terrain::Clear() {
-// @@protoc_insertion_point(message_clear_start:DTCC.Terrain)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear<std::string>();
-}
-
-const char* Terrain::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Terrain::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:DTCC.Terrain)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:DTCC.Terrain)
-  return target;
-}
-
-size_t Terrain::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:DTCC.Terrain)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Terrain::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Terrain*>(
-      &from));
-}
-
-void Terrain::MergeFrom(const Terrain& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Terrain)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-}
-
-void Terrain::CopyFrom(const Terrain& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:DTCC.Terrain)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Terrain::IsInitialized() const {
-  return true;
-}
-
-void Terrain::InternalSwap(Terrain* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-}
-
-std::string Terrain::GetTypeName() const {
-  return "DTCC.Terrain";
-}
-
 
 // ===================================================================
 
@@ -1424,141 +1476,37 @@ class CityObject::_Internal {
 
 CityObject::CityObject(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:DTCC.CityObject)
 }
 CityObject::CityObject(const CityObject& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  CityObject* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.CityObject)
 }
 
-inline void CityObject::SharedCtor() {
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CityObject::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CityObject::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata CityObject::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[5]);
 }
-
-CityObject::~CityObject() {
-  // @@protoc_insertion_point(destructor:DTCC.CityObject)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<std::string>();
-}
-
-inline void CityObject::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void CityObject::ArenaDtor(void* object) {
-  CityObject* _this = reinterpret_cast< CityObject* >(object);
-  (void)_this;
-}
-void CityObject::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CityObject::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void CityObject::Clear() {
-// @@protoc_insertion_point(message_clear_start:DTCC.CityObject)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear<std::string>();
-}
-
-const char* CityObject::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CityObject::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:DTCC.CityObject)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:DTCC.CityObject)
-  return target;
-}
-
-size_t CityObject::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:DTCC.CityObject)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CityObject::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const CityObject*>(
-      &from));
-}
-
-void CityObject::MergeFrom(const CityObject& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.CityObject)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-}
-
-void CityObject::CopyFrom(const CityObject& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:DTCC.CityObject)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CityObject::IsInitialized() const {
-  return true;
-}
-
-void CityObject::InternalSwap(CityObject* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-}
-
-std::string CityObject::GetTypeName() const {
-  return "DTCC.CityObject";
-}
-
 
 // ===================================================================
 
@@ -1568,141 +1516,37 @@ class BuildingPart::_Internal {
 
 BuildingPart::BuildingPart(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:DTCC.BuildingPart)
 }
 BuildingPart::BuildingPart(const BuildingPart& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  BuildingPart* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.BuildingPart)
 }
 
-inline void BuildingPart::SharedCtor() {
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BuildingPart::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BuildingPart::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata BuildingPart::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[6]);
 }
-
-BuildingPart::~BuildingPart() {
-  // @@protoc_insertion_point(destructor:DTCC.BuildingPart)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<std::string>();
-}
-
-inline void BuildingPart::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void BuildingPart::ArenaDtor(void* object) {
-  BuildingPart* _this = reinterpret_cast< BuildingPart* >(object);
-  (void)_this;
-}
-void BuildingPart::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void BuildingPart::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void BuildingPart::Clear() {
-// @@protoc_insertion_point(message_clear_start:DTCC.BuildingPart)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear<std::string>();
-}
-
-const char* BuildingPart::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* BuildingPart::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:DTCC.BuildingPart)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:DTCC.BuildingPart)
-  return target;
-}
-
-size_t BuildingPart::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:DTCC.BuildingPart)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void BuildingPart::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const BuildingPart*>(
-      &from));
-}
-
-void BuildingPart::MergeFrom(const BuildingPart& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.BuildingPart)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-}
-
-void BuildingPart::CopyFrom(const BuildingPart& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:DTCC.BuildingPart)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool BuildingPart::IsInitialized() const {
-  return true;
-}
-
-void BuildingPart::InternalSwap(BuildingPart* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-}
-
-std::string BuildingPart::GetTypeName() const {
-  return "DTCC.BuildingPart";
-}
-
 
 // ===================================================================
 
@@ -1712,178 +1556,219 @@ class Bounds::_Internal {
 
 Bounds::Bounds(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.Bounds)
 }
 Bounds::Bounds(const Bounds& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::memcpy(&xmin_, &from.xmin_,
-    static_cast<size_t>(reinterpret_cast<char*>(&zmax_) -
-    reinterpret_cast<char*>(&xmin_)) + sizeof(zmax_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Bounds* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.xmin_){}
+    , decltype(_impl_.ymin_){}
+    , decltype(_impl_.zmin_){}
+    , decltype(_impl_.xmax_){}
+    , decltype(_impl_.ymax_){}
+    , decltype(_impl_.zmax_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.xmin_, &from._impl_.xmin_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.zmax_) -
+    reinterpret_cast<char*>(&_impl_.xmin_)) + sizeof(_impl_.zmax_));
   // @@protoc_insertion_point(copy_constructor:DTCC.Bounds)
 }
 
-inline void Bounds::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&xmin_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&zmax_) -
-    reinterpret_cast<char*>(&xmin_)) + sizeof(zmax_));
+inline void Bounds::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.xmin_){0}
+    , decltype(_impl_.ymin_){0}
+    , decltype(_impl_.zmin_){0}
+    , decltype(_impl_.xmax_){0}
+    , decltype(_impl_.ymax_){0}
+    , decltype(_impl_.zmax_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 Bounds::~Bounds() {
   // @@protoc_insertion_point(destructor:DTCC.Bounds)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Bounds::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void Bounds::ArenaDtor(void* object) {
-  Bounds* _this = reinterpret_cast< Bounds* >(object);
-  (void)_this;
-}
-void Bounds::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Bounds::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Bounds::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Bounds)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&xmin_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&zmax_) -
-      reinterpret_cast<char*>(&xmin_)) + sizeof(zmax_));
-  _internal_metadata_.Clear<std::string>();
+  ::memset(&_impl_.xmin_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.zmax_) -
+      reinterpret_cast<char*>(&_impl_.xmin_)) + sizeof(_impl_.zmax_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Bounds::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Bounds::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // float xmin = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13)) {
-          xmin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
+          _impl_.xmin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float ymin = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
-          ymin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+          _impl_.ymin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float zmin = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
-          zmin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
+          _impl_.zmin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float xmax = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
-          xmax_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
+          _impl_.xmax_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float ymax = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
-          ymax_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
+          _impl_.ymax_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float zmax = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
-          zmax_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 53)) {
+          _impl_.zmax_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Bounds::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Bounds::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Bounds)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // float xmin = 1;
-  if (!(this->_internal_xmin() <= 0 && this->_internal_xmin() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xmin = this->_internal_xmin();
+  uint32_t raw_xmin;
+  memcpy(&raw_xmin, &tmp_xmin, sizeof(tmp_xmin));
+  if (raw_xmin != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_xmin(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(1, this->_internal_xmin(), target);
   }
 
   // float ymin = 2;
-  if (!(this->_internal_ymin() <= 0 && this->_internal_ymin() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ymin = this->_internal_ymin();
+  uint32_t raw_ymin;
+  memcpy(&raw_ymin, &tmp_ymin, sizeof(tmp_ymin));
+  if (raw_ymin != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_ymin(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_ymin(), target);
   }
 
   // float zmin = 3;
-  if (!(this->_internal_zmin() <= 0 && this->_internal_zmin() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zmin = this->_internal_zmin();
+  uint32_t raw_zmin;
+  memcpy(&raw_zmin, &tmp_zmin, sizeof(tmp_zmin));
+  if (raw_zmin != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_zmin(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_zmin(), target);
   }
 
   // float xmax = 4;
-  if (!(this->_internal_xmax() <= 0 && this->_internal_xmax() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xmax = this->_internal_xmax();
+  uint32_t raw_xmax;
+  memcpy(&raw_xmax, &tmp_xmax, sizeof(tmp_xmax));
+  if (raw_xmax != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_xmax(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_xmax(), target);
   }
 
   // float ymax = 5;
-  if (!(this->_internal_ymax() <= 0 && this->_internal_ymax() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ymax = this->_internal_ymax();
+  uint32_t raw_ymax;
+  memcpy(&raw_ymax, &tmp_ymax, sizeof(tmp_ymax));
+  if (raw_ymax != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_ymax(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_ymax(), target);
   }
 
   // float zmax = 6;
-  if (!(this->_internal_zmax() <= 0 && this->_internal_zmax() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zmax = this->_internal_zmax();
+  uint32_t raw_zmax;
+  memcpy(&raw_zmax, &tmp_zmax, sizeof(tmp_zmax));
+  if (raw_zmax != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_zmax(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(6, this->_internal_zmax(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Bounds)
   return target;
@@ -1893,79 +1778,125 @@ size_t Bounds::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Bounds)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // float xmin = 1;
-  if (!(this->_internal_xmin() <= 0 && this->_internal_xmin() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xmin = this->_internal_xmin();
+  uint32_t raw_xmin;
+  memcpy(&raw_xmin, &tmp_xmin, sizeof(tmp_xmin));
+  if (raw_xmin != 0) {
     total_size += 1 + 4;
   }
 
   // float ymin = 2;
-  if (!(this->_internal_ymin() <= 0 && this->_internal_ymin() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ymin = this->_internal_ymin();
+  uint32_t raw_ymin;
+  memcpy(&raw_ymin, &tmp_ymin, sizeof(tmp_ymin));
+  if (raw_ymin != 0) {
     total_size += 1 + 4;
   }
 
   // float zmin = 3;
-  if (!(this->_internal_zmin() <= 0 && this->_internal_zmin() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zmin = this->_internal_zmin();
+  uint32_t raw_zmin;
+  memcpy(&raw_zmin, &tmp_zmin, sizeof(tmp_zmin));
+  if (raw_zmin != 0) {
     total_size += 1 + 4;
   }
 
   // float xmax = 4;
-  if (!(this->_internal_xmax() <= 0 && this->_internal_xmax() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xmax = this->_internal_xmax();
+  uint32_t raw_xmax;
+  memcpy(&raw_xmax, &tmp_xmax, sizeof(tmp_xmax));
+  if (raw_xmax != 0) {
     total_size += 1 + 4;
   }
 
   // float ymax = 5;
-  if (!(this->_internal_ymax() <= 0 && this->_internal_ymax() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ymax = this->_internal_ymax();
+  uint32_t raw_ymax;
+  memcpy(&raw_ymax, &tmp_ymax, sizeof(tmp_ymax));
+  if (raw_ymax != 0) {
     total_size += 1 + 4;
   }
 
   // float zmax = 6;
-  if (!(this->_internal_zmax() <= 0 && this->_internal_zmax() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zmax = this->_internal_zmax();
+  uint32_t raw_zmax;
+  memcpy(&raw_zmax, &tmp_zmax, sizeof(tmp_zmax));
+  if (raw_zmax != 0) {
     total_size += 1 + 4;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Bounds::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Bounds*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Bounds::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Bounds::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Bounds::GetClassData() const { return &_class_data_; }
 
-void Bounds::MergeFrom(const Bounds& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Bounds)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Bounds::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Bounds*>(&to_msg);
+  auto& from = static_cast<const Bounds&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Bounds)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!(from._internal_xmin() <= 0 && from._internal_xmin() >= 0)) {
-    _internal_set_xmin(from._internal_xmin());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xmin = from._internal_xmin();
+  uint32_t raw_xmin;
+  memcpy(&raw_xmin, &tmp_xmin, sizeof(tmp_xmin));
+  if (raw_xmin != 0) {
+    _this->_internal_set_xmin(from._internal_xmin());
   }
-  if (!(from._internal_ymin() <= 0 && from._internal_ymin() >= 0)) {
-    _internal_set_ymin(from._internal_ymin());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ymin = from._internal_ymin();
+  uint32_t raw_ymin;
+  memcpy(&raw_ymin, &tmp_ymin, sizeof(tmp_ymin));
+  if (raw_ymin != 0) {
+    _this->_internal_set_ymin(from._internal_ymin());
   }
-  if (!(from._internal_zmin() <= 0 && from._internal_zmin() >= 0)) {
-    _internal_set_zmin(from._internal_zmin());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zmin = from._internal_zmin();
+  uint32_t raw_zmin;
+  memcpy(&raw_zmin, &tmp_zmin, sizeof(tmp_zmin));
+  if (raw_zmin != 0) {
+    _this->_internal_set_zmin(from._internal_zmin());
   }
-  if (!(from._internal_xmax() <= 0 && from._internal_xmax() >= 0)) {
-    _internal_set_xmax(from._internal_xmax());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xmax = from._internal_xmax();
+  uint32_t raw_xmax;
+  memcpy(&raw_xmax, &tmp_xmax, sizeof(tmp_xmax));
+  if (raw_xmax != 0) {
+    _this->_internal_set_xmax(from._internal_xmax());
   }
-  if (!(from._internal_ymax() <= 0 && from._internal_ymax() >= 0)) {
-    _internal_set_ymax(from._internal_ymax());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ymax = from._internal_ymax();
+  uint32_t raw_ymax;
+  memcpy(&raw_ymax, &tmp_ymax, sizeof(tmp_ymax));
+  if (raw_ymax != 0) {
+    _this->_internal_set_ymax(from._internal_ymax());
   }
-  if (!(from._internal_zmax() <= 0 && from._internal_zmax() >= 0)) {
-    _internal_set_zmax(from._internal_zmax());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zmax = from._internal_zmax();
+  uint32_t raw_zmax;
+  memcpy(&raw_zmax, &tmp_zmax, sizeof(tmp_zmax));
+  if (raw_zmax != 0) {
+    _this->_internal_set_zmax(from._internal_zmax());
   }
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Bounds::CopyFrom(const Bounds& from) {
@@ -1983,17 +1914,18 @@ void Bounds::InternalSwap(Bounds* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Bounds, zmax_)
-      + sizeof(Bounds::zmax_)
-      - PROTOBUF_FIELD_OFFSET(Bounds, xmin_)>(
-          reinterpret_cast<char*>(&xmin_),
-          reinterpret_cast<char*>(&other->xmin_));
+      PROTOBUF_FIELD_OFFSET(Bounds, _impl_.zmax_)
+      + sizeof(Bounds::_impl_.zmax_)
+      - PROTOBUF_FIELD_OFFSET(Bounds, _impl_.xmin_)>(
+          reinterpret_cast<char*>(&_impl_.xmin_),
+          reinterpret_cast<char*>(&other->_impl_.xmin_));
 }
 
-std::string Bounds::GetTypeName() const {
-  return "DTCC.Bounds";
+::PROTOBUF_NAMESPACE_ID::Metadata Bounds::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[7]);
 }
-
 
 // ===================================================================
 
@@ -2003,115 +1935,129 @@ class Transform::_Internal {
 
 Transform::Transform(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  affine_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.Transform)
 }
 Transform::Transform(const Transform& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      affine_(from.affine_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  srs_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Transform* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.affine_){from._impl_.affine_}
+    , decltype(_impl_.srs_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.srs_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.srs_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_srs().empty()) {
-    srs_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_srs(), 
-      GetArenaForAllocation());
+    _this->_impl_.srs_.Set(from._internal_srs(), 
+      _this->GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:DTCC.Transform)
 }
 
-inline void Transform::SharedCtor() {
-srs_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void Transform::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.affine_){arena}
+    , decltype(_impl_.srs_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.srs_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.srs_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Transform::~Transform() {
   // @@protoc_insertion_point(destructor:DTCC.Transform)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Transform::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  srs_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.affine_.~RepeatedField();
+  _impl_.srs_.Destroy();
 }
 
-void Transform::ArenaDtor(void* object) {
-  Transform* _this = reinterpret_cast< Transform* >(object);
-  (void)_this;
-}
-void Transform::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Transform::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Transform::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Transform)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  affine_.Clear();
-  srs_.ClearToEmpty();
-  _internal_metadata_.Clear<std::string>();
+  _impl_.affine_.Clear();
+  _impl_.srs_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Transform::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Transform::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string srs = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_srs();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Transform.srs"));
+        } else
+          goto handle_unusual;
         continue;
       // repeated float affine = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_affine(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21) {
+        } else if (static_cast<uint8_t>(tag) == 21) {
           _internal_add_affine(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Transform::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Transform::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Transform)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string srs = 1;
@@ -2130,8 +2076,8 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Transform)
   return target;
@@ -2141,7 +2087,7 @@ size_t Transform::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Transform)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2151,8 +2097,7 @@ size_t Transform::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
@@ -2164,31 +2109,29 @@ size_t Transform::ByteSizeLong() const {
         this->_internal_srs());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Transform::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Transform*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Transform::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Transform::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Transform::GetClassData() const { return &_class_data_; }
 
-void Transform::MergeFrom(const Transform& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Transform)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Transform::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Transform*>(&to_msg);
+  auto& from = static_cast<const Transform&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Transform)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  affine_.MergeFrom(from.affine_);
+  _this->_impl_.affine_.MergeFrom(from._impl_.affine_);
   if (!from._internal_srs().empty()) {
-    _internal_set_srs(from._internal_srs());
+    _this->_internal_set_srs(from._internal_srs());
   }
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Transform::CopyFrom(const Transform& from) {
@@ -2204,19 +2147,21 @@ bool Transform::IsInitialized() const {
 
 void Transform::InternalSwap(Transform* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  affine_.InternalSwap(&other->affine_);
+  _impl_.affine_.InternalSwap(&other->_impl_.affine_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &srs_, GetArenaForAllocation(),
-      &other->srs_, other->GetArenaForAllocation()
+      &_impl_.srs_, lhs_arena,
+      &other->_impl_.srs_, rhs_arena
   );
 }
 
-std::string Transform::GetTypeName() const {
-  return "DTCC.Transform";
+::PROTOBUF_NAMESPACE_ID::Metadata Transform::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[8]);
 }
-
 
 // ===================================================================
 
@@ -2226,98 +2171,103 @@ class LineString::_Internal {
 
 LineString::LineString(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  vertices_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.LineString)
 }
 LineString::LineString(const LineString& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      vertices_(from.vertices_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  LineString* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.vertices_){from._impl_.vertices_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.LineString)
 }
 
-inline void LineString::SharedCtor() {
+inline void LineString::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.vertices_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 LineString::~LineString() {
   // @@protoc_insertion_point(destructor:DTCC.LineString)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void LineString::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.vertices_.~RepeatedField();
 }
 
-void LineString::ArenaDtor(void* object) {
-  LineString* _this = reinterpret_cast< LineString* >(object);
-  (void)_this;
-}
-void LineString::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void LineString::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void LineString::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.LineString)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  vertices_.Clear();
-  _internal_metadata_.Clear<std::string>();
+  _impl_.vertices_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* LineString::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* LineString::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated float vertices = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_vertices(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13) {
+        } else if (static_cast<uint8_t>(tag) == 13) {
           _internal_add_vertices(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* LineString::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* LineString::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.LineString)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated float vertices = 1;
@@ -2326,8 +2276,8 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.LineString)
   return target;
@@ -2337,7 +2287,7 @@ size_t LineString::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.LineString)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2347,34 +2297,31 @@ size_t LineString::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void LineString::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const LineString*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData LineString::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    LineString::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*LineString::GetClassData() const { return &_class_data_; }
 
-void LineString::MergeFrom(const LineString& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.LineString)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void LineString::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<LineString*>(&to_msg);
+  auto& from = static_cast<const LineString&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.LineString)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  vertices_.MergeFrom(from.vertices_);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_impl_.vertices_.MergeFrom(from._impl_.vertices_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void LineString::CopyFrom(const LineString& from) {
@@ -2391,13 +2338,14 @@ bool LineString::IsInitialized() const {
 void LineString::InternalSwap(LineString* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  vertices_.InternalSwap(&other->vertices_);
+  _impl_.vertices_.InternalSwap(&other->_impl_.vertices_);
 }
 
-std::string LineString::GetTypeName() const {
-  return "DTCC.LineString";
+::PROTOBUF_NAMESPACE_ID::Metadata LineString::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[9]);
 }
-
 
 // ===================================================================
 
@@ -2416,52 +2364,52 @@ class Geometry::_Internal {
 
 const ::DTCC::Bounds&
 Geometry::_Internal::bounds(const Geometry* msg) {
-  return *msg->bounds_;
+  return *msg->_impl_.bounds_;
 }
 const ::DTCC::Transform&
 Geometry::_Internal::transform(const Geometry* msg) {
-  return *msg->transform_;
+  return *msg->_impl_.transform_;
 }
 const ::DTCC::Surface&
 Geometry::_Internal::surface(const Geometry* msg) {
-  return *msg->type_.surface_;
+  return *msg->_impl_.type_.surface_;
 }
 const ::DTCC::MultiSurface&
 Geometry::_Internal::multi_surface(const Geometry* msg) {
-  return *msg->type_.multi_surface_;
+  return *msg->_impl_.type_.multi_surface_;
 }
 const ::DTCC::PointCloud&
 Geometry::_Internal::point_cloud(const Geometry* msg) {
-  return *msg->type_.point_cloud_;
+  return *msg->_impl_.type_.point_cloud_;
 }
 const ::DTCC::Mesh&
 Geometry::_Internal::mesh(const Geometry* msg) {
-  return *msg->type_.mesh_;
+  return *msg->_impl_.type_.mesh_;
 }
 const ::DTCC::VolumeMesh&
 Geometry::_Internal::volume_mesh(const Geometry* msg) {
-  return *msg->type_.volume_mesh_;
+  return *msg->_impl_.type_.volume_mesh_;
 }
 const ::DTCC::Grid&
 Geometry::_Internal::grid(const Geometry* msg) {
-  return *msg->type_.grid_;
+  return *msg->_impl_.type_.grid_;
 }
 const ::DTCC::VolumeGrid&
 Geometry::_Internal::volume_grid(const Geometry* msg) {
-  return *msg->type_.volume_grid_;
+  return *msg->_impl_.type_.volume_grid_;
 }
 void Geometry::set_allocated_surface(::DTCC::Surface* surface) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_type();
   if (surface) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::Surface>::GetOwningArena(surface);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(surface);
     if (message_arena != submessage_arena) {
       surface = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, surface, submessage_arena);
     }
     set_has_surface();
-    type_.surface_ = surface;
+    _impl_.type_.surface_ = surface;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Geometry.surface)
 }
@@ -2470,13 +2418,13 @@ void Geometry::set_allocated_multi_surface(::DTCC::MultiSurface* multi_surface) 
   clear_type();
   if (multi_surface) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::MultiSurface>::GetOwningArena(multi_surface);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(multi_surface);
     if (message_arena != submessage_arena) {
       multi_surface = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, multi_surface, submessage_arena);
     }
     set_has_multi_surface();
-    type_.multi_surface_ = multi_surface;
+    _impl_.type_.multi_surface_ = multi_surface;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Geometry.multi_surface)
 }
@@ -2485,13 +2433,13 @@ void Geometry::set_allocated_point_cloud(::DTCC::PointCloud* point_cloud) {
   clear_type();
   if (point_cloud) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::PointCloud>::GetOwningArena(point_cloud);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(point_cloud);
     if (message_arena != submessage_arena) {
       point_cloud = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, point_cloud, submessage_arena);
     }
     set_has_point_cloud();
-    type_.point_cloud_ = point_cloud;
+    _impl_.type_.point_cloud_ = point_cloud;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Geometry.point_cloud)
 }
@@ -2500,13 +2448,13 @@ void Geometry::set_allocated_mesh(::DTCC::Mesh* mesh) {
   clear_type();
   if (mesh) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::Mesh>::GetOwningArena(mesh);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(mesh);
     if (message_arena != submessage_arena) {
       mesh = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, mesh, submessage_arena);
     }
     set_has_mesh();
-    type_.mesh_ = mesh;
+    _impl_.type_.mesh_ = mesh;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Geometry.mesh)
 }
@@ -2515,13 +2463,13 @@ void Geometry::set_allocated_volume_mesh(::DTCC::VolumeMesh* volume_mesh) {
   clear_type();
   if (volume_mesh) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::VolumeMesh>::GetOwningArena(volume_mesh);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(volume_mesh);
     if (message_arena != submessage_arena) {
       volume_mesh = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, volume_mesh, submessage_arena);
     }
     set_has_volume_mesh();
-    type_.volume_mesh_ = volume_mesh;
+    _impl_.type_.volume_mesh_ = volume_mesh;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Geometry.volume_mesh)
 }
@@ -2530,13 +2478,13 @@ void Geometry::set_allocated_grid(::DTCC::Grid* grid) {
   clear_type();
   if (grid) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::Grid>::GetOwningArena(grid);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(grid);
     if (message_arena != submessage_arena) {
       grid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, grid, submessage_arena);
     }
     set_has_grid();
-    type_.grid_ = grid;
+    _impl_.type_.grid_ = grid;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Geometry.grid)
 }
@@ -2545,66 +2493,74 @@ void Geometry::set_allocated_volume_grid(::DTCC::VolumeGrid* volume_grid) {
   clear_type();
   if (volume_grid) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::DTCC::VolumeGrid>::GetOwningArena(volume_grid);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(volume_grid);
     if (message_arena != submessage_arena) {
       volume_grid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, volume_grid, submessage_arena);
     }
     set_has_volume_grid();
-    type_.volume_grid_ = volume_grid;
+    _impl_.type_.volume_grid_ = volume_grid;
   }
   // @@protoc_insertion_point(field_set_allocated:DTCC.Geometry.volume_grid)
 }
 Geometry::Geometry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.Geometry)
 }
 Geometry::Geometry(const Geometry& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Geometry* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.bounds_){nullptr}
+    , decltype(_impl_.transform_){nullptr}
+    , decltype(_impl_.type_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_bounds()) {
-    bounds_ = new ::DTCC::Bounds(*from.bounds_);
-  } else {
-    bounds_ = nullptr;
+    _this->_impl_.bounds_ = new ::DTCC::Bounds(*from._impl_.bounds_);
   }
   if (from._internal_has_transform()) {
-    transform_ = new ::DTCC::Transform(*from.transform_);
-  } else {
-    transform_ = nullptr;
+    _this->_impl_.transform_ = new ::DTCC::Transform(*from._impl_.transform_);
   }
   clear_has_type();
   switch (from.type_case()) {
     case kSurface: {
-      _internal_mutable_surface()->::DTCC::Surface::MergeFrom(from._internal_surface());
+      _this->_internal_mutable_surface()->::DTCC::Surface::MergeFrom(
+          from._internal_surface());
       break;
     }
     case kMultiSurface: {
-      _internal_mutable_multi_surface()->::DTCC::MultiSurface::MergeFrom(from._internal_multi_surface());
+      _this->_internal_mutable_multi_surface()->::DTCC::MultiSurface::MergeFrom(
+          from._internal_multi_surface());
       break;
     }
     case kPointCloud: {
-      _internal_mutable_point_cloud()->::DTCC::PointCloud::MergeFrom(from._internal_point_cloud());
+      _this->_internal_mutable_point_cloud()->::DTCC::PointCloud::MergeFrom(
+          from._internal_point_cloud());
       break;
     }
     case kMesh: {
-      _internal_mutable_mesh()->::DTCC::Mesh::MergeFrom(from._internal_mesh());
+      _this->_internal_mutable_mesh()->::DTCC::Mesh::MergeFrom(
+          from._internal_mesh());
       break;
     }
     case kVolumeMesh: {
-      _internal_mutable_volume_mesh()->::DTCC::VolumeMesh::MergeFrom(from._internal_volume_mesh());
+      _this->_internal_mutable_volume_mesh()->::DTCC::VolumeMesh::MergeFrom(
+          from._internal_volume_mesh());
       break;
     }
     case kGrid: {
-      _internal_mutable_grid()->::DTCC::Grid::MergeFrom(from._internal_grid());
+      _this->_internal_mutable_grid()->::DTCC::Grid::MergeFrom(
+          from._internal_grid());
       break;
     }
     case kVolumeGrid: {
-      _internal_mutable_volume_grid()->::DTCC::VolumeGrid::MergeFrom(from._internal_volume_grid());
+      _this->_internal_mutable_volume_grid()->::DTCC::VolumeGrid::MergeFrom(
+          from._internal_volume_grid());
       break;
     }
     case TYPE_NOT_SET: {
@@ -2614,38 +2570,40 @@ Geometry::Geometry(const Geometry& from)
   // @@protoc_insertion_point(copy_constructor:DTCC.Geometry)
 }
 
-inline void Geometry::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&bounds_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&transform_) -
-    reinterpret_cast<char*>(&bounds_)) + sizeof(transform_));
-clear_has_type();
+inline void Geometry::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.bounds_){nullptr}
+    , decltype(_impl_.transform_){nullptr}
+    , decltype(_impl_.type_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  clear_has_type();
 }
 
 Geometry::~Geometry() {
   // @@protoc_insertion_point(destructor:DTCC.Geometry)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Geometry::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete bounds_;
-  if (this != internal_default_instance()) delete transform_;
+  if (this != internal_default_instance()) delete _impl_.bounds_;
+  if (this != internal_default_instance()) delete _impl_.transform_;
   if (has_type()) {
     clear_type();
   }
 }
 
-void Geometry::ArenaDtor(void* object) {
-  Geometry* _this = reinterpret_cast< Geometry* >(object);
-  (void)_this;
-}
-void Geometry::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Geometry::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Geometry::clear_type() {
@@ -2653,43 +2611,43 @@ void Geometry::clear_type() {
   switch (type_case()) {
     case kSurface: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.surface_;
+        delete _impl_.type_.surface_;
       }
       break;
     }
     case kMultiSurface: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.multi_surface_;
+        delete _impl_.type_.multi_surface_;
       }
       break;
     }
     case kPointCloud: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.point_cloud_;
+        delete _impl_.type_.point_cloud_;
       }
       break;
     }
     case kMesh: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.mesh_;
+        delete _impl_.type_.mesh_;
       }
       break;
     }
     case kVolumeMesh: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.volume_mesh_;
+        delete _impl_.type_.volume_mesh_;
       }
       break;
     }
     case kGrid: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.grid_;
+        delete _impl_.type_.grid_;
       }
       break;
     }
     case kVolumeGrid: {
       if (GetArenaForAllocation() == nullptr) {
-        delete type_.volume_grid_;
+        delete _impl_.type_.volume_grid_;
       }
       break;
     }
@@ -2697,201 +2655,201 @@ void Geometry::clear_type() {
       break;
     }
   }
-  _oneof_case_[0] = TYPE_NOT_SET;
+  _impl_._oneof_case_[0] = TYPE_NOT_SET;
 }
 
 
 void Geometry::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Geometry)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && bounds_ != nullptr) {
-    delete bounds_;
+  if (GetArenaForAllocation() == nullptr && _impl_.bounds_ != nullptr) {
+    delete _impl_.bounds_;
   }
-  bounds_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && transform_ != nullptr) {
-    delete transform_;
+  _impl_.bounds_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.transform_ != nullptr) {
+    delete _impl_.transform_;
   }
-  transform_ = nullptr;
+  _impl_.transform_ = nullptr;
   clear_type();
-  _internal_metadata_.Clear<std::string>();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Geometry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Geometry::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .DTCC.Bounds bounds = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_bounds(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.Transform transform = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_transform(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.Surface surface = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_surface(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.MultiSurface multi_surface = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_multi_surface(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.PointCloud point_cloud = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_point_cloud(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.Mesh mesh = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_mesh(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.VolumeMesh volume_mesh = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_volume_mesh(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.Grid grid = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_grid(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.VolumeGrid volume_grid = 9;
       case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
           ptr = ctx->ParseMessage(_internal_mutable_volume_grid(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Geometry::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Geometry::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Geometry)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .DTCC.Bounds bounds = 1;
   if (this->_internal_has_bounds()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::bounds(this), target, stream);
+      InternalWriteMessage(1, _Internal::bounds(this),
+        _Internal::bounds(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.Transform transform = 2;
   if (this->_internal_has_transform()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::transform(this), target, stream);
+      InternalWriteMessage(2, _Internal::transform(this),
+        _Internal::transform(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.Surface surface = 3;
   if (_internal_has_surface()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::surface(this), target, stream);
+      InternalWriteMessage(3, _Internal::surface(this),
+        _Internal::surface(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.MultiSurface multi_surface = 4;
   if (_internal_has_multi_surface()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::multi_surface(this), target, stream);
+      InternalWriteMessage(4, _Internal::multi_surface(this),
+        _Internal::multi_surface(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.PointCloud point_cloud = 5;
   if (_internal_has_point_cloud()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::point_cloud(this), target, stream);
+      InternalWriteMessage(5, _Internal::point_cloud(this),
+        _Internal::point_cloud(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.Mesh mesh = 6;
   if (_internal_has_mesh()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::mesh(this), target, stream);
+      InternalWriteMessage(6, _Internal::mesh(this),
+        _Internal::mesh(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.VolumeMesh volume_mesh = 7;
   if (_internal_has_volume_mesh()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        7, _Internal::volume_mesh(this), target, stream);
+      InternalWriteMessage(7, _Internal::volume_mesh(this),
+        _Internal::volume_mesh(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.Grid grid = 8;
   if (_internal_has_grid()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        8, _Internal::grid(this), target, stream);
+      InternalWriteMessage(8, _Internal::grid(this),
+        _Internal::grid(this).GetCachedSize(), target, stream);
   }
 
   // .DTCC.VolumeGrid volume_grid = 9;
   if (_internal_has_volume_grid()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        9, _Internal::volume_grid(this), target, stream);
+      InternalWriteMessage(9, _Internal::volume_grid(this),
+        _Internal::volume_grid(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Geometry)
   return target;
@@ -2901,7 +2859,7 @@ size_t Geometry::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Geometry)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2909,14 +2867,14 @@ size_t Geometry::ByteSizeLong() const {
   if (this->_internal_has_bounds()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *bounds_);
+        *_impl_.bounds_);
   }
 
   // .DTCC.Transform transform = 2;
   if (this->_internal_has_transform()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *transform_);
+        *_impl_.transform_);
   }
 
   switch (type_case()) {
@@ -2924,115 +2882,122 @@ size_t Geometry::ByteSizeLong() const {
     case kSurface: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.surface_);
+          *_impl_.type_.surface_);
       break;
     }
     // .DTCC.MultiSurface multi_surface = 4;
     case kMultiSurface: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.multi_surface_);
+          *_impl_.type_.multi_surface_);
       break;
     }
     // .DTCC.PointCloud point_cloud = 5;
     case kPointCloud: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.point_cloud_);
+          *_impl_.type_.point_cloud_);
       break;
     }
     // .DTCC.Mesh mesh = 6;
     case kMesh: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.mesh_);
+          *_impl_.type_.mesh_);
       break;
     }
     // .DTCC.VolumeMesh volume_mesh = 7;
     case kVolumeMesh: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.volume_mesh_);
+          *_impl_.type_.volume_mesh_);
       break;
     }
     // .DTCC.Grid grid = 8;
     case kGrid: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.grid_);
+          *_impl_.type_.grid_);
       break;
     }
     // .DTCC.VolumeGrid volume_grid = 9;
     case kVolumeGrid: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *type_.volume_grid_);
+          *_impl_.type_.volume_grid_);
       break;
     }
     case TYPE_NOT_SET: {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Geometry::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Geometry*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Geometry::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Geometry::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Geometry::GetClassData() const { return &_class_data_; }
 
-void Geometry::MergeFrom(const Geometry& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Geometry)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Geometry::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Geometry*>(&to_msg);
+  auto& from = static_cast<const Geometry&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Geometry)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_bounds()) {
-    _internal_mutable_bounds()->::DTCC::Bounds::MergeFrom(from._internal_bounds());
+    _this->_internal_mutable_bounds()->::DTCC::Bounds::MergeFrom(
+        from._internal_bounds());
   }
   if (from._internal_has_transform()) {
-    _internal_mutable_transform()->::DTCC::Transform::MergeFrom(from._internal_transform());
+    _this->_internal_mutable_transform()->::DTCC::Transform::MergeFrom(
+        from._internal_transform());
   }
   switch (from.type_case()) {
     case kSurface: {
-      _internal_mutable_surface()->::DTCC::Surface::MergeFrom(from._internal_surface());
+      _this->_internal_mutable_surface()->::DTCC::Surface::MergeFrom(
+          from._internal_surface());
       break;
     }
     case kMultiSurface: {
-      _internal_mutable_multi_surface()->::DTCC::MultiSurface::MergeFrom(from._internal_multi_surface());
+      _this->_internal_mutable_multi_surface()->::DTCC::MultiSurface::MergeFrom(
+          from._internal_multi_surface());
       break;
     }
     case kPointCloud: {
-      _internal_mutable_point_cloud()->::DTCC::PointCloud::MergeFrom(from._internal_point_cloud());
+      _this->_internal_mutable_point_cloud()->::DTCC::PointCloud::MergeFrom(
+          from._internal_point_cloud());
       break;
     }
     case kMesh: {
-      _internal_mutable_mesh()->::DTCC::Mesh::MergeFrom(from._internal_mesh());
+      _this->_internal_mutable_mesh()->::DTCC::Mesh::MergeFrom(
+          from._internal_mesh());
       break;
     }
     case kVolumeMesh: {
-      _internal_mutable_volume_mesh()->::DTCC::VolumeMesh::MergeFrom(from._internal_volume_mesh());
+      _this->_internal_mutable_volume_mesh()->::DTCC::VolumeMesh::MergeFrom(
+          from._internal_volume_mesh());
       break;
     }
     case kGrid: {
-      _internal_mutable_grid()->::DTCC::Grid::MergeFrom(from._internal_grid());
+      _this->_internal_mutable_grid()->::DTCC::Grid::MergeFrom(
+          from._internal_grid());
       break;
     }
     case kVolumeGrid: {
-      _internal_mutable_volume_grid()->::DTCC::VolumeGrid::MergeFrom(from._internal_volume_grid());
+      _this->_internal_mutable_volume_grid()->::DTCC::VolumeGrid::MergeFrom(
+          from._internal_volume_grid());
       break;
     }
     case TYPE_NOT_SET: {
       break;
     }
   }
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Geometry::CopyFrom(const Geometry& from) {
@@ -3050,19 +3015,20 @@ void Geometry::InternalSwap(Geometry* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Geometry, transform_)
-      + sizeof(Geometry::transform_)
-      - PROTOBUF_FIELD_OFFSET(Geometry, bounds_)>(
-          reinterpret_cast<char*>(&bounds_),
-          reinterpret_cast<char*>(&other->bounds_));
-  swap(type_, other->type_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
+      PROTOBUF_FIELD_OFFSET(Geometry, _impl_.transform_)
+      + sizeof(Geometry::_impl_.transform_)
+      - PROTOBUF_FIELD_OFFSET(Geometry, _impl_.bounds_)>(
+          reinterpret_cast<char*>(&_impl_.bounds_),
+          reinterpret_cast<char*>(&other->_impl_.bounds_));
+  swap(_impl_.type_, other->_impl_.type_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
-std::string Geometry::GetTypeName() const {
-  return "DTCC.Geometry";
+::PROTOBUF_NAMESPACE_ID::Metadata Geometry::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[10]);
 }
-
 
 // ===================================================================
 
@@ -3072,90 +3038,98 @@ class Surface::_Internal {
 
 Surface::Surface(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  vertices_(arena),
-  normal_(arena),
-  holes_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.Surface)
 }
 Surface::Surface(const Surface& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      vertices_(from.vertices_),
-      normal_(from.normal_),
-      holes_(from.holes_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Surface* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.vertices_){from._impl_.vertices_}
+    , decltype(_impl_.normal_){from._impl_.normal_}
+    , decltype(_impl_.holes_){from._impl_.holes_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.Surface)
 }
 
-inline void Surface::SharedCtor() {
+inline void Surface::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.vertices_){arena}
+    , decltype(_impl_.normal_){arena}
+    , decltype(_impl_.holes_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 Surface::~Surface() {
   // @@protoc_insertion_point(destructor:DTCC.Surface)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Surface::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.vertices_.~RepeatedField();
+  _impl_.normal_.~RepeatedField();
+  _impl_.holes_.~RepeatedPtrField();
 }
 
-void Surface::ArenaDtor(void* object) {
-  Surface* _this = reinterpret_cast< Surface* >(object);
-  (void)_this;
-}
-void Surface::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Surface::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Surface::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Surface)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  vertices_.Clear();
-  normal_.Clear();
-  holes_.Clear();
-  _internal_metadata_.Clear<std::string>();
+  _impl_.vertices_.Clear();
+  _impl_.normal_.Clear();
+  _impl_.holes_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Surface::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Surface::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated float vertices = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_vertices(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13) {
+        } else if (static_cast<uint8_t>(tag) == 13) {
           _internal_add_vertices(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated float normal = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_normal(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21) {
+        } else if (static_cast<uint8_t>(tag) == 21) {
           _internal_add_normal(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .DTCC.LineString holes = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -3163,35 +3137,36 @@ const char* Surface::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Surface::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Surface::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Surface)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated float vertices = 1;
@@ -3205,16 +3180,16 @@ failure:
   }
 
   // repeated .DTCC.LineString holes = 3;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_holes_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_holes_size()); i < n; i++) {
+    const auto& repfield = this->_internal_holes(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, this->_internal_holes(i), target, stream);
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Surface)
   return target;
@@ -3224,7 +3199,7 @@ size_t Surface::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Surface)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3234,8 +3209,7 @@ size_t Surface::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
@@ -3246,43 +3220,40 @@ size_t Surface::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
 
   // repeated .DTCC.LineString holes = 3;
   total_size += 1UL * this->_internal_holes_size();
-  for (const auto& msg : this->holes_) {
+  for (const auto& msg : this->_impl_.holes_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Surface::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Surface*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Surface::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Surface::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Surface::GetClassData() const { return &_class_data_; }
 
-void Surface::MergeFrom(const Surface& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Surface)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Surface::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Surface*>(&to_msg);
+  auto& from = static_cast<const Surface&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Surface)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  vertices_.MergeFrom(from.vertices_);
-  normal_.MergeFrom(from.normal_);
-  holes_.MergeFrom(from.holes_);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_impl_.vertices_.MergeFrom(from._impl_.vertices_);
+  _this->_impl_.normal_.MergeFrom(from._impl_.normal_);
+  _this->_impl_.holes_.MergeFrom(from._impl_.holes_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Surface::CopyFrom(const Surface& from) {
@@ -3299,15 +3270,16 @@ bool Surface::IsInitialized() const {
 void Surface::InternalSwap(Surface* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  vertices_.InternalSwap(&other->vertices_);
-  normal_.InternalSwap(&other->normal_);
-  holes_.InternalSwap(&other->holes_);
+  _impl_.vertices_.InternalSwap(&other->_impl_.vertices_);
+  _impl_.normal_.InternalSwap(&other->_impl_.normal_);
+  _impl_.holes_.InternalSwap(&other->_impl_.holes_);
 }
 
-std::string Surface::GetTypeName() const {
-  return "DTCC.Surface";
+::PROTOBUF_NAMESPACE_ID::Metadata Surface::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[11]);
 }
-
 
 // ===================================================================
 
@@ -3317,64 +3289,68 @@ class MultiSurface::_Internal {
 
 MultiSurface::MultiSurface(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  surfaces_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.MultiSurface)
 }
 MultiSurface::MultiSurface(const MultiSurface& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      surfaces_(from.surfaces_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  MultiSurface* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.surfaces_){from._impl_.surfaces_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.MultiSurface)
 }
 
-inline void MultiSurface::SharedCtor() {
+inline void MultiSurface::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.surfaces_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 MultiSurface::~MultiSurface() {
   // @@protoc_insertion_point(destructor:DTCC.MultiSurface)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void MultiSurface::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.surfaces_.~RepeatedPtrField();
 }
 
-void MultiSurface::ArenaDtor(void* object) {
-  MultiSurface* _this = reinterpret_cast< MultiSurface* >(object);
-  (void)_this;
-}
-void MultiSurface::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void MultiSurface::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void MultiSurface::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.MultiSurface)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  surfaces_.Clear();
-  _internal_metadata_.Clear<std::string>();
+  _impl_.surfaces_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* MultiSurface::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MultiSurface::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .DTCC.Surface surfaces = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -3382,48 +3358,49 @@ const char* MultiSurface::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* MultiSurface::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* MultiSurface::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.MultiSurface)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .DTCC.Surface surfaces = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_surfaces_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_surfaces_size()); i < n; i++) {
+    const auto& repfield = this->_internal_surfaces(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_surfaces(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.MultiSurface)
   return target;
@@ -3433,39 +3410,37 @@ size_t MultiSurface::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.MultiSurface)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated .DTCC.Surface surfaces = 1;
   total_size += 1UL * this->_internal_surfaces_size();
-  for (const auto& msg : this->surfaces_) {
+  for (const auto& msg : this->_impl_.surfaces_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void MultiSurface::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const MultiSurface*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MultiSurface::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    MultiSurface::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MultiSurface::GetClassData() const { return &_class_data_; }
 
-void MultiSurface::MergeFrom(const MultiSurface& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.MultiSurface)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void MultiSurface::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<MultiSurface*>(&to_msg);
+  auto& from = static_cast<const MultiSurface&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.MultiSurface)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  surfaces_.MergeFrom(from.surfaces_);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_impl_.surfaces_.MergeFrom(from._impl_.surfaces_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void MultiSurface::CopyFrom(const MultiSurface& from) {
@@ -3482,13 +3457,14 @@ bool MultiSurface::IsInitialized() const {
 void MultiSurface::InternalSwap(MultiSurface* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  surfaces_.InternalSwap(&other->surfaces_);
+  _impl_.surfaces_.InternalSwap(&other->_impl_.surfaces_);
 }
 
-std::string MultiSurface::GetTypeName() const {
-  return "DTCC.MultiSurface";
+::PROTOBUF_NAMESPACE_ID::Metadata MultiSurface::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[12]);
 }
-
 
 // ===================================================================
 
@@ -3498,150 +3474,171 @@ class PointCloud::_Internal {
 
 PointCloud::PointCloud(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  points_(arena),
-  classification_(arena),
-  intensity_(arena),
-  return_number_(arena),
-  num_returns_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.PointCloud)
 }
 PointCloud::PointCloud(const PointCloud& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      points_(from.points_),
-      classification_(from.classification_),
-      intensity_(from.intensity_),
-      return_number_(from.return_number_),
-      num_returns_(from.num_returns_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  PointCloud* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.points_){from._impl_.points_}
+    , decltype(_impl_.classification_){from._impl_.classification_}
+    , /*decltype(_impl_._classification_cached_byte_size_)*/{0}
+    , decltype(_impl_.intensity_){from._impl_.intensity_}
+    , /*decltype(_impl_._intensity_cached_byte_size_)*/{0}
+    , decltype(_impl_.return_number_){from._impl_.return_number_}
+    , /*decltype(_impl_._return_number_cached_byte_size_)*/{0}
+    , decltype(_impl_.num_returns_){from._impl_.num_returns_}
+    , /*decltype(_impl_._num_returns_cached_byte_size_)*/{0}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.PointCloud)
 }
 
-inline void PointCloud::SharedCtor() {
+inline void PointCloud::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.points_){arena}
+    , decltype(_impl_.classification_){arena}
+    , /*decltype(_impl_._classification_cached_byte_size_)*/{0}
+    , decltype(_impl_.intensity_){arena}
+    , /*decltype(_impl_._intensity_cached_byte_size_)*/{0}
+    , decltype(_impl_.return_number_){arena}
+    , /*decltype(_impl_._return_number_cached_byte_size_)*/{0}
+    , decltype(_impl_.num_returns_){arena}
+    , /*decltype(_impl_._num_returns_cached_byte_size_)*/{0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 PointCloud::~PointCloud() {
   // @@protoc_insertion_point(destructor:DTCC.PointCloud)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void PointCloud::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.points_.~RepeatedField();
+  _impl_.classification_.~RepeatedField();
+  _impl_.intensity_.~RepeatedField();
+  _impl_.return_number_.~RepeatedField();
+  _impl_.num_returns_.~RepeatedField();
 }
 
-void PointCloud::ArenaDtor(void* object) {
-  PointCloud* _this = reinterpret_cast< PointCloud* >(object);
-  (void)_this;
-}
-void PointCloud::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void PointCloud::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void PointCloud::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.PointCloud)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  points_.Clear();
-  classification_.Clear();
-  intensity_.Clear();
-  return_number_.Clear();
-  num_returns_.Clear();
-  _internal_metadata_.Clear<std::string>();
+  _impl_.points_.Clear();
+  _impl_.classification_.Clear();
+  _impl_.intensity_.Clear();
+  _impl_.return_number_.Clear();
+  _impl_.num_returns_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* PointCloud::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* PointCloud::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated float points = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_points(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13) {
+        } else if (static_cast<uint8_t>(tag) == 13) {
           _internal_add_points(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated uint32 classification = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_classification(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
+        } else if (static_cast<uint8_t>(tag) == 16) {
           _internal_add_classification(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated uint32 intensity = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_intensity(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
+        } else if (static_cast<uint8_t>(tag) == 24) {
           _internal_add_intensity(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated uint32 return_number = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_return_number(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32) {
+        } else if (static_cast<uint8_t>(tag) == 32) {
           _internal_add_return_number(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated uint32 num_returns = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_num_returns(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40) {
+        } else if (static_cast<uint8_t>(tag) == 40) {
           _internal_add_num_returns(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* PointCloud::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* PointCloud::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.PointCloud)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated float points = 1;
@@ -3651,7 +3648,7 @@ failure:
 
   // repeated uint32 classification = 2;
   {
-    int byte_size = _classification_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _impl_._classification_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteUInt32Packed(
           2, _internal_classification(), byte_size, target);
@@ -3660,7 +3657,7 @@ failure:
 
   // repeated uint32 intensity = 3;
   {
-    int byte_size = _intensity_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _impl_._intensity_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteUInt32Packed(
           3, _internal_intensity(), byte_size, target);
@@ -3669,7 +3666,7 @@ failure:
 
   // repeated uint32 return_number = 4;
   {
-    int byte_size = _return_number_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _impl_._return_number_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteUInt32Packed(
           4, _internal_return_number(), byte_size, target);
@@ -3678,7 +3675,7 @@ failure:
 
   // repeated uint32 num_returns = 5;
   {
-    int byte_size = _num_returns_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _impl_._num_returns_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteUInt32Packed(
           5, _internal_num_returns(), byte_size, target);
@@ -3686,8 +3683,8 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.PointCloud)
   return target;
@@ -3697,7 +3694,7 @@ size_t PointCloud::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.PointCloud)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3707,98 +3704,91 @@ size_t PointCloud::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
 
   // repeated uint32 classification = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->classification_);
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.classification_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _classification_cached_byte_size_.store(cached_size,
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._classification_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // repeated uint32 intensity = 3;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->intensity_);
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.intensity_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _intensity_cached_byte_size_.store(cached_size,
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._intensity_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // repeated uint32 return_number = 4;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->return_number_);
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.return_number_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _return_number_cached_byte_size_.store(cached_size,
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._return_number_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // repeated uint32 num_returns = 5;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->num_returns_);
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.num_returns_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _num_returns_cached_byte_size_.store(cached_size,
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._num_returns_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void PointCloud::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const PointCloud*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PointCloud::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    PointCloud::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PointCloud::GetClassData() const { return &_class_data_; }
 
-void PointCloud::MergeFrom(const PointCloud& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.PointCloud)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void PointCloud::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PointCloud*>(&to_msg);
+  auto& from = static_cast<const PointCloud&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.PointCloud)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  points_.MergeFrom(from.points_);
-  classification_.MergeFrom(from.classification_);
-  intensity_.MergeFrom(from.intensity_);
-  return_number_.MergeFrom(from.return_number_);
-  num_returns_.MergeFrom(from.num_returns_);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_impl_.points_.MergeFrom(from._impl_.points_);
+  _this->_impl_.classification_.MergeFrom(from._impl_.classification_);
+  _this->_impl_.intensity_.MergeFrom(from._impl_.intensity_);
+  _this->_impl_.return_number_.MergeFrom(from._impl_.return_number_);
+  _this->_impl_.num_returns_.MergeFrom(from._impl_.num_returns_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void PointCloud::CopyFrom(const PointCloud& from) {
@@ -3815,17 +3805,18 @@ bool PointCloud::IsInitialized() const {
 void PointCloud::InternalSwap(PointCloud* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  points_.InternalSwap(&other->points_);
-  classification_.InternalSwap(&other->classification_);
-  intensity_.InternalSwap(&other->intensity_);
-  return_number_.InternalSwap(&other->return_number_);
-  num_returns_.InternalSwap(&other->num_returns_);
+  _impl_.points_.InternalSwap(&other->_impl_.points_);
+  _impl_.classification_.InternalSwap(&other->_impl_.classification_);
+  _impl_.intensity_.InternalSwap(&other->_impl_.intensity_);
+  _impl_.return_number_.InternalSwap(&other->_impl_.return_number_);
+  _impl_.num_returns_.InternalSwap(&other->_impl_.num_returns_);
 }
 
-std::string PointCloud::GetTypeName() const {
-  return "DTCC.PointCloud";
+::PROTOBUF_NAMESPACE_ID::Metadata PointCloud::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[13]);
 }
-
 
 // ===================================================================
 
@@ -3835,111 +3826,120 @@ class Mesh::_Internal {
 
 Mesh::Mesh(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  vertices_(arena),
-  faces_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.Mesh)
 }
 Mesh::Mesh(const Mesh& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      vertices_(from.vertices_),
-      faces_(from.faces_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Mesh* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.vertices_){from._impl_.vertices_}
+    , decltype(_impl_.faces_){from._impl_.faces_}
+    , /*decltype(_impl_._faces_cached_byte_size_)*/{0}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.Mesh)
 }
 
-inline void Mesh::SharedCtor() {
+inline void Mesh::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.vertices_){arena}
+    , decltype(_impl_.faces_){arena}
+    , /*decltype(_impl_._faces_cached_byte_size_)*/{0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 Mesh::~Mesh() {
   // @@protoc_insertion_point(destructor:DTCC.Mesh)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Mesh::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.vertices_.~RepeatedField();
+  _impl_.faces_.~RepeatedField();
 }
 
-void Mesh::ArenaDtor(void* object) {
-  Mesh* _this = reinterpret_cast< Mesh* >(object);
-  (void)_this;
-}
-void Mesh::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Mesh::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Mesh::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Mesh)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  vertices_.Clear();
-  faces_.Clear();
-  _internal_metadata_.Clear<std::string>();
+  _impl_.vertices_.Clear();
+  _impl_.faces_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Mesh::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Mesh::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated float vertices = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_vertices(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13) {
+        } else if (static_cast<uint8_t>(tag) == 13) {
           _internal_add_vertices(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated uint32 faces = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_faces(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
+        } else if (static_cast<uint8_t>(tag) == 16) {
           _internal_add_faces(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Mesh::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Mesh::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Mesh)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated float vertices = 1;
@@ -3949,7 +3949,7 @@ failure:
 
   // repeated uint32 faces = 2;
   {
-    int byte_size = _faces_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _impl_._faces_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteUInt32Packed(
           2, _internal_faces(), byte_size, target);
@@ -3957,8 +3957,8 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Mesh)
   return target;
@@ -3968,7 +3968,7 @@ size_t Mesh::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Mesh)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3978,50 +3978,46 @@ size_t Mesh::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
 
   // repeated uint32 faces = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->faces_);
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.faces_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _faces_cached_byte_size_.store(cached_size,
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._faces_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Mesh::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Mesh*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Mesh::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Mesh::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Mesh::GetClassData() const { return &_class_data_; }
 
-void Mesh::MergeFrom(const Mesh& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Mesh)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Mesh::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Mesh*>(&to_msg);
+  auto& from = static_cast<const Mesh&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Mesh)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  vertices_.MergeFrom(from.vertices_);
-  faces_.MergeFrom(from.faces_);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_impl_.vertices_.MergeFrom(from._impl_.vertices_);
+  _this->_impl_.faces_.MergeFrom(from._impl_.faces_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Mesh::CopyFrom(const Mesh& from) {
@@ -4038,14 +4034,15 @@ bool Mesh::IsInitialized() const {
 void Mesh::InternalSwap(Mesh* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  vertices_.InternalSwap(&other->vertices_);
-  faces_.InternalSwap(&other->faces_);
+  _impl_.vertices_.InternalSwap(&other->_impl_.vertices_);
+  _impl_.faces_.InternalSwap(&other->_impl_.faces_);
 }
 
-std::string Mesh::GetTypeName() const {
-  return "DTCC.Mesh";
+::PROTOBUF_NAMESPACE_ID::Metadata Mesh::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[14]);
 }
-
 
 // ===================================================================
 
@@ -4055,111 +4052,120 @@ class VolumeMesh::_Internal {
 
 VolumeMesh::VolumeMesh(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  vertices_(arena),
-  cells_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.VolumeMesh)
 }
 VolumeMesh::VolumeMesh(const VolumeMesh& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      vertices_(from.vertices_),
-      cells_(from.cells_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  VolumeMesh* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.vertices_){from._impl_.vertices_}
+    , decltype(_impl_.cells_){from._impl_.cells_}
+    , /*decltype(_impl_._cells_cached_byte_size_)*/{0}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DTCC.VolumeMesh)
 }
 
-inline void VolumeMesh::SharedCtor() {
+inline void VolumeMesh::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.vertices_){arena}
+    , decltype(_impl_.cells_){arena}
+    , /*decltype(_impl_._cells_cached_byte_size_)*/{0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 VolumeMesh::~VolumeMesh() {
   // @@protoc_insertion_point(destructor:DTCC.VolumeMesh)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void VolumeMesh::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.vertices_.~RepeatedField();
+  _impl_.cells_.~RepeatedField();
 }
 
-void VolumeMesh::ArenaDtor(void* object) {
-  VolumeMesh* _this = reinterpret_cast< VolumeMesh* >(object);
-  (void)_this;
-}
-void VolumeMesh::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void VolumeMesh::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void VolumeMesh::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.VolumeMesh)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  vertices_.Clear();
-  cells_.Clear();
-  _internal_metadata_.Clear<std::string>();
+  _impl_.vertices_.Clear();
+  _impl_.cells_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* VolumeMesh::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* VolumeMesh::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated float vertices = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_vertices(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13) {
+        } else if (static_cast<uint8_t>(tag) == 13) {
           _internal_add_vertices(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated uint32 cells = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_cells(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
+        } else if (static_cast<uint8_t>(tag) == 16) {
           _internal_add_cells(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* VolumeMesh::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* VolumeMesh::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.VolumeMesh)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated float vertices = 1;
@@ -4169,7 +4175,7 @@ failure:
 
   // repeated uint32 cells = 2;
   {
-    int byte_size = _cells_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _impl_._cells_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteUInt32Packed(
           2, _internal_cells(), byte_size, target);
@@ -4177,8 +4183,8 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.VolumeMesh)
   return target;
@@ -4188,7 +4194,7 @@ size_t VolumeMesh::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.VolumeMesh)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4198,50 +4204,46 @@ size_t VolumeMesh::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
 
   // repeated uint32 cells = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->cells_);
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.cells_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _cells_cached_byte_size_.store(cached_size,
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._cells_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void VolumeMesh::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const VolumeMesh*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData VolumeMesh::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    VolumeMesh::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VolumeMesh::GetClassData() const { return &_class_data_; }
 
-void VolumeMesh::MergeFrom(const VolumeMesh& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.VolumeMesh)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void VolumeMesh::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<VolumeMesh*>(&to_msg);
+  auto& from = static_cast<const VolumeMesh&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.VolumeMesh)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  vertices_.MergeFrom(from.vertices_);
-  cells_.MergeFrom(from.cells_);
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_impl_.vertices_.MergeFrom(from._impl_.vertices_);
+  _this->_impl_.cells_.MergeFrom(from._impl_.cells_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void VolumeMesh::CopyFrom(const VolumeMesh& from) {
@@ -4258,14 +4260,15 @@ bool VolumeMesh::IsInitialized() const {
 void VolumeMesh::InternalSwap(VolumeMesh* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  vertices_.InternalSwap(&other->vertices_);
-  cells_.InternalSwap(&other->cells_);
+  _impl_.vertices_.InternalSwap(&other->_impl_.vertices_);
+  _impl_.cells_.InternalSwap(&other->_impl_.cells_);
 }
 
-std::string VolumeMesh::GetTypeName() const {
-  return "DTCC.VolumeMesh";
+::PROTOBUF_NAMESPACE_ID::Metadata VolumeMesh::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[15]);
 }
-
 
 // ===================================================================
 
@@ -4275,152 +4278,171 @@ class Grid::_Internal {
 
 Grid::Grid(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.Grid)
 }
 Grid::Grid(const Grid& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::memcpy(&width_, &from.width_,
-    static_cast<size_t>(reinterpret_cast<char*>(&ystep_) -
-    reinterpret_cast<char*>(&width_)) + sizeof(ystep_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Grid* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.width_){}
+    , decltype(_impl_.height_){}
+    , decltype(_impl_.xstep_){}
+    , decltype(_impl_.ystep_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.width_, &from._impl_.width_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ystep_) -
+    reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.ystep_));
   // @@protoc_insertion_point(copy_constructor:DTCC.Grid)
 }
 
-inline void Grid::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&width_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&ystep_) -
-    reinterpret_cast<char*>(&width_)) + sizeof(ystep_));
+inline void Grid::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.width_){0}
+    , decltype(_impl_.height_){0}
+    , decltype(_impl_.xstep_){0}
+    , decltype(_impl_.ystep_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 Grid::~Grid() {
   // @@protoc_insertion_point(destructor:DTCC.Grid)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Grid::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void Grid::ArenaDtor(void* object) {
-  Grid* _this = reinterpret_cast< Grid* >(object);
-  (void)_this;
-}
-void Grid::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Grid::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Grid::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Grid)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&width_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&ystep_) -
-      reinterpret_cast<char*>(&width_)) + sizeof(ystep_));
-  _internal_metadata_.Clear<std::string>();
+  ::memset(&_impl_.width_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.ystep_) -
+      reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.ystep_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Grid::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Grid::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 width = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int32 height = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float xstep = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
-          xstep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
+          _impl_.xstep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float ystep = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
-          ystep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
+          _impl_.ystep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Grid::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Grid::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Grid)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 width = 1;
   if (this->_internal_width() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_width(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_width(), target);
   }
 
   // int32 height = 2;
   if (this->_internal_height() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_height(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_height(), target);
   }
 
   // float xstep = 3;
-  if (!(this->_internal_xstep() <= 0 && this->_internal_xstep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xstep = this->_internal_xstep();
+  uint32_t raw_xstep;
+  memcpy(&raw_xstep, &tmp_xstep, sizeof(tmp_xstep));
+  if (raw_xstep != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_xstep(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_xstep(), target);
   }
 
   // float ystep = 4;
-  if (!(this->_internal_ystep() <= 0 && this->_internal_ystep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ystep = this->_internal_ystep();
+  uint32_t raw_ystep;
+  memcpy(&raw_ystep, &tmp_ystep, sizeof(tmp_ystep));
+  if (raw_ystep != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_ystep(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_ystep(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Grid)
   return target;
@@ -4430,67 +4452,77 @@ size_t Grid::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Grid)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // int32 width = 1;
   if (this->_internal_width() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_width());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_width());
   }
 
   // int32 height = 2;
   if (this->_internal_height() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_height());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_height());
   }
 
   // float xstep = 3;
-  if (!(this->_internal_xstep() <= 0 && this->_internal_xstep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xstep = this->_internal_xstep();
+  uint32_t raw_xstep;
+  memcpy(&raw_xstep, &tmp_xstep, sizeof(tmp_xstep));
+  if (raw_xstep != 0) {
     total_size += 1 + 4;
   }
 
   // float ystep = 4;
-  if (!(this->_internal_ystep() <= 0 && this->_internal_ystep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ystep = this->_internal_ystep();
+  uint32_t raw_ystep;
+  memcpy(&raw_ystep, &tmp_ystep, sizeof(tmp_ystep));
+  if (raw_ystep != 0) {
     total_size += 1 + 4;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Grid::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Grid*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Grid::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Grid::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Grid::GetClassData() const { return &_class_data_; }
 
-void Grid::MergeFrom(const Grid& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Grid)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Grid::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Grid*>(&to_msg);
+  auto& from = static_cast<const Grid&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Grid)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_width() != 0) {
-    _internal_set_width(from._internal_width());
+    _this->_internal_set_width(from._internal_width());
   }
   if (from._internal_height() != 0) {
-    _internal_set_height(from._internal_height());
+    _this->_internal_set_height(from._internal_height());
   }
-  if (!(from._internal_xstep() <= 0 && from._internal_xstep() >= 0)) {
-    _internal_set_xstep(from._internal_xstep());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xstep = from._internal_xstep();
+  uint32_t raw_xstep;
+  memcpy(&raw_xstep, &tmp_xstep, sizeof(tmp_xstep));
+  if (raw_xstep != 0) {
+    _this->_internal_set_xstep(from._internal_xstep());
   }
-  if (!(from._internal_ystep() <= 0 && from._internal_ystep() >= 0)) {
-    _internal_set_ystep(from._internal_ystep());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ystep = from._internal_ystep();
+  uint32_t raw_ystep;
+  memcpy(&raw_ystep, &tmp_ystep, sizeof(tmp_ystep));
+  if (raw_ystep != 0) {
+    _this->_internal_set_ystep(from._internal_ystep());
   }
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Grid::CopyFrom(const Grid& from) {
@@ -4508,17 +4540,18 @@ void Grid::InternalSwap(Grid* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Grid, ystep_)
-      + sizeof(Grid::ystep_)
-      - PROTOBUF_FIELD_OFFSET(Grid, width_)>(
-          reinterpret_cast<char*>(&width_),
-          reinterpret_cast<char*>(&other->width_));
+      PROTOBUF_FIELD_OFFSET(Grid, _impl_.ystep_)
+      + sizeof(Grid::_impl_.ystep_)
+      - PROTOBUF_FIELD_OFFSET(Grid, _impl_.width_)>(
+          reinterpret_cast<char*>(&_impl_.width_),
+          reinterpret_cast<char*>(&other->_impl_.width_));
 }
 
-std::string Grid::GetTypeName() const {
-  return "DTCC.Grid";
+::PROTOBUF_NAMESPACE_ID::Metadata Grid::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[16]);
 }
-
 
 // ===================================================================
 
@@ -4528,178 +4561,207 @@ class VolumeGrid::_Internal {
 
 VolumeGrid::VolumeGrid(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.VolumeGrid)
 }
 VolumeGrid::VolumeGrid(const VolumeGrid& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite() {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  ::memcpy(&width_, &from.width_,
-    static_cast<size_t>(reinterpret_cast<char*>(&zstep_) -
-    reinterpret_cast<char*>(&width_)) + sizeof(zstep_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  VolumeGrid* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.width_){}
+    , decltype(_impl_.height_){}
+    , decltype(_impl_.depth_){}
+    , decltype(_impl_.xstep_){}
+    , decltype(_impl_.ystep_){}
+    , decltype(_impl_.zstep_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.width_, &from._impl_.width_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.zstep_) -
+    reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.zstep_));
   // @@protoc_insertion_point(copy_constructor:DTCC.VolumeGrid)
 }
 
-inline void VolumeGrid::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&width_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&zstep_) -
-    reinterpret_cast<char*>(&width_)) + sizeof(zstep_));
+inline void VolumeGrid::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.width_){0}
+    , decltype(_impl_.height_){0}
+    , decltype(_impl_.depth_){0}
+    , decltype(_impl_.xstep_){0}
+    , decltype(_impl_.ystep_){0}
+    , decltype(_impl_.zstep_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 VolumeGrid::~VolumeGrid() {
   // @@protoc_insertion_point(destructor:DTCC.VolumeGrid)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void VolumeGrid::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void VolumeGrid::ArenaDtor(void* object) {
-  VolumeGrid* _this = reinterpret_cast< VolumeGrid* >(object);
-  (void)_this;
-}
-void VolumeGrid::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void VolumeGrid::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void VolumeGrid::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.VolumeGrid)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&width_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&zstep_) -
-      reinterpret_cast<char*>(&width_)) + sizeof(zstep_));
-  _internal_metadata_.Clear<std::string>();
+  ::memset(&_impl_.width_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.zstep_) -
+      reinterpret_cast<char*>(&_impl_.width_)) + sizeof(_impl_.zstep_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* VolumeGrid::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* VolumeGrid::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 width = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.width_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int32 height = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.height_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int32 depth = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          depth_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.depth_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float xstep = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
-          xstep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
+          _impl_.xstep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float ystep = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
-          ystep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
+          _impl_.ystep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float zstep = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
-          zstep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 53)) {
+          _impl_.zstep_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* VolumeGrid::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* VolumeGrid::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.VolumeGrid)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 width = 1;
   if (this->_internal_width() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_width(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_width(), target);
   }
 
   // int32 height = 2;
   if (this->_internal_height() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_height(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_height(), target);
   }
 
   // int32 depth = 3;
   if (this->_internal_depth() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_depth(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_depth(), target);
   }
 
   // float xstep = 4;
-  if (!(this->_internal_xstep() <= 0 && this->_internal_xstep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xstep = this->_internal_xstep();
+  uint32_t raw_xstep;
+  memcpy(&raw_xstep, &tmp_xstep, sizeof(tmp_xstep));
+  if (raw_xstep != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_xstep(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_xstep(), target);
   }
 
   // float ystep = 5;
-  if (!(this->_internal_ystep() <= 0 && this->_internal_ystep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ystep = this->_internal_ystep();
+  uint32_t raw_ystep;
+  memcpy(&raw_ystep, &tmp_ystep, sizeof(tmp_ystep));
+  if (raw_ystep != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_ystep(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_ystep(), target);
   }
 
   // float zstep = 6;
-  if (!(this->_internal_zstep() <= 0 && this->_internal_zstep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zstep = this->_internal_zstep();
+  uint32_t raw_zstep;
+  memcpy(&raw_zstep, &tmp_zstep, sizeof(tmp_zstep));
+  if (raw_zstep != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_zstep(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(6, this->_internal_zstep(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.VolumeGrid)
   return target;
@@ -4709,85 +4771,101 @@ size_t VolumeGrid::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.VolumeGrid)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // int32 width = 1;
   if (this->_internal_width() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_width());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_width());
   }
 
   // int32 height = 2;
   if (this->_internal_height() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_height());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_height());
   }
 
   // int32 depth = 3;
   if (this->_internal_depth() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_depth());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_depth());
   }
 
   // float xstep = 4;
-  if (!(this->_internal_xstep() <= 0 && this->_internal_xstep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xstep = this->_internal_xstep();
+  uint32_t raw_xstep;
+  memcpy(&raw_xstep, &tmp_xstep, sizeof(tmp_xstep));
+  if (raw_xstep != 0) {
     total_size += 1 + 4;
   }
 
   // float ystep = 5;
-  if (!(this->_internal_ystep() <= 0 && this->_internal_ystep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ystep = this->_internal_ystep();
+  uint32_t raw_ystep;
+  memcpy(&raw_ystep, &tmp_ystep, sizeof(tmp_ystep));
+  if (raw_ystep != 0) {
     total_size += 1 + 4;
   }
 
   // float zstep = 6;
-  if (!(this->_internal_zstep() <= 0 && this->_internal_zstep() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zstep = this->_internal_zstep();
+  uint32_t raw_zstep;
+  memcpy(&raw_zstep, &tmp_zstep, sizeof(tmp_zstep));
+  if (raw_zstep != 0) {
     total_size += 1 + 4;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void VolumeGrid::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const VolumeGrid*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData VolumeGrid::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    VolumeGrid::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VolumeGrid::GetClassData() const { return &_class_data_; }
 
-void VolumeGrid::MergeFrom(const VolumeGrid& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.VolumeGrid)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void VolumeGrid::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<VolumeGrid*>(&to_msg);
+  auto& from = static_cast<const VolumeGrid&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.VolumeGrid)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_width() != 0) {
-    _internal_set_width(from._internal_width());
+    _this->_internal_set_width(from._internal_width());
   }
   if (from._internal_height() != 0) {
-    _internal_set_height(from._internal_height());
+    _this->_internal_set_height(from._internal_height());
   }
   if (from._internal_depth() != 0) {
-    _internal_set_depth(from._internal_depth());
+    _this->_internal_set_depth(from._internal_depth());
   }
-  if (!(from._internal_xstep() <= 0 && from._internal_xstep() >= 0)) {
-    _internal_set_xstep(from._internal_xstep());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_xstep = from._internal_xstep();
+  uint32_t raw_xstep;
+  memcpy(&raw_xstep, &tmp_xstep, sizeof(tmp_xstep));
+  if (raw_xstep != 0) {
+    _this->_internal_set_xstep(from._internal_xstep());
   }
-  if (!(from._internal_ystep() <= 0 && from._internal_ystep() >= 0)) {
-    _internal_set_ystep(from._internal_ystep());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_ystep = from._internal_ystep();
+  uint32_t raw_ystep;
+  memcpy(&raw_ystep, &tmp_ystep, sizeof(tmp_ystep));
+  if (raw_ystep != 0) {
+    _this->_internal_set_ystep(from._internal_ystep());
   }
-  if (!(from._internal_zstep() <= 0 && from._internal_zstep() >= 0)) {
-    _internal_set_zstep(from._internal_zstep());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_zstep = from._internal_zstep();
+  uint32_t raw_zstep;
+  memcpy(&raw_zstep, &tmp_zstep, sizeof(tmp_zstep));
+  if (raw_zstep != 0) {
+    _this->_internal_set_zstep(from._internal_zstep());
   }
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void VolumeGrid::CopyFrom(const VolumeGrid& from) {
@@ -4805,17 +4883,18 @@ void VolumeGrid::InternalSwap(VolumeGrid* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(VolumeGrid, zstep_)
-      + sizeof(VolumeGrid::zstep_)
-      - PROTOBUF_FIELD_OFFSET(VolumeGrid, width_)>(
-          reinterpret_cast<char*>(&width_),
-          reinterpret_cast<char*>(&other->width_));
+      PROTOBUF_FIELD_OFFSET(VolumeGrid, _impl_.zstep_)
+      + sizeof(VolumeGrid::_impl_.zstep_)
+      - PROTOBUF_FIELD_OFFSET(VolumeGrid, _impl_.width_)>(
+          reinterpret_cast<char*>(&_impl_.width_),
+          reinterpret_cast<char*>(&other->_impl_.width_));
 }
 
-std::string VolumeGrid::GetTypeName() const {
-  return "DTCC.VolumeGrid";
+::PROTOBUF_NAMESPACE_ID::Metadata VolumeGrid::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[17]);
 }
-
 
 // ===================================================================
 
@@ -4825,176 +4904,219 @@ class Quantity::_Internal {
 
 Quantity::Quantity(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  values_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.Quantity)
 }
 Quantity::Quantity(const Quantity& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      values_(from.values_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Quantity* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.values_){from._impl_.values_}
+    , decltype(_impl_.name_){}
+    , decltype(_impl_.unit_){}
+    , decltype(_impl_.description_){}
+    , decltype(_impl_.geometry_){}
+    , decltype(_impl_.dim_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArenaForAllocation());
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
   }
-  unit_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.unit_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.unit_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_unit().empty()) {
-    unit_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_unit(), 
-      GetArenaForAllocation());
+    _this->_impl_.unit_.Set(from._internal_unit(), 
+      _this->GetArenaForAllocation());
   }
-  description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.description_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.description_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_description().empty()) {
-    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
-      GetArenaForAllocation());
+    _this->_impl_.description_.Set(from._internal_description(), 
+      _this->GetArenaForAllocation());
   }
-  geometry_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.geometry_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.geometry_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_geometry().empty()) {
-    geometry_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_geometry(), 
-      GetArenaForAllocation());
+    _this->_impl_.geometry_.Set(from._internal_geometry(), 
+      _this->GetArenaForAllocation());
   }
-  dim_ = from.dim_;
+  _this->_impl_.dim_ = from._impl_.dim_;
   // @@protoc_insertion_point(copy_constructor:DTCC.Quantity)
 }
 
-inline void Quantity::SharedCtor() {
-name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-unit_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-geometry_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-dim_ = 0;
+inline void Quantity::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.values_){arena}
+    , decltype(_impl_.name_){}
+    , decltype(_impl_.unit_){}
+    , decltype(_impl_.description_){}
+    , decltype(_impl_.geometry_){}
+    , decltype(_impl_.dim_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.unit_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.unit_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.description_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.description_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.geometry_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.geometry_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Quantity::~Quantity() {
   // @@protoc_insertion_point(destructor:DTCC.Quantity)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Quantity::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  unit_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  geometry_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.values_.~RepeatedField();
+  _impl_.name_.Destroy();
+  _impl_.unit_.Destroy();
+  _impl_.description_.Destroy();
+  _impl_.geometry_.Destroy();
 }
 
-void Quantity::ArenaDtor(void* object) {
-  Quantity* _this = reinterpret_cast< Quantity* >(object);
-  (void)_this;
-}
-void Quantity::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Quantity::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Quantity::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Quantity)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  values_.Clear();
-  name_.ClearToEmpty();
-  unit_.ClearToEmpty();
-  description_.ClearToEmpty();
-  geometry_.ClearToEmpty();
-  dim_ = 0;
-  _internal_metadata_.Clear<std::string>();
+  _impl_.values_.Clear();
+  _impl_.name_.ClearToEmpty();
+  _impl_.unit_.ClearToEmpty();
+  _impl_.description_.ClearToEmpty();
+  _impl_.geometry_.ClearToEmpty();
+  _impl_.dim_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Quantity::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Quantity::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Quantity.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string unit = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_unit();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Quantity.unit"));
+        } else
+          goto handle_unusual;
         continue;
       // string description = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_description();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Quantity.description"));
+        } else
+          goto handle_unusual;
         continue;
       // string geometry = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_geometry();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Quantity.geometry"));
+        } else
+          goto handle_unusual;
         continue;
       // int32 dim = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          dim_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.dim_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated float values = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_values(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53) {
+        } else if (static_cast<uint8_t>(tag) == 53) {
           _internal_add_values(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Quantity::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Quantity::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Quantity)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
@@ -5040,7 +5162,7 @@ failure:
   // int32 dim = 5;
   if (this->_internal_dim() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_dim(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_dim(), target);
   }
 
   // repeated float values = 6;
@@ -5049,8 +5171,8 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Quantity)
   return target;
@@ -5060,7 +5182,7 @@ size_t Quantity::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Quantity)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5070,8 +5192,7 @@ size_t Quantity::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
@@ -5106,48 +5227,44 @@ size_t Quantity::ByteSizeLong() const {
 
   // int32 dim = 5;
   if (this->_internal_dim() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_dim());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_dim());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Quantity::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Quantity*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Quantity::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Quantity::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Quantity::GetClassData() const { return &_class_data_; }
 
-void Quantity::MergeFrom(const Quantity& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Quantity)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Quantity::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Quantity*>(&to_msg);
+  auto& from = static_cast<const Quantity&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Quantity)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  values_.MergeFrom(from.values_);
+  _this->_impl_.values_.MergeFrom(from._impl_.values_);
   if (!from._internal_name().empty()) {
-    _internal_set_name(from._internal_name());
+    _this->_internal_set_name(from._internal_name());
   }
   if (!from._internal_unit().empty()) {
-    _internal_set_unit(from._internal_unit());
+    _this->_internal_set_unit(from._internal_unit());
   }
   if (!from._internal_description().empty()) {
-    _internal_set_description(from._internal_description());
+    _this->_internal_set_description(from._internal_description());
   }
   if (!from._internal_geometry().empty()) {
-    _internal_set_geometry(from._internal_geometry());
+    _this->_internal_set_geometry(from._internal_geometry());
   }
   if (from._internal_dim() != 0) {
-    _internal_set_dim(from._internal_dim());
+    _this->_internal_set_dim(from._internal_dim());
   }
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Quantity::CopyFrom(const Quantity& from) {
@@ -5163,35 +5280,34 @@ bool Quantity::IsInitialized() const {
 
 void Quantity::InternalSwap(Quantity* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  values_.InternalSwap(&other->values_);
+  _impl_.values_.InternalSwap(&other->_impl_.values_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &name_, GetArenaForAllocation(),
-      &other->name_, other->GetArenaForAllocation()
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &unit_, GetArenaForAllocation(),
-      &other->unit_, other->GetArenaForAllocation()
+      &_impl_.unit_, lhs_arena,
+      &other->_impl_.unit_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &description_, GetArenaForAllocation(),
-      &other->description_, other->GetArenaForAllocation()
+      &_impl_.description_, lhs_arena,
+      &other->_impl_.description_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &geometry_, GetArenaForAllocation(),
-      &other->geometry_, other->GetArenaForAllocation()
+      &_impl_.geometry_, lhs_arena,
+      &other->_impl_.geometry_, rhs_arena
   );
-  swap(dim_, other->dim_);
+  swap(_impl_.dim_, other->_impl_.dim_);
 }
 
-std::string Quantity::GetTypeName() const {
-  return "DTCC.Quantity";
+::PROTOBUF_NAMESPACE_ID::Metadata Quantity::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[18]);
 }
-
 
 // ===================================================================
 
@@ -5202,183 +5318,215 @@ class Raster::_Internal {
 
 const ::DTCC::Grid&
 Raster::_Internal::grid(const Raster* msg) {
-  return *msg->grid_;
+  return *msg->_impl_.grid_;
 }
 Raster::Raster(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
-  values_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:DTCC.Raster)
 }
 Raster::Raster(const Raster& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      values_(from.values_) {
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Raster* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.values_){from._impl_.values_}
+    , decltype(_impl_.name_){}
+    , decltype(_impl_.unit_){}
+    , decltype(_impl_.description_){}
+    , decltype(_impl_.grid_){nullptr}
+    , decltype(_impl_.dim_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArenaForAllocation());
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
   }
-  unit_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.unit_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.unit_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_unit().empty()) {
-    unit_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_unit(), 
-      GetArenaForAllocation());
+    _this->_impl_.unit_.Set(from._internal_unit(), 
+      _this->GetArenaForAllocation());
   }
-  description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.description_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.description_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_description().empty()) {
-    description_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_description(), 
-      GetArenaForAllocation());
+    _this->_impl_.description_.Set(from._internal_description(), 
+      _this->GetArenaForAllocation());
   }
   if (from._internal_has_grid()) {
-    grid_ = new ::DTCC::Grid(*from.grid_);
-  } else {
-    grid_ = nullptr;
+    _this->_impl_.grid_ = new ::DTCC::Grid(*from._impl_.grid_);
   }
-  dim_ = from.dim_;
+  _this->_impl_.dim_ = from._impl_.dim_;
   // @@protoc_insertion_point(copy_constructor:DTCC.Raster)
 }
 
-inline void Raster::SharedCtor() {
-name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-unit_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&grid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&dim_) -
-    reinterpret_cast<char*>(&grid_)) + sizeof(dim_));
+inline void Raster::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.values_){arena}
+    , decltype(_impl_.name_){}
+    , decltype(_impl_.unit_){}
+    , decltype(_impl_.description_){}
+    , decltype(_impl_.grid_){nullptr}
+    , decltype(_impl_.dim_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.unit_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.unit_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.description_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.description_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Raster::~Raster() {
   // @@protoc_insertion_point(destructor:DTCC.Raster)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<std::string>();
 }
 
 inline void Raster::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  unit_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete grid_;
+  _impl_.values_.~RepeatedField();
+  _impl_.name_.Destroy();
+  _impl_.unit_.Destroy();
+  _impl_.description_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.grid_;
 }
 
-void Raster::ArenaDtor(void* object) {
-  Raster* _this = reinterpret_cast< Raster* >(object);
-  (void)_this;
-}
-void Raster::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Raster::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Raster::Clear() {
 // @@protoc_insertion_point(message_clear_start:DTCC.Raster)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  values_.Clear();
-  name_.ClearToEmpty();
-  unit_.ClearToEmpty();
-  description_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && grid_ != nullptr) {
-    delete grid_;
+  _impl_.values_.Clear();
+  _impl_.name_.ClearToEmpty();
+  _impl_.unit_.ClearToEmpty();
+  _impl_.description_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.grid_ != nullptr) {
+    delete _impl_.grid_;
   }
-  grid_ = nullptr;
-  dim_ = 0;
-  _internal_metadata_.Clear<std::string>();
+  _impl_.grid_ = nullptr;
+  _impl_.dim_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Raster::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Raster::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Raster.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string unit = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_unit();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Raster.unit"));
+        } else
+          goto handle_unusual;
         continue;
       // string description = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_description();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, nullptr));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "DTCC.Raster.description"));
+        } else
+          goto handle_unusual;
         continue;
       // .DTCC.Grid grid = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_grid(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int32 dim = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          dim_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.dim_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated float values = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_values(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53) {
+        } else if (static_cast<uint8_t>(tag) == 53) {
           _internal_add_values(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag == 0) || ((tag & 7) == 4)) {
-          CHK_(ptr);
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<std::string>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Raster::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* Raster::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DTCC.Raster)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
@@ -5413,16 +5561,15 @@ failure:
 
   // .DTCC.Grid grid = 4;
   if (this->_internal_has_grid()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::grid(this), target, stream);
+      InternalWriteMessage(4, _Internal::grid(this),
+        _Internal::grid(this).GetCachedSize(), target, stream);
   }
 
   // int32 dim = 5;
   if (this->_internal_dim() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_dim(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_dim(), target);
   }
 
   // repeated float values = 6;
@@ -5431,8 +5578,8 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
-        static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DTCC.Raster)
   return target;
@@ -5442,7 +5589,7 @@ size_t Raster::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DTCC.Raster)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5452,8 +5599,7 @@ size_t Raster::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
     total_size += data_size;
   }
@@ -5483,53 +5629,50 @@ size_t Raster::ByteSizeLong() const {
   if (this->_internal_has_grid()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *grid_);
+        *_impl_.grid_);
   }
 
   // int32 dim = 5;
   if (this->_internal_dim() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_dim());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_dim());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Raster::CheckTypeAndMergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::MessageLite& from) {
-  MergeFrom(*::PROTOBUF_NAMESPACE_ID::internal::DownCast<const Raster*>(
-      &from));
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Raster::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Raster::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Raster::GetClassData() const { return &_class_data_; }
 
-void Raster::MergeFrom(const Raster& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Raster)
-  GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Raster::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Raster*>(&to_msg);
+  auto& from = static_cast<const Raster&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DTCC.Raster)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  values_.MergeFrom(from.values_);
+  _this->_impl_.values_.MergeFrom(from._impl_.values_);
   if (!from._internal_name().empty()) {
-    _internal_set_name(from._internal_name());
+    _this->_internal_set_name(from._internal_name());
   }
   if (!from._internal_unit().empty()) {
-    _internal_set_unit(from._internal_unit());
+    _this->_internal_set_unit(from._internal_unit());
   }
   if (!from._internal_description().empty()) {
-    _internal_set_description(from._internal_description());
+    _this->_internal_set_description(from._internal_description());
   }
   if (from._internal_has_grid()) {
-    _internal_mutable_grid()->::DTCC::Grid::MergeFrom(from._internal_grid());
+    _this->_internal_mutable_grid()->::DTCC::Grid::MergeFrom(
+        from._internal_grid());
   }
   if (from._internal_dim() != 0) {
-    _internal_set_dim(from._internal_dim());
+    _this->_internal_set_dim(from._internal_dim());
   }
-  _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Raster::CopyFrom(const Raster& from) {
@@ -5545,97 +5688,117 @@ bool Raster::IsInitialized() const {
 
 void Raster::InternalSwap(Raster* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  values_.InternalSwap(&other->values_);
+  _impl_.values_.InternalSwap(&other->_impl_.values_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &name_, GetArenaForAllocation(),
-      &other->name_, other->GetArenaForAllocation()
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &unit_, GetArenaForAllocation(),
-      &other->unit_, other->GetArenaForAllocation()
+      &_impl_.unit_, lhs_arena,
+      &other->_impl_.unit_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &description_, GetArenaForAllocation(),
-      &other->description_, other->GetArenaForAllocation()
+      &_impl_.description_, lhs_arena,
+      &other->_impl_.description_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Raster, dim_)
-      + sizeof(Raster::dim_)
-      - PROTOBUF_FIELD_OFFSET(Raster, grid_)>(
-          reinterpret_cast<char*>(&grid_),
-          reinterpret_cast<char*>(&other->grid_));
+      PROTOBUF_FIELD_OFFSET(Raster, _impl_.dim_)
+      + sizeof(Raster::_impl_.dim_)
+      - PROTOBUF_FIELD_OFFSET(Raster, _impl_.grid_)>(
+          reinterpret_cast<char*>(&_impl_.grid_),
+          reinterpret_cast<char*>(&other->_impl_.grid_));
 }
 
-std::string Raster::GetTypeName() const {
-  return "DTCC.Raster";
+::PROTOBUF_NAMESPACE_ID::Metadata Raster::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_dtcc_2eproto_getter, &descriptor_table_dtcc_2eproto_once,
+      file_level_metadata_dtcc_2eproto[19]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace DTCC
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::DTCC::Object_GeometryEntry_DoNotUse* Arena::CreateMaybeMessage< ::DTCC::Object_GeometryEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Object_GeometryEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::DTCC::Object_GeometryEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Object_GeometryEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Object* Arena::CreateMaybeMessage< ::DTCC::Object >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Object*
+Arena::CreateMaybeMessage< ::DTCC::Object >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Object >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::City* Arena::CreateMaybeMessage< ::DTCC::City >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::City*
+Arena::CreateMaybeMessage< ::DTCC::City >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::City >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Building* Arena::CreateMaybeMessage< ::DTCC::Building >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Building*
+Arena::CreateMaybeMessage< ::DTCC::Building >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Building >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Terrain* Arena::CreateMaybeMessage< ::DTCC::Terrain >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Terrain*
+Arena::CreateMaybeMessage< ::DTCC::Terrain >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Terrain >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::CityObject* Arena::CreateMaybeMessage< ::DTCC::CityObject >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::CityObject*
+Arena::CreateMaybeMessage< ::DTCC::CityObject >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::CityObject >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::BuildingPart* Arena::CreateMaybeMessage< ::DTCC::BuildingPart >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::BuildingPart*
+Arena::CreateMaybeMessage< ::DTCC::BuildingPart >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::BuildingPart >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Bounds* Arena::CreateMaybeMessage< ::DTCC::Bounds >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Bounds*
+Arena::CreateMaybeMessage< ::DTCC::Bounds >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Bounds >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Transform* Arena::CreateMaybeMessage< ::DTCC::Transform >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Transform*
+Arena::CreateMaybeMessage< ::DTCC::Transform >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Transform >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::LineString* Arena::CreateMaybeMessage< ::DTCC::LineString >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::LineString*
+Arena::CreateMaybeMessage< ::DTCC::LineString >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::LineString >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Geometry* Arena::CreateMaybeMessage< ::DTCC::Geometry >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Geometry*
+Arena::CreateMaybeMessage< ::DTCC::Geometry >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Geometry >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Surface* Arena::CreateMaybeMessage< ::DTCC::Surface >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Surface*
+Arena::CreateMaybeMessage< ::DTCC::Surface >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Surface >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::MultiSurface* Arena::CreateMaybeMessage< ::DTCC::MultiSurface >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::MultiSurface*
+Arena::CreateMaybeMessage< ::DTCC::MultiSurface >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::MultiSurface >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::PointCloud* Arena::CreateMaybeMessage< ::DTCC::PointCloud >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::PointCloud*
+Arena::CreateMaybeMessage< ::DTCC::PointCloud >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::PointCloud >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Mesh* Arena::CreateMaybeMessage< ::DTCC::Mesh >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Mesh*
+Arena::CreateMaybeMessage< ::DTCC::Mesh >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Mesh >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::VolumeMesh* Arena::CreateMaybeMessage< ::DTCC::VolumeMesh >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::VolumeMesh*
+Arena::CreateMaybeMessage< ::DTCC::VolumeMesh >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::VolumeMesh >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Grid* Arena::CreateMaybeMessage< ::DTCC::Grid >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Grid*
+Arena::CreateMaybeMessage< ::DTCC::Grid >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Grid >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::VolumeGrid* Arena::CreateMaybeMessage< ::DTCC::VolumeGrid >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::VolumeGrid*
+Arena::CreateMaybeMessage< ::DTCC::VolumeGrid >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::VolumeGrid >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Quantity* Arena::CreateMaybeMessage< ::DTCC::Quantity >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Quantity*
+Arena::CreateMaybeMessage< ::DTCC::Quantity >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Quantity >(arena);
 }
-template<> PROTOBUF_NOINLINE ::DTCC::Raster* Arena::CreateMaybeMessage< ::DTCC::Raster >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::DTCC::Raster*
+Arena::CreateMaybeMessage< ::DTCC::Raster >(Arena* arena) {
   return Arena::CreateMessageInternal< ::DTCC::Raster >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
