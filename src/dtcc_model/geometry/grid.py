@@ -123,7 +123,7 @@ class Grid(Geometry):
 
         # Handle byte representation
         if isinstance(pb, bytes):
-            pb = proto.Object.FromString(pb)
+            pb = proto.Geometry.FromString(pb)
 
         # Handle Geometry fields
         Geometry.from_proto(self, pb)
@@ -132,21 +132,6 @@ class Grid(Geometry):
         _pb = pb.grid
         self.width = _pb.width
         self.height = _pb.height
-
-    def to_proto(self) -> proto.Grid:
-        """Convert the Grid object to a Protocol Buffers message.
-
-        Returns
-        -------
-        proto.Grid
-            A Protocol Buffers message representing the Grid object.
-
-        """
-        pb = proto.Grid()
-        pb.bounds.CopyFrom(self.bounds.to_proto())
-        pb.width = self.width
-        pb.height = self.height
-        return pb
 
 
 @dataclass
@@ -277,7 +262,7 @@ class VolumeGrid(Geometry):
 
         # Handle byte representation
         if isinstance(pb, bytes):
-            pb = proto.Object.FromString(pb)
+            pb = proto.Geometry.FromString(pb)
 
         # Handle Geometry fields
         Geometry.from_proto(self, pb)

@@ -146,7 +146,7 @@ class Surface(Geometry):
 
         return pb
 
-    def from_proto(self, pb: Union[proto.Geometry, bytes]):
+    def from_proto(self, pb: Union[proto.Geometry, bytes], only_surface_fields=False):
         """Initialize Surface from a protobuf representation.
 
         Parameters
@@ -157,13 +157,18 @@ class Surface(Geometry):
 
         # Handle byte representation
         if isinstance(pb, bytes):
-            pb = proto.Object.FromString(pb)
+            pb = proto.Geometry.FromString(pb)
+
+        # Note: Since Surface is nested as part of MultiSurface in the protobuf
+        # representation, we need to be able to initialize a Surface from a pure
+        # Surface protobuf message (not a full Geometry message).
 
         # Handle Geometry fields
-        Geometry.from_proto(self, pb)
+        if not only_surface_fields:
+            Geometry.from_proto(self, pb)
 
         # Handle specific fields
-        _pb = pb.surface
+        _pb = pb if only_surface_fields else pb.surface
         self.vertices = np.array(_pb.vertices).reshape(-1, 3)
         self.normal = np.array(_pb.normal)
         self.holes = []
@@ -250,7 +255,7 @@ class MultiSurface(Geometry):
 
         # Handle byte representation
         if isinstance(pb, bytes):
-            pb = proto.Object.FromString(pb)
+            pb = proto.Geometry.FromString(pb)
 
         # Handle Geometry fields
         Geometry.from_proto(self, pb)
@@ -259,7 +264,7 @@ class MultiSurface(Geometry):
         _pb = pb.multi_surface
         for surface in _pb.surfaces:
             _surface = Surface()
-            _surface.from_proto(surface)
+            _surface.from_proto(surface, only_surface_fields=True)
             self.surfaces.append(_surface)
 
     def __str__(self) -> str:

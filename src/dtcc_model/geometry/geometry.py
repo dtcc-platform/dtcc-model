@@ -55,6 +55,6 @@ class Geometry(Model):
             The protobuf message or its serialized bytes representation.
         """
         if isinstance(pb, bytes):
-            pb = proto.Object.FromString(pb)
+            pb = proto.Geometry.FromString(pb)
         self.bounds.from_proto(pb.bounds)
         self.transform.from_proto(pb.transform)

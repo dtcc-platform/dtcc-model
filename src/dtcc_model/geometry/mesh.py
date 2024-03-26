@@ -110,7 +110,7 @@ class Mesh(Geometry):
 
         # Handle byte representation
         if isinstance(pb, bytes):
-            pb = proto.Object.FromString(pb)
+            pb = proto.Geometry.FromString(pb)
 
         # Handle Geometry fields
         Geometry.from_proto(self, pb)
@@ -210,7 +210,7 @@ class VolumeMesh(Geometry):
 
         # Handle byte representation
         if isinstance(pb, bytes):
-            pb = proto.Object.FromString(pb)
+            pb = proto.FromString(pb)
 
         # Handle Geometry fields
         Geometry.from_proto(self, pb)
