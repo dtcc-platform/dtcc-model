@@ -106,7 +106,8 @@ message PointCloud
     repeated uint32 intensity = 3;
     repeated uint32 return_number = 4;
     repeated uint32 num_returns = 5;
-    Transform transform =6;
+    Bounds bounds = 6;
+    Transform transform = 7;
 }
 
 //--- Grids ---

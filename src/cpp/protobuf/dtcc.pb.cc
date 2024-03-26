@@ -213,6 +213,7 @@ inline constexpr PointCloud::Impl_::Impl_(
         _return_number_cached_byte_size_{0},
         num_returns_{},
         _num_returns_cached_byte_size_{0},
+        bounds_{nullptr},
         transform_{nullptr} {}
 
 template <typename>
@@ -3637,12 +3638,19 @@ class PointCloud::_Internal {
   using HasBits = decltype(std::declval<PointCloud>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
     8 * PROTOBUF_FIELD_OFFSET(PointCloud, _impl_._has_bits_);
+  static const ::DTCC::Bounds& bounds(const PointCloud* msg);
+  static void set_has_bounds(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
   static const ::DTCC::Transform& transform(const PointCloud* msg);
   static void set_has_transform(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
+const ::DTCC::Bounds& PointCloud::_Internal::bounds(const PointCloud* msg) {
+  return *msg->_impl_.bounds_;
+}
 const ::DTCC::Transform& PointCloud::_Internal::transform(const PointCloud* msg) {
   return *msg->_impl_.transform_;
 }
@@ -3676,7 +3684,10 @@ PointCloud::PointCloud(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.transform_ = (cached_has_bits & 0x00000001u)
+  _impl_.bounds_ = (cached_has_bits & 0x00000001u)
+                ? CreateMaybeMessage<::DTCC::Bounds>(arena, *from._impl_.bounds_)
+                : nullptr;
+  _impl_.transform_ = (cached_has_bits & 0x00000002u)
                 ? CreateMaybeMessage<::DTCC::Transform>(arena, *from._impl_.transform_)
                 : nullptr;
 
@@ -3698,7 +3709,12 @@ inline PROTOBUF_NDEBUG_INLINE PointCloud::Impl_::Impl_(
 
 inline void PointCloud::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.transform_ = {};
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, bounds_),
+           0,
+           offsetof(Impl_, transform_) -
+               offsetof(Impl_, bounds_) +
+               sizeof(Impl_::transform_));
 }
 PointCloud::~PointCloud() {
   // @@protoc_insertion_point(destructor:DTCC.PointCloud)
@@ -3707,6 +3723,7 @@ PointCloud::~PointCloud() {
 }
 inline void PointCloud::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.bounds_;
   delete _impl_.transform_;
   _impl_.~Impl_();
 }
@@ -3724,9 +3741,15 @@ PROTOBUF_NOINLINE void PointCloud::Clear() {
   _impl_.return_number_.Clear();
   _impl_.num_returns_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.transform_ != nullptr);
-    _impl_.transform_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      ABSL_DCHECK(_impl_.bounds_ != nullptr);
+      _impl_.bounds_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      ABSL_DCHECK(_impl_.transform_ != nullptr);
+      _impl_.transform_->Clear();
+    }
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<std::string>();
@@ -3740,16 +3763,16 @@ const char* PointCloud::_InternalParse(
 
 
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 1, 0, 2> PointCloud::_table_ = {
+const ::_pbi::TcParseTable<3, 7, 2, 0, 2> PointCloud::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(PointCloud, _impl_._has_bits_),
     0, // no _extensions_
-    6, 56,  // max_field_number, fast_idx_mask
+    7, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294967168,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
-    1,  // num_aux_entries
+    7,  // num_field_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     &_PointCloud_default_instance_._instance,
     ::_pbi::TcParser::GenericFallbackLite,  // fallback
@@ -3770,10 +3793,12 @@ const ::_pbi::TcParseTable<3, 6, 1, 0, 2> PointCloud::_table_ = {
     // repeated uint32 num_returns = 5;
     {::_pbi::TcParser::FastV32P1,
      {42, 63, 0, PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.num_returns_)}},
-    // .DTCC.Transform transform = 6;
+    // .DTCC.Bounds bounds = 6;
     {::_pbi::TcParser::FastMtS1,
-     {50, 0, 0, PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.transform_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+     {50, 0, 0, PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.bounds_)}},
+    // .DTCC.Transform transform = 7;
+    {::_pbi::TcParser::FastMtS1,
+     {58, 1, 1, PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.transform_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -3792,10 +3817,14 @@ const ::_pbi::TcParseTable<3, 6, 1, 0, 2> PointCloud::_table_ = {
     // repeated uint32 num_returns = 5;
     {PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.num_returns_), -1, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt32)},
-    // .DTCC.Transform transform = 6;
-    {PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.transform_), _Internal::kHasBitsOffset + 0, 0,
+    // .DTCC.Bounds bounds = 6;
+    {PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.bounds_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .DTCC.Transform transform = 7;
+    {PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.transform_), _Internal::kHasBitsOffset + 1, 1,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
+    {::_pbi::TcParser::GetTable<::DTCC::Bounds>()},
     {::_pbi::TcParser::GetTable<::DTCC::Transform>()},
   }}, {{
   }},
@@ -3850,10 +3879,17 @@ const ::_pbi::TcParseTable<3, 6, 1, 0, 2> PointCloud::_table_ = {
   }
 
   cached_has_bits = _impl_._has_bits_[0];
-  // .DTCC.Transform transform = 6;
+  // .DTCC.Bounds bounds = 6;
   if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-        6, _Internal::transform(this),
+        6, _Internal::bounds(this),
+        _Internal::bounds(this).GetCachedSize(), target, stream);
+  }
+
+  // .DTCC.Transform transform = 7;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        7, _Internal::transform(this),
         _Internal::transform(this).GetCachedSize(), target, stream);
   }
 
@@ -3938,13 +3974,21 @@ const ::_pbi::TcParseTable<3, 6, 1, 0, 2> PointCloud::_table_ = {
     ;
     total_size += tag_size + data_size;
   }
-  // .DTCC.Transform transform = 6;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size +=
-        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.transform_);
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // .DTCC.Bounds bounds = 6;
+    if (cached_has_bits & 0x00000001u) {
+      total_size +=
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.bounds_);
+    }
 
+    // .DTCC.Transform transform = 7;
+    if (cached_has_bits & 0x00000002u) {
+      total_size +=
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.transform_);
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     total_size += _internal_metadata_.unknown_fields<std::string>(::google::protobuf::internal::GetEmptyString).size();
   }
@@ -3970,9 +4014,16 @@ void PointCloud::MergeFrom(const PointCloud& from) {
   _this->_internal_mutable_intensity()->MergeFrom(from._internal_intensity());
   _this->_internal_mutable_return_number()->MergeFrom(from._internal_return_number());
   _this->_internal_mutable_num_returns()->MergeFrom(from._internal_num_returns());
-  if ((from._impl_._has_bits_[0] & 0x00000001u) != 0) {
-    _this->_internal_mutable_transform()->::DTCC::Transform::MergeFrom(
-        from._internal_transform());
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_bounds()->::DTCC::Bounds::MergeFrom(
+          from._internal_bounds());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_internal_mutable_transform()->::DTCC::Transform::MergeFrom(
+          from._internal_transform());
+    }
   }
   _this->_internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
 }
@@ -4000,7 +4051,12 @@ void PointCloud::InternalSwap(PointCloud* PROTOBUF_RESTRICT other) {
   _impl_.intensity_.InternalSwap(&other->_impl_.intensity_);
   _impl_.return_number_.InternalSwap(&other->_impl_.return_number_);
   _impl_.num_returns_.InternalSwap(&other->_impl_.num_returns_);
-  swap(_impl_.transform_, other->_impl_.transform_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.transform_)
+      + sizeof(PointCloud::_impl_.transform_)
+      - PROTOBUF_FIELD_OFFSET(PointCloud, _impl_.bounds_)>(
+          reinterpret_cast<char*>(&_impl_.bounds_),
+          reinterpret_cast<char*>(&other->_impl_.bounds_));
 }
 
 std::string PointCloud::GetTypeName() const {

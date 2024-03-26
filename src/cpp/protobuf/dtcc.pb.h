@@ -1837,7 +1837,8 @@ class PointCloud final :
     kIntensityFieldNumber = 3,
     kReturnNumberFieldNumber = 4,
     kNumReturnsFieldNumber = 5,
-    kTransformFieldNumber = 6,
+    kBoundsFieldNumber = 6,
+    kTransformFieldNumber = 7,
   };
   // repeated float points = 1;
   int points_size() const;
@@ -1929,7 +1930,22 @@ class PointCloud final :
   ::google::protobuf::RepeatedField<::uint32_t>* _internal_mutable_num_returns();
 
   public:
-  // .DTCC.Transform transform = 6;
+  // .DTCC.Bounds bounds = 6;
+  bool has_bounds() const;
+  void clear_bounds() ;
+  const ::DTCC::Bounds& bounds() const;
+  PROTOBUF_NODISCARD ::DTCC::Bounds* release_bounds();
+  ::DTCC::Bounds* mutable_bounds();
+  void set_allocated_bounds(::DTCC::Bounds* value);
+  void unsafe_arena_set_allocated_bounds(::DTCC::Bounds* value);
+  ::DTCC::Bounds* unsafe_arena_release_bounds();
+
+  private:
+  const ::DTCC::Bounds& _internal_bounds() const;
+  ::DTCC::Bounds* _internal_mutable_bounds();
+
+  public:
+  // .DTCC.Transform transform = 7;
   bool has_transform() const;
   void clear_transform() ;
   const ::DTCC::Transform& transform() const;
@@ -1950,7 +1966,7 @@ class PointCloud final :
 
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 6, 1,
+      3, 7, 2,
       0, 2>
       _table_;
   friend class ::google::protobuf::MessageLite;
@@ -1978,6 +1994,7 @@ class PointCloud final :
     mutable ::google::protobuf::internal::CachedSize _return_number_cached_byte_size_;
     ::google::protobuf::RepeatedField<::uint32_t> num_returns_;
     mutable ::google::protobuf::internal::CachedSize _num_returns_cached_byte_size_;
+    ::DTCC::Bounds* bounds_;
     ::DTCC::Transform* transform_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -6014,16 +6031,112 @@ inline ::google::protobuf::RepeatedField<::uint32_t>* PointCloud::_internal_muta
   return &_impl_.num_returns_;
 }
 
-// .DTCC.Transform transform = 6;
-inline bool PointCloud::has_transform() const {
+// .DTCC.Bounds bounds = 6;
+inline bool PointCloud::has_bounds() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.bounds_ != nullptr);
+  return value;
+}
+inline void PointCloud::clear_bounds() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.bounds_ != nullptr) _impl_.bounds_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::DTCC::Bounds& PointCloud::_internal_bounds() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::DTCC::Bounds* p = _impl_.bounds_;
+  return p != nullptr ? *p : reinterpret_cast<const ::DTCC::Bounds&>(::DTCC::_Bounds_default_instance_);
+}
+inline const ::DTCC::Bounds& PointCloud::bounds() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:DTCC.PointCloud.bounds)
+  return _internal_bounds();
+}
+inline void PointCloud::unsafe_arena_set_allocated_bounds(::DTCC::Bounds* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.bounds_);
+  }
+  _impl_.bounds_ = reinterpret_cast<::DTCC::Bounds*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.PointCloud.bounds)
+}
+inline ::DTCC::Bounds* PointCloud::release_bounds() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::DTCC::Bounds* released = _impl_.bounds_;
+  _impl_.bounds_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::DTCC::Bounds* PointCloud::unsafe_arena_release_bounds() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:DTCC.PointCloud.bounds)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::DTCC::Bounds* temp = _impl_.bounds_;
+  _impl_.bounds_ = nullptr;
+  return temp;
+}
+inline ::DTCC::Bounds* PointCloud::_internal_mutable_bounds() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.bounds_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DTCC::Bounds>(GetArena());
+    _impl_.bounds_ = reinterpret_cast<::DTCC::Bounds*>(p);
+  }
+  return _impl_.bounds_;
+}
+inline ::DTCC::Bounds* PointCloud::mutable_bounds() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::DTCC::Bounds* _msg = _internal_mutable_bounds();
+  // @@protoc_insertion_point(field_mutable:DTCC.PointCloud.bounds)
+  return _msg;
+}
+inline void PointCloud::set_allocated_bounds(::DTCC::Bounds* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::DTCC::Bounds*>(_impl_.bounds_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::DTCC::Bounds*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.bounds_ = reinterpret_cast<::DTCC::Bounds*>(value);
+  // @@protoc_insertion_point(field_set_allocated:DTCC.PointCloud.bounds)
+}
+
+// .DTCC.Transform transform = 7;
+inline bool PointCloud::has_transform() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.transform_ != nullptr);
   return value;
 }
 inline void PointCloud::clear_transform() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   if (_impl_.transform_ != nullptr) _impl_.transform_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline const ::DTCC::Transform& PointCloud::_internal_transform() const {
   PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
@@ -6041,16 +6154,16 @@ inline void PointCloud::unsafe_arena_set_allocated_transform(::DTCC::Transform* 
   }
   _impl_.transform_ = reinterpret_cast<::DTCC::Transform*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DTCC.PointCloud.transform)
 }
 inline ::DTCC::Transform* PointCloud::release_transform() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
 
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::DTCC::Transform* released = _impl_.transform_;
   _impl_.transform_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6070,14 +6183,14 @@ inline ::DTCC::Transform* PointCloud::unsafe_arena_release_transform() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
   // @@protoc_insertion_point(field_release:DTCC.PointCloud.transform)
 
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::DTCC::Transform* temp = _impl_.transform_;
   _impl_.transform_ = nullptr;
   return temp;
 }
 inline ::DTCC::Transform* PointCloud::_internal_mutable_transform() {
   PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
-  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   if (_impl_.transform_ == nullptr) {
     auto* p = CreateMaybeMessage<::DTCC::Transform>(GetArena());
     _impl_.transform_ = reinterpret_cast<::DTCC::Transform*>(p);
@@ -6101,9 +6214,9 @@ inline void PointCloud::set_allocated_transform(::DTCC::Transform* value) {
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
 
   _impl_.transform_ = reinterpret_cast<::DTCC::Transform*>(value);
