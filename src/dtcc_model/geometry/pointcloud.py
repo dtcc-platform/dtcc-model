@@ -157,7 +157,7 @@ class PointCloud(Geometry):
         self.calculate_bounds()
         return self
 
-    def to_proto(self):
+    def to_proto(self) -> proto.Geometry:
         """Return a protobuf representation of the PointCloud.
 
         Returns
@@ -180,7 +180,7 @@ class PointCloud(Geometry):
 
         return pb
 
-    def from_proto(self, pb):
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
         """Initialize PointCloud from a protobuf representation.
 
         Parameters
@@ -188,6 +188,10 @@ class PointCloud(Geometry):
         pb: Union[proto.Geometry, bytes]
             The protobuf message or its serialized bytes representation.
         """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Geometry.FromString(pb)
 
         # Handle Geometry fields
         Geometry.from_proto(self, pb)

@@ -61,6 +61,7 @@ def _proto_type_to_object_class(_type):
     _class = getattr(dtcc_model.object, class_name, None)
     if _class is None:
         error(f"Invalid object type: {_type}")
+    return _class
 
 
 def _proto_type_to_geometry_class(_type):
@@ -69,6 +70,7 @@ def _proto_type_to_geometry_class(_type):
     _class = getattr(dtcc_model.geometry, class_name, None)
     if _class is None:
         error(f"Invalid geometry type: {_type}")
+    return _class
 
 
 @dataclass
@@ -232,7 +234,7 @@ class Object(Model):
         """Return a list of the attributes defined on this object."""
         return sorted(list(self.attributes.keys()))
 
-    def to_proto(self):
+    def to_proto(self) -> proto.Object:
         """Return a protobuf representation of the Object.
 
         Returns
@@ -246,17 +248,19 @@ class Object(Model):
         pb.id = self.id
         pb.attributes = json.dumps(self.attributes)
 
-        # Handle geometries
+        # Handle children
+        children = [c for cs in self.children.values() for c in cs]
+        pb.children.extend([c.to_proto() for c in children])
+
+        # FIXME: Handle parents (or remove parents)
+
+        # Handle geometry
         for key, geometry in self.geometry.items():
             _key = str(key)
             pb.geometry[_key].CopyFrom(geometry.to_proto())
 
         # Handle quantities
         # FIXME: Implement quantities
-
-        # Handle children
-        children = [c for cs in self.children.values() for c in cs]
-        pb.children.extend([c.to_proto() for c in children])
 
         return pb
 
@@ -277,17 +281,6 @@ class Object(Model):
         self.id = pb.id
         self.attributes = json.loads(pb.attributes)
 
-        # Handle geometries
-        for key, geometry in pb.geometry.items():
-            _type = geometry.WhichOneof("type")
-            _class = _proto_type_to_geometry_class(_type)
-            _geometry = _class()
-            _geometry.from_proto(geometry)
-            self.add_geometry(_geometry, key)
-
-        # Handle quantities
-        # FIXME: Implement quantities
-
         # Handle children
         for child in pb.children:
             _type = child.WhichOneof("type")
@@ -295,3 +288,15 @@ class Object(Model):
             _child = _class()
             _child.from_proto(child)
             self.add_child(_child)
+
+        # FIXME: Handle parents (or remove parents)
+
+        # Handle geometry
+        for key, geometry in pb.geometry.items():
+            _type = geometry.WhichOneof("type")
+            _class = _proto_type_to_geometry_class(_type)
+            _geometry = _class()
+            _geometry.from_proto(geometry)
+            self.add_geometry(_geometry, key)
+
+        # FIXME: Handle quantities

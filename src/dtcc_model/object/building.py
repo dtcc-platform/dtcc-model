@@ -2,6 +2,7 @@
 # Licensed under the MIT License
 
 from dataclasses import dataclass, field
+from typing import Union
 from shapely.geometry import Polygon
 
 from .object import Object
@@ -23,25 +24,25 @@ class Building(Object):
     def height(self):
         self.bounds.zmax
 
-    def to_proto(self):
+    def to_proto(self) -> proto.Object:
         """Return a protobuf representation of the Building.
 
         Returns
         -------
         proto.Object
-            A protobuf representation of the Building and as an Object.
+            A protobuf representation of the Building as an Object.
         """
 
         # Handle Object fields
         pb = Object.to_proto(self)
 
         # Handle specific fields (currently none)
-        _building = proto.Building()
-        pb.building.CopyFrom(_building)
+        _pb = proto.Building()
+        pb.building.CopyFrom(_pb)
 
         return pb
 
-    def from_proto(self, pb):
+    def from_proto(self, pb: Union[proto.Object, bytes]):
         """Initialize Building from a protobuf representation.
 
         Parameters
@@ -49,6 +50,10 @@ class Building(Object):
         pb: Union[proto.Object, bytes]
             The protobuf message or its serialized bytes representation.
         """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
 
         # Handle Object fields
         Object.from_proto(self, pb)
@@ -58,9 +63,40 @@ class Building(Object):
 
 
 class BuildingPart(Object):
-    # TODO: Implement to_proto and from_proto
-    def to_proto(self):
-        pass
 
-    def from_proto(self, pb):
+    def to_proto(self) -> proto.Object:
+        """Return a protobuf representation of the BuildingPart.
+
+        Returns
+        -------
+        proto.Object
+            A protobuf representation of the BuildingPart as an Object.
+        """
+
+        # Handle Object fields
+        pb = Object.to_proto(self)
+
+        # Handle specific fields (currently none)
+        _pb = proto.BuildingPart()
+        pb.building_part.CopyFrom(_pb)
+
+        return pb
+
+    def from_proto(self, pb: Union[proto.Object, bytes]):
+        """Initialize BuildingPart from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Object, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
+
+        # Handle Object fields
+        Object.from_proto(self, pb)
+
+        # Handle specific fields (currently none)
         pass

@@ -122,13 +122,13 @@ class Surface(Geometry):
         self.calculate_bounds()
         return self
 
-    def to_proto(self):
+    def to_proto(self) -> proto.Geometry:
         """Return a protobuf representation of the Surface.
 
         Returns
         -------
         proto.Geometry
-            A protobuf representation of the Surface and as a Geometry.
+            A protobuf representation of the Surface as a Geometry.
         """
 
         # Handle Geometry fields
@@ -146,7 +146,7 @@ class Surface(Geometry):
 
         return pb
 
-    def from_proto(self, pb):
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
         """Initialize Surface from a protobuf representation.
 
         Parameters
@@ -155,14 +155,19 @@ class Surface(Geometry):
             The protobuf message or its serialized bytes representation.
         """
 
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
+
         # Handle Geometry fields
         Geometry.from_proto(self, pb)
 
         # Handle specific fields
-        self.vertices = np.array(pb.vertices).reshape(-1, 3)
-        self.normal = np.array(pb.normal)
+        _pb = pb.surface
+        self.vertices = np.array(_pb.vertices).reshape(-1, 3)
+        self.normal = np.array(_pb.normal)
         self.holes = []
-        for hole in pb.holes:
+        for hole in _pb.holes:
             self.holes.append(np.array(hole.vertices).reshape(-1, 3))
 
     def __str__(self) -> str:
@@ -215,18 +220,47 @@ class MultiSurface(Geometry):
         """Get the centroid of the MultiSurface."""
         return np.mean([s.centroid for s in self.surfaces], axis=0)
 
-    def to_proto(self):
-        pb = proto.MultiSurface()
-        pb.surfaces.extend([s.to_proto() for s in self.surfaces])
+    def to_proto(self) -> proto.Geometry:
+        """Return a protobuf representation of the MultiSurface.
+
+        Returns
+        -------
+        proto.Geometry
+            A protobuf representation of the MultiSurface as a Geometry.
+        """
+
+        # Handle Geometry fields
+        pb = Geometry.to_proto(self)
+
+        # Handle specific fields
+        _pb = proto.MultiSurface()
+        _pb.surfaces.extend([s.to_proto().surface for s in self.surfaces])
+        pb.multi_surface.CopyFrom(_pb)
+
         return pb
 
-    def from_proto(self, pb):
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
+        """Initialize MultiSurface from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Geometry, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
         if isinstance(pb, bytes):
-            pb = proto.MultiSurface.FromString(pb)
-        for pb_s in pb.surfaces:
-            _s = Surface()
-            _s.from_proto(pb_s)
-            self.surfaces.append(_s)
+            pb = proto.Object.FromString(pb)
+
+        # Handle Geometry fields
+        Geometry.from_proto(self, pb)
+
+        # Handle specific fields
+        _pb = pb.multi_surface
+        for surface in _pb.surfaces:
+            _surface = Surface()
+            _surface.from_proto(surface)
+            self.surfaces.append(_surface)
 
     def __str__(self) -> str:
         return f"DTCC MultiSurface with {len(self.surfaces)} surfaces"

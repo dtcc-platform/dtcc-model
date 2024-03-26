@@ -33,7 +33,7 @@ class Geometry(Model):
     bounds: Bounds = field(default_factory=Bounds)
     transform: Transform = field(default_factory=Transform)
 
-    def to_proto(self):
+    def to_proto(self) -> proto.Geometry:
         """Return a protobuf representation of the Geometry.
 
         Returns
@@ -44,7 +44,6 @@ class Geometry(Model):
         pb = proto.Geometry()
         pb.bounds.CopyFrom(self.bounds.to_proto())
         pb.transform.CopyFrom(self.transform.to_proto())
-
         return pb
 
     def from_proto(self, pb: Union[proto.Geometry, bytes]):
@@ -57,6 +56,5 @@ class Geometry(Model):
         """
         if isinstance(pb, bytes):
             pb = proto.Object.FromString(pb)
-
         self.bounds.from_proto(pb.bounds)
         self.transform.from_proto(pb.transform)

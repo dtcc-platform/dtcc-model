@@ -12,9 +12,10 @@ message Object
 {
     string id = 1;
     string attributes = 2;
-    map<string, Geometry> geometry = 3;
-    repeated Quantity quantities = 4;
-    repeated Object children = 5;
+    repeated Object children = 3;
+    map<string, Geometry> geometry = 4;
+    repeated Quantity quantities = 5;
+    
     oneof type
     {
         City city = 6;
@@ -79,6 +80,7 @@ message Geometry
 {
   Bounds bounds = 1;
   Transform transform = 2;
+  
   oneof type
   {
     Surface surface = 3;

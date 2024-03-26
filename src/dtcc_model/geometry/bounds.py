@@ -223,7 +223,7 @@ class Bounds(Model):
         self.ymax = min(self.ymax, other.ymax)
         return self
 
-    def to_proto(self):
+    def to_proto(self) -> proto.Bounds:
         """Return a protobuf representation of the Bounds.
 
         Returns
@@ -240,7 +240,7 @@ class Bounds(Model):
         pb.zmax = self.zmax
         return pb
 
-    def from_proto(self, pb):
+    def from_proto(self, pb: Union[proto.Bounds, bytes]):
         """Initialize Bounds from a protobuf representation.
 
         Parameters

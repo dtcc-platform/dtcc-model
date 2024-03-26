@@ -79,13 +79,13 @@ class Mesh(Geometry):
         """
         return len(self.faces)
 
-    def to_proto(self):
+    def to_proto(self) -> proto.Geometry:
         """Return a protobuf representation of the Mesh.
 
         Returns
         -------
         proto.Geometry
-            A protobuf representation of the Mesh and as a Geometry.
+            A protobuf representation of the Mesh as a Geometry.
         """
 
         # Handle Geometry fields
@@ -99,7 +99,7 @@ class Mesh(Geometry):
 
         return pb
 
-    def from_proto(self, pb):
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
         """Initialize Mesh from a protobuf representation.
 
         Parameters
@@ -108,13 +108,17 @@ class Mesh(Geometry):
             The protobuf message or its serialized bytes representation.
         """
 
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
+
         # Handle Geometry fields
         Geometry.from_proto(self, pb)
 
         # Handle specific fields
         _pb = pb.mesh
         self.vertices = np.array(_pb.vertices).reshape((-1, 3))
-        self.faces = np.array(_pb.faces, dtype=np.int64).reshape((-1, 4))
+        self.faces = np.array(_pb.faces, dtype=np.int64).reshape((-1, 3))
 
 
 @dataclass
@@ -175,13 +179,13 @@ class VolumeMesh(Geometry):
         """
         return len(self.cells)
 
-    def to_proto(self):
+    def to_proto(self) -> proto.Geometry:
         """Return a protobuf representation of the VolumeMesh.
 
         Returns
         -------
         proto.Geometry
-            A protobuf representation of the VolumeMesh and as a Geometry.
+            A protobuf representation of the VolumeMesh as a Geometry.
         """
 
         # Handle Geometry fields
@@ -191,11 +195,11 @@ class VolumeMesh(Geometry):
         _pb = proto.VolumeMesh()
         _pb.vertices.extend(self.vertices.flatten())
         _pb.cells.extend(self.cells.flatten())
-        pb.volume_mesh.CopyFrom(_pb)
+        pb.mesh.CopyFrom(_pb)
 
         return pb
 
-    def from_proto(self, pb):
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
         """Initialize VolumeMesh from a protobuf representation.
 
         Parameters
@@ -204,10 +208,14 @@ class VolumeMesh(Geometry):
             The protobuf message or its serialized bytes representation.
         """
 
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
+
         # Handle Geometry fields
         Geometry.from_proto(self, pb)
 
         # Handle specific fields
         _pb = pb.volume_mesh
         self.vertices = np.array(_pb.vertices).reshape((-1, 3))
-        self.cells = np.array(_pb.cells, dtype=np.int64).reshape((-1, 4))
+        self.cells = np.array(_pb.faces, dtype=np.int64).reshape((-1, 4))
