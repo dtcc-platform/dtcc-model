@@ -3,9 +3,11 @@
 
 from dataclasses import dataclass
 
-from .object import Object
+from .object import Object, GeometryType
+from .raster import Raster
 from .building import Building
 from .terrain import Terrain
+from dtcc_model import geometry
 
 from dtcc_model import dtcc_pb2 as proto
 
@@ -34,7 +36,17 @@ class City(Object):
 
     def add_terrain(self, terrain):
         """Add terrain to city."""
-        self.add_child(terrain)
+        if isinstance(terrain, Terrain):
+            self.add_child(terrain)
+        else:
+            terrain_object = Terrain()
+            if isinstance(terrain, Raster):
+                terrain_object.add_geometry(terrain, GeometryType.RASTER)
+            elif isinstance(terrain, geometry.Mesh):
+                terrain_object.add_geometry(terrain, GeometryType.MESH)
+            else:
+                raise ValueError(f"Invalid terrain type {type(terrain)}.")
+            self.add_child(terrain_object)
 
     def add_buildings(self, buildings: list[Building]):
         """Add building to city."""

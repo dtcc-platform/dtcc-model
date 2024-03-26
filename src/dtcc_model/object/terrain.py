@@ -16,3 +16,11 @@ class Terrain(Object):
 
     def from_proto(self, pb):
         pass
+
+    def __str__(self):
+        out_str = "Terrain object"
+        if self.mesh is not None:
+            out_str += f" with mesh {self.mesh}"
+        if self.raster is not None:
+            out_str += f" with raster {self.raster}"
+        return out_str
