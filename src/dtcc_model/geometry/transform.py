@@ -77,28 +77,28 @@ class Transform(Model):
         ), "Rotation matrix should be of shape (3, 3)"
         self.affine[:3, :3] = rotation_matrix
 
-    def from_proto(self, pb: Union[proto.Transform, bytes]):
-        """Initialize the Transform object from a Protocol Buffers message.
-
-        Parameters
-        ----------
-        pb : Union[proto.Transform, bytes]
-            The Protocol Buffers message or its serialized bytes representation.
-        """
-        if isinstance(pb, bytes):
-            pb = proto.Transform.FromString(pb)
-        self.srs = pb.srs
-        self.affine = np.array(pb.affine).reshape((4, 4))
-
     def to_proto(self) -> proto.City:
-        """Convert the Transform object to a Protocol Buffers message.
+        """Return a protobuf representation of the Transform.
 
         Returns
         -------
         proto.Transform
-            A Protocol Buffers message representing the Transform object.
+            A protobuf representation of the Transform.
         """
         pb = proto.Transform()
         pb.srs = self.srs
         pb.affine.extend(self.affine.flatten())
         return pb
+
+    def from_proto(self, pb: Union[proto.Transform, bytes]):
+        """Initialize Transform from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Transform, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+        if isinstance(pb, bytes):
+            pb = proto.Transform.FromString(pb)
+        self.srs = pb.srs
+        self.affine = np.array(pb.affine).reshape((4, 4))

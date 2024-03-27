@@ -1,16 +1,35 @@
 # Copyright(C) 2023 Anders Logg
 # Licensed under the MIT License
 
+
 from dataclasses import dataclass, field
 from collections import defaultdict
+from typing import Union
 from enum import Enum, auto
+import json
 
 from dtcc_model.logging import info, warning, error
 from dtcc_model.model import Model
-from dtcc_model.geometry import Geometry, Bounds
+from dtcc_model.geometry import (
+    Geometry,
+    Bounds,
+    Surface,
+    MultiSurface,
+    PointCloud,
+    Mesh,
+    VolumeMesh,
+    Grid,
+    VolumeGrid,
+    Grid,
+    VolumeGrid,
+)
 from collections import defaultdict
 from uuid import uuid4
 from dtcc_model.quantity import Quantity
+
+from dtcc_model import dtcc_pb2 as proto
+
+import dtcc_model
 
 
 class GeometryType(Enum):
@@ -34,6 +53,24 @@ class GeometryType(Enum):
         except KeyError:
             raise ValueError(f"Unknown geometry type: {s}")
         return t
+
+
+def _proto_type_to_object_class(_type):
+    """Get object class from protobuf type string."""
+    class_name = _type.title().replace("_", "")
+    _class = getattr(dtcc_model.object, class_name, None)
+    if _class is None:
+        error(f"Invalid object type: {_type}")
+    return _class
+
+
+def _proto_type_to_geometry_class(_type):
+    """Get geometry class from protobuf type string."""
+    class_name = _type.title().replace("_", "")
+    _class = getattr(dtcc_model.geometry, class_name, None)
+    if _class is None:
+        error(f"Invalid geometry type: {_type}")
+    return _class
 
 
 @dataclass
@@ -193,6 +230,73 @@ class Object(Model):
         defined on this object."""
         return sorted(list(self.geometry.keys()))
 
-    def definted_attributes(self):
+    def defined_attributes(self):
         """Return a list of the attributes defined on this object."""
         return sorted(list(self.attributes.keys()))
+
+    def to_proto(self) -> proto.Object:
+        """Return a protobuf representation of the Object.
+
+        Returns
+        -------
+        proto.Object
+            A protobuf representation of the Object.
+        """
+
+        # Handle basic fields
+        pb = proto.Object()
+        pb.id = self.id
+        pb.attributes = json.dumps(self.attributes)
+
+        # Handle children
+        children = [c for cs in self.children.values() for c in cs]
+        pb.children.extend([c.to_proto() for c in children])
+
+        # FIXME: Handle parents (or remove parents)
+
+        # Handle geometry
+        for key, geometry in self.geometry.items():
+            _key = str(key)
+            pb.geometry[_key].CopyFrom(geometry.to_proto())
+
+        # Handle quantities
+        # FIXME: Implement quantities
+
+        return pb
+
+    def from_proto(self, pb: Union[proto.Object, bytes]):
+        """Initialize Object from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Object, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
+
+        # Handle basic fields
+        self.id = pb.id
+        self.attributes = json.loads(pb.attributes)
+
+        # Handle children
+        for child in pb.children:
+            _type = child.WhichOneof("type")
+            _class = _proto_type_to_object_class(_type)
+            _child = _class()
+            _child.from_proto(child)
+            self.add_child(_child)
+
+        # FIXME: Handle parents (or remove parents)
+
+        # Handle geometry
+        for key, geometry in pb.geometry.items():
+            _type = geometry.WhichOneof("type")
+            _class = _proto_type_to_geometry_class(_type)
+            _geometry = _class()
+            _geometry.from_proto(geometry)
+            self.add_geometry(_geometry, key)
+
+        # FIXME: Handle quantities

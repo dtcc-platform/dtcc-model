@@ -34,10 +34,10 @@ class TestSurface(unittest.TestCase):
         )
         s = Surface(vertices=verts, holes=[hole])
         pb = s.to_proto()
-        self.assertEqual(len(pb.vertices), 4 * 3)
-        self.assertEqual(pb.vertices[0], 0)
-        self.assertEqual(pb.vertices[-1], 12)
-        self.assertEqual(len(pb.holes), 1)
+        self.assertEqual(len(pb.surface.vertices), 4 * 3)
+        self.assertEqual(pb.surface.vertices[0], 0)
+        self.assertEqual(pb.surface.vertices[-1], 12)
+        self.assertEqual(len(pb.surface.holes), 1)
 
     def test_from_proto(self):
         verts = np.array([[0, 0, 10], [1, 0, 10], [1, 1, 12], [0, 1, 12]])
@@ -70,7 +70,7 @@ class TestMultiSurface(unittest.TestCase):
         s2 = Surface(vertices=np.array([[0, 0, 1], [1, 0, 1], [1, 1, 2]]))
         ms = MultiSurface(surfaces=[s1, s2])
         pb = ms.to_proto()
-        self.assertEqual(len(pb.surfaces), 2)
+        self.assertEqual(len(pb.multi_surface.surfaces), 2)
 
     def test_from_proto(self):
         s1 = Surface(vertices=np.array([[0, 0, 0], [1, 0, 0], [1, 1, 0]]))
@@ -81,6 +81,7 @@ class TestMultiSurface(unittest.TestCase):
 
         ms2 = MultiSurface()
         ms2.from_proto(pb)
+
         self.assertEqual(len(ms2.surfaces), 2)
         self.assertEqual(ms2.zmax, 2)
 

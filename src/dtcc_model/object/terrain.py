@@ -2,19 +2,51 @@
 # Licensed under the MIT License
 
 from dataclasses import dataclass
+from typing import Union
 
 from .object import Object
+from dtcc_model import dtcc_pb2 as proto
 
 
 @dataclass
 class Terrain(Object):
     """Represents a terrain object in a city."""
 
-    # TODO: Implement to_proto and from_proto
-    def to_proto(self):
-        pass
+    def to_proto(self) -> proto.Object:
+        """Return a protobuf representation of the Terrain.
 
-    def from_proto(self, pb):
+        Returns
+        -------
+        proto.Object
+            A protobuf representation of the Terrain as an Object.
+        """
+
+        # Handle Object fields
+        pb = Object.to_proto(self)
+
+        # Set specific fields (currently none)
+        _pb = proto.Terrain()
+        pb.city.CopyFrom(_pb)
+
+        return pb
+
+    def from_proto(self, pb: Union[proto.Object, bytes]):
+        """Initialize Terrain from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Object, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Object.FromString(pb)
+
+        # Handle Object fields
+        Object.from_proto(self, pb)
+
+        # Handle specific fields (currently none)
         pass
 
     def __str__(self):

@@ -92,38 +92,46 @@ class Grid(Geometry):
         X, Y = np.meshgrid(x, y)
         return np.vstack([X.ravel(), Y.ravel()]).T
 
-    def from_proto(self, pb: Union[proto.Grid, bytes]):
-        """Initialize the Grid object from a Protocol Buffers message.
-
-        This method populates the Grid object's attributes based on the
-        information in a Protocol Buffers message.
-
-        Parameters
-        ----------
-        pb : Union[proto.Grid, bytes]
-            The Protocol Buffers message or its serialized bytes representation.
-
-        """
-        if isinstance(pb, bytes):
-            pb = proto.Grid.FromString(pb)
-        self.bounds.from_proto(pb.bounds)
-        self.width = pb.width
-        self.height = pb.height
-
-    def to_proto(self) -> proto.Grid:
-        """Convert the Grid object to a Protocol Buffers message.
+    def to_proto(self) -> proto.Geometry:
+        """Return a protobuf representation of the Grid.
 
         Returns
         -------
-        proto.Grid
-            A Protocol Buffers message representing the Grid object.
-
+        proto.Geometry
+            A protobuf representation of the Grid as a Geometry.
         """
-        pb = proto.Grid()
-        pb.bounds.CopyFrom(self.bounds.to_proto())
-        pb.width = self.width
-        pb.height = self.height
+
+        # Handle Geometry fields
+        pb = Geometry.to_proto(self)
+
+        # Handle specific fields
+        _pb = proto.Grid()
+        _pb.width = self.width
+        _pb.height = self.height
+        pb.grid.CopyFrom(_pb)
+
         return pb
+
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
+        """Initialize Grid from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Geometry, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Geometry.FromString(pb)
+
+        # Handle Geometry fields
+        Geometry.from_proto(self, pb)
+
+        # Handle specific fields
+        _pb = pb.grid
+        self.width = _pb.width
+        self.height = _pb.height
 
 
 @dataclass
@@ -222,37 +230,45 @@ class VolumeGrid(Geometry):
         X, Y, Z = np.meshgrid(x, y, z)
         return np.vstack([X.ravel(), Y.ravel(), Z.ravel()]).T
 
-    def from_proto(self, pb: Union[proto.VolumeGrid, bytes]):
-        """Initialize the VolumeGrid object from a Protocol Buffers message.
-
-        This method populates the VolumeGrid object's attributes based on the
-        information in a Protocol Buffers message.
-
-        Parameters
-        ----------
-        pb : Union[proto.VolumeGrid, bytes]
-            The Protocol Buffers message or its serialized bytes representation.
-
-        """
-        if isinstance(pb, bytes):
-            pb = proto.VolumeGrid.FromString(pb)
-        self.bounds.from_proto(pb.bounds)
-        self.width = pb.width
-        self.height = pb.height
-        self.depth = pb.depth
-
-    def to_proto(self) -> proto.VolumeGrid:
-        """Convert the VolumeGrid object to a Protocol Buffers message.
+    def to_proto(self) -> proto.Geometry:
+        """Return a protobuf representation of the VolumeGrid.
 
         Returns
         -------
-        proto.VolumeGridh
-            A Protocol Buffers message representing the VolumeGrid object.
-
+        proto.Geometry
+            A protobuf representation of the VolumeGrid as a Geometry.
         """
-        pb = proto.VolumeGrid()
-        pb.bounds.CopyFrom(self.bounds.to_proto())
-        pb.width = self.width
-        pb.height = self.height
-        pb.depth = self.depth
+
+        # Handle Geometry fields
+        pb = Geometry.to_proto(self)
+
+        # Handle specific fields
+        _pb = proto.VolumeGrid()
+        _pb.width = self.width
+        _pb.height = self.height
+        _pb.depth = self.depth
+        pb.volume_grid.CopyFrom(_pb)
+
         return pb
+
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
+        """Initialize VolumeGrid from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Geometry, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Geometry.FromString(pb)
+
+        # Handle Geometry fields
+        Geometry.from_proto(self, pb)
+
+        # Handle specific fields
+        _pb = pb.volume_grid
+        self.width = _pb.width
+        self.height = _pb.height
+        self.depth = _pb.depth

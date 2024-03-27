@@ -79,36 +79,46 @@ class Mesh(Geometry):
         """
         return len(self.faces)
 
-    def from_proto(self, pb: Union[proto.Mesh, bytes]):
-        """Initialize the Mesh object from a Protocol Buffers message.
-
-        This method populates the Mesh object's attributes based on the
-        information in a Protocol Buffers message.
-
-        Parameters
-        ----------
-        pb : Union[proto.Mesh, bytes]
-            The Protocol Buffers message or its serialized bytes representation.
-
-        """
-        if isinstance(pb, bytes):
-            pb = proto.Mesh.FromString(pb)
-        self.vertices = np.array(pb.vertices).reshape((-1, 3))
-        self.faces = np.array(pb.faces, dtype=np.int64).reshape((-1, 3))
-
-    def to_proto(self) -> proto.Mesh:
-        """Convert the Mesh object to a Protocol Buffers message.
+    def to_proto(self) -> proto.Geometry:
+        """Return a protobuf representation of the Mesh.
 
         Returns
         -------
-        proto.Mesh
-            A Protocol Buffers message representing the Mesh object.
-
+        proto.Geometry
+            A protobuf representation of the Mesh as a Geometry.
         """
-        pb = proto.Mesh()
-        pb.vertices.extend(self.vertices.flatten())
-        pb.faces.extend(self.faces.flatten())
+
+        # Handle Geometry fields
+        pb = Geometry.to_proto(self)
+
+        # Handle specific fields
+        _pb = proto.Mesh()
+        _pb.vertices.extend(self.vertices.flatten())
+        _pb.faces.extend(self.faces.flatten())
+        pb.mesh.CopyFrom(_pb)
+
         return pb
+
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
+        """Initialize Mesh from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Geometry, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Geometry.FromString(pb)
+
+        # Handle Geometry fields
+        Geometry.from_proto(self, pb)
+
+        # Handle specific fields
+        _pb = pb.mesh
+        self.vertices = np.array(_pb.vertices).reshape((-1, 3))
+        self.faces = np.array(_pb.faces, dtype=np.int64).reshape((-1, 3))
 
 
 @dataclass
@@ -169,33 +179,43 @@ class VolumeMesh(Geometry):
         """
         return len(self.cells)
 
-    def from_proto(self, pb: Union[proto.VolumeMesh, bytes]):
-        """Initialize the VolumeMesh object from a Protocol Buffers message.
-
-        This method populates the VolumeMesh object's attributes based on the
-        information in a Protocol Buffers message.
-
-        Parameters
-        ----------
-        pb : Union[proto.VolumeMesh, bytes]
-            The Protocol Buffers message or its serialized bytes representation.
-
-        """
-        if isinstance(pb, bytes):
-            pb = proto.VolumeMesh.FromString(pb)
-        self.vertices = np.array(pb.vertices).reshape((-1, 3))
-        self.cells = np.array(pb.cells, dtype=np.int64).reshape((-1, 4))
-
-    def to_proto(self) -> proto.Mesh:
-        """Convert the VolumeMesh object to a Protocol Buffers message.
+    def to_proto(self) -> proto.Geometry:
+        """Return a protobuf representation of the VolumeMesh.
 
         Returns
         -------
-        proto.Mesh
-            A Protocol Buffers message representing the VolumeMesh object.
-
+        proto.Geometry
+            A protobuf representation of the VolumeMesh as a Geometry.
         """
-        pb = proto.VolumeMesh()
-        pb.vertices.extend(self.vertices.flatten())
-        pb.cells.extend(self.cells.flatten())
+
+        # Handle Geometry fields
+        pb = Geometry.to_proto(self)
+
+        # Handle specific fields
+        _pb = proto.VolumeMesh()
+        _pb.vertices.extend(self.vertices.flatten())
+        _pb.cells.extend(self.cells.flatten())
+        pb.mesh.CopyFrom(_pb)
+
         return pb
+
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
+        """Initialize VolumeMesh from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Geometry, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.FromString(pb)
+
+        # Handle Geometry fields
+        Geometry.from_proto(self, pb)
+
+        # Handle specific fields
+        _pb = pb.volume_mesh
+        self.vertices = np.array(_pb.vertices).reshape((-1, 3))
+        self.cells = np.array(_pb.faces, dtype=np.int64).reshape((-1, 4))

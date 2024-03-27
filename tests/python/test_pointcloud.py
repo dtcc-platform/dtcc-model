@@ -26,16 +26,16 @@ class TestPointCloud(unittest.TestCase):
         pc.num_returns = np.array([1, 1, 1])
 
         proto_pc = pc.to_proto()
-        self.assertEqual(proto_pc.points, [0, 0, 0, 1, 1, 1, 2, 2, 2])
-        self.assertEqual(proto_pc.classification, [1, 2, 3])
+        self.assertEqual(proto_pc.point_cloud.points, [0, 0, 0, 1, 1, 1, 2, 2, 2])
+        self.assertEqual(proto_pc.point_cloud.classification, [1, 2, 3])
 
     def test_to_protobuf_missing_fields(self):
         pc = PointCloud()
         pc.points = np.array([[0, 0, 0], [1, 1, 1], [2, 2, 2]])
         pc.calculate_bounds()
         proto_pc = pc.to_proto()
-        self.assertEqual(proto_pc.points, [0, 0, 0, 1, 1, 1, 2, 2, 2])
-        self.assertEqual(proto_pc.classification, [])
+        self.assertEqual(proto_pc.point_cloud.points, [0, 0, 0, 1, 1, 1, 2, 2, 2])
+        self.assertEqual(proto_pc.point_cloud.classification, [])
 
     def test_from_proto(self):
         pc = PointCloud()

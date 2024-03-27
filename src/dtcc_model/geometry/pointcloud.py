@@ -119,52 +119,6 @@ class PointCloud(Geometry):
             self.num_returns = np.delete(self.num_returns, indices, axis=0)
         return self
 
-    def from_proto(self, pb: Union[proto.PointCloud, bytes]):
-        """
-        Initialize the PointCloud object from a protobuf representation.
-
-        Parameters
-        ----------
-        pb : Union[proto.PointCloud, bytes]
-            A protobuf representation of the PointCloud or a bytes object.
-
-        Returns
-        -------
-        None
-
-        """
-        if isinstance(pb, bytes):
-            pb.PointCloud.FromString(pb)
-        self.bounds.from_proto(pb.bounds)
-        self.points = np.array(pb.points).reshape(-1, 3)
-        self.classification = np.array(pb.classification).astype(np.uint8)
-        self.intensity = np.array(pb.intensity).astype(np.uint16)
-        self.return_number = np.array(pb.return_number).astype(np.uint8)
-        self.num_returns = np.array(pb.num_returns).astype(np.uint8)
-
-    def to_proto(self) -> proto.PointCloud:
-        """
-        Convert the PointCloud object to a protobuf representation.
-
-        Returns
-        -------
-        proto.PointCloud
-            A protobuf representation of the PointCloud.
-
-        """
-        pb = proto.PointCloud()
-        pb.bounds.CopyFrom(self.bounds.to_proto())
-        pb.points.extend(self.points.flatten())
-        if len(self.classification) > 0:
-            pb.classification.extend(self.classification)
-        if len(self.intensity) > 0:
-            pb.intensity.extend(self.intensity)
-        if len(self.return_number) > 0:
-            pb.return_number.extend(self.return_number)
-        if len(self.num_returns) > 0:
-            pb.num_returns.extend(self.num_returns)
-        return pb
-
     def merge(self, other):
         """
         Merge another point cloud into this point cloud.
@@ -202,3 +156,50 @@ class PointCloud(Geometry):
             self.num_returns = np.concatenate((self.num_returns, other.num_returns))
         self.calculate_bounds()
         return self
+
+    def to_proto(self) -> proto.Geometry:
+        """Return a protobuf representation of the PointCloud.
+
+        Returns
+        -------
+        proto.Geometry
+            A protobuf representation of the PointCloud and as a Geometry.
+        """
+
+        # Handle Geometry fields
+        pb = Geometry.to_proto(self)
+
+        # Handle specific fields
+        _pb = proto.PointCloud()
+        _pb.points.extend(self.points.flatten())
+        _pb.classification.extend(self.classification)
+        _pb.intensity.extend(self.intensity)
+        _pb.return_number.extend(self.return_number)
+        _pb.num_returns.extend(self.num_returns)
+        pb.point_cloud.CopyFrom(_pb)
+
+        return pb
+
+    def from_proto(self, pb: Union[proto.Geometry, bytes]):
+        """Initialize PointCloud from a protobuf representation.
+
+        Parameters
+        ----------
+        pb: Union[proto.Geometry, bytes]
+            The protobuf message or its serialized bytes representation.
+        """
+
+        # Handle byte representation
+        if isinstance(pb, bytes):
+            pb = proto.Geometry.FromString(pb)
+
+        # Handle Geometry fields
+        Geometry.from_proto(self, pb)
+
+        # Handle specific fields
+        _pb = pb.point_cloud
+        self.points = np.array(_pb.points).reshape(-1, 3)
+        self.classification = np.array(_pb.classification).astype(np.uint8)
+        self.intensity = np.array(_pb.intensity).astype(np.uint16)
+        self.return_number = np.array(_pb.return_number).astype(np.uint8)
+        self.num_returns = np.array(_pb.num_returns).astype(np.uint8)
